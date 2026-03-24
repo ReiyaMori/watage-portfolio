@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIVIO｜暮らしに、余白を。｜世田谷の高級注文住宅・リノベーション</title>
+  <meta name="description" content="世田谷で15年、施工実績200棟超。LIVIOは自然素材とデザイン力で、あなただけの住まいを実現する高級注文住宅・リノベーション会社です。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#1B2A4A',
+            'navy-light': '#2A3F6A',
+            'navy-dark': '#0F1A30',
+            gold: '#C9A96E',
+            'gold-light': '#D4BC8E',
+            'warm-gray': '#F5F3F0',
+            'warm-gray-dark': '#E8E4DF',
+            'text-main': '#333333',
+            'text-light': '#777777',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            display: ['"Playfair Display"', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Fade-in on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Stagger children */
+    .stagger > * { transition-delay: calc(var(--i, 0) * 0.15s); }
+
+    /* Hero parallax-like */
+    .hero-bg {
+      background-image: url('images/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    @media (max-width: 768px) {
+      .hero-bg { background-attachment: scroll; }
+    }
+
+    /* Gold underline accent */
+    .gold-line::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: #C9A96E;
+      margin: 16px auto 0;
+    }
+
+    /* Flow connector line */
+    .flow-line {
+      position: relative;
+    }
+    .flow-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -32px;
+      width: 24px;
+      height: 2px;
+      background: #C9A96E;
+    }
+    @media (max-width: 768px) {
+      .flow-line::after {
+        top: auto;
+        bottom: -20px;
+        right: 50%;
+        transform: translateX(50%) rotate(90deg);
+        width: 20px;
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* CTA button hover */
+    .btn-gold {
+      background: linear-gradient(135deg, #C9A96E, #D4BC8E);
+      transition: all 0.3s ease;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #B8954F, #C9A96E);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201, 169, 110, 0.35);
+    }
+
+    .btn-outline {
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: white;
+      color: #1B2A4A;
+      transform: translateY(-2px);
+    }
+
+    /* Work card hover */
+    .work-card:hover .work-img {
+      transform: scale(1.05);
+    }
+    .work-card:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header scroll state */
+    .header-scrolled {
+      background: rgba(255, 255, 255, 0.97) !important;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+</head>
+<body class="font-sans text-text-main antialiased">
+
+  <!-- ======================================
+       HEADER
+  ======================================= -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 z-50">
+        <span id="logo-text" class="font-display text-2xl font-bold tracking-wider text-white transition-colors duration-500">LIVIO</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#features" id="nav-features" class="text-sm tracking-wider text-white/90 hover:text-gold transition-colors duration-300">強み</a>
+        <a href="#works" id="nav-works" class="text-sm tracking-wider text-white/90 hover:text-gold transition-colors duration-300">施工事例</a>
+        <a href="#flow" id="nav-flow" class="text-sm tracking-wider text-white/90 hover:text-gold transition-colors duration-300">ご依頼の流れ</a>
+        <a href="#voice" id="nav-voice" class="text-sm tracking-wider text-white/90 hover:text-gold transition-colors duration-300">お客様の声</a>
+        <a href="#company" id="nav-company" class="text-sm tracking-wider text-white/90 hover:text-gold transition-colors duration-300">会社概要</a>
+        <a href="#cta" class="btn-gold text-white text-sm font-medium px-6 py-2.5 rounded-full">無料相談予約</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button id="hamburger" class="md:hidden z-50 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5" aria-label="メニューを開く">
+        <span id="ham-top" class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+        <span id="ham-mid" class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span id="ham-bot" class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-navy z-40 flex flex-col items-center justify-center gap-8">
+      <a href="#features" class="text-white text-lg tracking-wider mobile-link">強み</a>
+      <a href="#works" class="text-white text-lg tracking-wider mobile-link">施工事例</a>
+      <a href="#flow" class="text-white text-lg tracking-wider mobile-link">ご依頼の流れ</a>
+      <a href="#voice" class="text-white text-lg tracking-wider mobile-link">お客様の声</a>
+      <a href="#company" class="text-white text-lg tracking-wider mobile-link">会社概要</a>
+      <a href="#cta" class="btn-gold text-white font-medium px-8 py-3 rounded-full mt-4 mobile-link">無料相談予約</a>
+    </div>
+  </header>
+
+
+  <!-- ======================================
+       HERO
+  ======================================= -->
+  <section id="hero" class="hero-bg relative min-h-screen flex items-center justify-center">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-navy/60"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="font-display text-gold text-lg sm:text-xl tracking-[0.3em] mb-6 fade-in">LIVIO</p>
+      <h1 class="text-white text-3xl sm:text-5xl lg:text-6xl font-light leading-relaxed mb-6 fade-in" style="transition-delay:0.2s">
+        暮らしに、余白を。
+      </h1>
+      <p class="text-white/80 text-sm sm:text-base leading-loose max-w-2xl mx-auto mb-10 fade-in" style="transition-delay:0.4s">
+        世田谷で15年。自然素材と洗練されたデザインで、<br class="hidden sm:inline">
+        あなたらしい「余白のある暮らし」を形にします。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in" style="transition-delay:0.6s">
+        <a href="#cta" class="btn-gold text-white font-medium px-10 py-4 rounded-full text-sm tracking-wider">
+          無料相談を予約する
+        </a>
+        <a href="#works" class="btn-outline border-2 border-white/60 text-white font-medium px-10 py-4 rounded-full text-sm tracking-wider">
+          施工事例を見る
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex flex-wrap justify-center gap-8 sm:gap-16 mt-16 fade-in" style="transition-delay:0.8s">
+        <div class="text-center">
+          <p class="font-display text-gold text-3xl sm:text-4xl font-semibold">200<span class="text-lg">棟+</span></p>
+          <p class="text-white/70 text-xs mt-1 tracking-wider">施工実績</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display text-gold text-3xl sm:text-4xl font-semibold">97<span class="text-lg">%</span></p>
+          <p class="text-white/70 text-xs mt-1 tracking-wider">顧客満足度</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display text-gold text-3xl sm:text-4xl font-semibold">15<span class="text-lg">年</span></p>
+          <p class="text-white/70 text-xs mt-1 tracking-wider">世田谷での実績</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-white/50 text-[10px] tracking-[0.2em]">SCROLL</span>
+      <svg class="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       FEATURES / STRENGTHS
+  ======================================= -->
+  <section id="features" class="py-24 sm:py-32 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20 fade-in">
+        <p class="font-display text-gold text-sm tracking-[0.3em] mb-3">OUR STRENGTHS</p>
+        <h2 class="text-2xl sm:text-3xl font-medium text-navy gold-line">LIVIOが選ばれる理由</h2>
+      </div>
+
+      <!-- 3 Columns -->
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12 stagger">
+        <!-- Feature 1 -->
+        <div class="text-center fade-in" style="--i:0">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-warm-gray flex items-center justify-center">
+            <svg class="w-9 h-9 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium text-navy mb-3">デザイン力</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            一級建築士とインテリアコーディネーターが連携し、
+            機能美と居住性を両立する空間をデザイン。
+            お客様のライフスタイルを丁寧にヒアリングし、
+            唯一無二の住まいをご提案します。
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="text-center fade-in" style="--i:1">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-warm-gray flex items-center justify-center">
+            <svg class="w-9 h-9 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium text-navy mb-3">自然素材へのこだわり</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            無垢材、珪藻土、天然石――
+            厳選した自然素材を適材適所に用い、
+            経年変化を楽しめる住まいを実現。
+            アレルギーやシックハウスへの配慮も万全です。
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="text-center fade-in" style="--i:2">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-warm-gray flex items-center justify-center">
+            <svg class="w-9 h-9 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium text-navy mb-3">アフターサポート</h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            お引渡し後も安心の10年保証に加え、
+            定期点検を年1回無料で実施。
+            住まいの「かかりつけ医」として、
+            末永いお付き合いをお約束します。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       WORKS / GALLERY
+  ======================================= -->
+  <section id="works" class="py-24 sm:py-32 bg-warm-gray">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20 fade-in">
+        <p class="font-display text-gold text-sm tracking-[0.3em] mb-3">WORKS</p>
+        <h2 class="text-2xl sm:text-3xl font-medium text-navy gold-line">施工事例</h2>
+      </div>
+
+      <!-- 3 Project Cards -->
+      <div class="grid md:grid-cols-3 gap-8 stagger">
+        <!-- Work 1 -->
+        <div class="work-card bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-500 fade-in" style="--i:0">
+          <div class="overflow-hidden aspect-[4/3]">
+            <img src="images/work1.jpg" alt="世田谷の家 施工事例" class="work-img w-full h-full object-cover transition-transform duration-700" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] text-gold bg-gold/10 px-2 py-0.5 rounded-full font-medium tracking-wider">新築</span>
+              <span class="text-text-light text-xs">延床面積 42坪</span>
+            </div>
+            <h3 class="text-navy font-medium mb-2">光を纏う家 ― 奥沢の邸宅</h3>
+            <p class="text-text-light text-sm leading-relaxed">
+              中庭を中心に据えたコの字型プラン。
+              どの部屋にも柔らかな自然光が差し込む、
+              開放感あふれる住まいです。
+            </p>
+          </div>
+        </div>
+
+        <!-- Work 2 -->
+        <div class="work-card bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-500 fade-in" style="--i:1">
+          <div class="overflow-hidden aspect-[4/3]">
+            <img src="images/work2.jpg" alt="リノベーション施工事例" class="work-img w-full h-full object-cover transition-transform duration-700" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] text-gold bg-gold/10 px-2 py-0.5 rounded-full font-medium tracking-wider">リノベーション</span>
+              <span class="text-text-light text-xs">延床面積 35坪</span>
+            </div>
+            <h3 class="text-navy font-medium mb-2">余白を愉しむ家 ― 三軒茶屋</h3>
+            <p class="text-text-light text-sm leading-relaxed">
+              築30年の一戸建てをフルリノベーション。
+              無垢オーク材と白い塗り壁で、
+              北欧テイストの温かな空間に生まれ変わりました。
+            </p>
+          </div>
+        </div>
+
+        <!-- Work 3 -->
+        <div class="work-card bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-500 fade-in" style="--i:2">
+          <div class="overflow-hidden aspect-[4/3]">
+            <img src="images/work3.jpg" alt="注文住宅施工事例" class="work-img w-full h-full object-cover transition-transform duration-700" loading="lazy">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] text-gold bg-gold/10 px-2 py-0.5 rounded-full font-medium tracking-wider">新築</span>
+              <span class="text-text-light text-xs">延床面積 50坪</span>
+            </div>
+            <h3 class="text-navy font-medium mb-2">緑と暮らす家 ― 等々力</h3>
+            <p class="text-text-light text-sm leading-relaxed">
+              1階にガレージと庭を、2階にLDKを配置。
+              大開口の窓から等々力渓谷の緑を望む、
+              自然と共生する邸宅です。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price note -->
+      <p class="text-center text-text-light text-xs mt-12 fade-in">
+        ※ 坪単価 60万円〜（設計・施工費込み）。ご予算に応じたプランをご提案いたします。
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       FLOW
+  ======================================= -->
+  <section id="flow" class="py-24 sm:py-32 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20 fade-in">
+        <p class="font-display text-gold text-sm tracking-[0.3em] mb-3">FLOW</p>
+        <h2 class="text-2xl sm:text-3xl font-medium text-navy gold-line">ご依頼の流れ</h2>
+      </div>
+
+      <!-- 5 Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
+        <!-- Step 1 -->
+        <div class="text-center fade-in relative flow-line" style="transition-delay:0s">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-navy text-white flex items-center justify-center">
+            <span class="font-display text-xl font-semibold">01</span>
+          </div>
+          <h3 class="text-navy font-medium text-sm mb-2">無料相談</h3>
+          <p class="text-text-light text-xs leading-relaxed">
+            ご要望・ご予算を<br>お気軽にご相談ください
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center fade-in relative flow-line" style="transition-delay:0.15s">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-navy text-white flex items-center justify-center">
+            <span class="font-display text-xl font-semibold">02</span>
+          </div>
+          <h3 class="text-navy font-medium text-sm mb-2">プランご提案</h3>
+          <p class="text-text-light text-xs leading-relaxed">
+            ヒアリングを基に<br>最適なプランをご提案
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center fade-in relative flow-line" style="transition-delay:0.3s">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-navy text-white flex items-center justify-center">
+            <span class="font-display text-xl font-semibold">03</span>
+          </div>
+          <h3 class="text-navy font-medium text-sm mb-2">設計・デザイン</h3>
+          <p class="text-text-light text-xs leading-relaxed">
+            詳細図面と3Dパースで<br>完成イメージを共有
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center fade-in relative flow-line" style="transition-delay:0.45s">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-navy text-white flex items-center justify-center">
+            <span class="font-display text-xl font-semibold">04</span>
+          </div>
+          <h3 class="text-navy font-medium text-sm mb-2">施工</h3>
+          <p class="text-text-light text-xs leading-relaxed">
+            自社職人が丁寧に施工<br>進捗を随時ご報告
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="text-center fade-in" style="transition-delay:0.6s">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gold text-white flex items-center justify-center">
+            <span class="font-display text-xl font-semibold">05</span>
+          </div>
+          <h3 class="text-navy font-medium text-sm mb-2">アフターケア</h3>
+          <p class="text-text-light text-xs leading-relaxed">
+            10年保証＋年1回の<br>無料定期点検を実施
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       VOICE / TESTIMONIALS
+  ======================================= -->
+  <section id="voice" class="py-24 sm:py-32 bg-warm-gray">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20 fade-in">
+        <p class="font-display text-gold text-sm tracking-[0.3em] mb-3">VOICE</p>
+        <h2 class="text-2xl sm:text-3xl font-medium text-navy gold-line">お客様の声</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Testimonial 1 -->
+        <div class="bg-white rounded-lg p-8 sm:p-10 shadow-sm fade-in-left">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-text-main text-sm leading-loose mb-6">
+            「他社さんでは"こういうものです"と言われた間取りも、
+            LIVIOさんは"本当にこれがベストですか？"と一緒に考えてくださいました。
+            結果、中庭のある家という夢が叶い、毎朝カーテンを開ける瞬間が幸せです。
+            自然素材の心地よさも想像以上でした。」
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-warm-gray-dark flex items-center justify-center">
+              <span class="text-text-light text-xs font-medium">T.S</span>
+            </div>
+            <div>
+              <p class="text-navy text-sm font-medium">T.S 様</p>
+              <p class="text-text-light text-xs">奥沢 / 新築注文住宅</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white rounded-lg p-8 sm:p-10 shadow-sm fade-in-right">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-text-main text-sm leading-loose mb-6">
+            「築25年のマンションが見違えるほどに。
+            特に無垢材のリビングは友人が来るたびに驚かれます。
+            工事中もLINEで進捗写真を送ってくれたので安心でした。
+            アフター点検も丁寧で、長くお付き合いしたい会社です。」
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-warm-gray-dark flex items-center justify-center">
+              <span class="text-text-light text-xs font-medium">M.K</span>
+            </div>
+            <div>
+              <p class="text-navy text-sm font-medium">M.K 様</p>
+              <p class="text-text-light text-xs">三軒茶屋 / マンションリノベーション</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       CTA
+  ======================================= -->
+  <section id="cta" class="relative py-24 sm:py-32 bg-navy overflow-hidden">
+    <!-- Subtle pattern overlay -->
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-display text-gold text-sm tracking-[0.3em] mb-4 fade-in">FREE CONSULTATION</p>
+      <h2 class="text-white text-2xl sm:text-4xl font-light leading-relaxed mb-6 fade-in" style="transition-delay:0.15s">
+        理想の住まいづくり、<br>まずは無料相談から。
+      </h2>
+      <p class="text-white/70 text-sm leading-loose mb-10 fade-in" style="transition-delay:0.3s">
+        土地探しの段階からでもお気軽にご相談ください。<br>
+        建築士が直接お話を伺い、最適なプランをご提案いたします。<br>
+        オンライン相談も承っております。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in" style="transition-delay:0.45s">
+        <a href="tel:03-0000-0000" class="btn-gold text-white font-medium px-10 py-4 rounded-full text-sm tracking-wider inline-flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+          03-0000-0000
+        </a>
+        <a href="#" class="btn-outline border-2 border-white/40 text-white font-medium px-10 py-4 rounded-full text-sm tracking-wider inline-flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+          </svg>
+          無料相談予約フォーム
+        </a>
+      </div>
+      <p class="text-white/40 text-xs mt-6 fade-in" style="transition-delay:0.6s">受付時間：10:00〜18:00（水曜定休）</p>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       COMPANY INFO
+  ======================================= -->
+  <section id="company" class="py-24 sm:py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20 fade-in">
+        <p class="font-display text-gold text-sm tracking-[0.3em] mb-3">COMPANY</p>
+        <h2 class="text-2xl sm:text-3xl font-medium text-navy gold-line">会社概要</h2>
+      </div>
+
+      <div class="fade-in">
+        <table class="w-full text-sm">
+          <tbody>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 w-1/4 align-top whitespace-nowrap">会社名</th>
+              <td class="py-4 text-text-main">株式会社LIVIO（リビオ）</td>
+            </tr>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">代表者</th>
+              <td class="py-4 text-text-main">代表取締役 山田 太郎</td>
+            </tr>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">所在地</th>
+              <td class="py-4 text-text-main">〒154-0000 東京都世田谷区奥沢1-2-3 LIVIOビル 2F</td>
+            </tr>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">設立</th>
+              <td class="py-4 text-text-main">2011年4月</td>
+            </tr>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">資本金</th>
+              <td class="py-4 text-text-main">3,000万円</td>
+            </tr>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">事業内容</th>
+              <td class="py-4 text-text-main">注文住宅の設計・施工 / 住宅リノベーション / インテリアデザイン / 不動産コンサルティング</td>
+            </tr>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">許可</th>
+              <td class="py-4 text-text-main">建設業許可 東京都知事（般-3）第000000号 / 一級建築士事務所 東京都知事登録 第00000号</td>
+            </tr>
+            <tr class="border-t border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">電話番号</th>
+              <td class="py-4 text-text-main">03-0000-0000</td>
+            </tr>
+            <tr class="border-t border-b border-warm-gray-dark">
+              <th class="text-left text-navy font-medium py-4 pr-8 align-top whitespace-nowrap">営業時間</th>
+              <td class="py-4 text-text-main">10:00〜18:00（水曜定休）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       FOOTER
+  ======================================= -->
+  <footer class="bg-navy-dark py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10 mb-12">
+        <!-- Brand -->
+        <div>
+          <p class="font-display text-2xl font-bold text-white tracking-wider mb-3">LIVIO</p>
+          <p class="text-white/50 text-xs leading-relaxed">
+            暮らしに、余白を。<br>
+            世田谷で15年、200棟を超える施工実績。<br>
+            自然素材と洗練されたデザインで、<br>
+            あなたらしい住まいを形にします。
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <p class="text-white/80 text-xs font-medium tracking-wider mb-4">MENU</p>
+          <ul class="space-y-2">
+            <li><a href="#features" class="text-white/50 text-xs hover:text-gold transition-colors">LIVIOが選ばれる理由</a></li>
+            <li><a href="#works" class="text-white/50 text-xs hover:text-gold transition-colors">施工事例</a></li>
+            <li><a href="#flow" class="text-white/50 text-xs hover:text-gold transition-colors">ご依頼の流れ</a></li>
+            <li><a href="#voice" class="text-white/50 text-xs hover:text-gold transition-colors">お客様の声</a></li>
+            <li><a href="#company" class="text-white/50 text-xs hover:text-gold transition-colors">会社概要</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-white/80 text-xs font-medium tracking-wider mb-4">CONTACT</p>
+          <p class="text-white/50 text-xs leading-relaxed mb-3">
+            〒154-0000<br>
+            東京都世田谷区奥沢1-2-3<br>
+            LIVIOビル 2F
+          </p>
+          <p class="text-gold text-sm font-medium mb-1">03-0000-0000</p>
+          <p class="text-white/40 text-[10px]">受付 10:00〜18:00（水曜定休）</p>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-white/10 pt-8 text-center">
+        <p class="text-white/30 text-[10px] tracking-wider">&copy; 2026 LIVIO Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ======================================
+       JAVASCRIPT
+  ======================================= -->
+  <script>
+    // ---- Fade-in on Scroll (Intersection Observer) ----
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach((el) => {
+      observer.observe(el);
+    });
+
+
+    // ---- Header Scroll Effect ----
+    const header = document.getElementById('header');
+    const logoText = document.getElementById('logo-text');
+    const navLinks = document.querySelectorAll('#nav-features, #nav-works, #nav-flow, #nav-voice, #nav-company');
+    const hamLines = document.querySelectorAll('#ham-top, #ham-mid, #ham-bot');
+
+    let isMenuOpen = false;
+
+    function updateHeader() {
+      const scrolled = window.scrollY > 80;
+
+      if (!isMenuOpen) {
+        if (scrolled) {
+          header.classList.add('header-scrolled');
+          logoText.classList.remove('text-white');
+          logoText.classList.add('text-navy');
+          navLinks.forEach((link) => {
+            link.classList.remove('text-white/90');
+            link.classList.add('text-navy/80');
+          });
+          hamLines.forEach((line) => {
+            line.classList.remove('bg-white');
+            line.classList.add('bg-navy');
+          });
+        } else {
+          header.classList.remove('header-scrolled');
+          logoText.classList.add('text-white');
+          logoText.classList.remove('text-navy');
+          navLinks.forEach((link) => {
+            link.classList.add('text-white/90');
+            link.classList.remove('text-navy/80');
+          });
+          hamLines.forEach((line) => {
+            line.classList.add('bg-white');
+            line.classList.remove('bg-navy');
+          });
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+
+    // ---- Mobile Menu ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    hamburger.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      mobileMenu.classList.toggle('open');
+
+      const hamTop = document.getElementById('ham-top');
+      const hamMid = document.getElementById('ham-mid');
+      const hamBot = document.getElementById('ham-bot');
+
+      if (isMenuOpen) {
+        hamTop.classList.add('bg-white');
+        hamTop.classList.remove('bg-navy');
+        hamMid.classList.add('bg-white');
+        hamMid.classList.remove('bg-navy');
+        hamBot.classList.add('bg-white');
+        hamBot.classList.remove('bg-navy');
+        hamTop.style.transform = 'translateY(4px) rotate(45deg)';
+        hamMid.style.opacity = '0';
+        hamBot.style.transform = 'translateY(-4px) rotate(-45deg)';
+        document.body.style.overflow = 'hidden';
+      } else {
+        hamTop.style.transform = '';
+        hamMid.style.opacity = '';
+        hamBot.style.transform = '';
+        document.body.style.overflow = '';
+        updateHeader();
+      }
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        isMenuOpen = false;
+        mobileMenu.classList.remove('open');
+        const hamTop = document.getElementById('ham-top');
+        const hamMid = document.getElementById('ham-mid');
+        const hamBot = document.getElementById('ham-bot');
+        hamTop.style.transform = '';
+        hamMid.style.opacity = '';
+        hamBot.style.transform = '';
+        document.body.style.overflow = '';
+        updateHeader();
+      });
+    });
+  </script>
+
+</body>
+</html>

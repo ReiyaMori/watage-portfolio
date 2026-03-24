@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLOOM フェイシャルエステ | 表参道</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#B8977E',
+            'gold-light': '#D4C4B0',
+            'gold-dark': '#8C6D56',
+            cream: '#FAF7F4',
+            'cream-dark': '#F0EBE5',
+            charcoal: '#2D2D2D',
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .hero-bg {
+      background: linear-gradient(135deg, #2D2D2D 0%, #4A3F35 50%, #2D2D2D 100%);
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #B8977E, #D4C4B0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #B8977E, #8C6D56);
+      transition: all 0.3s ease;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #D4C4B0, #B8977E);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184, 151, 126, 0.3);
+    }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .number-accent {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      line-height: 1;
+      color: #B8977E;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body class="font-sans text-charcoal bg-cream">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-cream-dark">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#" class="font-serif text-2xl tracking-widest text-gold-dark">BLOOM</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm tracking-wider">
+        <a href="#about" class="hover:text-gold transition-colors">コンセプト</a>
+        <a href="#menu" class="hover:text-gold transition-colors">メニュー</a>
+        <a href="#flow" class="hover:text-gold transition-colors">施術の流れ</a>
+        <a href="#voice" class="hover:text-gold transition-colors">お客様の声</a>
+        <a href="#cta" class="btn-gold text-white px-6 py-2 rounded-full text-xs tracking-widest">初回限定予約</a>
+      </nav>
+      <button id="menu-toggle" class="md:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5">
+        <span class="w-6 h-0.5 bg-charcoal"></span>
+        <span class="w-6 h-0.5 bg-charcoal"></span>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cream-dark">
+      <div class="px-4 py-6 flex flex-col gap-4 text-sm">
+        <a href="#about" class="py-2 border-b border-cream-dark">コンセプト</a>
+        <a href="#menu" class="py-2 border-b border-cream-dark">メニュー</a>
+        <a href="#flow" class="py-2 border-b border-cream-dark">施術の流れ</a>
+        <a href="#voice" class="py-2 border-b border-cream-dark">お客様の声</a>
+        <a href="#cta" class="btn-gold text-white text-center px-6 py-3 rounded-full text-xs tracking-widest">初回限定予約</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="images/hero.jpg" alt="BLOOM サロン" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-charcoal/60"></div>
+    </div>
+    <div class="text-center px-4 relative z-10 pt-16">
+      <p class="font-serif text-gold-light text-lg md:text-xl tracking-[0.3em] mb-6 fade-in">FACIAL ESTHETIC SALON</p>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white tracking-wider mb-8 fade-in">
+        BLOOM
+      </h1>
+      <p class="text-gold-light/80 text-sm md:text-base tracking-[0.2em] mb-4 font-light fade-in">
+        あなた本来の美しさを、咲かせる。
+      </p>
+      <p class="text-white/40 text-xs tracking-[0.15em] mb-12 fade-in">表参道駅 徒歩3分</p>
+      <div class="fade-in">
+        <a href="#cta" class="btn-gold inline-block text-white px-10 py-4 rounded-full text-sm tracking-[0.2em]">
+          初回限定 50%OFF で体験する
+        </a>
+      </div>
+      <div class="mt-16 flex justify-center gap-12 text-white/30 text-xs tracking-wider fade-in">
+        <div>
+          <p class="font-serif text-3xl text-gold-light/50 mb-1">98<span class="text-lg">%</span></p>
+          <p>リピート率</p>
+        </div>
+        <div>
+          <p class="font-serif text-3xl text-gold-light/50 mb-1">15,000<span class="text-lg">+</span></p>
+          <p>施術実績</p>
+        </div>
+        <div>
+          <p class="font-serif text-3xl text-gold-light/50 mb-1">8<span class="text-lg">年</span></p>
+          <p>表参道で</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-5 h-5 text-gold-light/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+  </section>
+
+  <!-- About / Concept -->
+  <section id="about" class="py-24 md:py-32">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-serif text-gold text-sm tracking-[0.3em] mb-3">CONCEPT</p>
+        <h2 class="text-2xl md:text-3xl font-light tracking-wider">素肌が変わると、人生が変わる</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-in">
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden">
+            <img src="images/concept.jpg" alt="BLOOM コンセプト" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="fade-in">
+          <p class="text-sm leading-8 text-charcoal/70 mb-6">
+            BLOOMは、表参道で8年間「結果にこだわるフェイシャルエステ」を提供し続けてきました。
+          </p>
+          <p class="text-sm leading-8 text-charcoal/70 mb-6">
+            流行のメニューを追いかけるのではなく、お一人おひとりの肌状態を丁寧に見極め、本当に必要なケアだけをご提案します。
+          </p>
+          <p class="text-sm leading-8 text-charcoal/70 mb-8">
+            「何をしても変わらなかった」そんな方にこそ、一度お越しいただきたい。私たちは、あなたの素肌に眠る美しさを信じています。
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold-light/30 flex items-center justify-center">
+              <span class="text-gold-dark text-xs">代表</span>
+            </div>
+            <div>
+              <p class="text-sm font-medium">田中 美咲</p>
+              <p class="text-xs text-charcoal/50">エステティシャン歴15年 / 日本エステティック協会認定</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12 fade-in">
+        <p class="font-serif text-gold text-sm tracking-[0.3em] mb-3">TROUBLES</p>
+        <h2 class="text-2xl md:text-3xl font-light tracking-wider">こんなお悩み、ありませんか？</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4 fade-in">
+        <div class="flex items-center gap-4 bg-cream rounded-xl p-5">
+          <span class="text-gold text-lg">✓</span>
+          <p class="text-sm">毛穴の開き・黒ずみが気になる</p>
+        </div>
+        <div class="flex items-center gap-4 bg-cream rounded-xl p-5">
+          <span class="text-gold text-lg">✓</span>
+          <p class="text-sm">くすみが取れず、顔色が暗い</p>
+        </div>
+        <div class="flex items-center gap-4 bg-cream rounded-xl p-5">
+          <span class="text-gold text-lg">✓</span>
+          <p class="text-sm">たるみ・ほうれい線が目立ってきた</p>
+        </div>
+        <div class="flex items-center gap-4 bg-cream rounded-xl p-5">
+          <span class="text-gold text-lg">✓</span>
+          <p class="text-sm">セルフケアでは限界を感じている</p>
+        </div>
+        <div class="flex items-center gap-4 bg-cream rounded-xl p-5">
+          <span class="text-gold text-lg">✓</span>
+          <p class="text-sm">他のサロンで効果を感じられなかった</p>
+        </div>
+        <div class="flex items-center gap-4 bg-cream rounded-xl p-5">
+          <span class="text-gold text-lg">✓</span>
+          <p class="text-sm">肌質を根本から改善したい</p>
+        </div>
+      </div>
+      <div class="text-center mt-10 fade-in">
+        <p class="text-gold-dark font-medium tracking-wider">BLOOMなら、そのお悩みに応えられます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="py-24 md:py-32">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-serif text-gold text-sm tracking-[0.3em] mb-3">MENU</p>
+        <h2 class="text-2xl md:text-3xl font-light tracking-wider">人気メニュー</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Menu 1 -->
+        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm fade-in">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/treatment.jpg" alt="ディープクレンジング" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <p class="text-xs text-gold tracking-wider mb-1">MOST POPULAR</p>
+                <h3 class="font-medium">ディープクレンジング<br>フェイシャル</h3>
+              </div>
+            </div>
+            <p class="text-xs text-charcoal/60 leading-6 mb-4">毛穴の奥の汚れまで徹底除去。透明感のある素肌へ導く、一番人気のコースです。</p>
+            <div class="flex items-end justify-between">
+              <div>
+                <p class="text-xs text-charcoal/40">60分</p>
+                <p class="text-lg font-serif text-gold-dark">¥12,000<span class="text-xs text-charcoal/40 ml-1">（税込）</span></p>
+              </div>
+              <p class="text-xs text-gold bg-gold/10 px-3 py-1 rounded-full">初回¥6,000</p>
+            </div>
+          </div>
+        </div>
+        <!-- Menu 2 -->
+        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm fade-in">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/massage.jpg" alt="小顔リフトアップ" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="mb-3">
+              <p class="text-xs text-charcoal/40 tracking-wider mb-1">LIFTING</p>
+              <h3 class="font-medium">小顔リフトアップ<br>コース</h3>
+            </div>
+            <p class="text-xs text-charcoal/60 leading-6 mb-4">独自のハンド技術で筋膜にアプローチ。施術直後に実感できるリフトアップ効果。</p>
+            <div class="flex items-end justify-between">
+              <div>
+                <p class="text-xs text-charcoal/40">75分</p>
+                <p class="text-lg font-serif text-gold-dark">¥16,000<span class="text-xs text-charcoal/40 ml-1">（税込）</span></p>
+              </div>
+              <p class="text-xs text-gold bg-gold/10 px-3 py-1 rounded-full">初回¥8,000</p>
+            </div>
+          </div>
+        </div>
+        <!-- Menu 3 -->
+        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm fade-in">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/products.jpg" alt="プレミアムエイジングケア" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="mb-3">
+              <p class="text-xs text-charcoal/40 tracking-wider mb-1">PREMIUM</p>
+              <h3 class="font-medium">プレミアム<br>エイジングケア</h3>
+            </div>
+            <p class="text-xs text-charcoal/60 leading-6 mb-4">最新美容機器×ハンド技術の贅沢コース。年齢肌のお悩みにトータルアプローチ。</p>
+            <div class="flex items-end justify-between">
+              <div>
+                <p class="text-xs text-charcoal/40">90分</p>
+                <p class="text-lg font-serif text-gold-dark">¥22,000<span class="text-xs text-charcoal/40 ml-1">（税込）</span></p>
+              </div>
+              <p class="text-xs text-gold bg-gold/10 px-3 py-1 rounded-full">初回¥11,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section id="flow" class="py-24 md:py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-serif text-gold text-sm tracking-[0.3em] mb-3">FLOW</p>
+        <h2 class="text-2xl md:text-3xl font-light tracking-wider">施術の流れ</h2>
+      </div>
+      <div class="space-y-8">
+        <div class="flex gap-6 md:gap-10 fade-in">
+          <div class="flex flex-col items-center">
+            <div class="number-accent">01</div>
+            <div class="w-px flex-1 bg-gold-light/30 mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="font-medium mb-2 text-lg">カウンセリング</h3>
+            <p class="text-sm text-charcoal/60 leading-7">お肌の状態を専用スコープで分析。お悩みやご希望を丁寧にヒアリングし、最適な施術プランをご提案します。</p>
+          </div>
+        </div>
+        <div class="flex gap-6 md:gap-10 fade-in">
+          <div class="flex flex-col items-center">
+            <div class="number-accent">02</div>
+            <div class="w-px flex-1 bg-gold-light/30 mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="font-medium mb-2 text-lg">クレンジング・洗顔</h3>
+            <p class="text-sm text-charcoal/60 leading-7">メイクや皮脂汚れを丁寧にオフ。肌に負担をかけず、施術効果を最大化する下準備を行います。</p>
+          </div>
+        </div>
+        <div class="flex gap-6 md:gap-10 fade-in">
+          <div class="flex flex-col items-center">
+            <div class="number-accent">03</div>
+            <div class="w-px flex-1 bg-gold-light/30 mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="font-medium mb-2 text-lg">施術</h3>
+            <p class="text-sm text-charcoal/60 leading-7">厳選した美容成分と熟練のハンドテクニックで、肌の深層にアプローチ。心地よいリラクゼーションの時間をお過ごしください。</p>
+          </div>
+        </div>
+        <div class="flex gap-6 md:gap-10 fade-in">
+          <div class="flex flex-col items-center">
+            <div class="number-accent">04</div>
+          </div>
+          <div>
+            <h3 class="font-medium mb-2 text-lg">アフターカウンセリング</h3>
+            <p class="text-sm text-charcoal/60 leading-7">施術後の肌状態を確認し、ご自宅でのケア方法をアドバイス。次回のご予約もこの場でお取りいただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice -->
+  <section id="voice" class="py-24 md:py-32">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-16 fade-in">
+        <p class="font-serif text-gold text-sm tracking-[0.3em] mb-3">VOICE</p>
+        <h2 class="text-2xl md:text-3xl font-light tracking-wider">お客様の声</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover fade-in">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="text-sm text-charcoal/70 leading-7 mb-6">「3回通っただけで、周りから"肌きれいになったね"と言われるようになりました。もっと早く来ればよかった。」</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-cream-dark flex items-center justify-center text-xs text-gold">A.S</div>
+            <div>
+              <p class="text-xs font-medium">A.S 様</p>
+              <p class="text-xs text-charcoal/40">30代 / ディープクレンジングコース</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover fade-in">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="text-sm text-charcoal/70 leading-7 mb-6">「他のサロンでは感じられなかったリフトアップ効果。施術後、フェイスラインが全然違って驚きました。」</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-cream-dark flex items-center justify-center text-xs text-gold">M.K</div>
+            <div>
+              <p class="text-xs font-medium">M.K 様</p>
+              <p class="text-xs text-charcoal/40">40代 / 小顔リフトアップコース</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover fade-in">
+          <div class="flex items-center gap-1 text-gold mb-4">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="text-sm text-charcoal/70 leading-7 mb-6">「丁寧なカウンセリングで安心できました。無理な勧誘もなく、純粋に施術の質で勝負されている印象です。」</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-cream-dark flex items-center justify-center text-xs text-gold">Y.T</div>
+            <div>
+              <p class="text-xs font-medium">Y.T 様</p>
+              <p class="text-xs text-charcoal/40">20代 / ディープクレンジングコース</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Salon Info -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12 fade-in">
+        <p class="font-serif text-gold text-sm tracking-[0.3em] mb-3">SALON</p>
+        <h2 class="text-2xl md:text-3xl font-light tracking-wider">サロン情報</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-10 fade-in">
+        <div class="aspect-video rounded-xl overflow-hidden">
+          <img src="images/hero.jpg" alt="サロン内観" class="w-full h-full object-cover">
+        </div>
+        <div class="space-y-4">
+          <div class="flex border-b border-cream-dark pb-3">
+            <p class="text-xs text-charcoal/50 w-24 shrink-0">サロン名</p>
+            <p class="text-sm">BLOOM 表参道</p>
+          </div>
+          <div class="flex border-b border-cream-dark pb-3">
+            <p class="text-xs text-charcoal/50 w-24 shrink-0">住所</p>
+            <p class="text-sm">東京都渋谷区神宮前4-xx-xx 〇〇ビル3F</p>
+          </div>
+          <div class="flex border-b border-cream-dark pb-3">
+            <p class="text-xs text-charcoal/50 w-24 shrink-0">アクセス</p>
+            <p class="text-sm">表参道駅 A2出口 徒歩3分</p>
+          </div>
+          <div class="flex border-b border-cream-dark pb-3">
+            <p class="text-xs text-charcoal/50 w-24 shrink-0">営業時間</p>
+            <p class="text-sm">10:00〜20:00（最終受付 19:00）</p>
+          </div>
+          <div class="flex border-b border-cream-dark pb-3">
+            <p class="text-xs text-charcoal/50 w-24 shrink-0">定休日</p>
+            <p class="text-sm">毎週火曜日</p>
+          </div>
+          <div class="flex pb-3">
+            <p class="text-xs text-charcoal/50 w-24 shrink-0">電話</p>
+            <p class="text-sm">03-XXXX-XXXX</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="py-24 md:py-32 hero-bg relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-1/4 w-80 h-80 rounded-full bg-gold blur-3xl"></div>
+    </div>
+    <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+      <div class="fade-in">
+        <p class="font-serif text-gold-light text-sm tracking-[0.3em] mb-4">SPECIAL OFFER</p>
+        <h2 class="text-3xl md:text-4xl text-white font-light tracking-wider mb-6">
+          初回限定<span class="gold-gradient font-serif text-5xl md:text-6xl mx-2">50</span><span class="text-gold-light">%</span>OFF
+        </h2>
+        <p class="text-white/60 text-sm leading-7 mb-4">
+          はじめてのお客様限定で、全メニュー半額でご体験いただけます。<br>
+          まずはBLOOMの施術を、お気軽にお試しください。
+        </p>
+        <p class="text-gold-light/60 text-xs mb-10">※ お一人様1回限り / 他クーポンとの併用不可</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#" class="btn-gold text-white px-10 py-4 rounded-full tracking-[0.15em] text-sm inline-flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            WEBで予約する
+          </a>
+          <a href="tel:03-XXXX-XXXX" class="border border-gold-light/30 text-gold-light px-10 py-4 rounded-full tracking-[0.15em] text-sm inline-flex items-center justify-center gap-2 hover:bg-white/5 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            電話で予約する
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-charcoal py-12">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="font-serif text-2xl tracking-widest text-gold-light mb-1">BLOOM</p>
+          <p class="text-xs text-white/30">フェイシャルエステサロン 表参道</p>
+        </div>
+        <nav class="flex gap-6 text-xs text-white/40">
+          <a href="#" class="hover:text-gold-light transition-colors">プライバシーポリシー</a>
+          <a href="#" class="hover:text-gold-light transition-colors">特定商取引法に基づく表記</a>
+        </nav>
+      </div>
+      <div class="mt-8 pt-6 border-t border-white/10 text-center">
+        <p class="text-xs text-white/20">&copy; 2024 BLOOM All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>

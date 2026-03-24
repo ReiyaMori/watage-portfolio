@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIT LIFE｜オンラインパーソナルトレーニング</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fg: '#1A1A1A',
+            muted: '#6B7280',
+            accent: '#E85D2A',
+            'accent-dark': '#C74B1E',
+            sand: '#F7F3EE',
+            'sand-dark': '#EDE7DF',
+          },
+          fontFamily: {
+            en: ['DM Sans', 'sans-serif'],
+            sans: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; }
+    .marquee { animation: scroll-left 20s linear infinite; }
+    @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-body.open { max-height: 200px; }
+    .sticky-bar { transform: translateY(100%); transition: transform .3s ease; }
+    .sticky-bar.show { transform: translateY(0); }
+    input:focus, select:focus { outline: none; border-color: #E85D2A; }
+  </style>
+</head>
+<body class="font-sans text-fg bg-white">
+
+  <!-- Hero: 全面画像 + 最小限テキスト -->
+  <section id="hero" class="relative min-h-screen flex items-end pb-12 md:pb-20">
+    <img src="images/hero.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+    <div class="relative z-10 w-full max-w-2xl mx-auto px-5 text-white">
+      <p class="font-en text-sm tracking-widest text-white/60 mb-3 reveal">ONLINE PERSONAL TRAINING</p>
+      <h1 class="text-4xl md:text-6xl font-black leading-[1.15] mb-5 reveal d1">
+        3ヶ月で、<br>人生が変わる<br>カラダへ。
+      </h1>
+      <p class="text-white/70 text-sm md:text-base leading-relaxed mb-8 max-w-md reveal d2">
+        自宅にいながら、プロトレーナーがあなただけのプログラムを設計。食事もトレーニングも、全部おまかせ。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 reveal d3">
+        <a href="#entry" class="bg-accent hover:bg-accent-dark text-white font-bold py-4 px-8 rounded-lg text-center transition-colors">
+          無料カウンセリングを予約
+        </a>
+        <a href="#how" class="border border-white/30 hover:bg-white/10 text-white font-bold py-4 px-8 rounded-lg text-center transition-colors">
+          詳しく見る
+        </a>
+      </div>
+    </div>
+    <!-- 先着バッジ: 控えめに -->
+    <div class="absolute top-5 right-5 z-10 bg-accent text-white text-xs font-bold px-4 py-2 rounded-lg reveal">
+      先着30名 限定価格
+    </div>
+  </section>
+
+  <!-- 実績バー: マーキーで流す -->
+  <div class="bg-fg text-white py-3 overflow-hidden">
+    <div class="marquee whitespace-nowrap flex gap-12 font-en text-sm tracking-wider">
+      <span>2,000+ MEMBERS</span><span class="text-accent">•</span>
+      <span>94% GOAL ACHIEVED</span><span class="text-accent">•</span>
+      <span>MEDIA FEATURED 50+</span><span class="text-accent">•</span>
+      <span>SINCE 2020</span><span class="text-accent">•</span>
+      <span>2,000+ MEMBERS</span><span class="text-accent">•</span>
+      <span>94% GOAL ACHIEVED</span><span class="text-accent">•</span>
+      <span>MEDIA FEATURED 50+</span><span class="text-accent">•</span>
+      <span>SINCE 2020</span><span class="text-accent">•</span>
+    </div>
+  </div>
+
+  <!-- 問題提起: カード形式ではなく、テキスト主体 -->
+  <section class="py-20 md:py-28 px-5">
+    <div class="max-w-2xl mx-auto">
+      <p class="font-en text-accent text-sm tracking-widest mb-6 reveal">THE PROBLEM</p>
+      <h2 class="text-2xl md:text-4xl font-black leading-snug mb-10 reveal">
+        「今度こそ」が<br>続かない理由、<br>知ってますか？
+      </h2>
+      <div class="space-y-6">
+        <div class="flex gap-4 items-start reveal">
+          <span class="text-accent font-en font-bold text-lg mt-0.5 shrink-0">01</span>
+          <div>
+            <p class="font-bold mb-1">ジムに行く「ハードル」が高すぎる</p>
+            <p class="text-muted text-sm leading-relaxed">仕事帰りにジム。聞こえはいいけど、着替えて移動して…そのエネルギーがもうない。</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start reveal d1">
+          <span class="text-accent font-en font-bold text-lg mt-0.5 shrink-0">02</span>
+          <div>
+            <p class="font-bold mb-1">「何をすればいいか」がわからない</p>
+            <p class="text-muted text-sm leading-relaxed">YouTubeで見たメニューをなんとなくやる。効いてるのかもわからない。それが3日で終わる。</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start reveal d2">
+          <span class="text-accent font-en font-bold text-lg mt-0.5 shrink-0">03</span>
+          <div>
+            <p class="font-bold mb-1">食事制限の「正解」がわからない</p>
+            <p class="text-muted text-sm leading-relaxed">糖質制限？ファスティング？情報が多すぎて、結局カップ麺に戻る。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 解決策: 写真を大きく使ったエディトリアルレイアウト -->
+  <section id="how" class="bg-sand">
+    <!-- ブロック1: フルワイド画像 + テキスト -->
+    <div class="grid md:grid-cols-2">
+      <div class="aspect-square md:aspect-auto">
+        <img src="images/lifestyle1.jpg" alt="自宅トレーニング" class="w-full h-full object-cover">
+      </div>
+      <div class="flex items-center px-8 md:px-16 py-16">
+        <div class="reveal">
+          <p class="font-en text-accent text-sm tracking-widest mb-4">SOLUTION 01</p>
+          <h3 class="text-2xl md:text-3xl font-black leading-snug mb-5">自宅で、あなただけの<br>メニューを。</h3>
+          <p class="text-muted text-sm leading-8">
+            ヨガマット1枚のスペースがあればOK。あなたの体力・目標・生活リズムに合わせて、プロが完全オーダーメイドのプログラムを設計します。週2回、1回50分。それだけで変わる。
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- ブロック2: 逆レイアウト -->
+    <div class="grid md:grid-cols-2">
+      <div class="flex items-center px-8 md:px-16 py-16 order-2 md:order-1">
+        <div class="reveal">
+          <p class="font-en text-accent text-sm tracking-widest mb-4">SOLUTION 02</p>
+          <h3 class="text-2xl md:text-3xl font-black leading-snug mb-5">食べながら、<br>痩せる。</h3>
+          <p class="text-muted text-sm leading-8">
+            管理栄養士監修の食事プランは「食べていいもの」が中心。我慢のダイエットは続かない。あなたの好みに合わせて、コンビニ食でもOKなプランを毎週お届け。
+          </p>
+        </div>
+      </div>
+      <div class="aspect-square md:aspect-auto order-1 md:order-2">
+        <img src="images/mealprep.jpg" alt="食事管理" class="w-full h-full object-cover">
+      </div>
+    </div>
+    <!-- ブロック3 -->
+    <div class="grid md:grid-cols-2">
+      <div class="aspect-square md:aspect-auto">
+        <img src="images/consultation.jpg" alt="オンラインカウンセリング" class="w-full h-full object-cover">
+      </div>
+      <div class="flex items-center px-8 md:px-16 py-16">
+        <div class="reveal">
+          <p class="font-en text-accent text-sm tracking-widest mb-4">SOLUTION 03</p>
+          <h3 class="text-2xl md:text-3xl font-black leading-snug mb-5">毎日、隣にいる<br>トレーナー。</h3>
+          <p class="text-muted text-sm leading-8">
+            「今日のランチ、これでいい？」「筋肉痛がひどいけど明日やっていい？」——LINEでいつでも質問OK。一人じゃないから、3日坊主にならない。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 体験者の声: テキスト主体（AIビフォーアフター写真を排除） -->
+  <section class="py-20 md:py-28 px-5">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-en text-accent text-sm tracking-widest mb-6 reveal">VOICES</p>
+      <h2 class="text-2xl md:text-3xl font-black mb-14 reveal">変わった人たちの、リアルな声。</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="reveal">
+          <div class="text-accent font-en font-bold text-4xl mb-4">-12kg</div>
+          <p class="text-sm leading-7 mb-5">
+            産後太りがコンプレックスで、何をやっても続かなかった。FIT LIFEは「今日はコンビニのサラダチキンでOKですよ」って言ってくれる。そのゆるさが逆に続いた。3ヶ月で68kg→56kg。
+          </p>
+          <div class="border-t pt-4">
+            <p class="text-sm font-bold">美咲さん</p>
+            <p class="text-muted text-xs">32歳・主婦・3ヶ月コース</p>
+          </div>
+        </div>
+        <div class="reveal d1">
+          <div class="text-accent font-en font-bold text-4xl mb-4">-8kg</div>
+          <p class="text-sm leading-7 mb-5">
+            リモートワークで完全に太った。ジムは契約だけして行かないパターンを3回繰り返した人間。自宅でできるのがデカい。朝6時にトレーナーとオンラインでやる習慣がついた。
+          </p>
+          <div class="border-t pt-4">
+            <p class="text-sm font-bold">健太さん</p>
+            <p class="text-muted text-xs">28歳・エンジニア・2ヶ月コース</p>
+          </div>
+        </div>
+        <div class="reveal d2">
+          <div class="text-accent font-en font-bold text-4xl mb-4">-15kg</div>
+          <p class="text-sm leading-7 mb-5">
+            40歳超えたら何しても痩せないと思ってた。全然そんなことなかった。年齢に合った食事と運動を教えてもらえるのが大きい。会社の健康診断の数値が全部改善。
+          </p>
+          <div class="border-t pt-4">
+            <p class="text-sm font-bold">あかりさん</p>
+            <p class="text-muted text-xs">41歳・会社員・3ヶ月コース</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- トレーナー紹介 -->
+  <section class="bg-fg text-white">
+    <div class="grid md:grid-cols-5">
+      <div class="md:col-span-2">
+        <img src="images/trainer.jpg" alt="山田翔太" class="w-full h-full object-cover aspect-[3/4] md:aspect-auto">
+      </div>
+      <div class="md:col-span-3 flex items-center px-8 md:px-16 py-16">
+        <div class="reveal">
+          <p class="font-en text-accent text-sm tracking-widest mb-4">HEAD TRAINER</p>
+          <h3 class="text-3xl md:text-4xl font-black mb-2">山田 翔太</h3>
+          <p class="font-en text-white/40 text-sm mb-6">Shota Yamada</p>
+          <p class="text-white/70 text-sm leading-8 mb-8">
+            大手パーソナルジムで5年、累計500名以上を指導。「ジムに来れない人こそ、プロのサポートが必要」という思いでFIT LIFEを立ち上げ。オンラインでも対面以上の結果を出すメソッドを追求し続けている。
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="text-xs border border-white/20 rounded-full px-4 py-1.5 text-white/60">NSCA-CPT</span>
+            <span class="text-xs border border-white/20 rounded-full px-4 py-1.5 text-white/60">栄養コンシェルジュ</span>
+            <span class="text-xs border border-white/20 rounded-full px-4 py-1.5 text-white/60">指導実績500名+</span>
+            <span class="text-xs border border-white/20 rounded-full px-4 py-1.5 text-white/60">ベストボディ2021</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金: シンプルに -->
+  <section class="py-20 md:py-28 px-5">
+    <div class="max-w-xl mx-auto text-center">
+      <p class="font-en text-accent text-sm tracking-widest mb-6 reveal">PRICING</p>
+      <h2 class="text-2xl md:text-3xl font-black mb-4 reveal">3ヶ月集中コース</h2>
+      <p class="text-muted text-sm mb-10 reveal">トレーニング＋食事指導＋毎日LINEサポート</p>
+
+      <div class="reveal bg-sand rounded-2xl p-8 md:p-12 mb-6">
+        <div class="flex items-center justify-center gap-4 mb-2">
+          <span class="text-muted text-sm line-through">¥49,800/月</span>
+          <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded">40% OFF</span>
+        </div>
+        <div class="flex items-end justify-center gap-1 mb-6">
+          <span class="font-en text-6xl md:text-7xl font-bold text-fg">¥29,800</span>
+          <span class="text-muted text-lg mb-2">/月</span>
+        </div>
+        <div class="space-y-3 text-left max-w-sm mx-auto text-sm mb-8">
+          <div class="flex gap-3"><span class="text-accent">✓</span>週2回 オンラインパーソナル（50分）</div>
+          <div class="flex gap-3"><span class="text-accent">✓</span>完全オーダーメイド食事プラン</div>
+          <div class="flex gap-3"><span class="text-accent">✓</span>毎日LINEチャットサポート</div>
+          <div class="flex gap-3"><span class="text-accent">✓</span>月1回 ボディチェック＆プラン調整</div>
+          <div class="flex gap-3"><span class="text-accent">✓</span>自宅トレーニング動画 見放題</div>
+        </div>
+        <a href="#entry" class="block w-full max-w-sm mx-auto bg-accent hover:bg-accent-dark text-white font-bold py-4 rounded-lg text-center transition-colors">
+          無料カウンセリングを予約
+        </a>
+        <p class="text-muted text-xs mt-4">30日間の全額返金保証つき</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-5 bg-sand">
+    <div class="max-w-xl mx-auto">
+      <p class="font-en text-accent text-sm tracking-widest mb-6 reveal">FAQ</p>
+      <h2 class="text-xl font-black mb-8 reveal">よくある質問</h2>
+
+      <div class="space-y-3" id="faq">
+        <div class="bg-white rounded-xl reveal">
+          <button onclick="this.parentElement.classList.toggle('active');this.nextElementSibling.classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left text-sm font-bold">
+            運動経験がなくても大丈夫？
+            <span class="text-accent text-xl leading-none ml-4">+</span>
+          </button>
+          <div class="faq-body px-5 pb-5">
+            <p class="text-muted text-sm leading-relaxed">会員の約60%が運動初心者スタート。体力レベルに合わせてメニューを組むので、腕立て1回できなくても問題ないです。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl reveal d1">
+          <button onclick="this.parentElement.classList.toggle('active');this.nextElementSibling.classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left text-sm font-bold">
+            オンラインで本当に効果ある？
+            <span class="text-accent text-xl leading-none ml-4">+</span>
+          </button>
+          <div class="faq-body px-5 pb-5">
+            <p class="text-muted text-sm leading-relaxed">目標達成率94%。むしろ毎日LINEで繋がれるオンラインの方が、週1回ジムに行くより密着度は高い。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl reveal d1">
+          <button onclick="this.parentElement.classList.toggle('active');this.nextElementSibling.classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left text-sm font-bold">
+            器具は必要？
+            <span class="text-accent text-xl leading-none ml-4">+</span>
+          </button>
+          <div class="faq-body px-5 pb-5">
+            <p class="text-muted text-sm leading-relaxed">基本は自重トレーニング。ヨガマット1枚あればOK。慣れてきたらダンベルを勧めることもありますが、必須ではないです。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl reveal d2">
+          <button onclick="this.parentElement.classList.toggle('active');this.nextElementSibling.classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left text-sm font-bold">
+            途中で辞められる？
+            <span class="text-accent text-xl leading-none ml-4">+</span>
+          </button>
+          <div class="faq-body px-5 pb-5">
+            <p class="text-muted text-sm leading-relaxed">いつでも解約OK。さらに最初の30日間は全額返金保証つき。合わなかったら返金します。理由は聞きません。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl reveal d2">
+          <button onclick="this.parentElement.classList.toggle('active');this.nextElementSibling.classList.toggle('open')" class="w-full flex justify-between items-center p-5 text-left text-sm font-bold">
+            カウンセリングって何するの？
+            <span class="text-accent text-xl leading-none ml-4">+</span>
+          </button>
+          <div class="faq-body px-5 pb-5">
+            <p class="text-muted text-sm leading-relaxed">30分のオンライン面談。今の体の状態、目標、生活スタイルを聞いて、あなたに合うプランを提案します。勧誘は一切しないので、情報収集だけでもOK。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / フォーム -->
+  <section id="entry" class="py-20 md:py-28 px-5">
+    <div class="max-w-md mx-auto">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-2xl md:text-3xl font-black mb-3">まずは話してみませんか？</h2>
+        <p class="text-muted text-sm leading-relaxed">
+          無料カウンセリングは30分。<br>「まだ迷ってる」でもOKです。
+        </p>
+      </div>
+
+      <div class="reveal bg-sand rounded-2xl p-8">
+        <form onsubmit="event.preventDefault();this.innerHTML='<p class=\'text-center py-8 font-bold\'>ありがとうございます。<br>24時間以内にご連絡します。</p>'">
+          <div class="space-y-4 mb-6">
+            <div>
+              <label class="text-xs font-bold text-muted mb-1 block">お名前</label>
+              <input type="text" placeholder="山田 太郎" required class="w-full bg-white border border-sand-dark rounded-lg px-4 py-3 text-sm transition-colors">
+            </div>
+            <div>
+              <label class="text-xs font-bold text-muted mb-1 block">メールアドレス</label>
+              <input type="email" placeholder="example@email.com" required class="w-full bg-white border border-sand-dark rounded-lg px-4 py-3 text-sm transition-colors">
+            </div>
+            <div>
+              <label class="text-xs font-bold text-muted mb-1 block">電話番号</label>
+              <input type="tel" placeholder="090-1234-5678" required class="w-full bg-white border border-sand-dark rounded-lg px-4 py-3 text-sm transition-colors">
+            </div>
+            <div>
+              <label class="text-xs font-bold text-muted mb-1 block">希望日時</label>
+              <select class="w-full bg-white border border-sand-dark rounded-lg px-4 py-3 text-sm transition-colors">
+                <option value="">選んでください</option>
+                <option>平日 午前</option>
+                <option>平日 午後</option>
+                <option>平日 夜（18時以降）</option>
+                <option>土日 午前</option>
+                <option>土日 午後</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="w-full bg-accent hover:bg-accent-dark text-white font-bold py-4 rounded-lg transition-colors">
+            無料カウンセリングを予約する
+          </button>
+        </form>
+        <div class="mt-6 pt-6 border-t border-sand-dark text-center">
+          <p class="text-muted text-xs mb-3">LINEでも相談できます</p>
+          <a href="#" class="inline-flex items-center gap-2 bg-[#06C755] hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg text-sm transition-opacity">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINE友だち追加
+          </a>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-6 mt-8 text-muted text-xs reveal">
+        <span>🔒 SSL暗号化</span>
+        <span>✓ 30日返金保証</span>
+        <span>✓ 勧誘なし</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer: ミニマル -->
+  <footer class="bg-fg text-white/40 py-8 px-5">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+      <span class="font-en font-bold text-white/60 tracking-wider">FIT LIFE</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">特定商取引法</a>
+        <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+      </div>
+      <span>&copy; 2024 FIT LIFE</span>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA (mobile) -->
+  <div id="stickyCta" class="sticky-bar fixed bottom-0 left-0 right-0 z-50 bg-white border-t shadow-lg p-3 md:hidden">
+    <a href="#entry" class="block bg-accent text-white text-center font-bold py-3 rounded-lg text-sm">
+      無料カウンセリングを予約する
+    </a>
+  </div>
+
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Sticky CTA after hero
+    const hero = document.getElementById('hero');
+    const sticky = document.getElementById('stickyCta');
+    const stickyObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { sticky.classList.toggle('show', !e.isIntersecting); });
+    });
+    stickyObs.observe(hero);
+  </script>
+</body>
+</html>
