@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社samurai｜訪問介護・グループホーム・自立支援</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1A1A1A',
+            secondary: '#333333',
+            accent: '#5B7B9A',
+            offwhite: '#F5F5F5',
+            lightgray: '#E8E8E8',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            en: ['"DM Sans"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #1A1A1A; }
+    .font-en { font-family: 'DM Sans', sans-serif; letter-spacing: 0.12em; }
+
+    /* Accordion */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.active .faq-answer { max-height: 300px; }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.3s ease; }
+
+    /* Tab */
+    .tab-btn.active { border-bottom: 2px solid #1A1A1A; color: #1A1A1A; font-weight: 500; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Mobile nav */
+    .mobile-nav { transform: translateX(100%); transition: transform 0.3s ease; }
+    .mobile-nav.open { transform: translateX(0); }
+
+    /* Smooth hover */
+    .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- ========== HEADER ========== -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+    <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#" class="flex-shrink-0">
+        <img src="images/logo/②社名単独/社名単独_カラー.png" alt="samurai" class="h-8">
+      </a>
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#services" class="text-sm text-secondary hover:text-primary transition-colors">訪問介護</a>
+        <a href="#" class="text-sm text-secondary hover:text-primary transition-colors">グループホーム</a>
+        <a href="#" class="text-sm text-secondary hover:text-primary transition-colors">自立支援サポート</a>
+        <a href="#" class="text-sm text-secondary hover:text-primary transition-colors">会社概要</a>
+        <a href="#faq" class="text-sm text-secondary hover:text-primary transition-colors">FAQ</a>
+      </nav>
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#contact" class="text-sm border border-primary text-primary px-5 py-2.5 hover:bg-primary hover:text-white transition-colors">お問い合わせ</a>
+        <a href="#recruit-cta" class="text-sm bg-primary text-white px-5 py-2.5 hover:bg-secondary transition-colors">採用応募</a>
+      </div>
+      <!-- Hamburger -->
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="メニュー">
+        <span class="block w-6 h-[2px] bg-primary transition-all hamburger-line"></span>
+        <span class="block w-6 h-[2px] bg-primary transition-all hamburger-line"></span>
+        <span class="block w-4 h-[2px] bg-primary transition-all hamburger-line ml-auto"></span>
+      </button>
+    </div>
+    <!-- Mobile Nav -->
+    <div id="mobileNav" class="mobile-nav fixed top-0 right-0 w-[80%] max-w-[360px] h-full bg-white shadow-2xl z-40 pt-24 px-8">
+      <nav class="flex flex-col gap-6">
+        <a href="#services" class="text-base text-secondary border-b border-gray-100 pb-4" onclick="closeMobileNav()">訪問介護</a>
+        <a href="#" class="text-base text-secondary border-b border-gray-100 pb-4" onclick="closeMobileNav()">グループホーム</a>
+        <a href="#" class="text-base text-secondary border-b border-gray-100 pb-4" onclick="closeMobileNav()">自立支援サポート</a>
+        <a href="#" class="text-base text-secondary border-b border-gray-100 pb-4" onclick="closeMobileNav()">会社概要</a>
+        <a href="#faq" class="text-base text-secondary border-b border-gray-100 pb-4" onclick="closeMobileNav()">FAQ</a>
+        <div class="flex flex-col gap-3 mt-4">
+          <a href="#contact" class="text-center text-sm border border-primary text-primary px-5 py-3" onclick="closeMobileNav()">お問い合わせ</a>
+          <a href="#recruit-cta" class="text-center text-sm bg-primary text-white px-5 py-3" onclick="closeMobileNav()">採用応募</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black/30 z-30 hidden" onclick="closeMobileNav()"></div>
+
+
+  <!-- ========== HERO ========== -->
+  <section class="pt-20">
+    <div class="max-w-[1200px] mx-auto px-6 py-16 md:py-24 lg:py-32">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <!-- Left -->
+        <div class="flex-1 order-2 lg:order-1">
+          <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-4">For Your Life</p>
+          <h1 class="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-[1.6] tracking-wide mb-6">
+            一人ひとりの暮らしと<br>人生に本気で向き合う。
+          </h1>
+          <p class="text-sm md:text-base text-secondary leading-relaxed mb-10 max-w-[480px]">
+            株式会社samuraiは、神奈川県横浜市を拠点に訪問介護・グループホーム・自立支援サポートを提供しています。「技術より、人間力」を大切に、利用者様一人ひとりに寄り添ったサービスをお届けします。
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#services" class="inline-flex items-center justify-center gap-2 bg-primary text-white text-sm px-8 py-4 hover:bg-secondary transition-colors">
+              サービスを知る
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#recruit-cta" class="inline-flex items-center justify-center gap-2 border border-primary text-primary text-sm px-8 py-4 hover:bg-primary hover:text-white transition-colors">
+              採用情報を見る
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+        <!-- Right: Hero Image -->
+        <div class="flex-1 order-1 lg:order-2 w-full">
+          <div class="relative aspect-[4/3] lg:aspect-[3/2] overflow-hidden">
+            <img src="images/hero.jpg" alt="samuraiチーム" class="w-full h-full object-cover">
+            <!-- Subtle decorative line -->
+            <div class="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-accent/30"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== WHAT WE DO ========== -->
+  <section id="services" class="bg-offwhite py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <!-- Section Header -->
+      <div class="mb-14 md:mb-20">
+        <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-2">What We Do</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-wide">私たちが提供していること</h2>
+      </div>
+      <!-- 3 Cards -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <a href="#" class="group bg-white hover-lift block">
+          <div class="aspect-[4/3] overflow-hidden bg-gray-100">
+            <img src="images/care.jpg" alt="訪問介護サービス" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6 md:p-8">
+            <span class="font-en text-accent text-[11px] tracking-[0.15em] uppercase">Home Care</span>
+            <h3 class="text-lg font-semibold mt-2 mb-3">訪問介護サービス</h3>
+            <p class="text-sm text-secondary leading-relaxed">ご自宅での生活を支える訪問介護サービス。身体介護から生活援助まで、一人ひとりに合わせたケアプランでサポートします。</p>
+            <span class="inline-flex items-center gap-1 text-xs text-accent mt-4 group-hover:gap-2 transition-all">
+              詳しく見る
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+        <!-- Card 2 -->
+        <a href="#" class="group bg-white hover-lift block">
+          <div class="aspect-[4/3] overflow-hidden bg-gray-200 flex items-center justify-center">
+            <span class="text-sm text-gray-400">IMAGE</span>
+          </div>
+          <div class="p-6 md:p-8">
+            <span class="font-en text-accent text-[11px] tracking-[0.15em] uppercase">Group Home</span>
+            <h3 class="text-lg font-semibold mt-2 mb-3">グループホーム</h3>
+            <p class="text-sm text-secondary leading-relaxed">少人数で家庭的な雰囲気のなか、認知症の方が安心して暮らせる住まいを提供。日常生活を通じた自立支援を行います。</p>
+            <span class="inline-flex items-center gap-1 text-xs text-accent mt-4 group-hover:gap-2 transition-all">
+              詳しく見る
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+        <!-- Card 3 -->
+        <a href="#" class="group bg-white hover-lift block">
+          <div class="aspect-[4/3] overflow-hidden bg-gray-200 flex items-center justify-center">
+            <span class="text-sm text-gray-400">IMAGE</span>
+          </div>
+          <div class="p-6 md:p-8">
+            <span class="font-en text-accent text-[11px] tracking-[0.15em] uppercase">Independence Support</span>
+            <h3 class="text-lg font-semibold mt-2 mb-3">自立支援サポート</h3>
+            <p class="text-sm text-secondary leading-relaxed">障がいのある方の地域生活を支援。一人ひとりの目標に向き合い、自分らしい暮らしの実現をサポートします。</p>
+            <span class="inline-flex items-center gap-1 text-xs text-accent mt-4 group-hover:gap-2 transition-all">
+              詳しく見る
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== OUR VALUES ========== -->
+  <section class="py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <!-- Section Header -->
+      <div class="mb-14 md:mb-20">
+        <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-2">Our Values</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-wide">私たちが大切にしていること</h2>
+      </div>
+      <!-- 3 Values -->
+      <div class="grid md:grid-cols-3 gap-10 md:gap-12 mb-16 md:mb-20">
+        <!-- Value 1 -->
+        <div class="relative">
+          <span class="font-en text-[80px] md:text-[100px] font-bold text-offwhite leading-none select-none absolute -top-6 -left-2">01</span>
+          <div class="relative pt-12">
+            <h3 class="text-lg font-semibold mb-4">気持ちよい暮らしの<br>お手伝い</h3>
+            <p class="text-sm text-secondary leading-relaxed">利用者様が毎日を気持ちよく過ごせるよう、細やかな気配りと確かな技術でサポート。「ありがとう」の言葉が私たちの原動力です。</p>
+          </div>
+        </div>
+        <!-- Value 2 -->
+        <div class="relative">
+          <span class="font-en text-[80px] md:text-[100px] font-bold text-offwhite leading-none select-none absolute -top-6 -left-2">02</span>
+          <div class="relative pt-12">
+            <h3 class="text-lg font-semibold mb-4">積極的な<br>コミュニケーション</h3>
+            <p class="text-sm text-secondary leading-relaxed">ご利用者様・ご家族・スタッフ間の対話を重視。情報共有を密にし、チームケアの質を高め続けます。</p>
+          </div>
+        </div>
+        <!-- Value 3 -->
+        <div class="relative">
+          <span class="font-en text-[80px] md:text-[100px] font-bold text-offwhite leading-none select-none absolute -top-6 -left-2">03</span>
+          <div class="relative pt-12">
+            <h3 class="text-lg font-semibold mb-4">清潔・安全・安心</h3>
+            <p class="text-sm text-secondary leading-relaxed">衛生管理の徹底、安全なケア環境の整備、そして心の安心。三つの基本を守り抜くことで、信頼されるサービスを実現します。</p>
+          </div>
+        </div>
+      </div>
+      <!-- Quote -->
+      <div class="border-t border-gray-200 pt-12 text-center max-w-[700px] mx-auto">
+        <blockquote class="text-lg md:text-xl font-medium leading-[1.8] tracking-wide mb-6">
+          &ldquo;技術より、人間力。<br class="md:hidden">私たちは、人を育てる<br class="md:hidden">組織でありたいと考えています。&rdquo;
+        </blockquote>
+        <a href="#" class="inline-flex items-center gap-2 text-sm text-accent hover:gap-3 transition-all">
+          もっと見る
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== OUR PEOPLE ========== -->
+  <section class="bg-offwhite py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <!-- Section Header -->
+      <div class="mb-14 md:mb-20">
+        <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-2">Our People</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-wide">samuraiで働く仲間たち</h2>
+      </div>
+      <!-- Staff Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+        <!-- Person 1 -->
+        <div class="group text-center">
+          <div class="aspect-square overflow-hidden bg-white mb-4">
+            <img src="images/久原和也.png" alt="久原和也" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-sm font-medium">久原 和也</p>
+          <p class="text-xs text-secondary mt-1">Kazuya Kuhara</p>
+        </div>
+        <!-- Person 2 -->
+        <div class="group text-center">
+          <div class="aspect-square overflow-hidden bg-white mb-4">
+            <img src="images/古谷遼太.png" alt="古谷遼太" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-sm font-medium">古谷 遼太</p>
+          <p class="text-xs text-secondary mt-1">Ryota Furuya</p>
+        </div>
+        <!-- Person 3 -->
+        <div class="group text-center">
+          <div class="aspect-square overflow-hidden bg-white mb-4">
+            <img src="images/山内みかり.png" alt="山内みかり" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-sm font-medium">山内 みかり</p>
+          <p class="text-xs text-secondary mt-1">Mikari Yamauchi</p>
+        </div>
+        <!-- Person 4 -->
+        <div class="group text-center">
+          <div class="aspect-square overflow-hidden bg-white mb-4">
+            <img src="images/中田萌.png" alt="中田萌" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-sm font-medium">中田 萌</p>
+          <p class="text-xs text-secondary mt-1">Moe Nakata</p>
+        </div>
+        <!-- Person 5 -->
+        <div class="group text-center">
+          <div class="aspect-square overflow-hidden bg-white mb-4">
+            <img src="images/塚田純也.png" alt="塚田純也" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-sm font-medium">塚田 純也</p>
+          <p class="text-xs text-secondary mt-1">Junya Tsukada</p>
+        </div>
+        <!-- Person 6 -->
+        <div class="group text-center">
+          <div class="aspect-square overflow-hidden bg-white mb-4">
+            <img src="images/板垣亜由実.png" alt="板垣亜由実" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <p class="text-sm font-medium">板垣 亜由実</p>
+          <p class="text-xs text-secondary mt-1">Ayumi Itagaki</p>
+        </div>
+      </div>
+      <!-- Caption -->
+      <div class="text-center">
+        <p class="text-sm text-secondary leading-relaxed mb-6">年齢も性格も得意も違うように、個性もそれぞれ。<br>その個性の一つひとつが、samuraiの力です。</p>
+        <a href="#" class="inline-flex items-center gap-2 text-sm text-accent hover:gap-3 transition-all">
+          もっと見る
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== BY THE NUMBERS ========== -->
+  <section class="py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <!-- Section Header -->
+      <div class="mb-14 md:mb-20">
+        <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-2">By The Numbers</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-wide">数字で見るsamurai</h2>
+      </div>
+      <!-- Stats -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <div class="text-center py-8 border-t border-gray-200">
+          <p class="font-en text-4xl md:text-5xl font-bold text-primary mb-1">61<span class="text-xl">名以上</span></p>
+          <p class="text-sm text-secondary mt-3">職員数</p>
+        </div>
+        <div class="text-center py-8 border-t border-gray-200">
+          <p class="font-en text-4xl md:text-5xl font-bold text-primary mb-1">60<span class="text-xl">%</span></p>
+          <p class="text-sm text-secondary mt-3">女性職員比率</p>
+        </div>
+        <div class="text-center py-8 border-t border-gray-200">
+          <p class="font-en text-4xl md:text-5xl font-bold text-primary mb-1">2010<span class="text-xl">年</span></p>
+          <p class="text-sm text-secondary mt-3">事業開始</p>
+        </div>
+        <div class="text-center py-8 border-t border-gray-200">
+          <p class="font-en text-4xl md:text-5xl font-bold text-primary mb-1">6<span class="text-xl">種類</span></p>
+          <p class="text-sm text-secondary mt-3">対応サービス</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== RECRUIT CTA ========== -->
+  <section id="recruit-cta" class="bg-primary text-white py-20 md:py-28">
+    <div class="max-w-[800px] mx-auto px-6 text-center">
+      <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-4">Join Our Team</p>
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-wide leading-[1.6] mb-6">
+        誰かの人生に、<br>本気で向き合いたい人へ。
+      </h2>
+      <p class="text-sm md:text-base text-gray-400 leading-relaxed mb-10 max-w-[560px] mx-auto">
+        未経験歓迎。介護の経験がなくても、「人と向き合いたい」という気持ちがあれば大丈夫。研修制度と先輩スタッフのサポートで、あなたの成長を支えます。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#" class="inline-flex items-center justify-center gap-2 border border-white text-white text-sm px-8 py-4 hover:bg-white hover:text-primary transition-colors">
+          会社説明を見る
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#" class="inline-flex items-center justify-center gap-2 bg-white text-primary text-sm px-8 py-4 hover:bg-gray-100 transition-colors">
+          採用情報を見る
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== INFORMATION ========== -->
+  <section class="bg-offwhite py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <!-- Section Header -->
+      <div class="mb-14 md:mb-16">
+        <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-2">Information</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-wide">インフォメーション</h2>
+      </div>
+      <!-- Tabs -->
+      <div class="border-b border-gray-300 mb-8 flex gap-8">
+        <button class="tab-btn active text-sm pb-3 text-primary border-b-2 border-primary -mb-[1px] transition-colors" data-tab="news">お知らせ</button>
+        <button class="tab-btn text-sm pb-3 text-gray-400 border-b-2 border-transparent -mb-[1px] transition-colors" data-tab="recruit">採用情報</button>
+        <button class="tab-btn text-sm pb-3 text-gray-400 border-b-2 border-transparent -mb-[1px] transition-colors" data-tab="activity">活動報告</button>
+      </div>
+      <!-- Tab Contents -->
+      <div id="tab-news" class="tab-content active">
+        <ul class="divide-y divide-gray-200">
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.03.15</time>
+            <p class="text-sm">春の訪問介護キャンペーンのお知らせ</p>
+          </li>
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.02.28</time>
+            <p class="text-sm">ホームページをリニューアルしました</p>
+          </li>
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.01.10</time>
+            <p class="text-sm">年末年始の営業時間のご案内</p>
+          </li>
+        </ul>
+      </div>
+      <div id="tab-recruit" class="tab-content">
+        <ul class="divide-y divide-gray-200">
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.03.20</time>
+            <p class="text-sm">訪問介護スタッフ（正社員）募集中</p>
+          </li>
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.03.01</time>
+            <p class="text-sm">グループホーム夜勤スタッフ募集のお知らせ</p>
+          </li>
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.02.15</time>
+            <p class="text-sm">会社説明会を開催します（3月度）</p>
+          </li>
+        </ul>
+      </div>
+      <div id="tab-activity" class="tab-content">
+        <ul class="divide-y divide-gray-200">
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.03.10</time>
+            <p class="text-sm">地域交流イベント「春のふれあい祭り」を開催しました</p>
+          </li>
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.02.20</time>
+            <p class="text-sm">スタッフ研修レポート：認知症ケア研修を実施</p>
+          </li>
+          <li class="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <time class="font-en text-xs text-secondary tracking-wider flex-shrink-0">2026.01.25</time>
+            <p class="text-sm">新年会の様子をご紹介します</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FAQ ========== -->
+  <section id="faq" class="py-20 md:py-28">
+    <div class="max-w-[800px] mx-auto px-6">
+      <!-- Section Header -->
+      <div class="mb-14 md:mb-20">
+        <p class="font-en text-accent text-xs tracking-[0.2em] uppercase mb-2">FAQ</p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-wide">よくあるご質問</h2>
+      </div>
+      <!-- Accordion -->
+      <div class="divide-y divide-gray-200">
+        <!-- Q1 -->
+        <div class="faq-item">
+          <button class="w-full flex items-center justify-between py-6 text-left" onclick="toggleFaq(this)">
+            <span class="text-sm md:text-base font-medium pr-8">訪問介護サービスを利用するにはどうすればよいですか？</span>
+            <span class="faq-icon text-xl text-secondary flex-shrink-0 leading-none">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-secondary leading-relaxed pb-6">
+              まずはお電話またはお問い合わせフォームからご連絡ください。ケアマネジャーと連携し、ご利用者様の状況に合わせたケアプランを作成いたします。介護保険の申請がお済みでない方もご相談いただけます。
+            </p>
+          </div>
+        </div>
+        <!-- Q2 -->
+        <div class="faq-item">
+          <button class="w-full flex items-center justify-between py-6 text-left" onclick="toggleFaq(this)">
+            <span class="text-sm md:text-base font-medium pr-8">利用料金はどのくらいかかりますか？</span>
+            <span class="faq-icon text-xl text-secondary flex-shrink-0 leading-none">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-secondary leading-relaxed pb-6">
+              介護保険適用の場合、自己負担額はサービス費用の1〜3割です。ご利用内容や介護度によって異なりますので、詳しくはお気軽にお問い合わせください。
+            </p>
+          </div>
+        </div>
+        <!-- Q3 -->
+        <div class="faq-item">
+          <button class="w-full flex items-center justify-between py-6 text-left" onclick="toggleFaq(this)">
+            <span class="text-sm md:text-base font-medium pr-8">対応エリアはどこですか？</span>
+            <span class="faq-icon text-xl text-secondary flex-shrink-0 leading-none">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-secondary leading-relaxed pb-6">
+              神奈川県横浜市を中心にサービスを提供しております。エリアの詳細についてはお問い合わせください。
+            </p>
+          </div>
+        </div>
+        <!-- Q4 -->
+        <div class="faq-item">
+          <button class="w-full flex items-center justify-between py-6 text-left" onclick="toggleFaq(this)">
+            <span class="text-sm md:text-base font-medium pr-8">未経験でも応募できますか？</span>
+            <span class="faq-icon text-xl text-secondary flex-shrink-0 leading-none">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-secondary leading-relaxed pb-6">
+              はい、未経験の方も歓迎しています。入社後の研修制度を充実させており、先輩スタッフが丁寧にサポートいたします。資格取得支援制度もございます。
+            </p>
+          </div>
+        </div>
+        <!-- Q5 -->
+        <div class="faq-item">
+          <button class="w-full flex items-center justify-between py-6 text-left" onclick="toggleFaq(this)">
+            <span class="text-sm md:text-base font-medium pr-8">土日や祝日もサービスを受けられますか？</span>
+            <span class="faq-icon text-xl text-secondary flex-shrink-0 leading-none">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="text-sm text-secondary leading-relaxed pb-6">
+              はい、土日祝日も含めて365日対応しております。ケアプランに基づき、曜日を問わず必要なサービスをご提供いたします。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== CTA BOTTOM ========== -->
+  <section id="contact" class="bg-offwhite py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        <!-- Service CTA -->
+        <div class="bg-white p-10 md:p-12 text-center">
+          <p class="font-en text-accent text-[11px] tracking-[0.15em] uppercase mb-3">Contact</p>
+          <h3 class="text-lg md:text-xl font-semibold mb-6">サービスのご相談</h3>
+          <p class="text-sm text-secondary mb-2">お電話でのお問い合わせ</p>
+          <a href="tel:045-583-5831" class="font-en text-2xl md:text-3xl font-bold text-primary tracking-wider block mb-4">045-583-5831</a>
+          <p class="text-xs text-gray-400 mb-6">受付時間 9:00〜18:00（土日祝除く）</p>
+          <a href="#" class="inline-flex items-center justify-center gap-2 border border-primary text-primary text-sm px-8 py-3.5 hover:bg-primary hover:text-white transition-colors w-full max-w-[280px]">
+            詳しくはこちら
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+        <!-- Recruit CTA -->
+        <div class="bg-primary text-white p-10 md:p-12 text-center">
+          <p class="font-en text-accent text-[11px] tracking-[0.15em] uppercase mb-3">Recruit</p>
+          <h3 class="text-lg md:text-xl font-semibold mb-6">採用に応募する</h3>
+          <p class="text-sm text-gray-400 mb-2">お電話でのお問い合わせ</p>
+          <a href="tel:045-583-5831" class="font-en text-2xl md:text-3xl font-bold text-white tracking-wider block mb-4">045-583-5831</a>
+          <p class="text-xs text-gray-500 mb-6">受付時間 9:00〜18:00（土日祝除く）</p>
+          <a href="#" class="inline-flex items-center justify-center gap-2 border border-white text-white text-sm px-8 py-3.5 hover:bg-white hover:text-primary transition-colors w-full max-w-[280px]">
+            詳しくはこちら
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-primary text-white pt-16 md:pt-20 pb-8">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 mb-16">
+        <!-- Col 1: Logo & Company Info -->
+        <div class="lg:col-span-1">
+          <img src="images/logo/①samurai公式ロゴ/横/モノクロ/公式ロゴ_横_01_モノクロ.png" alt="samurai" class="h-8 mb-6 invert">
+          <p class="text-xs text-gray-400 leading-relaxed mb-4">
+            株式会社samurai<br>
+            〒神奈川県横浜市<br>
+            TEL: 045-583-5831
+          </p>
+        </div>
+        <!-- Col 2: Services -->
+        <div>
+          <h4 class="text-xs font-en tracking-[0.15em] uppercase text-gray-400 mb-5">Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">訪問介護サービス</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">グループホーム</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">自立支援サポート</a></li>
+          </ul>
+        </div>
+        <!-- Col 3: Company -->
+        <div>
+          <h4 class="text-xs font-en tracking-[0.15em] uppercase text-gray-400 mb-5">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">会社概要</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">代表メッセージ</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">スタッフ紹介</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">採用情報</a></li>
+          </ul>
+        </div>
+        <!-- Col 4: Other -->
+        <div>
+          <h4 class="text-xs font-en tracking-[0.15em] uppercase text-gray-400 mb-5">Other</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">お知らせ</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">よくあるご質問</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">お問い合わせ</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-xs text-gray-500 text-center font-en tracking-wider">&copy; 2026 samurai Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+      overlay.classList.toggle('hidden');
+      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // FAQ Accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const wasActive = item.classList.contains('active');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      // Toggle current
+      if (!wasActive) item.classList.add('active');
+    }
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('shadow-sm');
+      } else {
+        header.classList.remove('shadow-sm');
+      }
+    });
+  </script>
+
+</body>
+</html>
