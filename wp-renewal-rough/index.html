@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サンプル株式会社 | あなたのビジネスを、もっと前へ。</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#f6f3ee',
+            brown: '#3d3426',
+            stone: '#71717a',
+            teal: '#0d9488',
+          },
+          fontFamily: {
+            heading: ['"Zen Maru Gothic"', 'sans-serif'],
+            body: ['"Noto Sans JP"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; color: #3d3426; }
+    h1, h2, h3 { font-family: 'Zen Maru Gothic', sans-serif; }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary .faq-icon { transform: rotate(45deg); }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-sand">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="font-heading font-bold text-xl text-brown">サンプル株式会社</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-stone">
+        <a href="#services" class="hover:text-brown transition-colors">サービス</a>
+        <a href="#about" class="hover:text-brown transition-colors">私たちについて</a>
+        <a href="#news" class="hover:text-brown transition-colors">お知らせ</a>
+        <a href="#contact" class="inline-block bg-teal text-white px-5 py-2 rounded hover:opacity-90 transition-opacity">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero: Left-Right Split -->
+  <section class="pt-28 pb-16 md:pt-36 md:pb-24 bg-sand">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-sm text-teal font-medium tracking-wide mb-4">SAMPLE CORPORATION</p>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          あなたのビジネスを、<br>もっと前へ。
+        </h1>
+        <p class="text-stone leading-relaxed mb-8 max-w-md">
+          戦略から実行まで。Webの力で、御社の成長を加速させるパートナーです。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="bg-teal text-white px-7 py-3 rounded font-medium hover:opacity-90 transition-opacity">無料相談はこちら</a>
+          <a href="#services" class="border border-brown/20 text-brown px-7 py-3 rounded font-medium hover:bg-white transition-colors">サービスを見る</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/3] bg-white rounded-lg overflow-hidden shadow-sm">
+          <img src="images/hero.jpg" alt="ビジネスイメージ" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-sand to-white flex items-center justify-center text-stone/40 text-sm\'>hero image</div>'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services: 3-Card Grid -->
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-sm text-teal font-medium tracking-wide mb-2">SERVICES</p>
+      <h2 class="text-2xl md:text-3xl font-bold mb-12">事業内容</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-sand rounded-lg p-8">
+          <div class="w-10 h-10 bg-teal/10 text-teal rounded flex items-center justify-center mb-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3">Webコンサルティング</h3>
+          <p class="text-stone text-sm leading-relaxed">サイトの課題を分析し、集客・CVR改善の戦略をご提案。データに基づいたWeb活用を支援します。</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-sand rounded-lg p-8">
+          <div class="w-10 h-10 bg-teal/10 text-teal rounded flex items-center justify-center mb-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3">マーケティング支援</h3>
+          <p class="text-stone text-sm leading-relaxed">広告運用・SNS・SEO対策をワンストップで。御社に最適なマーケティング施策を実行します。</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-sand rounded-lg p-8">
+          <div class="w-10 h-10 bg-teal/10 text-teal rounded flex items-center justify-center mb-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-3">システム開発</h3>
+          <p class="text-stone text-sm leading-relaxed">業務効率化のためのシステム構築。WordPress・Webアプリの開発を企画から運用まで対応します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About: Alternating Left-Text / Right-Image -->
+  <section id="about" class="py-20 bg-sand">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-sm text-teal font-medium tracking-wide mb-2">ABOUT</p>
+      <h2 class="text-2xl md:text-3xl font-bold mb-12">私たちについて</h2>
+      <div class="grid md:grid-cols-5 gap-10 items-center">
+        <div class="md:col-span-3">
+          <h3 class="text-xl font-bold mb-4">テクノロジーで、ビジネスの可能性を広げる。</h3>
+          <p class="text-stone leading-relaxed mb-5">
+            私たちは「Webの力でビジネスを前進させる」をミッションに、中小企業・スタートアップの成長を支援しています。
+          </p>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 w-5 h-5 border-2 border-teal rounded flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-teal" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-stone">戦略立案からデザイン・実装・運用まで一気通貫で対応</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 w-5 h-5 border-2 border-teal rounded flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-teal" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-stone">広告運用の知見を活かした「集客につながる」サイト制作</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 w-5 h-5 border-2 border-teal rounded flex items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-teal" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-stone">最新のAI・LLMO対策で検索時代の先を行く提案力</span>
+            </li>
+          </ul>
+        </div>
+        <div class="md:col-span-2">
+          <div class="aspect-square bg-white rounded-lg overflow-hidden shadow-sm flex items-center justify-center text-stone/30 text-sm">
+            about image
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News: Minimal List -->
+  <section id="news" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="text-sm text-teal font-medium tracking-wide mb-2">NEWS</p>
+          <h2 class="text-2xl md:text-3xl font-bold">お知らせ</h2>
+        </div>
+        <a href="#" class="text-sm text-teal hover:underline hidden md:block">一覧を見る &rarr;</a>
+      </div>
+      <div class="divide-y divide-sand">
+        <a href="#" class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-5 group">
+          <time class="text-sm text-stone flex-shrink-0">2026.03.20</time>
+          <span class="text-xs bg-teal/10 text-teal px-2.5 py-0.5 rounded flex-shrink-0 w-fit">お知らせ</span>
+          <span class="group-hover:text-teal transition-colors">ホームページをリニューアルしました</span>
+        </a>
+        <a href="#" class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-5 group">
+          <time class="text-sm text-stone flex-shrink-0">2026.03.10</time>
+          <span class="text-xs bg-sand text-stone px-2.5 py-0.5 rounded flex-shrink-0 w-fit">実績</span>
+          <span class="group-hover:text-teal transition-colors">新規クライアント様のLP制作を担当しました</span>
+        </a>
+        <a href="#" class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-5 group">
+          <time class="text-sm text-stone flex-shrink-0">2026.02.25</time>
+          <span class="text-xs bg-sand text-stone px-2.5 py-0.5 rounded flex-shrink-0 w-fit">コラム</span>
+          <span class="group-hover:text-teal transition-colors">中小企業のWeb集客で押さえるべき3つのポイント</span>
+        </a>
+      </div>
+      <a href="#" class="text-sm text-teal hover:underline mt-6 inline-block md:hidden">一覧を見る &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Contact: Form + Phone -->
+  <section id="contact" class="py-20 bg-sand">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-sm text-teal font-medium tracking-wide mb-2">CONTACT</p>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">お問い合わせ</h2>
+      <p class="text-stone mb-12 max-w-lg">ご相談・お見積りは無料です。まずはお気軽にお問い合わせください。</p>
+      <div class="grid md:grid-cols-5 gap-12">
+        <!-- Form -->
+        <div class="md:col-span-3">
+          <form class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-1.5">お名前 <span class="text-red-400 text-xs">必須</span></label>
+                <input type="text" class="w-full border border-brown/15 rounded px-4 py-2.5 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-teal/30" placeholder="山田 太郎">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1.5">メールアドレス <span class="text-red-400 text-xs">必須</span></label>
+                <input type="email" class="w-full border border-brown/15 rounded px-4 py-2.5 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-teal/30" placeholder="info@example.com">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1.5">会社名</label>
+              <input type="text" class="w-full border border-brown/15 rounded px-4 py-2.5 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-teal/30" placeholder="株式会社サンプル">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1.5">お問い合わせ内容 <span class="text-red-400 text-xs">必須</span></label>
+              <textarea rows="5" class="w-full border border-brown/15 rounded px-4 py-2.5 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-teal/30 resize-none" placeholder="ご相談内容をご記入ください"></textarea>
+            </div>
+            <button type="submit" class="bg-teal text-white px-8 py-3 rounded font-medium hover:opacity-90 transition-opacity">送信する</button>
+          </form>
+        </div>
+        <!-- Phone / Info -->
+        <div class="md:col-span-2 flex flex-col justify-center">
+          <div class="bg-white rounded-lg p-8">
+            <p class="text-sm text-stone mb-2">お電話でのお問い合わせ</p>
+            <p class="text-2xl font-heading font-bold text-brown mb-1">03-0000-0000</p>
+            <p class="text-xs text-stone mb-6">受付時間: 平日 9:00 - 18:00</p>
+            <div class="border-t border-sand pt-6">
+              <p class="text-sm text-stone mb-1">メールでのお問い合わせ</p>
+              <p class="text-sm font-medium">info@sample-corp.jp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brown text-white/70 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+        <div>
+          <p class="font-heading font-bold text-lg text-white mb-1">サンプル株式会社</p>
+          <p class="text-sm">〒100-0001 東京都千代田区千代田1-1-1</p>
+        </div>
+        <nav class="flex gap-6 text-sm">
+          <a href="#services" class="hover:text-white transition-colors">サービス</a>
+          <a href="#about" class="hover:text-white transition-colors">会社概要</a>
+          <a href="#news" class="hover:text-white transition-colors">お知らせ</a>
+          <a href="#contact" class="hover:text-white transition-colors">お問い合わせ</a>
+        </nav>
+      </div>
+      <div class="border-t border-white/10 pt-6">
+        <p class="text-xs text-white/40">&copy; 2026 サンプル株式会社 All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
