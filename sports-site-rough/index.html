@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINESIS — 動く、つながる、変わる。</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300;1,9..40,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            black: { DEFAULT: '#0A0A0A', light: '#1A1A1A' },
+            white: { DEFAULT: '#FFFFFF', warm: '#FAFAFA' },
+            green: {
+              deep: '#2D6A4F',
+              mid: '#52B788',
+              light: '#D8F3DC',
+            },
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', '"Noto Sans JP"', 'sans-serif'],
+            jp: ['"Noto Sans JP"', 'sans-serif'],
+            en: ['"DM Sans"', 'sans-serif'],
+          },
+          letterSpacing: {
+            editorial: '0.2em',
+            wide2: '0.12em',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+      color: #0A0A0A;
+      background: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.6s; }
+
+    /* Hero parallax text */
+    .hero-tagline {
+      text-shadow: 0 2px 40px rgba(0,0,0,0.3);
+    }
+
+    /* Image hover zoom */
+    .img-zoom {
+      overflow: hidden;
+    }
+    .img-zoom img {
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .img-zoom:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Plan card hover */
+    .plan-card {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .plan-card:hover {
+      background-color: #0A0A0A !important;
+      color: #FFFFFF !important;
+    }
+    .plan-card:hover .plan-price { color: #52B788 !important; }
+    .plan-card:hover .plan-label { color: #FAFAFA !important; }
+    .plan-card:hover .plan-feat { color: #FAFAFA !important; border-color: #1A1A1A !important; }
+    .plan-card:hover .plan-btn {
+      background-color: #52B788 !important;
+      color: #0A0A0A !important;
+    }
+
+    /* Nav */
+    .nav-glass {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background-color 0.4s ease;
+    }
+    .nav-scrolled {
+      background-color: rgba(255,255,255,0.92) !important;
+    }
+    .nav-scrolled .nav-link,
+    .nav-scrolled .nav-logo { color: #0A0A0A !important; }
+
+    /* Horizontal scroll hide scrollbar */
+    .hide-scroll::-webkit-scrollbar { display: none; }
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Stat counter animation */
+    .stat-num {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* CTA button shimmer */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-shimmer:hover::after {
+      left: 100%;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Green line accent */
+    .green-line::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #52B788;
+      margin-top: 20px;
+    }
+
+    /* Gallery grid item */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(45,106,79,0);
+      transition: background 0.4s ease;
+    }
+    .gallery-item:hover::after {
+      background: rgba(45,106,79,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav id="navbar" class="nav-glass fixed top-0 left-0 w-full z-50 bg-transparent">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between h-16 md:h-20">
+      <a href="#" class="nav-logo font-en font-bold text-white text-lg tracking-editorial">KINESIS</a>
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#concept" class="nav-link text-white/80 hover:text-white text-xs tracking-editorial uppercase transition-colors duration-300">Concept</a>
+        <a href="#services" class="nav-link text-white/80 hover:text-white text-xs tracking-editorial uppercase transition-colors duration-300">Services</a>
+        <a href="#membership" class="nav-link text-white/80 hover:text-white text-xs tracking-editorial uppercase transition-colors duration-300">Membership</a>
+        <a href="#news" class="nav-link text-white/80 hover:text-white text-xs tracking-editorial uppercase transition-colors duration-300">News</a>
+        <a href="#cta" class="nav-link text-xs tracking-editorial uppercase bg-green-mid text-black px-5 py-2 hover:bg-green-deep hover:text-white transition-all duration-300">Trial</a>
+      </div>
+      <!-- Mobile hamburger -->
+      <button id="menuBtn" class="md:hidden flex flex-col gap-[5px] group">
+        <span class="block w-6 h-[1.5px] bg-white transition-all duration-300 group-[.active]:rotate-45 group-[.active]:translate-y-[6.5px]"></span>
+        <span class="block w-6 h-[1.5px] bg-white transition-all duration-300 group-[.active]:opacity-0"></span>
+        <span class="block w-6 h-[1.5px] bg-white transition-all duration-300 group-[.active]:-rotate-45 group-[.active]:-translate-y-[6.5px]"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-8">
+    <a href="#concept" class="mob-link text-white text-2xl font-light tracking-editorial uppercase">Concept</a>
+    <a href="#services" class="mob-link text-white text-2xl font-light tracking-editorial uppercase">Services</a>
+    <a href="#membership" class="mob-link text-white text-2xl font-light tracking-editorial uppercase">Membership</a>
+    <a href="#news" class="mob-link text-white text-2xl font-light tracking-editorial uppercase">News</a>
+    <a href="#cta" class="mob-link mt-4 text-sm tracking-editorial uppercase bg-green-mid text-black px-8 py-3 hover:bg-green-deep hover:text-white transition-all duration-300">Free Trial</a>
+  </div>
+
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="relative w-full h-screen min-h-[600px] overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="images/hero.jpg" alt="KINESIS Sports Lifestyle"
+           class="w-full h-full object-cover object-center">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60"></div>
+    </div>
+    <!-- Hero content -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+      <p class="reveal text-white/70 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-6 md:mb-8 font-en">Sports &amp; Wellness Lifestyle</p>
+      <h1 class="reveal reveal-delay-1 hero-tagline font-jp text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-wide">
+        動く、つながる、変わる。
+      </h1>
+      <p class="reveal reveal-delay-2 text-white/60 text-sm md:text-base font-light mt-6 md:mt-8 tracking-wider font-jp">
+        あなたの可能性を、ここから。
+      </p>
+      <a href="#cta" class="reveal reveal-delay-3 mt-10 md:mt-14 border border-white/40 text-white text-[10px] md:text-xs tracking-editorial uppercase px-8 md:px-10 py-3 md:py-4 hover:bg-white hover:text-black transition-all duration-500">
+        Start Your Journey
+      </a>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+      <span class="text-white/40 text-[9px] tracking-[0.3em] uppercase font-en">Scroll</span>
+      <div class="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent animate-pulse"></div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CONCEPT ==================== -->
+  <section id="concept" class="py-24 md:py-40 bg-white">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Text -->
+        <div class="order-2 lg:order-1">
+          <p class="reveal text-[10px] md:text-xs text-green-deep tracking-editorial uppercase font-en mb-6">Our Philosophy</p>
+          <h2 class="reveal reveal-delay-1 font-jp text-3xl md:text-4xl lg:text-5xl font-bold leading-snug tracking-wide">
+            ここは、<br>ただのジムじゃない。
+          </h2>
+          <div class="reveal reveal-delay-2 green-line"></div>
+          <p class="reveal reveal-delay-2 font-jp text-base md:text-lg font-light leading-loose text-black/60 mt-8 md:mt-10">
+            あなたの人生を動かす場所。<br class="hidden md:block">
+            身体を整えることは、心を整えること。<br class="hidden md:block">
+            KINESISは、運動を通じて人と人がつながり、<br class="hidden md:block">
+            日常が豊かに変わっていく——<br class="hidden md:block">
+            そんな体験をデザインしています。
+          </p>
+          <p class="reveal reveal-delay-3 font-jp text-sm font-light leading-loose text-black/40 mt-6">
+            質の高い空間、プロフェッショナルなトレーナー、<br class="hidden md:block">
+            そしてあなた自身の意思が出会う場所。
+          </p>
+        </div>
+        <!-- Image -->
+        <div class="reveal order-1 lg:order-2 img-zoom aspect-[4/5] lg:aspect-[3/4]">
+          <img src="images/service1.jpg" alt="Concept" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== SERVICES ==================== -->
+  <section id="services" class="py-24 md:py-40 bg-white-warm">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 md:mb-20">
+        <div>
+          <p class="reveal text-[10px] md:text-xs text-green-deep tracking-editorial uppercase font-en mb-4">What We Offer</p>
+          <h2 class="reveal reveal-delay-1 font-en text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Services</h2>
+        </div>
+        <p class="reveal reveal-delay-2 font-jp text-sm text-black/40 font-light mt-4 md:mt-0">
+          3つの柱で、あなたの毎日を支える。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <!-- YOGA -->
+        <div class="reveal group">
+          <div class="img-zoom aspect-[3/4] relative">
+            <img src="images/service1.jpg" alt="Yoga" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <span class="text-[10px] text-white/70 tracking-editorial uppercase font-en block mb-2">01</span>
+              <h3 class="font-en text-white text-2xl md:text-3xl font-bold tracking-wide2">YOGA</h3>
+            </div>
+          </div>
+          <div class="pt-5 md:pt-6">
+            <p class="font-jp text-sm font-light leading-relaxed text-black/50">
+              呼吸と動きで心身を調律する。ビギナーからアドバンスまで、<br class="hidden lg:block">あらゆるレベルに対応したプログラム。
+            </p>
+          </div>
+        </div>
+
+        <!-- TRAINING -->
+        <div class="reveal reveal-delay-1 group">
+          <div class="img-zoom aspect-[3/4] relative">
+            <img src="images/service2.jpg" alt="Training" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <span class="text-[10px] text-white/70 tracking-editorial uppercase font-en block mb-2">02</span>
+              <h3 class="font-en text-white text-2xl md:text-3xl font-bold tracking-wide2">TRAINING</h3>
+            </div>
+          </div>
+          <div class="pt-5 md:pt-6">
+            <p class="font-jp text-sm font-light leading-relaxed text-black/50">
+              パーソナル &times; テクノロジー。最新メソッドで、<br class="hidden lg:block">効率的に理想の身体へ導く。
+            </p>
+          </div>
+        </div>
+
+        <!-- WELLNESS -->
+        <div class="reveal reveal-delay-2 group">
+          <div class="img-zoom aspect-[3/4] relative">
+            <img src="images/service3.jpg" alt="Wellness" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <span class="text-[10px] text-white/70 tracking-editorial uppercase font-en block mb-2">03</span>
+              <h3 class="font-en text-white text-2xl md:text-3xl font-bold tracking-wide2">WELLNESS</h3>
+            </div>
+          </div>
+          <div class="pt-5 md:pt-6">
+            <p class="font-jp text-sm font-light leading-relaxed text-black/50">
+              サウナ、リカバリー、栄養指導。<br class="hidden lg:block">運動の先にある「整う」を、トータルにサポート。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== NUMBERS / STATS ==================== -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 text-center">
+        <div class="reveal">
+          <span class="stat-num font-en text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight" data-target="3200">0</span>
+          <span class="font-en text-3xl md:text-4xl font-light text-green-mid">+</span>
+          <p class="font-jp text-xs text-black/40 tracking-wider mt-3 uppercase">会員数 — Members</p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <span class="stat-num font-en text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight" data-target="94">0</span>
+          <span class="font-en text-3xl md:text-4xl font-light text-green-mid">%</span>
+          <p class="font-jp text-xs text-black/40 tracking-wider mt-3 uppercase">継続率 — Retention</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <span class="stat-num font-en text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight" data-target="5">0</span>
+          <span class="font-en text-3xl md:text-4xl font-light text-green-mid"></span>
+          <p class="font-jp text-xs text-black/40 tracking-wider mt-3 uppercase">拠点数 — Locations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== MEMBERSHIP PLANS ==================== -->
+  <section id="membership" class="py-24 md:py-40 bg-white-warm">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10">
+      <div class="text-center mb-14 md:mb-20">
+        <p class="reveal text-[10px] md:text-xs text-green-deep tracking-editorial uppercase font-en mb-4">Plans</p>
+        <h2 class="reveal reveal-delay-1 font-en text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Membership</h2>
+        <p class="reveal reveal-delay-2 font-jp text-sm text-black/40 font-light mt-4">
+          あなたのライフスタイルに合わせて。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <!-- STANDARD -->
+        <div class="reveal plan-card border border-black/10 bg-white p-8 md:p-10 flex flex-col cursor-pointer">
+          <span class="plan-label text-[10px] tracking-editorial uppercase text-black/40 font-en">Standard</span>
+          <div class="mt-6 mb-8">
+            <span class="plan-price font-en text-4xl md:text-5xl font-bold tracking-tight">&yen;9,800</span>
+            <span class="plan-label text-xs text-black/40 font-jp ml-1">/月</span>
+          </div>
+          <div class="flex-1 space-y-4 mb-10">
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">月4回までのグループレッスン</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">ジムエリア利用可</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">オンラインコンテンツ</p>
+          </div>
+          <a href="#cta" class="plan-btn block text-center text-xs tracking-editorial uppercase border border-black/20 text-black py-3 hover:bg-black hover:text-white transition-all duration-300">Select Plan</a>
+        </div>
+
+        <!-- PREMIUM (Recommended) -->
+        <div class="reveal reveal-delay-1 plan-card border-2 border-green-deep bg-white p-8 md:p-10 flex flex-col relative cursor-pointer">
+          <span class="absolute -top-3 left-8 bg-green-deep text-white text-[9px] tracking-editorial uppercase px-4 py-1 font-en">Recommended</span>
+          <span class="plan-label text-[10px] tracking-editorial uppercase text-green-deep font-en font-medium">Premium</span>
+          <div class="mt-6 mb-8">
+            <span class="plan-price font-en text-4xl md:text-5xl font-bold tracking-tight">&yen;14,800</span>
+            <span class="plan-label text-xs text-black/40 font-jp ml-1">/月</span>
+          </div>
+          <div class="flex-1 space-y-4 mb-10">
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">月8回までのグループレッスン</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">パーソナル月1回付</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">サウナ &amp; リカバリー利用可</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">栄養カウンセリング</p>
+          </div>
+          <a href="#cta" class="plan-btn block text-center text-xs tracking-editorial uppercase bg-green-deep text-white py-3 hover:bg-green-mid transition-all duration-300">Select Plan</a>
+        </div>
+
+        <!-- UNLIMITED -->
+        <div class="reveal reveal-delay-2 plan-card border border-black/10 bg-white p-8 md:p-10 flex flex-col cursor-pointer">
+          <span class="plan-label text-[10px] tracking-editorial uppercase text-black/40 font-en">Unlimited</span>
+          <div class="mt-6 mb-8">
+            <span class="plan-price font-en text-4xl md:text-5xl font-bold tracking-tight">&yen;19,800</span>
+            <span class="plan-label text-xs text-black/40 font-jp ml-1">/月</span>
+          </div>
+          <div class="flex-1 space-y-4 mb-10">
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">全レッスン通い放題</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">パーソナル月2回付</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">全施設・全拠点利用可</p>
+            <p class="plan-feat text-sm font-jp font-light text-black/50 pb-4 border-b border-black/5">優先予約 &amp; ゲスト招待</p>
+          </div>
+          <a href="#cta" class="plan-btn block text-center text-xs tracking-editorial uppercase border border-black/20 text-black py-3 hover:bg-black hover:text-white transition-all duration-300">Select Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== GALLERY / INSTAGRAM ==================== -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="flex items-center justify-between mb-10 md:mb-14">
+        <div>
+          <p class="reveal text-[10px] md:text-xs text-green-deep tracking-editorial uppercase font-en mb-3">@kinesis_official</p>
+          <h2 class="reveal reveal-delay-1 font-en text-3xl md:text-4xl font-bold tracking-tight">Gallery</h2>
+        </div>
+        <a href="#" class="reveal text-[10px] tracking-editorial uppercase text-black/40 hover:text-green-deep transition-colors duration-300 font-en hidden md:block">View Instagram &rarr;</a>
+      </div>
+    </div>
+    <div class="max-w-[1800px] mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
+        <div class="reveal gallery-item aspect-square"><img src="images/hero.jpg" alt="Gallery" class="w-full h-full object-cover"></div>
+        <div class="reveal reveal-delay-1 gallery-item aspect-square"><img src="images/service1.jpg" alt="Gallery" class="w-full h-full object-cover"></div>
+        <div class="reveal reveal-delay-1 gallery-item aspect-square"><img src="images/service2.jpg" alt="Gallery" class="w-full h-full object-cover"></div>
+        <div class="reveal reveal-delay-2 gallery-item aspect-square"><img src="images/service3.jpg" alt="Gallery" class="w-full h-full object-cover"></div>
+        <div class="reveal reveal-delay-2 gallery-item aspect-square hidden md:block"><img src="images/hero.jpg" alt="Gallery" class="w-full h-full object-cover"></div>
+        <div class="reveal reveal-delay-3 gallery-item aspect-square hidden lg:block"><img src="images/service1.jpg" alt="Gallery" class="w-full h-full object-cover"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== NEWS ==================== -->
+  <section id="news" class="py-24 md:py-32 bg-white-warm">
+    <div class="max-w-[900px] mx-auto px-6 md:px-10">
+      <div class="mb-14 md:mb-20">
+        <p class="reveal text-[10px] md:text-xs text-green-deep tracking-editorial uppercase font-en mb-4">Latest</p>
+        <h2 class="reveal reveal-delay-1 font-en text-4xl md:text-5xl font-bold tracking-tight">News</h2>
+      </div>
+
+      <div class="space-y-0">
+        <a href="#" class="reveal group flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-t border-black/10 hover:pl-2 transition-all duration-300">
+          <time class="font-en text-xs text-black/30 tracking-wide2 shrink-0">2026.03.20</time>
+          <span class="font-en text-[9px] tracking-editorial uppercase text-green-deep bg-green-light/50 px-3 py-1 shrink-0 w-fit">Event</span>
+          <p class="font-jp text-sm md:text-base font-light group-hover:text-green-deep transition-colors duration-300">春の無料体験キャンペーン開始のお知らせ</p>
+        </a>
+        <a href="#" class="reveal reveal-delay-1 group flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-t border-black/10 hover:pl-2 transition-all duration-300">
+          <time class="font-en text-xs text-black/30 tracking-wide2 shrink-0">2026.03.10</time>
+          <span class="font-en text-[9px] tracking-editorial uppercase text-black/40 bg-black/5 px-3 py-1 shrink-0 w-fit">Info</span>
+          <p class="font-jp text-sm md:text-base font-light group-hover:text-green-deep transition-colors duration-300">渋谷店リニューアルオープンのご案内</p>
+        </a>
+        <a href="#" class="reveal reveal-delay-2 group flex flex-col md:flex-row md:items-center gap-2 md:gap-8 py-6 border-t border-b border-black/10 hover:pl-2 transition-all duration-300">
+          <time class="font-en text-xs text-black/30 tracking-wide2 shrink-0">2026.02.28</time>
+          <span class="font-en text-[9px] tracking-editorial uppercase text-black/40 bg-black/5 px-3 py-1 shrink-0 w-fit">Media</span>
+          <p class="font-jp text-sm md:text-base font-light group-hover:text-green-deep transition-colors duration-300">雑誌「WELLNESS LIFE」にKINESISが掲載されました</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CTA ==================== -->
+  <section id="cta" class="relative py-28 md:py-40 bg-black overflow-hidden">
+    <!-- Subtle gradient accent -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-green-deep/10 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-t from-green-deep/5 to-transparent"></div>
+
+    <div class="relative z-10 max-w-[800px] mx-auto px-6 md:px-10 text-center">
+      <p class="reveal text-[10px] md:text-xs text-green-mid tracking-editorial uppercase font-en mb-6">Get Started</p>
+      <h2 class="reveal reveal-delay-1 font-jp text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-snug tracking-wide">
+        まずは体験から。
+      </h2>
+      <p class="reveal reveal-delay-2 font-jp text-sm md:text-base font-light text-white/40 mt-6 md:mt-8 leading-relaxed">
+        初回体験は無料。あなたに合ったプログラムを、<br class="hidden md:block">
+        プロフェッショナルがご提案します。
+      </p>
+      <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center mt-10 md:mt-14">
+        <a href="#" class="btn-shimmer bg-green-mid text-black text-xs tracking-editorial uppercase px-10 py-4 hover:bg-green-deep hover:text-white transition-all duration-500 font-medium">
+          無料体験を予約する
+        </a>
+        <a href="#" class="border border-white/20 text-white/60 text-xs tracking-editorial uppercase px-10 py-4 hover:border-white/60 hover:text-white transition-all duration-500">
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-black-light py-16 md:py-20">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-16">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <h3 class="font-en font-bold text-white text-lg tracking-editorial mb-4">KINESIS</h3>
+          <p class="font-jp text-xs text-white/30 leading-relaxed">
+            動く、つながる、変わる。<br>
+            Sports &amp; Wellness Lifestyle.
+          </p>
+        </div>
+        <!-- Links -->
+        <div>
+          <p class="font-en text-[9px] tracking-editorial uppercase text-white/20 mb-5">Menu</p>
+          <div class="space-y-3">
+            <a href="#concept" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">Concept</a>
+            <a href="#services" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">Services</a>
+            <a href="#membership" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">Membership</a>
+            <a href="#news" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">News</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-en text-[9px] tracking-editorial uppercase text-white/20 mb-5">Locations</p>
+          <div class="space-y-3">
+            <p class="font-jp text-xs text-white/40">表参道</p>
+            <p class="font-jp text-xs text-white/40">渋谷</p>
+            <p class="font-jp text-xs text-white/40">六本木</p>
+            <p class="font-jp text-xs text-white/40">横浜</p>
+            <p class="font-jp text-xs text-white/40">大阪</p>
+          </div>
+        </div>
+        <div>
+          <p class="font-en text-[9px] tracking-editorial uppercase text-white/20 mb-5">Follow</p>
+          <div class="space-y-3">
+            <a href="#" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">Instagram</a>
+            <a href="#" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">X (Twitter)</a>
+            <a href="#" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">YouTube</a>
+            <a href="#" class="block font-en text-xs text-white/40 hover:text-green-mid transition-colors duration-300 tracking-wide">LINE</a>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom -->
+      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-en text-[10px] text-white/20 tracking-wider">&copy; 2026 KINESIS Inc. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="font-en text-[10px] text-white/20 hover:text-white/40 transition-colors duration-300 tracking-wider">Privacy Policy</a>
+          <a href="#" class="font-en text-[10px] text-white/20 hover:text-white/40 transition-colors duration-300 tracking-wider">Terms of Use</a>
+          <a href="#" class="font-en text-[10px] text-white/20 hover:text-white/40 transition-colors duration-300 tracking-wider">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Scroll reveal observer
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Navbar scroll behavior
+    const navbar = document.getElementById('navbar');
+    const heroSection = document.getElementById('hero');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > heroSection.offsetHeight * 0.6) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobLinks = document.querySelectorAll('.mob-link');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Stat counter animation
+    const statNums = document.querySelectorAll('.stat-num');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target);
+          const duration = 2000;
+          const start = performance.now();
+          const animate = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            el.textContent = Math.floor(eased * target).toLocaleString();
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => counterObserver.observe(el));
+  </script>
+
+</body>
+</html>
