@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>大阪八尾市の外壁塗装、屋根塗装、防水工事【ユウセイ塗装】</title>
+  <title>大阪八尾市の外壁塗装、屋根塗装、防水工事、住まいの塗り替えリフォーム専門店【ユウセイ塗装】</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script>
@@ -11,14 +11,16 @@
       theme: {
         extend: {
           colors: {
-            cream: '#FEF9F0',
-            green: '#2D6B45',
-            'green-light': '#E8F5E9',
-            'green-pale': '#F0F7F2',
-            orange: '#E67635',
-            'orange-dark': '#D0652B',
-            fg: '#333',
-            muted: '#71717a',
+            ivory: '#FFFDF7',
+            beige: '#F5EFE6',
+            'beige-dark': '#E8DFD0',
+            green: '#3D7B5F',
+            'green-dark': '#2D5E47',
+            'green-light': '#EAF4EE',
+            orange: '#E5813B',
+            'orange-light': '#FFF4EB',
+            fg: '#3C3C3C',
+            sub: '#777',
           },
           fontFamily: { sans: ['Noto Sans JP', 'sans-serif'] },
         },
@@ -27,148 +29,265 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    .rv { opacity: 0; transform: translateY(12px); transition: opacity .5s, transform .5s; }
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .rv { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
     .rv.on { opacity: 1; transform: translateY(0); }
     details summary { list-style: none; }
     details summary::-webkit-details-marker { display: none; }
-    .sticky-cta { transform: translateY(100%); transition: transform .3s; }
-    .sticky-cta.show { transform: translateY(0); }
+    .sticky-bar { transform: translateY(100%); transition: transform .3s ease; }
+    .sticky-bar.show { transform: translateY(0); }
   </style>
 </head>
-<body class="font-sans text-fg bg-cream text-[15px] leading-[1.9]">
+<body class="text-fg bg-ivory text-[15px] leading-[1.85] overflow-x-hidden">
 
   <!-- ===== ヘッダー ===== -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <span class="font-bold text-green text-lg">ユウセイ塗装</span>
-      <nav class="hidden lg:flex gap-6 text-sm text-muted">
-        <a href="#" class="hover:text-fg">ホーム</a>
-        <a href="#guide" class="hover:text-fg">初めての方へ</a>
-        <a href="#service" class="hover:text-fg">サービス内容</a>
-        <a href="#price" class="hover:text-fg">料金</a>
-        <a href="#works" class="hover:text-fg">施工事例</a>
-        <a href="#company" class="hover:text-fg">会社案内</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="tel:072-948-9455" class="hidden sm:block text-green font-bold text-sm">072-948-9455</a>
-        <a href="#contact" class="bg-orange hover:bg-orange-dark text-white font-bold text-xs px-4 py-2 rounded-lg transition-colors">お問い合わせ</a>
+  <header class="sticky top-0 z-50 bg-white border-b border-beige">
+    <div class="max-w-6xl mx-auto px-4">
+      <!-- 上段：電話・LINE・問い合わせ -->
+      <div class="hidden md:flex justify-end items-center gap-4 py-2 border-b border-beige text-xs">
+        <a href="tel:072-948-9455" class="text-green font-bold">📞 072-948-9455</a>
+        <span class="text-sub">受付 9:00〜17:00</span>
+        <a href="#" class="bg-[#06C755] text-white px-3 py-1 rounded-full font-bold">LINE相談</a>
+        <a href="#contact" class="bg-orange text-white px-3 py-1 rounded-full font-bold">お問い合わせ</a>
+      </div>
+      <!-- 下段：ロゴ・ナビ -->
+      <div class="h-14 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-green font-black text-lg">ユウセイ塗装</span>
+          <span class="text-sub text-[10px] hidden sm:block">大阪八尾市の外壁塗装専門店</span>
+        </div>
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+          <a href="#" class="text-fg hover:text-green transition-colors">ホーム</a>
+          <a href="#guide" class="text-fg hover:text-green transition-colors">初めての方へ</a>
+          <a href="#service" class="text-fg hover:text-green transition-colors">サービス内容</a>
+          <a href="#price" class="text-fg hover:text-green transition-colors">料金</a>
+          <a href="#works" class="text-fg hover:text-green transition-colors">施工事例</a>
+          <a href="#company" class="text-fg hover:text-green transition-colors">会社案内</a>
+        </nav>
+        <button id="menuBtn" class="lg:hidden text-fg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-beige">
+      <div class="px-4 py-3 flex flex-col gap-2 text-sm">
+        <a href="#" class="py-2">ホーム</a><a href="#guide" class="py-2">初めての方へ</a><a href="#service" class="py-2">サービス内容</a><a href="#price" class="py-2">料金</a><a href="#works" class="py-2">施工事例</a><a href="#company" class="py-2">会社案内</a>
+        <div class="flex gap-2 pt-2"><a href="tel:072-948-9455" class="flex-1 bg-green text-white text-center py-2 rounded-lg font-bold text-xs">電話する</a><a href="#contact" class="flex-1 bg-orange text-white text-center py-2 rounded-lg font-bold text-xs">お問い合わせ</a></div>
       </div>
     </div>
   </header>
 
   <!-- ===== メインビジュアル ===== -->
-  <section class="bg-gradient-to-br from-green-pale via-cream to-green-light py-16 md:py-24">
-    <div class="max-w-5xl mx-auto px-4 text-center">
-      <p class="text-green text-sm font-bold mb-4 rv">大阪八尾市で創業24年 ｜ 施工実績3,253棟</p>
-      <h1 class="text-3xl md:text-5xl font-black leading-tight mb-6 rv">
-        <span class="text-green">「一級」</span>の診断と、<span class="text-green">「一級」</span>の施工
-      </h1>
-      <p class="text-fg/70 text-base md:text-lg mb-10 rv">地域密着・自社施工だからできる、妥協のない仕上がり</p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center rv">
-        <a href="tel:072-948-9455" class="bg-green hover:bg-green/90 text-white font-bold py-4 px-8 rounded-lg text-sm transition-colors">📞 072-948-9455</a>
-        <a href="#contact" class="bg-orange hover:bg-orange-dark text-white font-bold py-4 px-8 rounded-lg text-sm transition-colors">無料見積り・ご相談はこちら</a>
+  <section class="relative bg-gradient-to-b from-green-light via-ivory to-beige overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="rv">
+          <p class="inline-block bg-green text-white text-xs font-bold px-4 py-1.5 rounded-full mb-5">大阪八尾市で創業24年 ─ 施工実績3,253棟</p>
+          <h1 class="text-2xl md:text-4xl font-black leading-snug mb-4">
+            <span class="text-green text-3xl md:text-5xl">「一級」</span>の診断と、<br>
+            <span class="text-green text-3xl md:text-5xl">「一級」</span>の施工
+          </h1>
+          <p class="text-sub text-sm md:text-base mb-8">地域密着・自社施工だからできる、<br>妥協のない仕上がり</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="tel:072-948-9455" class="bg-green hover:bg-green-dark text-white font-bold py-4 px-6 rounded-xl text-sm text-center transition-colors">
+              📞 072-948-9455<span class="block text-[10px] font-normal mt-0.5">受付 9:00〜17:00</span>
+            </a>
+            <a href="#contact" class="bg-orange hover:bg-orange/90 text-white font-bold py-4 px-6 rounded-xl text-sm text-center transition-colors">
+              無料見積り・ご相談はこちら
+            </a>
+          </div>
+        </div>
+        <!-- 右側：施工イメージ風イラスト（写真なしのため図形で表現） -->
+        <div class="rv hidden md:block">
+          <div class="bg-white rounded-3xl p-8 shadow-sm">
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-green-light rounded-2xl p-6 text-center">
+                <p class="text-green text-3xl font-black">3,253</p>
+                <p class="text-xs text-sub mt-1">棟の施工実績</p>
+              </div>
+              <div class="bg-orange-light rounded-2xl p-6 text-center">
+                <p class="text-orange text-3xl font-black">24</p>
+                <p class="text-xs text-sub mt-1">年の信頼</p>
+              </div>
+              <div class="bg-beige rounded-2xl p-6 text-center">
+                <p class="text-green text-3xl font-black">3割</p>
+                <p class="text-xs text-sub mt-1">以上安い</p>
+              </div>
+              <div class="bg-green-light rounded-2xl p-6 text-center">
+                <p class="text-green text-3xl font-black">15</p>
+                <p class="text-xs text-sub mt-1">年保証</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="text-muted text-xs mt-4 rv">受付 9:00〜17:00（日曜・年末年始定休）</p>
     </div>
   </section>
 
   <!-- ===== バナーエリア ===== -->
-  <section class="py-8 bg-white">
-    <div class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-sm">
-      <div class="bg-green-light rounded-xl p-4 rv">
-        <p class="font-bold text-green">診断のプロ在籍店</p>
-        <p class="text-xs text-muted mt-1">雨漏り診断士・外壁劣化診断士</p>
-      </div>
-      <div class="bg-green-light rounded-xl p-4 rv">
-        <p class="font-bold text-green">認定施工店</p>
-        <p class="text-xs text-muted mt-1">アステックペイント認定</p>
-      </div>
-      <div class="bg-green-light rounded-xl p-4 rv">
-        <p class="font-bold text-green">技術力で選ばれています</p>
-        <p class="text-xs text-muted mt-1">一級塗装技能士在籍</p>
-      </div>
-      <div class="bg-cream rounded-xl p-4 border border-orange/20 rv">
-        <p class="font-bold text-orange">無料カラーシミュレーション</p>
-        <p class="text-xs text-muted mt-1">5色までご提示</p>
+  <section class="bg-white py-6 border-y border-beige">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex overflow-x-auto gap-3 pb-2 scrollbar-hide">
+        <div class="bg-green-light rounded-2xl p-4 min-w-[200px] text-center shrink-0 rv">
+          <p class="font-bold text-green text-sm">🔍 診断のプロ在籍</p>
+          <p class="text-[11px] text-sub">雨漏り診断士・外壁劣化診断士</p>
+        </div>
+        <div class="bg-green-light rounded-2xl p-4 min-w-[200px] text-center shrink-0 rv">
+          <p class="font-bold text-green text-sm">🏆 認定施工店</p>
+          <p class="text-[11px] text-sub">アステックペイント認定</p>
+        </div>
+        <div class="bg-green-light rounded-2xl p-4 min-w-[200px] text-center shrink-0 rv">
+          <p class="font-bold text-green text-sm">👷 技術力で選ばれる</p>
+          <p class="text-[11px] text-sub">一級塗装技能士在籍</p>
+        </div>
+        <div class="bg-orange-light rounded-2xl p-4 min-w-[200px] text-center shrink-0 rv">
+          <p class="font-bold text-orange text-sm">🎨 無料カラーシミュレーション</p>
+          <p class="text-[11px] text-sub">5色までご提示</p>
+        </div>
+        <div class="bg-orange-light rounded-2xl p-4 min-w-[200px] text-center shrink-0 rv">
+          <p class="font-bold text-orange text-sm">🔥 火災保険で費用軽減</p>
+          <p class="text-[11px] text-sub">申請サポート対応</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== サービス内容 ===== -->
-  <section id="service" class="py-16 bg-cream">
+  <section id="service" class="py-16 bg-ivory">
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold text-center mb-3 rv">サービス内容</h2>
-      <p class="text-muted text-sm text-center mb-10 rv">外壁・屋根のことなら、どんなことでもご相談ください。</p>
+      <h2 class="text-xl md:text-2xl font-black text-center mb-3 rv">サービス内容</h2>
+      <p class="text-sub text-sm text-center mb-10 rv">外壁・屋根のことなら、何でもご相談ください</p>
 
-      <p class="text-xs font-bold text-green mb-4 rv">メインサービス</p>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-        <div class="bg-white rounded-xl p-5 text-center rv"><p class="font-bold text-sm">外壁塗装</p></div>
-        <div class="bg-white rounded-xl p-5 text-center rv"><p class="font-bold text-sm">屋根塗装</p></div>
-        <div class="bg-white rounded-xl p-5 text-center rv"><p class="font-bold text-sm">屋上・ベランダ防水</p></div>
-        <div class="bg-white rounded-xl p-5 text-center rv"><p class="font-bold text-sm">雨どい工事</p></div>
-        <div class="bg-white rounded-xl p-5 text-center rv"><p class="font-bold text-sm">雨漏りスピード補修</p></div>
-        <div class="bg-white rounded-xl p-5 text-center rv"><p class="font-bold text-sm">サイディング張り替え</p></div>
-        <div class="bg-white rounded-xl p-5 text-center rv"><p class="font-bold text-sm">ビル・マンション防水</p></div>
+      <div class="mb-10 rv">
+        <p class="text-green font-bold text-sm mb-4 flex items-center gap-2"><span class="w-5 h-0.5 bg-green inline-block"></span>メインサービス</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <a href="#" class="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-beige group">
+            <div class="w-12 h-12 mx-auto bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-3">🏠</div>
+            <p class="font-bold text-sm group-hover:text-green transition-colors">外壁塗装</p>
+          </a>
+          <a href="#" class="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-beige group">
+            <div class="w-12 h-12 mx-auto bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-3">🏗</div>
+            <p class="font-bold text-sm group-hover:text-green transition-colors">屋根塗装</p>
+          </a>
+          <a href="#" class="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-beige group">
+            <div class="w-12 h-12 mx-auto bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-3">💧</div>
+            <p class="font-bold text-sm group-hover:text-green transition-colors">防水工事</p>
+          </a>
+          <a href="#" class="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-beige group">
+            <div class="w-12 h-12 mx-auto bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-3">🔧</div>
+            <p class="font-bold text-sm group-hover:text-green transition-colors">雨どい工事</p>
+          </a>
+          <a href="#" class="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-beige group">
+            <div class="w-12 h-12 mx-auto bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-3">⚡</div>
+            <p class="font-bold text-sm group-hover:text-green transition-colors">雨漏り補修</p>
+          </a>
+          <a href="#" class="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-beige group">
+            <div class="w-12 h-12 mx-auto bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-3">🧱</div>
+            <p class="font-bold text-sm group-hover:text-green transition-colors">サイディング</p>
+          </a>
+          <a href="#" class="bg-white rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-beige group col-span-2 md:col-span-1">
+            <div class="w-12 h-12 mx-auto bg-green-light rounded-xl flex items-center justify-center text-green text-xl mb-3">🏢</div>
+            <p class="font-bold text-sm group-hover:text-green transition-colors">ビル・マンション</p>
+          </a>
+        </div>
       </div>
 
-      <p class="text-xs font-bold text-orange mb-4 rv">安心・納得のサポート</p>
-      <div class="grid sm:grid-cols-3 gap-3">
-        <div class="bg-white rounded-xl p-5 text-center border-2 border-orange/20 rv"><p class="font-bold text-sm text-orange">屋根・外壁 0円診断</p></div>
-        <div class="bg-white rounded-xl p-5 text-center border-2 border-orange/20 rv"><p class="font-bold text-sm text-orange">カラーシミュレーション</p></div>
-        <div class="bg-white rounded-xl p-5 text-center border-2 border-orange/20 rv"><p class="font-bold text-sm text-orange">火災保険を使った修繕</p></div>
+      <div class="rv">
+        <p class="text-orange font-bold text-sm mb-4 flex items-center gap-2"><span class="w-5 h-0.5 bg-orange inline-block"></span>安心・納得のサポート</p>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <a href="#" class="bg-orange-light rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-orange/10 group">
+            <p class="font-bold text-sm text-orange group-hover:underline">屋根・外壁 0円診断</p>
+            <p class="text-[11px] text-sub mt-1">一級建築施工管理技士が無料で診断</p>
+          </a>
+          <a href="#" class="bg-orange-light rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-orange/10 group">
+            <p class="font-bold text-sm text-orange group-hover:underline">カラーシミュレーション</p>
+            <p class="text-[11px] text-sub mt-1">無料で5色までご提示</p>
+          </a>
+          <a href="#" class="bg-orange-light rounded-2xl p-5 text-center hover:shadow-md transition-shadow border border-orange/10 group">
+            <p class="font-bold text-sm text-orange group-hover:underline">火災保険を使った修繕</p>
+            <p class="text-[11px] text-sub mt-1">申請手続きもサポート</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 初めての方向けガイド ===== -->
+  <!-- ===== 初めての方へ ===== -->
   <section id="guide" class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold text-center mb-10 rv">初めての方へ</h2>
+      <h2 class="text-xl md:text-2xl font-black text-center mb-10 rv">初めての方へ</h2>
       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-cream rounded-xl p-6 text-center rv">
-          <p class="font-bold mb-2">塗装店選びのコツ</p>
-          <p class="text-xs text-muted">失敗しない業者選びをマンガでご紹介</p>
-        </div>
-        <div class="bg-cream rounded-xl p-6 text-center rv">
-          <p class="font-bold mb-2">安さの秘密</p>
-          <p class="text-xs text-muted">ハウスメーカーより3割以上安い理由</p>
-        </div>
-        <div class="bg-cream rounded-xl p-6 text-center rv">
-          <p class="font-bold mb-2">こんな業者には要注意</p>
-          <p class="text-xs text-muted">気をつけたい営業手法をご紹介</p>
-        </div>
-        <div class="bg-cream rounded-xl p-6 text-center rv">
-          <p class="font-bold mb-2">火災保険で費用軽減</p>
-          <p class="text-xs text-muted">工事代金を抑える方法</p>
-        </div>
+        <a href="#" class="group bg-beige rounded-2xl p-6 hover:shadow-md transition-all rv">
+          <div class="text-3xl mb-3">📖</div>
+          <p class="font-bold text-sm group-hover:text-green mb-1">塗装店選びのコツ</p>
+          <p class="text-[11px] text-sub">失敗しない業者選びをマンガでご紹介します</p>
+        </a>
+        <a href="#" class="group bg-beige rounded-2xl p-6 hover:shadow-md transition-all rv">
+          <div class="text-3xl mb-3">💰</div>
+          <p class="font-bold text-sm group-hover:text-green mb-1">安さの秘密</p>
+          <p class="text-[11px] text-sub">ハウスメーカーより3割以上安い理由</p>
+        </a>
+        <a href="#" class="group bg-beige rounded-2xl p-6 hover:shadow-md transition-all rv">
+          <div class="text-3xl mb-3">⚠️</div>
+          <p class="font-bold text-sm group-hover:text-green mb-1">こんな業者には要注意</p>
+          <p class="text-[11px] text-sub">気をつけたい悪質な営業手法</p>
+        </a>
+        <a href="#" class="group bg-beige rounded-2xl p-6 hover:shadow-md transition-all rv">
+          <div class="text-3xl mb-3">🔥</div>
+          <p class="font-bold text-sm group-hover:text-green mb-1">火災保険で費用軽減</p>
+          <p class="text-[11px] text-sub">工事代金を抑える方法をご案内</p>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ===== 当社の強み ===== -->
-  <section class="py-16 bg-green-pale">
+  <section class="py-16 bg-green-light">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold text-center mb-10 rv">当社の強み・こだわり</h2>
-      <div class="space-y-6">
-        <div class="bg-white rounded-xl p-6 flex gap-4 items-start rv">
-          <span class="text-orange font-bold text-lg shrink-0">1</span>
-          <div><h3 class="font-bold mb-1">「一級」の資格に裏打ちされた絶対的な技術力</h3><p class="text-muted text-sm">一級塗装技能士・一級建築施工管理技士が必ず現場を監督。塗料の性能を100%引き出します。</p></div>
+      <h2 class="text-xl md:text-2xl font-black text-center mb-10 rv">当社の強み・こだわり</h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-2xl p-6 md:p-8 rv">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-green text-white rounded-xl flex items-center justify-center font-black text-sm shrink-0">1</div>
+            <div>
+              <h3 class="font-bold text-base md:text-lg mb-2">「一級」の資格に裏打ちされた絶対的な技術力</h3>
+              <p class="text-sub text-sm">一級塗装技能士・一級建築施工管理技士が必ず現場を監督。塗料の性能を100%引き出す施工基準を徹底しています。</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-6 flex gap-4 items-start rv">
-          <span class="text-orange font-bold text-lg shrink-0">2</span>
-          <div><h3 class="font-bold mb-1">「見えない工程」にこそ命をかける下地処理</h3><p class="text-muted text-sm">塗装の仕上がりを左右する下地処理に強いこだわり。手を抜かないから、持ちが違います。</p></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 rv">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-green text-white rounded-xl flex items-center justify-center font-black text-sm shrink-0">2</div>
+            <div>
+              <h3 class="font-bold text-base md:text-lg mb-2">「見えない工程」にこそ命をかける下地処理</h3>
+              <p class="text-sub text-sm">仕上がりの美しさと耐久性を左右する下地処理。手を抜かないから、10年後の持ちが違います。</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-6 flex gap-4 items-start rv">
-          <span class="text-orange font-bold text-lg shrink-0">3</span>
-          <div><h3 class="font-bold mb-1">安心の「トリプル保証」とアフターフォロー</h3><p class="text-muted text-sm">JIOリフォーム瑕疵保険・メーカー保証・自社工事保証の最長15年トリプル保証。</p></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 rv">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-green text-white rounded-xl flex items-center justify-center font-black text-sm shrink-0">3</div>
+            <div>
+              <h3 class="font-bold text-base md:text-lg mb-2">安心の「トリプル保証」とアフターフォロー</h3>
+              <p class="text-sub text-sm">JIOリフォーム瑕疵保険・メーカー保証・自社工事保証。最長15年の三重保証で施工後も安心です。</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-6 flex gap-4 items-start rv">
-          <span class="text-orange font-bold text-lg shrink-0">4</span>
-          <div><h3 class="font-bold mb-1">ハウスメーカーより「3割安い」適正価格</h3><p class="text-muted text-sm">自社施工だから中間マージンゼロ。同じ品質で3割以上安く提供します。</p></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 rv">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-orange text-white rounded-xl flex items-center justify-center font-black text-sm shrink-0">4</div>
+            <div>
+              <h3 class="font-bold text-base md:text-lg mb-2">ハウスメーカーより「3割安い」適正価格</h3>
+              <p class="text-sub text-sm">自社施工だから中間マージンゼロ。同じ品質で、ハウスメーカーの見積りより3割以上お安く提供します。</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-6 flex gap-4 items-start rv">
-          <span class="text-orange font-bold text-lg shrink-0">5</span>
-          <div><h3 class="font-bold mb-1">地元八尾市で「3,253棟」の信頼と実績</h3><p class="text-muted text-sm">創業24年。地域密着で3,253棟の施工実績。強引な営業は一切行いません。</p></div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 rv">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-green text-white rounded-xl flex items-center justify-center font-black text-sm shrink-0">5</div>
+            <div>
+              <h3 class="font-bold text-base md:text-lg mb-2">地元八尾市で「3,253棟」の信頼と実績</h3>
+              <p class="text-sub text-sm">創業24年。地域のお客様と長いお付き合いを大切に、強引な営業は一切行いません。</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -177,117 +296,142 @@
   <!-- ===== おススメ工事メニュー ===== -->
   <section id="price" class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-xl md:text-2xl font-bold text-center mb-10 rv">おススメ工事メニュー</h2>
+      <h2 class="text-xl md:text-2xl font-black text-center mb-10 rv">おススメ工事メニュー</h2>
 
-      <p class="font-bold text-sm mb-4 rv">外壁塗装</p>
-      <div class="grid sm:grid-cols-3 gap-4 mb-8">
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="text-sm text-muted">高耐久シリコン</p>
-          <p class="text-2xl font-black text-green">47.8<span class="text-sm">万円〜</span></p>
-          <p class="text-xs text-muted mt-1">25坪 / 15年保証</p>
-        </div>
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="text-sm text-muted">ラジカル塗料</p>
-          <p class="text-2xl font-black text-green">52.8<span class="text-sm">万円〜</span></p>
-          <p class="text-xs text-muted mt-1">25坪 / 15年保証</p>
-        </div>
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="text-sm text-muted">無機フッ素塗料</p>
-          <p class="text-2xl font-black text-green">59.8<span class="text-sm">万円〜</span></p>
-          <p class="text-xs text-muted mt-1">25坪 / 15年保証</p>
+      <!-- 外壁 -->
+      <div class="mb-8 rv">
+        <p class="font-bold text-sm mb-4 text-green flex items-center gap-2"><span class="w-5 h-0.5 bg-green"></span>外壁塗装</p>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all group">
+            <p class="text-sub text-xs mb-1">高耐久シリコン</p>
+            <p class="text-2xl font-black text-green">47.8<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">25坪 / パーフェクトトップ / 15年保証</p>
+          </a>
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all group">
+            <p class="text-sub text-xs mb-1">ラジカル塗料</p>
+            <p class="text-2xl font-black text-green">52.8<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">25坪 / アレスダイナミック / 15年保証</p>
+          </a>
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all group">
+            <p class="text-sub text-xs mb-1">無機フッ素塗料</p>
+            <p class="text-2xl font-black text-green">59.8<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">25坪 / 超低汚染リファイン / 15年保証</p>
+          </a>
         </div>
       </div>
 
-      <p class="font-bold text-sm mb-4 rv">屋根塗装</p>
-      <div class="grid sm:grid-cols-3 gap-4 mb-8">
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="text-sm text-muted">遮熱シリコン</p>
-          <p class="text-2xl font-black text-green">29.8<span class="text-sm">万円〜</span></p>
-        </div>
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="text-sm text-muted">超低汚染塗料</p>
-          <p class="text-2xl font-black text-green">35.8<span class="text-sm">万円〜</span></p>
-        </div>
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="text-sm text-muted">遮熱塗料ガイナ</p>
-          <p class="text-2xl font-black text-green">39.8<span class="text-sm">万円〜</span></p>
+      <!-- 屋根 -->
+      <div class="mb-8 rv">
+        <p class="font-bold text-sm mb-4 text-green flex items-center gap-2"><span class="w-5 h-0.5 bg-green"></span>屋根塗装</p>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all">
+            <p class="text-sub text-xs mb-1">遮熱シリコン</p>
+            <p class="text-2xl font-black text-green">29.8<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">25坪 / サーモアイSi / 10年保証</p>
+          </a>
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all">
+            <p class="text-sub text-xs mb-1">超低汚染塗料</p>
+            <p class="text-2xl font-black text-green">35.8<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">25坪 / ナノコンポジット / 10年保証</p>
+          </a>
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all">
+            <p class="text-sub text-xs mb-1">遮熱塗料ガイナ</p>
+            <p class="text-2xl font-black text-green">39.8<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">25坪 / GAINA / 10年保証</p>
+          </a>
         </div>
       </div>
 
-      <div class="bg-orange/10 rounded-xl p-6 text-center rv">
-        <p class="text-orange font-bold text-lg">ハウスメーカーより<span class="text-2xl">3割以上</span>安いのが当たり前！</p>
-        <p class="text-sm text-muted mt-2">自社施工だから実現できる適正価格です。</p>
+      <!-- 3割安い訴求 -->
+      <div class="bg-orange-light rounded-2xl p-6 md:p-8 text-center mb-8 rv">
+        <p class="text-orange font-black text-lg md:text-xl mb-2">ハウスメーカーより<span class="text-3xl">3割以上</span>安いのが当たり前！</p>
+        <p class="text-sub text-sm">自社施工・中間マージンなしだから実現できる適正価格です</p>
       </div>
 
-      <p class="font-bold text-sm mt-10 mb-4 rv">セットプラン</p>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="font-bold">バリュープラン</p>
-          <p class="text-xl font-black text-green mt-2">52<span class="text-sm">万円〜</span></p>
-          <p class="text-xs text-muted mt-1">10年保証</p>
-        </div>
-        <div class="bg-cream rounded-xl p-5 text-center border-2 border-green rv">
-          <p class="text-xs text-green font-bold">おすすめ</p>
-          <p class="font-bold">スタンダード</p>
-          <p class="text-xl font-black text-green mt-2">60<span class="text-sm">万円〜</span></p>
-          <p class="text-xs text-muted mt-1">10年保証</p>
-        </div>
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="font-bold">プレミアム</p>
-          <p class="text-xl font-black text-green mt-2">70<span class="text-sm">万円〜</span></p>
-          <p class="text-xs text-muted mt-1">10年保証</p>
-        </div>
-        <div class="bg-cream rounded-xl p-5 text-center rv">
-          <p class="font-bold">オーダーメイド</p>
-          <p class="text-sm text-muted mt-2">プロが診断、最適プランをご提案</p>
+      <!-- セットプラン -->
+      <div class="rv">
+        <p class="font-bold text-sm mb-4 text-green flex items-center gap-2"><span class="w-5 h-0.5 bg-green"></span>セットプラン（外壁＋屋根）</p>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all">
+            <p class="font-bold text-sm mb-2">バリュー</p>
+            <p class="text-xl font-black text-green">52<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">コスト重視の方に / 10年保証</p>
+          </a>
+          <a href="#" class="bg-white rounded-2xl p-5 text-center border-2 border-green hover:shadow-md transition-all relative">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green text-white text-[10px] font-bold px-3 py-0.5 rounded-full">おすすめ</span>
+            <p class="font-bold text-sm mb-2">スタンダード</p>
+            <p class="text-xl font-black text-green">60<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">バランス重視 / 10年保証</p>
+          </a>
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all">
+            <p class="font-bold text-sm mb-2">プレミアム</p>
+            <p class="text-xl font-black text-green">70<span class="text-xs font-medium">万円〜</span></p>
+            <p class="text-[10px] text-sub mt-1">高耐久 / 10年保証</p>
+          </a>
+          <a href="#" class="bg-ivory rounded-2xl p-5 text-center border border-beige hover:border-green hover:shadow-md transition-all">
+            <p class="font-bold text-sm mb-2">オーダーメイド</p>
+            <p class="text-sub text-xs mt-3">プロが診断、<br>最適プランをご提案</p>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== 施工事例 ===== -->
-  <section id="works" class="py-16 bg-cream">
+  <section id="works" class="py-16 bg-ivory">
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-xl font-bold text-center mb-8 rv">施工事例</h2>
+      <h2 class="text-xl font-black text-center mb-8 rv">施工事例</h2>
       <div class="grid sm:grid-cols-3 gap-4">
-        <div class="bg-white rounded-xl overflow-hidden rv"><div class="aspect-[4/3] bg-green-light flex items-center justify-center text-muted text-xs">施工写真</div><div class="p-4"><p class="font-bold text-sm">外壁塗装 八尾市 A様邸</p></div></div>
-        <div class="bg-white rounded-xl overflow-hidden rv"><div class="aspect-[4/3] bg-green-light flex items-center justify-center text-muted text-xs">施工写真</div><div class="p-4"><p class="font-bold text-sm">屋根塗装 東大阪市 B様邸</p></div></div>
-        <div class="bg-white rounded-xl overflow-hidden rv"><div class="aspect-[4/3] bg-green-light flex items-center justify-center text-muted text-xs">施工写真</div><div class="p-4"><p class="font-bold text-sm">防水工事 八尾市 C様邸</p></div></div>
+        <div class="bg-white rounded-2xl overflow-hidden border border-beige rv"><div class="aspect-[4/3] bg-beige flex items-center justify-center text-sub text-xs">📸 施工写真</div><div class="p-4"><p class="font-bold text-sm">外壁塗装 八尾市 A様邸</p><p class="text-[11px] text-sub mt-1">パーフェクトトップ使用 / 15年保証</p></div></div>
+        <div class="bg-white rounded-2xl overflow-hidden border border-beige rv"><div class="aspect-[4/3] bg-beige flex items-center justify-center text-sub text-xs">📸 施工写真</div><div class="p-4"><p class="font-bold text-sm">屋根塗装 東大阪市 B様邸</p><p class="text-[11px] text-sub mt-1">サーモアイSi使用 / 10年保証</p></div></div>
+        <div class="bg-white rounded-2xl overflow-hidden border border-beige rv"><div class="aspect-[4/3] bg-beige flex items-center justify-center text-sub text-xs">📸 施工写真</div><div class="p-4"><p class="font-bold text-sm">防水工事 八尾市 C様邸</p><p class="text-[11px] text-sub mt-1">屋上ウレタン防水 / 10年保証</p></div></div>
       </div>
-      <div class="text-center mt-6 rv"><a href="#" class="text-green text-sm font-bold hover:underline">もっと見る →</a></div>
+      <div class="text-center mt-6 rv"><a href="#" class="text-green text-sm font-bold hover:underline">施工事例をもっと見る →</a></div>
     </div>
   </section>
 
   <!-- ===== お客様の声 ===== -->
   <section class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-xl font-bold text-center mb-8 rv">お客様の声</h2>
+      <h2 class="text-xl font-black text-center mb-8 rv">お客様の声</h2>
       <div class="grid sm:grid-cols-3 gap-4">
-        <div class="bg-cream rounded-xl p-5 rv"><div class="text-orange text-sm mb-2">★★★★★</div><p class="text-sm mb-3">「見積りが明確で安心できました。仕上がりも大満足です。」</p><p class="text-xs text-muted">八尾市 S様 / 外壁塗装</p></div>
-        <div class="bg-cream rounded-xl p-5 rv"><div class="text-orange text-sm mb-2">★★★★★</div><p class="text-sm mb-3">「職人さんが毎日きちんと片付けてくれて好印象でした。」</p><p class="text-xs text-muted">東大阪市 T様 / 外壁+屋根</p></div>
-        <div class="bg-cream rounded-xl p-5 rv"><div class="text-orange text-sm mb-2">★★★★★</div><p class="text-sm mb-3">「ハウスメーカーの見積りより40万円も安くなりました。」</p><p class="text-xs text-muted">八尾市 M様 / 外壁塗装</p></div>
+        <div class="bg-beige rounded-2xl p-6 rv">
+          <div class="text-orange text-sm mb-3">★★★★★</div>
+          <p class="text-sm mb-4">「見積りが明確で安心できました。職人さんの対応も丁寧で、仕上がりも大満足です。近所の方にも紹介しました。」</p>
+          <p class="text-[11px] text-sub">八尾市 S.T様 / 外壁塗装</p>
+        </div>
+        <div class="bg-beige rounded-2xl p-6 rv">
+          <div class="text-orange text-sm mb-3">★★★★★</div>
+          <p class="text-sm mb-4">「ハウスメーカーの見積りより40万円も安くなりました。品質も全く問題なし。もっと早く知りたかったです。」</p>
+          <p class="text-[11px] text-sub">東大阪市 M.K様 / 外壁+屋根セット</p>
+        </div>
+        <div class="bg-beige rounded-2xl p-6 rv">
+          <div class="text-orange text-sm mb-3">★★★★★</div>
+          <p class="text-sm mb-4">「毎日きちんと片付けて帰ってくれて、ご近所への配慮も嬉しかったです。下地処理の説明も丁寧でした。」</p>
+          <p class="text-[11px] text-sub">八尾市 Y.H様 / 外壁塗装+防水</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== 新着情報 / ブログ ===== -->
-  <section class="py-16 bg-cream">
+  <section class="py-16 bg-ivory">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-10">
         <div class="rv">
-          <h2 class="text-lg font-bold mb-6">新着情報</h2>
+          <h2 class="text-lg font-black mb-6 flex items-center gap-2"><span class="w-5 h-0.5 bg-green"></span>新着情報</h2>
           <div class="space-y-3">
-            <div class="flex gap-3 items-start text-sm"><span class="text-muted text-xs shrink-0">2026.03.20</span><a href="#" class="hover:underline">年末年始休業のお知らせ</a></div>
-            <div class="flex gap-3 items-start text-sm"><span class="text-muted text-xs shrink-0">2026.03.15</span><a href="#" class="hover:underline">施工事例を更新しました</a></div>
-            <div class="flex gap-3 items-start text-sm"><span class="text-muted text-xs shrink-0">2026.03.01</span><a href="#" class="hover:underline">春の塗り替えキャンペーン開始</a></div>
+            <a href="#" class="flex gap-4 items-start text-sm hover:text-green transition-colors"><span class="text-sub text-[11px] shrink-0 mt-0.5">2026.03.20</span><span>年末年始休業のお知らせ</span></a>
+            <a href="#" class="flex gap-4 items-start text-sm hover:text-green transition-colors"><span class="text-sub text-[11px] shrink-0 mt-0.5">2026.03.15</span><span>施工事例を更新しました</span></a>
+            <a href="#" class="flex gap-4 items-start text-sm hover:text-green transition-colors"><span class="text-sub text-[11px] shrink-0 mt-0.5">2026.03.01</span><span>春の塗り替えキャンペーン開始</span></a>
           </div>
         </div>
         <div class="rv">
-          <h2 class="text-lg font-bold mb-6">ブログ</h2>
+          <h2 class="text-lg font-black mb-6 flex items-center gap-2"><span class="w-5 h-0.5 bg-orange"></span>ブログ</h2>
           <div class="space-y-3">
-            <div class="flex gap-3 items-start text-sm"><span class="text-muted text-xs shrink-0">2026.03.18</span><a href="#" class="hover:underline">外壁塗装の適切な時期とは？</a></div>
-            <div class="flex gap-3 items-start text-sm"><span class="text-muted text-xs shrink-0">2026.03.10</span><a href="#" class="hover:underline">屋根塗装で失敗しないための3つのポイント</a></div>
-            <div class="flex gap-3 items-start text-sm"><span class="text-muted text-xs shrink-0">2026.03.05</span><a href="#" class="hover:underline">【現場レポ】八尾市A様邸の外壁塗装</a></div>
+            <a href="#" class="flex gap-4 items-start text-sm hover:text-orange transition-colors"><span class="text-sub text-[11px] shrink-0 mt-0.5">2026.03.18</span><span>外壁塗装の適切な時期とは？プロが解説</span></a>
+            <a href="#" class="flex gap-4 items-start text-sm hover:text-orange transition-colors"><span class="text-sub text-[11px] shrink-0 mt-0.5">2026.03.10</span><span>屋根塗装で失敗しないための3つのポイント</span></a>
+            <a href="#" class="flex gap-4 items-start text-sm hover:text-orange transition-colors"><span class="text-sub text-[11px] shrink-0 mt-0.5">2026.03.05</span><span>【現場レポ】八尾市A様邸の外壁塗装工事</span></a>
           </div>
         </div>
       </div>
@@ -297,40 +441,28 @@
   <!-- ===== よくあるご質問 ===== -->
   <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-xl font-bold text-center mb-8 rv">よくあるご質問</h2>
+      <h2 class="text-xl font-black text-center mb-8 rv">よくあるご質問</h2>
       <div class="space-y-3">
-        <details class="bg-cream rounded-xl group rv">
-          <summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">見積りに費用はかかりますか？<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary>
-          <div class="px-5 pb-5 text-muted text-sm">いいえ、お見積り・現地調査は完全無料です。お気軽にご依頼ください。</div>
-        </details>
-        <details class="bg-cream rounded-xl group rv">
-          <summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">工事中は家にいる必要がありますか？<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary>
-          <div class="px-5 pb-5 text-muted text-sm">外壁・屋根の工事であれば、ご不在でも問題ございません。鍵のお預かりも対応しています。</div>
-        </details>
-        <details class="bg-cream rounded-xl group rv">
-          <summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">塗料の種類がわからないのですが…<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary>
-          <div class="px-5 pb-5 text-muted text-sm">ご安心ください。お家の状態とご予算に合わせて、最適な塗料をプロがご提案します。</div>
-        </details>
-        <details class="bg-cream rounded-xl group rv">
-          <summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">保証はありますか？<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary>
-          <div class="px-5 pb-5 text-muted text-sm">はい。JIO瑕疵保険・メーカー保証・自社保証のトリプル保証（最長15年）をご用意しています。</div>
-        </details>
+        <details class="bg-beige rounded-2xl group rv"><summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">見積りに費用はかかりますか？<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary><div class="px-5 pb-5 text-sub text-sm">いいえ、お見積り・現地調査は完全無料です。お気軽にお申し付けください。</div></details>
+        <details class="bg-beige rounded-2xl group rv"><summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">工事中は家にいる必要がありますか？<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary><div class="px-5 pb-5 text-sub text-sm">外壁・屋根の工事であれば、ご不在でも問題ございません。鍵のお預かりにも対応しています。</div></details>
+        <details class="bg-beige rounded-2xl group rv"><summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">どんな塗料がいいのかわからないのですが…<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary><div class="px-5 pb-5 text-sub text-sm">ご安心ください。お家の状態とご予算に合わせて、最適な塗料をプロがご提案いたします。</div></details>
+        <details class="bg-beige rounded-2xl group rv"><summary class="flex justify-between items-center p-5 cursor-pointer font-bold text-sm">保証はどうなっていますか？<span class="text-green group-open:rotate-45 transition-transform text-lg">+</span></summary><div class="px-5 pb-5 text-sub text-sm">JIO瑕疵保険・メーカー保証・自社保証のトリプル保証（最長15年）をご用意しています。</div></details>
       </div>
     </div>
   </section>
 
   <!-- ===== お問い合わせ ===== -->
-  <section id="contact" class="py-16 bg-green-pale">
+  <section id="contact" class="py-16 bg-green-light">
     <div class="max-w-xl mx-auto px-4 text-center">
-      <h2 class="text-xl font-bold mb-2 rv">お問い合わせ・ご相談</h2>
-      <p class="text-muted text-sm mb-8 rv">無理な営業は絶対にしません。お気軽にご相談ください。</p>
-      <div class="bg-white rounded-xl p-8 rv">
-        <p class="text-muted text-xs mb-2">お電話でのお問い合わせ</p>
-        <a href="tel:072-948-9455" class="block text-green text-3xl font-black mb-1">072-948-9455</a>
-        <p class="text-muted text-xs mb-6">受付 9:00〜17:00（日曜・年末年始定休）</p>
+      <h2 class="text-xl font-black mb-2 rv">お問い合わせ・ご相談</h2>
+      <p class="text-sub text-sm mb-8 rv">強引な営業は一切いたしません。お気軽にご相談ください。</p>
+      <div class="bg-white rounded-2xl p-8 rv">
+        <p class="text-sub text-xs mb-2">お電話でのお問い合わせ</p>
+        <a href="tel:072-948-9455" class="block text-green text-3xl font-black mb-1 hover:underline">072-948-9455</a>
+        <p class="text-sub text-[11px] mb-6">受付 9:00〜17:00（日曜・年末年始定休）</p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#" class="bg-[#06C755] text-white font-bold py-3 px-6 rounded-lg text-sm">LINE相談</a>
-          <a href="#" class="bg-orange hover:bg-orange-dark text-white font-bold py-3 px-6 rounded-lg text-sm transition-colors">メールで問い合わせ</a>
+          <a href="#" class="bg-[#06C755] hover:opacity-90 text-white font-bold py-3 px-6 rounded-xl text-sm transition-opacity">LINE相談</a>
+          <a href="#" class="bg-orange hover:bg-orange/90 text-white font-bold py-3 px-6 rounded-xl text-sm transition-colors">メールで問い合わせ</a>
         </div>
       </div>
     </div>
@@ -341,44 +473,38 @@
     <div class="max-w-5xl mx-auto">
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <div>
-          <p class="font-bold text-white text-sm mb-2">ユウセイ塗装</p>
-          <p class="leading-6">〒581-0037<br>大阪府八尾市太田4丁目27-1<br>TEL: 072-948-9455<br>FAX: 072-948-9456</p>
+          <p class="font-black text-white text-sm mb-3">ユウセイ塗装</p>
+          <p class="leading-7">株式会社ユウセイ塗装<br>〒581-0037<br>大阪府八尾市太田4丁目27-1<br>TEL: 072-948-9455<br>FAX: 072-948-9456<br>建設業許可: 大阪府知事許可<br>（般－2）第133902号</p>
         </div>
         <div>
           <p class="font-bold text-white mb-2">サービス</p>
-          <div class="space-y-1"><p>外壁塗装</p><p>屋根塗装</p><p>防水工事</p><p>雨どい工事</p><p>雨漏り補修</p></div>
+          <div class="space-y-1.5"><a href="#" class="hover:text-white block">外壁塗装</a><a href="#" class="hover:text-white block">屋根塗装</a><a href="#" class="hover:text-white block">防水工事</a><a href="#" class="hover:text-white block">雨どい工事</a><a href="#" class="hover:text-white block">雨漏りスピード補修</a><a href="#" class="hover:text-white block">サイディング張り替え</a></div>
         </div>
         <div>
           <p class="font-bold text-white mb-2">ご案内</p>
-          <div class="space-y-1"><p>初めての方へ</p><p>料金について</p><p>施工事例</p><p>お客様の声</p><p>ブログ</p></div>
+          <div class="space-y-1.5"><a href="#" class="hover:text-white block">初めての方へ</a><a href="#" class="hover:text-white block">料金について</a><a href="#" class="hover:text-white block">施工事例</a><a href="#" class="hover:text-white block">お客様の声</a><a href="#" class="hover:text-white block">ブログ</a><a href="#" class="hover:text-white block">よくあるご質問</a></div>
         </div>
         <div>
           <p class="font-bold text-white mb-2">会社情報</p>
-          <div class="space-y-1"><p>会社概要</p><p>当社の強み</p><p>保証制度</p><p>お問い合わせ</p><p>サイトマップ</p></div>
+          <div class="space-y-1.5"><a href="#" class="hover:text-white block">会社概要</a><a href="#" class="hover:text-white block">当社の強み</a><a href="#" class="hover:text-white block">安心の保証制度</a><a href="#" class="hover:text-white block">お問い合わせ</a><a href="#" class="hover:text-white block">サイトマップ</a><a href="#" class="hover:text-white block">プライバシーポリシー</a></div>
         </div>
       </div>
-      <!-- Googleマップ -->
-      <div class="bg-white/10 rounded-xl aspect-[21/9] flex items-center justify-center mb-8">
-        <p class="text-white/30">Google Map</p>
-      </div>
-      <div class="border-t border-white/10 pt-6 text-center">
-        <p class="text-white/20">&copy; 2026 株式会社ユウセイ塗装 All Rights Reserved.</p>
-      </div>
+      <div class="bg-white/10 rounded-2xl aspect-[21/9] flex items-center justify-center mb-8"><p class="text-white/30">Google Map</p></div>
+      <div class="border-t border-white/10 pt-6 text-center"><p>&copy; 2026 株式会社ユウセイ塗装 All Rights Reserved.</p></div>
     </div>
   </footer>
 
   <!-- ===== 追従ボタン ===== -->
-  <div id="stickyCta" class="sticky-cta fixed bottom-0 left-0 right-0 z-40 bg-orange text-white p-3 text-center md:hidden">
-    <a href="#contact" class="font-bold text-sm">🏠 屋根・外壁 0円診断実施中 → お問い合わせ</a>
+  <div id="stickyCta" class="sticky-bar fixed bottom-0 left-0 right-0 z-40 bg-orange p-3 text-center shadow-lg">
+    <a href="#contact" class="text-white font-bold text-sm">🏠 屋根・外壁 0円診断実施中 → 無料相談はこちら</a>
   </div>
 
   <script>
+    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+    document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden')));
     const o = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }); }, { threshold: .08 });
     document.querySelectorAll('.rv').forEach(el => o.observe(el));
-    // Sticky CTA after scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('stickyCta').classList.toggle('show', window.scrollY > 600);
-    });
+    window.addEventListener('scroll', () => document.getElementById('stickyCta').classList.toggle('show', window.scrollY > 500));
   </script>
 </body>
 </html>
