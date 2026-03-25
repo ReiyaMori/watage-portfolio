@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPTEC（オプテック）｜新築住宅オプション工事のプロフェッショナル</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#1B2838',
+            'navy-light': '#243447',
+            accent: '#2563EB',
+            'accent-dark': '#1D4ED8',
+            'gray-bg': '#F8FAFC',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+            jp: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(27,40,56,0.92) 0%, rgba(27,40,56,0.7) 50%, rgba(37,99,235,0.3) 100%);
+    }
+
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(27,40,56,0.12);
+    }
+
+    .strength-number {
+      background: linear-gradient(135deg, #2563EB 0%, #1B2838 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .flow-connector {
+      position: relative;
+    }
+    .flow-connector::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -2rem;
+      width: 2rem;
+      height: 2px;
+      background: #2563EB;
+    }
+    @media (max-width: 768px) {
+      .flow-connector::after {
+        display: none;
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-glow {
+      box-shadow: 0 0 30px rgba(37,99,235,0.3);
+    }
+    .cta-glow:hover {
+      box-shadow: 0 0 50px rgba(37,99,235,0.5);
+    }
+  </style>
+</head>
+<body class="font-sans text-navy bg-white antialiased">
+
+  <!-- ============================================================
+       HEADER / NAVIGATION
+       ============================================================ -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-9 h-9 bg-accent rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6m-6 3.75h6m-6 3.75h3"/></svg>
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-navy">OPTEC</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-navy/70">
+        <a href="#services" class="hover:text-accent transition-colors">サービス</a>
+        <a href="#strengths" class="hover:text-accent transition-colors">選ばれる理由</a>
+        <a href="#flow" class="hover:text-accent transition-colors">ご利用の流れ</a>
+        <a href="#voice" class="hover:text-accent transition-colors">お客様の声</a>
+        <a href="#company" class="hover:text-accent transition-colors">会社情報</a>
+      </nav>
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        無料見積り
+      </a>
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="md:hidden p-2 text-navy" aria-label="メニュー">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 pb-4">
+      <nav class="flex flex-col px-6 pt-2 gap-3 text-sm font-medium text-navy/70">
+        <a href="#services" class="py-2 hover:text-accent">サービス</a>
+        <a href="#strengths" class="py-2 hover:text-accent">選ばれる理由</a>
+        <a href="#flow" class="py-2 hover:text-accent">ご利用の流れ</a>
+        <a href="#voice" class="py-2 hover:text-accent">お客様の声</a>
+        <a href="#company" class="py-2 hover:text-accent">会社情報</a>
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-lg mt-2">無料見積り</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img src="images/hero.jpg" alt="" class="w-full h-full object-cover" />
+      <div class="hero-overlay absolute inset-0"></div>
+    </div>
+    <!-- Decorative Elements -->
+    <div class="absolute top-1/4 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
+        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+        <span class="text-white/90 text-sm font-medium">オプション工事のプロフェッショナル</span>
+      </div>
+      <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold text-white tracking-tight leading-tight mb-4">
+        新築住宅の、<br class="sm:hidden">その先へ。
+      </h1>
+      <p class="text-lg sm:text-xl text-white/70 font-medium mt-6 mb-4 tracking-widest">
+        OPTEC — オプテック
+      </p>
+      <p class="text-base sm:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-10">
+        太陽光パネル・EV充電設備・外構・内装グレードアップまで。<br class="hidden sm:block">
+        新築住宅のオプション工事を、もっと自由に、もっとお得に。
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#contact" class="group inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-white text-lg font-bold px-10 py-4 rounded-xl transition-all cta-glow">
+          無料見積りはこちら
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+        <a href="#services" class="inline-flex items-center gap-2 text-white/80 hover:text-white text-base font-medium px-6 py-4 rounded-xl border border-white/20 hover:border-white/40 transition-all backdrop-blur-sm">
+          サービスを見る
+        </a>
+      </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <span class="text-white/40 text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-px h-10 bg-gradient-to-b from-white/40 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROBLEMS SECTION
+       ============================================================ -->
+  <section class="py-20 md:py-28 bg-gray-bg relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-accent text-sm font-bold tracking-widest uppercase mb-4">Problems</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-navy leading-tight">
+          こんなお悩みは<br class="sm:hidden">ありませんか？
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Problem 1 -->
+        <div class="fade-up bg-white rounded-2xl p-8 md:p-10 relative group hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="absolute top-0 left-8 w-12 h-1 bg-accent rounded-b-full"></div>
+          <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy mb-3">建売住宅の標準仕様だけでは<br>物足りない</h3>
+          <p class="text-navy/60 text-sm leading-relaxed">
+            せっかくのマイホーム。標準仕様のままでは理想の暮らしに届かないと感じていませんか？
+          </p>
+        </div>
+        <!-- Problem 2 -->
+        <div class="fade-up bg-white rounded-2xl p-8 md:p-10 relative group hover:shadow-xl transition-shadow border border-gray-100" style="transition-delay:0.1s">
+          <div class="absolute top-0 left-8 w-12 h-1 bg-accent rounded-b-full"></div>
+          <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy mb-3">ハウスメーカーの<br>オプション価格が高い</h3>
+          <p class="text-navy/60 text-sm leading-relaxed">
+            ハウスメーカー経由だと中間マージンが上乗せされ、想定以上の費用がかかってしまいます。
+          </p>
+        </div>
+        <!-- Problem 3 -->
+        <div class="fade-up bg-white rounded-2xl p-8 md:p-10 relative group hover:shadow-xl transition-shadow border border-gray-100" style="transition-delay:0.2s">
+          <div class="absolute top-0 left-8 w-12 h-1 bg-accent rounded-b-full"></div>
+          <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-navy mb-3">どこに頼めばいいか<br>わからない</h3>
+          <p class="text-navy/60 text-sm leading-relaxed">
+            専門業者の選び方がわからず、品質や保証面で不安。信頼できるパートナーを探していませんか？
+          </p>
+        </div>
+      </div>
+      <div class="text-center mt-12 fade-up">
+        <div class="inline-flex items-center gap-2 bg-accent/5 border border-accent/10 rounded-full px-6 py-3">
+          <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="text-navy font-semibold text-sm">そのお悩み、<span class="text-accent">OPTEC</span> がすべて解決します</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES SECTION
+       ============================================================ -->
+  <section id="services" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6 fade-up">
+        <div>
+          <span class="inline-block text-accent text-sm font-bold tracking-widest uppercase mb-4">Services</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-navy leading-tight">
+            新築をもっと快適にする<br>6つのサービス
+          </h2>
+        </div>
+        <p class="text-navy/60 text-sm max-w-md leading-relaxed lg:text-right">
+          お客様のご要望に合わせて最適なプランをご提案。すべて自社施工で中間マージンなし。
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Service 1 -->
+        <div class="service-card fade-up bg-gray-bg rounded-2xl p-8 border border-gray-100 group">
+          <div class="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy mb-2">太陽光パネル</h3>
+          <p class="text-navy/60 text-sm leading-relaxed mb-4">
+            電気代の高騰対策に。最新パネルで発電効率を最大化し、売電収入も期待できます。
+          </p>
+          <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            詳しく見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </div>
+        <!-- Service 2 -->
+        <div class="service-card fade-up bg-gray-bg rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.05s">
+          <div class="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy mb-2">EV充電設備</h3>
+          <p class="text-navy/60 text-sm leading-relaxed mb-4">
+            自宅で手軽にEV充電。将来のEV普及を見据えた先行投資として新築時の設置がお得です。
+          </p>
+          <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            詳しく見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </div>
+        <!-- Service 3 -->
+        <div class="service-card fade-up bg-gray-bg rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.1s">
+          <div class="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.893 13.393l-1.135-1.135a2.252 2.252 0 01-.421-.585l-1.08-2.16a.414.414 0 00-.663-.107.827.827 0 01-.812.21l-1.273-.363a.89.89 0 00-.738.145l-.68.51a1.5 1.5 0 01-1.072.252l-1.14-.162a1.96 1.96 0 00-1.109.18l-1.234.617a1.522 1.522 0 01-1.088.078l-1.108-.346a1.25 1.25 0 00-1.328.396l-.257.317a2.083 2.083 0 01-1.621.778H3.75M20.25 3.75v4.5m0-4.5h-4.5m4.5 0l-6 6m3 12c-8.284 0-15-6.716-15-15V21h15z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy mb-2">外構・エクステリア</h3>
+          <p class="text-navy/60 text-sm leading-relaxed mb-4">
+            門扉、フェンス、アプローチ、庭まわり。家の「顔」を美しく仕上げ、資産価値を高めます。
+          </p>
+          <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            詳しく見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </div>
+        <!-- Service 4 -->
+        <div class="service-card fade-up bg-gray-bg rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.15s">
+          <div class="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H21M3.375 14.25h17.25m-17.25 0V6.375c0-.621.504-1.125 1.125-1.125h7.5c.621 0 1.125.504 1.125 1.125v8.25m3 0V8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v5.625"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy mb-2">カーポート</h3>
+          <p class="text-navy/60 text-sm leading-relaxed mb-4">
+            愛車を雨風から守るカーポート。デザイン性と耐久性を兼ね備えた製品をご提案します。
+          </p>
+          <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            詳しく見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </div>
+        <!-- Service 5 -->
+        <div class="service-card fade-up bg-gray-bg rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.2s">
+          <div class="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy mb-2">内装グレードアップ</h3>
+          <p class="text-navy/60 text-sm leading-relaxed mb-4">
+            壁紙、フローリング、照明、収納。毎日過ごす空間だからこそ、こだわりを形にします。
+          </p>
+          <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            詳しく見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </div>
+        <!-- Service 6 -->
+        <div class="service-card fade-up bg-gray-bg rounded-2xl p-8 border border-gray-100 group" style="transition-delay:0.25s">
+          <div class="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-navy mb-2">スマートホーム化</h3>
+          <p class="text-navy/60 text-sm leading-relaxed mb-4">
+            スマートロック、自動カーテン、IoT照明。最新テクノロジーで暮らしをアップグレード。
+          </p>
+          <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+            詳しく見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STRENGTHS SECTION
+       ============================================================ -->
+  <section id="strengths" class="py-20 md:py-28 bg-navy relative overflow-hidden">
+    <!-- Decorative -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-accent text-sm font-bold tracking-widest uppercase mb-4">Why OPTEC</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+          OPTECが選ばれる<br class="sm:hidden">3つの理由
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <!-- Strength 1 -->
+        <div class="fade-up text-center md:text-left">
+          <div class="relative mb-6">
+            <span class="strength-number text-7xl md:text-8xl font-extrabold opacity-90">01</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            ハウスメーカーより<br>
+            <span class="text-accent text-2xl">最大40%OFF</span>
+          </h3>
+          <p class="text-white/50 text-sm leading-relaxed">
+            中間マージンをカットした自社施工だから実現できる価格。同じ品質でも大幅にコストダウンが可能です。
+          </p>
+        </div>
+        <!-- Strength 2 -->
+        <div class="fade-up text-center md:text-left" style="transition-delay:0.1s">
+          <div class="relative mb-6">
+            <span class="strength-number text-7xl md:text-8xl font-extrabold opacity-90">02</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            施工実績<br>
+            <span class="text-accent text-2xl">3,000件以上</span>
+          </h3>
+          <p class="text-white/50 text-sm leading-relaxed">
+            豊富な施工実績とノウハウの蓄積。様々なメーカー・工法に対応し、確かな技術力でお応えします。
+          </p>
+        </div>
+        <!-- Strength 3 -->
+        <div class="fade-up text-center md:text-left" style="transition-delay:0.2s">
+          <div class="relative mb-6">
+            <span class="strength-number text-7xl md:text-8xl font-extrabold opacity-90">03</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            アフター保証<br>
+            <span class="text-accent text-2xl">最長10年</span>
+          </h3>
+          <p class="text-white/50 text-sm leading-relaxed">
+            施工後も安心の長期保証。万が一のトラブルにも迅速に対応し、お客様の暮らしをしっかり守ります。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FLOW SECTION
+       ============================================================ -->
+  <section id="flow" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-accent text-sm font-bold tracking-widest uppercase mb-4">Flow</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-navy leading-tight">ご利用の流れ</h2>
+        <p class="text-navy/60 text-sm mt-4">お問い合わせからアフターサポートまで、安心のワンストップ対応</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-0 items-start">
+        <!-- Step 1 -->
+        <div class="fade-up flex flex-col items-center text-center flow-connector">
+          <div class="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-accent/20">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+          </div>
+          <div class="bg-accent/5 rounded-full px-3 py-1 mb-3"><span class="text-accent text-xs font-bold">STEP 1</span></div>
+          <h4 class="text-sm font-bold text-navy mb-1">お問い合わせ</h4>
+          <p class="text-navy/50 text-xs leading-relaxed px-2">電話・フォームからお気軽にご連絡ください</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="fade-up flex flex-col items-center text-center flow-connector" style="transition-delay:0.05s">
+          <div class="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-accent/20">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          </div>
+          <div class="bg-accent/5 rounded-full px-3 py-1 mb-3"><span class="text-accent text-xs font-bold">STEP 2</span></div>
+          <h4 class="text-sm font-bold text-navy mb-1">現地調査</h4>
+          <p class="text-navy/50 text-xs leading-relaxed px-2">専門スタッフが無料でお伺いし現場を確認</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="fade-up flex flex-col items-center text-center flow-connector" style="transition-delay:0.1s">
+          <div class="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-accent/20">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <div class="bg-accent/5 rounded-full px-3 py-1 mb-3"><span class="text-accent text-xs font-bold">STEP 3</span></div>
+          <h4 class="text-sm font-bold text-navy mb-1">お見積り</h4>
+          <p class="text-navy/50 text-xs leading-relaxed px-2">明瞭な見積書をご提示。追加費用なし</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="fade-up flex flex-col items-center text-center flow-connector" style="transition-delay:0.15s">
+          <div class="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-accent/20">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.384-5.383a.563.563 0 010-.796l.796-.795a.562.562 0 01.796 0l4.192 4.192 8.567-8.567a.562.562 0 01.795 0l.796.796a.562.562 0 010 .795L12.215 15.17a.562.562 0 01-.795 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.384-5.383M21.75 12a9.75 9.75 0 11-19.5 0 9.75 9.75 0 0119.5 0z"/></svg>
+          </div>
+          <div class="bg-accent/5 rounded-full px-3 py-1 mb-3"><span class="text-accent text-xs font-bold">STEP 4</span></div>
+          <h4 class="text-sm font-bold text-navy mb-1">施工</h4>
+          <p class="text-navy/50 text-xs leading-relaxed px-2">熟練の職人が丁寧・迅速に施工</p>
+        </div>
+        <!-- Step 5 -->
+        <div class="fade-up flex flex-col items-center text-center" style="transition-delay:0.2s">
+          <div class="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-accent/20">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          </div>
+          <div class="bg-accent/5 rounded-full px-3 py-1 mb-3"><span class="text-accent text-xs font-bold">STEP 5</span></div>
+          <h4 class="text-sm font-bold text-navy mb-1">アフターサポート</h4>
+          <p class="text-navy/50 text-xs leading-relaxed px-2">最長10年保証で施工後も安心</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VOICE / TESTIMONIALS SECTION
+       ============================================================ -->
+  <section id="voice" class="py-20 md:py-28 bg-gray-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-accent text-sm font-bold tracking-widest uppercase mb-4">Voice</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-navy leading-tight">お客様の声</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Testimonial 1 -->
+        <div class="fade-up bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 relative">
+          <svg class="absolute top-6 right-8 w-12 h-12 text-accent/10" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center">
+              <span class="text-accent font-bold text-lg">T</span>
+            </div>
+            <div>
+              <p class="font-bold text-navy text-sm">T.S 様</p>
+              <p class="text-navy/50 text-xs">埼玉県・新築戸建て</p>
+            </div>
+            <div class="ml-auto flex gap-0.5">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+          </div>
+          <h4 class="font-bold text-navy mb-3">太陽光パネル + カーポート</h4>
+          <p class="text-navy/60 text-sm leading-relaxed">
+            ハウスメーカーの見積りより<span class="font-bold text-navy">35万円も安く</span>設置できました。担当の方が丁寧に違いを説明してくれて、不安なく進められました。施工も半日で完了し、今は売電収入で毎月のローン負担が軽くなっています。
+          </p>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="fade-up bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 relative" style="transition-delay:0.1s">
+          <svg class="absolute top-6 right-8 w-12 h-12 text-accent/10" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center">
+              <span class="text-accent font-bold text-lg">M</span>
+            </div>
+            <div>
+              <p class="font-bold text-navy text-sm">M.K 様</p>
+              <p class="text-navy/50 text-xs">千葉県・建売住宅</p>
+            </div>
+            <div class="ml-auto flex gap-0.5">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+          </div>
+          <h4 class="font-bold text-navy mb-3">外構一式 + EV充電設備</h4>
+          <p class="text-navy/60 text-sm leading-relaxed">
+            建売を購入しましたが外構が最低限で、どこに相談すればいいか悩んでいました。OPTECさんは<span class="font-bold text-navy">要望を丁寧にヒアリング</span>してくれて、予算内で理想以上の仕上がりに。EV充電も将来を見据えて追加でき、大満足です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA SECTION
+       ============================================================ -->
+  <section id="contact" class="py-20 md:py-28 bg-navy relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent rounded-full blur-[120px]"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="fade-up">
+        <span class="inline-block text-accent text-sm font-bold tracking-widest uppercase mb-4">Contact</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6">
+          まずは無料見積りから<br>お気軽にご相談ください
+        </h2>
+        <p class="text-white/50 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-10">
+          お電話でもWebフォームでもOK。<br>専門スタッフが丁寧にご対応いたします。
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="tel:0120-000-000" class="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white text-navy text-lg font-bold px-10 py-4 rounded-xl hover:bg-gray-100 transition-colors">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            <span>
+              <span class="block text-xs text-navy/50 font-medium text-left">通話無料</span>
+              0120-000-000
+            </span>
+          </a>
+          <a href="#" class="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-dark text-white text-lg font-bold px-10 py-4 rounded-xl transition-all cta-glow">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            Webで無料見積り
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </a>
+        </div>
+        <p class="text-white/30 text-xs mt-6">受付時間：9:00〜18:00（土日祝も対応）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMPANY INFO SECTION
+       ============================================================ -->
+  <section id="company" class="py-20 md:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-accent text-sm font-bold tracking-widest uppercase mb-4">Company</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-navy leading-tight">会社情報</h2>
+      </div>
+      <div class="fade-up bg-gray-bg rounded-2xl border border-gray-100 overflow-hidden">
+        <table class="w-full text-sm">
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <th class="text-left font-semibold text-navy bg-white px-6 md:px-10 py-5 w-1/3 md:w-1/4 whitespace-nowrap">会社名</th>
+              <td class="px-6 md:px-10 py-5 text-navy/70">株式会社OPTEC（オプテック）</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <th class="text-left font-semibold text-navy bg-white px-6 md:px-10 py-5 whitespace-nowrap">代表者</th>
+              <td class="px-6 md:px-10 py-5 text-navy/70">代表取締役 山田 太郎</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <th class="text-left font-semibold text-navy bg-white px-6 md:px-10 py-5 whitespace-nowrap">設立</th>
+              <td class="px-6 md:px-10 py-5 text-navy/70">2015年4月</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <th class="text-left font-semibold text-navy bg-white px-6 md:px-10 py-5 whitespace-nowrap">所在地</th>
+              <td class="px-6 md:px-10 py-5 text-navy/70">〒330-0000 埼玉県さいたま市大宮区○○町1-2-3</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <th class="text-left font-semibold text-navy bg-white px-6 md:px-10 py-5 whitespace-nowrap">電話番号</th>
+              <td class="px-6 md:px-10 py-5 text-navy/70">0120-000-000</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <th class="text-left font-semibold text-navy bg-white px-6 md:px-10 py-5 whitespace-nowrap">事業内容</th>
+              <td class="px-6 md:px-10 py-5 text-navy/70">新築住宅オプション工事（太陽光・EV充電・外構・内装・スマートホーム）</td>
+            </tr>
+            <tr>
+              <th class="text-left font-semibold text-navy bg-white px-6 md:px-10 py-5 whitespace-nowrap">資格・許可</th>
+              <td class="px-6 md:px-10 py-5 text-navy/70">建設業許可（般-○○）第○○○○号 / 電気工事業登録</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bg-navy-light border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid md:grid-cols-4 gap-10 md:gap-8 mb-12">
+        <!-- Logo & Description -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-9 h-9 bg-accent rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6m-6 3.75h6m-6 3.75h3"/></svg>
+            </div>
+            <span class="text-xl font-extrabold tracking-tight text-white">OPTEC</span>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed max-w-sm">
+            新築住宅のオプション工事専門。太陽光パネルからスマートホームまで、理想の住まいをワンストップで実現します。
+          </p>
+        </div>
+        <!-- Navigation -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-4">サービス</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-white/40 text-sm hover:text-white/70 transition-colors">太陽光パネル</a></li>
+            <li><a href="#" class="text-white/40 text-sm hover:text-white/70 transition-colors">EV充電設備</a></li>
+            <li><a href="#" class="text-white/40 text-sm hover:text-white/70 transition-colors">外構・エクステリア</a></li>
+            <li><a href="#" class="text-white/40 text-sm hover:text-white/70 transition-colors">カーポート</a></li>
+            <li><a href="#" class="text-white/40 text-sm hover:text-white/70 transition-colors">内装グレードアップ</a></li>
+            <li><a href="#" class="text-white/40 text-sm hover:text-white/70 transition-colors">スマートホーム化</a></li>
+          </ul>
+        </div>
+        <!-- Company -->
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-4">会社情報</h4>
+          <ul class="space-y-2">
+            <li><a href="#company" class="text-white/40 text-sm hover:text-white/70 transition-colors">会社概要</a></li>
+            <li><a href="#voice" class="text-white/40 text-sm hover:text-white/70 transition-colors">お客様の声</a></li>
+            <li><a href="#" class="text-white/40 text-sm hover:text-white/70 transition-colors">プライバシーポリシー</a></li>
+            <li><a href="#contact" class="text-white/40 text-sm hover:text-white/70 transition-colors">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-white/30 text-xs">&copy; 2026 OPTEC Inc. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="w-10 h-10 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors" aria-label="Instagram">
+            <svg class="w-5 h-5 text-white/40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors" aria-label="LINE">
+            <svg class="w-5 h-5 text-white/40" fill="currentColor" viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Scroll animation (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Header background on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-md');
+      } else {
+        header.classList.remove('shadow-md');
+      }
+    });
+  </script>
+
+</body>
+</html>
