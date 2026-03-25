@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HARIMARUはり・きゅう治療院｜愛知県豊橋市</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #2C2C2C;
+  background: #FAFAF8;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ===== COLORS ===== */
+:root {
+  --main: #2B5F51;
+  --main-dark: #1E4A3D;
+  --main-light: #E4EDEA;
+  --accent: #B08A5B;
+  --accent-light: #F2EBE0;
+  --bg: #FAFAF8;
+  --bg-alt: #F0EEEA;
+  --text: #1A1A1A;
+  --text-light: #5A5A5A;
+  --white: #FFFFFF;
+}
+
+/* ===== UTILITIES ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; }
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+.section-lead {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(58, 107, 94, 0.08);
+  transition: box-shadow 0.3s;
+}
+.header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.logo-en {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--main);
+  letter-spacing: 0.04em;
+}
+.logo-jp {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+}
+.nav-list {
+  display: flex;
+  gap: 32px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.nav-list a {
+  position: relative;
+  color: var(--text);
+  transition: color 0.2s;
+}
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--main);
+  transition: width 0.3s;
+}
+.nav-list a:hover { color: var(--main); }
+.nav-list a:hover::after { width: 100%; }
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--main);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 3px;
+  transition: background 0.2s;
+  letter-spacing: 0.03em;
+}
+.header-cta:hover { background: var(--main-dark); }
+
+/* mobile nav */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+  transition: 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 72px);
+  overflow: hidden;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 48px 60px 0;
+  margin-left: max(24px, calc((100vw - 1100px) / 2));
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.hero-title .brand {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--main);
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.hero-desc {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.85;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+.hero-info {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+.hero-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+.hero-info-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: var(--main-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hero-info-icon svg { width: 16px; height: 16px; color: var(--main); }
+.hero-cta-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--main);
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 13px 30px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--main-dark); transform: translateY(-1px); }
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--main);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 13px 30px;
+  border-radius: 4px;
+  border: 1.5px solid var(--main);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-outline:hover { background: var(--main-light); }
+.hero-image {
+  position: relative;
+  background: var(--main-light);
+  overflow: hidden;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-image-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 24px;
+  background: linear-gradient(transparent, rgba(45, 84, 73, 0.85));
+  color: var(--white);
+}
+.hero-image-overlay p {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* ===== FEATURES ===== */
+.features { background: var(--white); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.feature-card {
+  padding: 32px 28px;
+  border-radius: 4px;
+  background: var(--bg);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-left: 3px solid var(--main);
+  transition: border-color 0.3s, transform 0.2s;
+}
+.feature-card:hover {
+  border-color: rgba(0,0,0,0.06);
+  border-left-color: var(--accent);
+  transform: translateY(-2px);
+}
+.feature-num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--main);
+  opacity: 0.3;
+  margin-bottom: 10px;
+}
+.feature-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.feature-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.85;
+}
+
+/* ===== MENU ===== */
+.menu-section { background: var(--bg); }
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.menu-card {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 32px 28px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.menu-card.featured {
+  border-color: var(--main);
+  border-width: 2px;
+  position: relative;
+}
+.menu-card.featured::before {
+  content: 'おすすめ';
+  position: absolute;
+  top: -10px; left: 20px;
+  background: var(--main);
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+.menu-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--main);
+  background: var(--main-light);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.menu-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.menu-card .menu-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  line-height: 1.85;
+}
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 0.88rem;
+  border-bottom: 1px dashed rgba(0,0,0,0.08);
+}
+.price-row:last-child { border-bottom: none; }
+.price-row .label { color: var(--text-light); }
+.price-row .price {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--main-dark);
+}
+
+/* ===== MEDIFIT ===== */
+.medifit { background: var(--white); }
+.medifit-layout {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+.medifit-text h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.medifit-text p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+.course-cards { display: flex; flex-direction: column; gap: 20px; }
+.course-card {
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 28px 24px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.course-card.aggressive {
+  background: var(--main-light);
+  border-color: var(--main);
+}
+.course-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.course-card .course-sub {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+}
+.course-prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.course-price-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.84rem;
+  padding: 6px 0;
+}
+.course-price-item .label { color: var(--text-light); }
+.course-price-item .price {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--main-dark);
+}
+.aggressive-benefit {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(58,107,94,0.15);
+}
+.aggressive-benefit h5 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+/* ===== CONCERNS (お悩み) ===== */
+.concerns { background: var(--bg-alt); }
+.concerns-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+  max-width: 700px;
+}
+.concern-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--white);
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.concern-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: var(--main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.concern-check svg { width: 13px; height: 13px; color: var(--white); }
+.concerns-note {
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ===== INFO (診療情報) ===== */
+.info-section { background: var(--white); }
+.info-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.info-table th, .info-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.info-table th {
+  width: 120px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.schedule-table th, .schedule-table td {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 0.82rem;
+}
+.schedule-table thead th {
+  background: var(--main);
+  color: var(--white);
+  font-weight: 600;
+}
+.schedule-table tbody td {
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.schedule-open { color: var(--main); font-weight: 600; }
+.schedule-closed { color: #ccc; }
+
+.map-placeholder {
+  background: var(--bg);
+  border-radius: 4px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: var(--main);
+  color: var(--white);
+  text-align: center;
+  padding: 64px 24px;
+}
+.cta-banner h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.cta-banner p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--main);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 14px 36px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  letter-spacing: 0.03em;
+}
+.btn-white:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #2A2A2A;
+  color: rgba(255,255,255,0.7);
+  padding: 48px 24px 32px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-brand .logo-en { color: var(--white); font-size: 1.2rem; }
+.footer-brand .logo-jp { color: rgba(255,255,255,0.5); }
+.footer-brand p {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+.footer h4 {
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.footer ul li {
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+}
+.footer ul li a:hover { color: var(--white); }
+.footer-copy {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 0.75rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== MOBILE NAV OVERLAY ===== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(250,248,245,0.97);
+  backdrop-filter: blur(16px);
+  z-index: 200;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+.mobile-nav.active { display: flex; }
+.mobile-nav a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.mobile-nav-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-list, .header-cta { display: none; }
+  .hamburger { display: flex; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-content {
+    padding: 48px 24px 40px;
+    margin-left: 0;
+    order: 2;
+  }
+  .hero-image {
+    height: 50vw;
+    min-height: 240px;
+    max-height: 360px;
+    order: 1;
+  }
+  .hero-title { font-size: 1.6rem; }
+  .hero-title .brand { font-size: 1.8rem; }
+  .hero-info { flex-direction: column; gap: 12px; }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .menu-grid { grid-template-columns: 1fr; }
+  .medifit-layout { grid-template-columns: 1fr; }
+  .concerns-list { grid-template-columns: 1fr; }
+  .info-layout { grid-template-columns: 1fr; }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .section { padding: 56px 0; }
+  .section-title { font-size: 1.35rem; }
+}
+
+@media (max-width: 500px) {
+  .hero-cta-group { flex-direction: column; }
+  .btn-primary, .btn-outline { justify-content: center; width: 100%; }
+  .course-prices { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-en">HARIMARU</span>
+      <span class="logo-jp">はり・きゅう治療院</span>
+    </div>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#about">当院について</a></li>
+        <li><a href="#menu">施術メニュー</a></li>
+        <li><a href="#medifit">メディフィット</a></li>
+        <li><a href="#info">診療案内</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="header-cta">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      ご予約・お問合せ
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+  <a href="#about" onclick="closeMobileNav()">当院について</a>
+  <a href="#menu" onclick="closeMobileNav()">施術メニュー</a>
+  <a href="#medifit" onclick="closeMobileNav()">メディフィット</a>
+  <a href="#info" onclick="closeMobileNav()">診療案内</a>
+  <a href="#contact" class="btn-primary" onclick="closeMobileNav()">ご予約・お問合せ</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+      予約優先制
+    </div>
+    <h1 class="hero-title">
+      <span class="brand">HARIMARU</span><br>
+      はり・きゅう治療院
+    </h1>
+    <p class="hero-desc">慢性的な痛みから急な痛み、スポーツ障害、日常のコンディショニングまで。症状や目的に応じて、一人ひとりのお身体に合わせた自費施術をご提供します。</p>
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <div class="hero-info-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <div>
+          <strong>水曜</strong> 15:00〜20:30<br>
+          <strong>日曜</strong> 13:30〜19:00
+        </div>
+      </div>
+      <div class="hero-info-item">
+        <div class="hero-info-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
+        <div>愛知県豊橋市</div>
+      </div>
+    </div>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        予約する
+      </a>
+      <a href="#menu" class="btn-outline">施術メニューを見る</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="images/hero.jpg" alt="HARIMARUはり・きゅう治療院の施術風景">
+    <div class="hero-image-overlay">
+      <p>ご予約の方を優先してご案内しております。<br>お気軽にお電話・LINEにてご連絡ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section features" id="about">
+  <div class="container">
+    <div class="section-label">About</div>
+    <h2 class="section-title">HARIMARUが選ばれる理由</h2>
+    <p class="section-lead">症状や目的に応じて、標準施術・鍼施術・総合施術をご提案。自費施術を中心に、お身体の状態に合わせて対応いたします。</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h3>症状に合わせた<br>オーダーメイド施術</h3>
+        <p>慢性痛、急性痛、スポーツ障害、コンディショニングなど、お一人おひとりの症状・目的に合わせて最適な施術プランをご提案します。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <h3>鍼と手技を組み合わせた<br>総合的なアプローチ</h3>
+        <p>鍼施術だけでなく、手技との組み合わせにより、身体の状態を総合的に整えます。部分的なケアから全身施術まで幅広く対応。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h3>メディフィットで<br>継続的な身体づくり</h3>
+        <p>施術だけでなく、トレーニングを組み合わせた月額コースをご用意。身体の改善を一時的なものにせず、長期的にサポートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONCERNS ===== -->
+<section class="section concerns">
+  <div class="container">
+    <div class="section-label">Symptoms</div>
+    <h2 class="section-title">こんなお悩みはありませんか？</h2>
+    <div class="concerns-list">
+      <div class="concern-item">
+        <div class="concern-check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        肩こり・腰痛が慢性的に続いている
+      </div>
+      <div class="concern-item">
+        <div class="concern-check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        ぎっくり腰や寝違えなどの急な痛み
+      </div>
+      <div class="concern-item">
+        <div class="concern-check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        スポーツでのケガや身体の違和感
+      </div>
+      <div class="concern-item">
+        <div class="concern-check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        試合前後のコンディショニングをしたい
+      </div>
+      <div class="concern-item">
+        <div class="concern-check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        鍼灸に興味があるけど初めてで不安
+      </div>
+      <div class="concern-item">
+        <div class="concern-check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        施術とトレーニングを組み合わせたい
+      </div>
+    </div>
+    <p class="concerns-note">一つでも当てはまる方は、お気軽にご相談ください。<br>症状やご希望に合わせて、最適な施術プランをご案内いたします。</p>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="section-label">Treatment Menu</div>
+    <h2 class="section-title">施術メニュー・料金</h2>
+    <p class="section-lead">すべて自費施術です。症状や目的に応じて、最適なメニューをご提案いたします。</p>
+    <div class="menu-grid">
+
+      <!-- 標準施術 -->
+      <div class="menu-card">
+        <div class="menu-tag">基本メニュー</div>
+        <h3>標準施術</h3>
+        <p class="menu-desc">慢性痛・急性痛・スポーツ障害・スポーツコンディショニングに対応する基本の施術メニューです。</p>
+        <div class="price-row">
+          <span class="label">学生</span>
+          <span class="price">&yen;3,300</span>
+        </div>
+        <div class="price-row">
+          <span class="label">一般</span>
+          <span class="price">&yen;4,400</span>
+        </div>
+      </div>
+
+      <!-- 鍼施術 -->
+      <div class="menu-card featured">
+        <div class="menu-tag">鍼を中心とした施術</div>
+        <h3>鍼施術</h3>
+        <p class="menu-desc">鍼を中心に、範囲や状態に応じて行う施術です。部分施術から全身施術まで、段階的にお選びいただけます。</p>
+        <div class="price-row">
+          <span class="label">上半身 or 下半身（学生）</span>
+          <span class="price">&yen;4,400</span>
+        </div>
+        <div class="price-row">
+          <span class="label">上半身 or 下半身（一般）</span>
+          <span class="price">&yen;5,500</span>
+        </div>
+        <div class="price-row">
+          <span class="label">全身／うつ伏せ or 上向き（学生）</span>
+          <span class="price">&yen;6,600</span>
+        </div>
+        <div class="price-row">
+          <span class="label">全身／うつ伏せ or 上向き（一般）</span>
+          <span class="price">&yen;7,700</span>
+        </div>
+        <div class="price-row">
+          <span class="label">全身／うつ伏せ＋上向き（学生）</span>
+          <span class="price">&yen;9,900</span>
+        </div>
+        <div class="price-row">
+          <span class="label">全身／うつ伏せ＋上向き（一般）</span>
+          <span class="price">&yen;12,100</span>
+        </div>
+      </div>
+
+      <!-- 総合施術 -->
+      <div class="menu-card">
+        <div class="menu-tag">手技＋鍼の組み合わせ</div>
+        <h3>総合施術</h3>
+        <p class="menu-desc">手技と鍼を組み合わせて、より総合的にお身体を整える施術です。上半身または下半身を中心に行います。※全身施術は含みません</p>
+        <div class="price-row">
+          <span class="label">学生</span>
+          <span class="price">&yen;6,600</span>
+        </div>
+        <div class="price-row">
+          <span class="label">一般</span>
+          <span class="price">&yen;8,800</span>
+        </div>
+      </div>
+
+      <!-- 初回評価料 -->
+      <div class="menu-card" style="background: var(--bg); border: none;">
+        <h3 style="font-size: 1rem;">初回評価料</h3>
+        <p class="menu-desc">初回来院時、または最終来院日より90日以上経過した場合に必要となります。</p>
+        <div class="price-row">
+          <span class="label">初回評価料</span>
+          <span class="price">&yen;2,200</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEDIFIT ===== -->
+<section class="section medifit" id="medifit">
+  <div class="container">
+    <div class="section-label">Medifit</div>
+    <h2 class="section-title">メディフィット ― 月額コース</h2>
+    <p class="section-lead">施術とトレーニングを組み合わせて、より積極的に身体を整えたい方へ。</p>
+    <div class="medifit-layout">
+      <div class="medifit-text">
+        <h3>継続的な身体づくりを<br>サポートします</h3>
+        <p>メディフィットは、施術だけでは届きにくい身体の土台づくりをサポートする月額制コースです。スタンダードコースで基礎を整え、さらに積極的に取り組みたい方にはアグレッシブコースをご用意しています。</p>
+        <p>アグレッシブコースでは、総合施術を特別価格でご利用いただけます。トレーニングと施術を組み合わせて、より効率的に身体を改善したい方におすすめです。</p>
+      </div>
+      <div class="course-cards">
+        <!-- スタンダード -->
+        <div class="course-card">
+          <h4>スタンダードコース</h4>
+          <p class="course-sub">基本のメディフィットコース｜月会費</p>
+          <div class="course-prices">
+            <div class="course-price-item">
+              <span class="label">学生</span>
+              <span class="price">&yen;6,600<span style="font-size:0.7em;font-weight:400;color:var(--text-light)">/月</span></span>
+            </div>
+            <div class="course-price-item">
+              <span class="label">一般</span>
+              <span class="price">&yen;8,800<span style="font-size:0.7em;font-weight:400;color:var(--text-light)">/月</span></span>
+            </div>
+          </div>
+        </div>
+        <!-- アグレッシブ -->
+        <div class="course-card aggressive">
+          <h4>アグレッシブコース</h4>
+          <p class="course-sub">上位コース｜月会費 + 総合施術が会員特別価格</p>
+          <div class="course-prices">
+            <div class="course-price-item">
+              <span class="label">学生</span>
+              <span class="price">&yen;9,900<span style="font-size:0.7em;font-weight:400;color:var(--text-light)">/月</span></span>
+            </div>
+            <div class="course-price-item">
+              <span class="label">一般</span>
+              <span class="price">&yen;13,200<span style="font-size:0.7em;font-weight:400;color:var(--text-light)">/月</span></span>
+            </div>
+          </div>
+          <div class="aggressive-benefit">
+            <h5>総合施術 会員特別価格</h5>
+            <div class="course-prices">
+              <div class="course-price-item">
+                <span class="label">学生（2回まで）</span>
+                <span class="price">&yen;2,200</span>
+              </div>
+              <div class="course-price-item">
+                <span class="label">学生（3回目〜）</span>
+                <span class="price">&yen;3,300</span>
+              </div>
+              <div class="course-price-item">
+                <span class="label">一般（3回まで）</span>
+                <span class="price">&yen;3,300</span>
+              </div>
+              <div class="course-price-item">
+                <span class="label">一般（4回目〜）</span>
+                <span class="price">&yen;4,400</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFO ===== -->
+<section class="section info-section" id="info">
+  <div class="container">
+    <div class="section-label">Access &amp; Hours</div>
+    <h2 class="section-title">診療案内・アクセス</h2>
+    <div class="info-layout">
+      <div>
+        <table class="info-table">
+          <tr>
+            <th>院名</th>
+            <td>HARIMARUはり・きゅう治療院</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>愛知県豊橋市岩田町</td>
+          </tr>
+          <tr>
+            <th>受付形式</th>
+            <td>予約優先制<br><small style="color:var(--text-light)">ご予約の方を優先してご案内いたします</small></td>
+          </tr>
+        </table>
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600;font-size:0.78rem;">診療</td>
+              <td class="schedule-closed">ー</td>
+              <td class="schedule-closed">ー</td>
+              <td class="schedule-open">●</td>
+              <td class="schedule-closed">ー</td>
+              <td class="schedule-closed">ー</td>
+              <td class="schedule-closed">ー</td>
+              <td class="schedule-open">●</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:16px;font-size:0.82rem;color:var(--text-light);line-height:1.8;">
+          <strong>水曜</strong>　15:00〜20:30<br>
+          <strong>日曜</strong>　13:30〜19:00
+        </div>
+      </div>
+      <div class="map-placeholder">
+        ［Google Map埋め込み予定エリア］
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-banner" id="contact">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>ご予約の方を優先してご案内しております。<br>お電話またはLINEにてお問い合わせください。</p>
+  <a href="tel:0000000000" class="btn-white">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    ご予約・お問合せ
+  </a>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-en">HARIMARU</span>
+        <span class="logo-jp">はり・きゅう治療院</span>
+      </div>
+      <p>愛知県豊橋市岩田町<br>慢性痛・急性痛・スポーツ障害・コンディショニングに対応</p>
+    </div>
+    <div>
+      <h4>メニュー</h4>
+      <ul>
+        <li><a href="#about">当院について</a></li>
+        <li><a href="#menu">施術メニュー・料金</a></li>
+        <li><a href="#medifit">メディフィット</a></li>
+        <li><a href="#info">診療案内・アクセス</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>施術内容</h4>
+      <ul>
+        <li><a href="#menu">標準施術</a></li>
+        <li><a href="#menu">鍼施術</a></li>
+        <li><a href="#menu">総合施術</a></li>
+        <li><a href="#medifit">メディフィット</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copy">
+    &copy; HARIMARU はり・きゅう治療院 All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Mobile nav
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+hamburgerBtn.addEventListener('click', () => mobileNav.classList.add('active'));
+mobileNavClose.addEventListener('click', () => mobileNav.classList.remove('active'));
+function closeMobileNav() { mobileNav.classList.remove('active'); }
+</script>
+</body>
+</html>
