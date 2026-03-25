@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIMONO ASAKUSA | 浅草のリユース着物専門店 - Vintage Kimono in Asakusa</title>
+  <meta name="description" content="浅草のリユース着物専門店。厳選されたヴィンテージ着物と着物体験。Curated vintage kimono shop in Asakusa, Tokyo.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kuro: '#1A1A1A',
+            kurenai: '#8B2252',
+            shiro: '#FAFAFA',
+            kin: '#C5A55A',
+            'kin-light': '#D4B96E',
+            'kuro-light': '#2A2A2A',
+            'kuro-soft': '#333333',
+          },
+          fontFamily: {
+            garamond: ['"Cormorant Garamond"', 'serif'],
+            noto: ['"Noto Sans JP"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #1A1A1A; background: #FAFAFA; }
+
+    /* Editorial heading style */
+    .heading-editorial {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.15em;
+    }
+
+    /* Smooth fade-in on scroll */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .stagger > .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .stagger > .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .stagger > .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* Collection card hover */
+    .collection-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .collection-card img {
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .collection-card:hover img {
+      transform: scale(1.08);
+    }
+    .collection-card .overlay {
+      transition: opacity 0.5s ease;
+    }
+    .collection-card:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Horizontal line accent */
+    .line-accent {
+      width: 60px;
+      height: 1px;
+      background: #C5A55A;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #FAFAFA; }
+    ::-webkit-scrollbar-thumb { background: #C5A55A; border-radius: 3px; }
+
+    /* Navigation */
+    .nav-link {
+      position: relative;
+      letter-spacing: 0.08em;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #C5A55A;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero parallax-like text */
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.3em;
+      line-height: 1;
+    }
+
+    /* Vertical text for decorative elements */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    /* Form focus styles */
+    .form-input:focus {
+      border-color: #C5A55A;
+      box-shadow: 0 0 0 1px #C5A55A;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Dot pattern decorative */
+    .dot-pattern {
+      background-image: radial-gradient(#C5A55A 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.15;
+    }
+
+    /* Experience pricing card */
+    .price-card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .price-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+  <!-- ============================================ -->
+  <!-- NAVIGATION -->
+  <!-- ============================================ -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex items-center justify-between h-20 lg:h-24">
+        <!-- Logo -->
+        <a href="#" class="relative z-50">
+          <span class="heading-editorial text-xl lg:text-2xl font-light text-shiro tracking-[0.2em]">KIMONO<span class="text-kin ml-2">ASAKUSA</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center space-x-10">
+          <a href="#about" class="nav-link text-shiro/80 text-xs font-light uppercase tracking-widest hover:text-shiro transition-colors">About</a>
+          <a href="#collection" class="nav-link text-shiro/80 text-xs font-light uppercase tracking-widest hover:text-shiro transition-colors">Collection</a>
+          <a href="#experience" class="nav-link text-shiro/80 text-xs font-light uppercase tracking-widest hover:text-shiro transition-colors">Experience</a>
+          <a href="#shop" class="nav-link text-shiro/80 text-xs font-light uppercase tracking-widest hover:text-shiro transition-colors">Shop Info</a>
+          <a href="#contact" class="nav-link text-shiro/80 text-xs font-light uppercase tracking-widest hover:text-shiro transition-colors">Contact</a>
+          <span class="text-shiro/30">|</span>
+          <a href="#" class="text-shiro/60 text-xs font-light tracking-wider hover:text-kin transition-colors">EN</a>
+          <a href="#" class="text-shiro text-xs font-light tracking-wider">JP</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="menuBtn" class="lg:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center" aria-label="Menu">
+          <span class="menu-line block w-6 h-px bg-shiro transition-all duration-300"></span>
+          <span class="menu-line block w-6 h-px bg-shiro mt-1.5 transition-all duration-300"></span>
+          <span class="menu-line block w-4 h-px bg-shiro mt-1.5 transition-all duration-300 ml-auto"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-kuro flex items-center justify-center">
+    <div class="text-center space-y-8">
+      <a href="#about" class="mobile-nav-link block heading-editorial text-3xl text-shiro/80 hover:text-kin transition-colors tracking-widest">About</a>
+      <a href="#collection" class="mobile-nav-link block heading-editorial text-3xl text-shiro/80 hover:text-kin transition-colors tracking-widest">Collection</a>
+      <a href="#experience" class="mobile-nav-link block heading-editorial text-3xl text-shiro/80 hover:text-kin transition-colors tracking-widest">Experience</a>
+      <a href="#shop" class="mobile-nav-link block heading-editorial text-3xl text-shiro/80 hover:text-kin transition-colors tracking-widest">Shop Info</a>
+      <a href="#contact" class="mobile-nav-link block heading-editorial text-3xl text-shiro/80 hover:text-kin transition-colors tracking-widest">Contact</a>
+      <div class="pt-8 flex justify-center space-x-6">
+        <a href="#" class="text-shiro/50 text-sm tracking-wider hover:text-kin transition-colors">English</a>
+        <span class="text-shiro/20">|</span>
+        <a href="#" class="text-shiro text-sm tracking-wider">Japanese</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================ -->
+  <!-- HERO -->
+  <!-- ============================================ -->
+  <section id="hero" class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img src="images/hero.jpg" alt="Vintage Kimono in Asakusa" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.classList.add('bg-gradient-to-br', 'from-kuro', 'via-kuro-light', 'to-kurenai/40');">
+      <div class="absolute inset-0 bg-kuro/60"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-kuro via-transparent to-kuro/30"></div>
+    </div>
+
+    <!-- Decorative vertical text -->
+    <div class="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 hidden lg:block">
+      <span class="vertical-text text-shiro/10 heading-editorial text-sm tracking-[0.5em]">VINTAGE KIMONO</span>
+    </div>
+    <div class="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 hidden lg:block">
+      <span class="vertical-text text-shiro/10 font-noto text-xs tracking-[0.5em]">浅草リユース着物</span>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-6 max-w-5xl">
+      <!-- Location Badge -->
+      <div class="inline-flex items-center space-x-3 mb-8 fade-up">
+        <span class="block w-8 h-px bg-kin"></span>
+        <span class="text-kin text-xs tracking-[0.4em] uppercase font-light">Asakusa, Tokyo</span>
+        <span class="block w-8 h-px bg-kin"></span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="fade-up">
+        <span class="hero-title block text-shiro text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light">KIMONO</span>
+        <span class="hero-title block text-kin text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mt-2">ASAKUSA</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <div class="mt-10 space-y-2 fade-up">
+        <p class="text-shiro/70 text-sm md:text-base font-light tracking-[0.15em]">浅草のリユース着物専門店</p>
+        <p class="heading-editorial text-shiro/50 text-sm md:text-base font-light italic tracking-wider">Vintage Kimono in Asakusa</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 fade-up">
+        <a href="#collection" class="group inline-flex items-center px-10 py-4 border border-kin text-kin text-xs tracking-[0.2em] uppercase hover:bg-kin hover:text-kuro transition-all duration-500">
+          <span>View Collection</span>
+          <svg class="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#experience" class="inline-flex items-center px-10 py-4 border border-shiro/30 text-shiro/70 text-xs tracking-[0.2em] uppercase hover:border-shiro hover:text-shiro transition-all duration-500">
+          <span>Kimono Experience</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-3 fade-up">
+      <span class="text-shiro/30 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+      <div class="w-px h-12 bg-gradient-to-b from-kin/60 to-transparent animate-pulse"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- ABOUT -->
+  <!-- ============================================ -->
+  <section id="about" class="relative py-28 lg:py-40 bg-shiro overflow-hidden">
+    <!-- Decorative dot pattern -->
+    <div class="absolute top-0 right-0 w-60 h-60 dot-pattern"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <!-- Left: Image -->
+        <div class="fade-up relative">
+          <div class="aspect-[3/4] bg-gradient-to-br from-kuro-light to-kurenai/30 overflow-hidden">
+            <img src="images/about.jpg" alt="About Kimono Asakusa" class="w-full h-full object-cover" onerror="this.style.display='none';">
+          </div>
+          <!-- Decorative frame offset -->
+          <div class="absolute -bottom-6 -right-6 w-full h-full border border-kin/20 -z-10"></div>
+          <!-- Badge overlay -->
+          <div class="absolute -bottom-4 -left-4 lg:-left-8 bg-kurenai px-6 py-4">
+            <span class="text-shiro heading-editorial text-2xl font-light tracking-wider">Since 2024</span>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="lg:pl-8">
+          <div class="fade-up">
+            <span class="text-kin text-xs tracking-[0.3em] uppercase font-light">About Us</span>
+            <div class="line-accent mt-4 mb-8"></div>
+          </div>
+
+          <h2 class="fade-up heading-editorial text-4xl lg:text-5xl xl:text-6xl font-light text-kuro leading-tight">
+            一着一着に、<br>
+            <span class="text-kurenai italic">物語</span>がある。
+          </h2>
+
+          <p class="fade-up mt-4 heading-editorial text-lg lg:text-xl text-kuro/40 font-light italic tracking-wider">
+            Every piece tells a story.
+          </p>
+
+          <div class="fade-up mt-10 space-y-6 text-kuro/60 text-sm leading-relaxed font-light">
+            <p>
+              KIMONO ASAKUSAは、浅草の中心に位置するリユース着物専門店です。<br>
+              熟練の目利きが全国から厳選した着物のみを取り扱い、<br>
+              一枚一枚に宿る日本の美意識をお届けします。
+            </p>
+            <p class="text-kuro/40 text-xs tracking-wider leading-relaxed">
+              Located in the heart of Asakusa, we are a curated vintage kimono shop.<br>
+              Each piece is hand-selected by our experts from across Japan,<br>
+              offering authentic Japanese aesthetic heritage through sustainable fashion.
+            </p>
+          </div>
+
+          <!-- Features -->
+          <div class="fade-up mt-12 grid grid-cols-3 gap-6">
+            <div class="text-center">
+              <span class="heading-editorial text-3xl lg:text-4xl text-kin font-light">500+</span>
+              <p class="mt-2 text-kuro/50 text-[10px] tracking-[0.2em] uppercase">Curated Pieces<br><span class="text-kuro/30">厳選着物</span></p>
+            </div>
+            <div class="text-center">
+              <span class="heading-editorial text-3xl lg:text-4xl text-kin font-light">30+</span>
+              <p class="mt-2 text-kuro/50 text-[10px] tracking-[0.2em] uppercase">Years of Craft<br><span class="text-kuro/30">年の経験</span></p>
+            </div>
+            <div class="text-center">
+              <span class="heading-editorial text-3xl lg:text-4xl text-kin font-light">4.9</span>
+              <p class="mt-2 text-kuro/50 text-[10px] tracking-[0.2em] uppercase">Guest Rating<br><span class="text-kuro/30">お客様評価</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- COLLECTION -->
+  <!-- ============================================ -->
+  <section id="collection" class="relative py-28 lg:py-40 bg-kuro overflow-hidden">
+    <!-- Section Header -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-16 lg:mb-24">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <span class="fade-up text-kin text-xs tracking-[0.3em] uppercase font-light">Collection</span>
+          <div class="fade-up line-accent mt-4 mb-8"></div>
+          <h2 class="fade-up heading-editorial text-4xl lg:text-5xl xl:text-6xl font-light text-shiro leading-tight">
+            厳選された<span class="text-kurenai italic">逸品</span>
+          </h2>
+          <p class="fade-up mt-3 heading-editorial text-lg text-shiro/30 font-light italic tracking-wider">
+            Carefully Curated Collection
+          </p>
+        </div>
+        <a href="#" class="fade-up mt-8 lg:mt-0 group inline-flex items-center text-kin text-xs tracking-[0.2em] uppercase hover:text-kin-light transition-colors">
+          <span>View All</span>
+          <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Collection Grid -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 stagger">
+
+        <!-- Furisode -->
+        <div class="fade-up collection-card group cursor-pointer">
+          <div class="aspect-[3/4] bg-gradient-to-br from-kurenai/40 to-kuro-light relative overflow-hidden">
+            <img src="images/furisode.jpg" alt="Furisode" class="w-full h-full object-cover" onerror="this.style.display='none';">
+            <div class="overlay absolute inset-0 bg-kuro/60 opacity-0 flex items-center justify-center">
+              <span class="text-shiro text-xs tracking-[0.3em] uppercase border border-shiro/50 px-6 py-3">View More</span>
+            </div>
+            <!-- Category label -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-kuro/80 to-transparent">
+              <p class="heading-editorial text-2xl text-shiro font-light tracking-wider">振袖</p>
+              <p class="text-shiro/50 text-xs tracking-wider mt-1 font-light">Furisode</p>
+              <p class="text-kin text-[10px] tracking-[0.15em] mt-3 uppercase font-light">From &yen;15,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Houmongi -->
+        <div class="fade-up collection-card group cursor-pointer">
+          <div class="aspect-[3/4] bg-gradient-to-br from-kin/20 to-kuro-light relative overflow-hidden">
+            <img src="images/houmongi.jpg" alt="Houmongi" class="w-full h-full object-cover" onerror="this.style.display='none';">
+            <div class="overlay absolute inset-0 bg-kuro/60 opacity-0 flex items-center justify-center">
+              <span class="text-shiro text-xs tracking-[0.3em] uppercase border border-shiro/50 px-6 py-3">View More</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-kuro/80 to-transparent">
+              <p class="heading-editorial text-2xl text-shiro font-light tracking-wider">訪問着</p>
+              <p class="text-shiro/50 text-xs tracking-wider mt-1 font-light">Houmongi</p>
+              <p class="text-kin text-[10px] tracking-[0.15em] mt-3 uppercase font-light">From &yen;12,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Komon -->
+        <div class="fade-up collection-card group cursor-pointer">
+          <div class="aspect-[3/4] bg-gradient-to-br from-kuro-soft to-kurenai/20 relative overflow-hidden">
+            <img src="images/komon.jpg" alt="Komon" class="w-full h-full object-cover" onerror="this.style.display='none';">
+            <div class="overlay absolute inset-0 bg-kuro/60 opacity-0 flex items-center justify-center">
+              <span class="text-shiro text-xs tracking-[0.3em] uppercase border border-shiro/50 px-6 py-3">View More</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-kuro/80 to-transparent">
+              <p class="heading-editorial text-2xl text-shiro font-light tracking-wider">小紋</p>
+              <p class="text-shiro/50 text-xs tracking-wider mt-1 font-light">Komon</p>
+              <p class="text-kin text-[10px] tracking-[0.15em] mt-3 uppercase font-light">From &yen;8,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Obi -->
+        <div class="fade-up collection-card group cursor-pointer">
+          <div class="aspect-[3/4] bg-gradient-to-br from-kin/15 to-kuro-light relative overflow-hidden">
+            <img src="images/obi.jpg" alt="Obi" class="w-full h-full object-cover" onerror="this.style.display='none';">
+            <div class="overlay absolute inset-0 bg-kuro/60 opacity-0 flex items-center justify-center">
+              <span class="text-shiro text-xs tracking-[0.3em] uppercase border border-shiro/50 px-6 py-3">View More</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-kuro/80 to-transparent">
+              <p class="heading-editorial text-2xl text-shiro font-light tracking-wider">帯</p>
+              <p class="text-shiro/50 text-xs tracking-wider mt-1 font-light">Obi</p>
+              <p class="text-kin text-[10px] tracking-[0.15em] mt-3 uppercase font-light">From &yen;5,000</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom decoration -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 mt-16 lg:mt-24">
+      <div class="fade-up flex items-center space-x-6">
+        <div class="flex-1 h-px bg-shiro/10"></div>
+        <span class="text-shiro/20 heading-editorial text-sm italic tracking-wider">Sustainable fashion, timeless beauty</span>
+        <div class="flex-1 h-px bg-shiro/10"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- EXPERIENCE -->
+  <!-- ============================================ -->
+  <section id="experience" class="relative py-28 lg:py-40 bg-shiro overflow-hidden">
+    <!-- Decorative -->
+    <div class="absolute bottom-0 left-0 w-40 h-40 dot-pattern"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <!-- Header -->
+      <div class="text-center mb-16 lg:mb-24">
+        <span class="fade-up text-kin text-xs tracking-[0.3em] uppercase font-light">Experience</span>
+        <div class="fade-up line-accent mt-4 mb-8 mx-auto"></div>
+        <h2 class="fade-up heading-editorial text-4xl lg:text-5xl xl:text-6xl font-light text-kuro leading-tight">
+          着物<span class="text-kurenai italic">体験</span>
+        </h2>
+        <p class="fade-up mt-3 heading-editorial text-lg text-kuro/30 font-light italic tracking-wider">
+          Kimono Experience
+        </p>
+        <p class="fade-up mt-8 max-w-2xl mx-auto text-kuro/50 text-sm leading-relaxed font-light">
+          浅草の街を、本物の着物で歩いてみませんか。<br>
+          着付けから写真撮影まで、特別な体験をお届けします。
+        </p>
+        <p class="fade-up mt-3 max-w-2xl mx-auto text-kuro/30 text-xs leading-relaxed font-light tracking-wider">
+          Walk through the streets of Asakusa in an authentic vintage kimono.<br>
+          We offer a complete experience, from dressing to professional photo shooting.
+        </p>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 stagger">
+
+        <!-- Standard Plan -->
+        <div class="fade-up price-card bg-white border border-kuro/5 p-8 lg:p-10">
+          <div class="text-center">
+            <span class="text-kuro/30 text-[10px] tracking-[0.3em] uppercase">Standard</span>
+            <h3 class="mt-3 font-noto text-kuro text-base font-medium tracking-wider">スタンダード</h3>
+            <div class="mt-6 mb-8">
+              <span class="heading-editorial text-5xl font-light text-kuro">&yen;5,500</span>
+              <span class="text-kuro/30 text-xs ml-1">/person</span>
+            </div>
+            <div class="h-px bg-kuro/5 my-6"></div>
+            <ul class="space-y-4 text-left">
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">着物レンタル</span>
+                  <span class="text-kuro/30 text-xs block">Kimono rental</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">着付け</span>
+                  <span class="text-kuro/30 text-xs block">Professional dressing</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">ヘアセット</span>
+                  <span class="text-kuro/30 text-xs block">Hair styling</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">散策 3時間</span>
+                  <span class="text-kuro/30 text-xs block">3-hour stroll</span>
+                </div>
+              </li>
+            </ul>
+            <a href="#contact" class="mt-10 block w-full py-4 border border-kuro/10 text-kuro/50 text-xs tracking-[0.2em] uppercase text-center hover:border-kuro hover:text-kuro transition-all duration-300">
+              Book Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Premium Plan (Featured) -->
+        <div class="fade-up price-card bg-kuro border border-kuro p-8 lg:p-10 relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-kin px-4 py-1">
+            <span class="text-kuro text-[10px] tracking-[0.2em] uppercase font-medium">Most Popular</span>
+          </div>
+          <div class="text-center">
+            <span class="text-kin/50 text-[10px] tracking-[0.3em] uppercase">Premium</span>
+            <h3 class="mt-3 font-noto text-shiro text-base font-medium tracking-wider">プレミアム</h3>
+            <div class="mt-6 mb-8">
+              <span class="heading-editorial text-5xl font-light text-kin">&yen;9,800</span>
+              <span class="text-shiro/30 text-xs ml-1">/person</span>
+            </div>
+            <div class="h-px bg-shiro/10 my-6"></div>
+            <ul class="space-y-4 text-left">
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-shiro/70 text-sm font-light">ヴィンテージ着物レンタル</span>
+                  <span class="text-shiro/30 text-xs block">Vintage kimono rental</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-shiro/70 text-sm font-light">プロ着付け</span>
+                  <span class="text-shiro/30 text-xs block">Expert dressing</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-shiro/70 text-sm font-light">フルヘアメイク</span>
+                  <span class="text-shiro/30 text-xs block">Full hair & makeup</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-shiro/70 text-sm font-light">散策 終日</span>
+                  <span class="text-shiro/30 text-xs block">Full-day stroll</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-shiro/70 text-sm font-light">写真撮影 5カット</span>
+                  <span class="text-shiro/30 text-xs block">5 professional photos</span>
+                </div>
+              </li>
+            </ul>
+            <a href="#contact" class="mt-10 block w-full py-4 bg-kin text-kuro text-xs tracking-[0.2em] uppercase text-center hover:bg-kin-light transition-all duration-300">
+              Book Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Couple Plan -->
+        <div class="fade-up price-card bg-white border border-kuro/5 p-8 lg:p-10">
+          <div class="text-center">
+            <span class="text-kuro/30 text-[10px] tracking-[0.3em] uppercase">Couple</span>
+            <h3 class="mt-3 font-noto text-kuro text-base font-medium tracking-wider">カップルプラン</h3>
+            <div class="mt-6 mb-8">
+              <span class="heading-editorial text-5xl font-light text-kuro">&yen;16,000</span>
+              <span class="text-kuro/30 text-xs ml-1">/2 persons</span>
+            </div>
+            <div class="h-px bg-kuro/5 my-6"></div>
+            <ul class="space-y-4 text-left">
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">着物2着レンタル</span>
+                  <span class="text-kuro/30 text-xs block">2 kimono rentals</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">着付け（2名分）</span>
+                  <span class="text-kuro/30 text-xs block">Dressing for 2</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">ヘアセット（2名分）</span>
+                  <span class="text-kuro/30 text-xs block">Hair styling for 2</span>
+                </div>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-kin mt-0.5">&#10003;</span>
+                <div>
+                  <span class="text-kuro/70 text-sm font-light">散策 終日 + 撮影3カット</span>
+                  <span class="text-kuro/30 text-xs block">Full-day + 3 photos</span>
+                </div>
+              </li>
+            </ul>
+            <a href="#contact" class="mt-10 block w-full py-4 border border-kuro/10 text-kuro/50 text-xs tracking-[0.2em] uppercase text-center hover:border-kuro hover:text-kuro transition-all duration-300">
+              Book Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- VISUAL BREAK - Full Width Image -->
+  <!-- ============================================ -->
+  <section class="relative h-[50vh] min-h-[400px] overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="images/asakusa-street.jpg" alt="Asakusa Street" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.classList.add('bg-gradient-to-r', 'from-kuro', 'via-kurenai/30', 'to-kuro');">
+      <div class="absolute inset-0 bg-kuro/50"></div>
+    </div>
+    <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
+      <div>
+        <p class="fade-up heading-editorial text-3xl lg:text-5xl text-shiro font-light italic tracking-wider leading-relaxed">
+          "日本の美を、纏う"
+        </p>
+        <p class="fade-up mt-4 heading-editorial text-lg text-shiro/40 font-light italic tracking-wider">
+          Wear the beauty of Japan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SHOP INFO + ACCESS -->
+  <!-- ============================================ -->
+  <section id="shop" class="relative py-28 lg:py-40 bg-shiro overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <!-- Header -->
+      <div class="text-center mb-16 lg:mb-24">
+        <span class="fade-up text-kin text-xs tracking-[0.3em] uppercase font-light">Shop Information</span>
+        <div class="fade-up line-accent mt-4 mb-8 mx-auto"></div>
+        <h2 class="fade-up heading-editorial text-4xl lg:text-5xl xl:text-6xl font-light text-kuro leading-tight">
+          店舗<span class="text-kurenai italic">案内</span>
+        </h2>
+        <p class="fade-up mt-3 heading-editorial text-lg text-kuro/30 font-light italic tracking-wider">
+          Visit Us in Asakusa
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <!-- Left: Shop Details -->
+        <div class="fade-up">
+          <div class="space-y-8">
+            <!-- Address -->
+            <div class="flex items-start space-x-6">
+              <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center border border-kin/30">
+                <svg class="w-4 h-4 text-kin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-kuro text-sm font-medium tracking-wider">所在地 / Address</h4>
+                <p class="mt-2 text-kuro/50 text-sm font-light leading-relaxed">
+                  〒111-0032<br>
+                  東京都台東区浅草1-2-3 浅草ビル 2F
+                </p>
+                <p class="mt-1 text-kuro/30 text-xs font-light">
+                  2F Asakusa Bldg, 1-2-3 Asakusa, Taito-ku, Tokyo
+                </p>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="flex items-start space-x-6">
+              <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center border border-kin/30">
+                <svg class="w-4 h-4 text-kin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-kuro text-sm font-medium tracking-wider">営業時間 / Hours</h4>
+                <p class="mt-2 text-kuro/50 text-sm font-light leading-relaxed">
+                  10:00 - 19:00（最終受付 18:00）
+                </p>
+                <p class="mt-1 text-kuro/30 text-xs font-light">
+                  Open 10:00 AM - 7:00 PM (Last entry 6:00 PM)
+                </p>
+                <p class="mt-2 text-kurenai/60 text-xs font-light">
+                  定休日：水曜日 / Closed: Wednesdays
+                </p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start space-x-6">
+              <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center border border-kin/30">
+                <svg class="w-4 h-4 text-kin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-kuro text-sm font-medium tracking-wider">電話番号 / Phone</h4>
+                <p class="mt-2 text-kuro/50 text-sm font-light">03-XXXX-XXXX</p>
+                <p class="mt-1 text-kuro/30 text-xs font-light">English available</p>
+              </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="flex items-start space-x-6">
+              <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center border border-kin/30">
+                <svg class="w-4 h-4 text-kin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-kuro text-sm font-medium tracking-wider">お支払い / Payment</h4>
+                <p class="mt-2 text-kuro/50 text-sm font-light">
+                  現金 / Visa / Mastercard / PayPay / 交通系IC
+                </p>
+                <p class="mt-1 text-kuro/30 text-xs font-light">Cash, Credit Cards, Mobile Payment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Map + Access -->
+        <div class="fade-up">
+          <!-- Map Placeholder -->
+          <div class="aspect-[4/3] bg-kuro/5 border border-kuro/10 flex items-center justify-center relative overflow-hidden">
+            <div class="text-center">
+              <svg class="w-12 h-12 text-kuro/10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              <p class="mt-4 text-kuro/20 text-xs tracking-wider">Google Map</p>
+            </div>
+            <!-- This will be replaced by an actual embedded map -->
+          </div>
+
+          <!-- Access Info -->
+          <div class="mt-8 p-6 bg-kuro text-shiro">
+            <h4 class="heading-editorial text-lg font-light tracking-wider text-kin">
+              アクセス / Access
+            </h4>
+            <div class="mt-6 space-y-4">
+              <div class="flex items-start space-x-4">
+                <div class="w-1 h-1 rounded-full bg-kin mt-2 flex-shrink-0"></div>
+                <div>
+                  <p class="text-shiro/70 text-sm font-light">東京メトロ銀座線「浅草駅」1番出口より<span class="text-kin">徒歩3分</span></p>
+                  <p class="text-shiro/30 text-xs font-light mt-1">3 min walk from Asakusa Sta. (Exit 1, Ginza Line)</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="w-1 h-1 rounded-full bg-kin mt-2 flex-shrink-0"></div>
+                <div>
+                  <p class="text-shiro/70 text-sm font-light">都営浅草線「浅草駅」A4出口より<span class="text-kin">徒歩4分</span></p>
+                  <p class="text-shiro/30 text-xs font-light mt-1">4 min walk from Asakusa Sta. (Exit A4, Asakusa Line)</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="w-1 h-1 rounded-full bg-kin mt-2 flex-shrink-0"></div>
+                <div>
+                  <p class="text-shiro/70 text-sm font-light">浅草寺まで<span class="text-kin">徒歩1分</span> / 東京スカイツリー<span class="text-kin">徒歩15分</span></p>
+                  <p class="text-shiro/30 text-xs font-light mt-1">1 min to Senso-ji Temple / 15 min to Tokyo Skytree</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- CONTACT -->
+  <!-- ============================================ -->
+  <section id="contact" class="relative py-28 lg:py-40 bg-kuro overflow-hidden">
+    <!-- Decorative -->
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-kin/20 to-transparent"></div>
+
+    <div class="max-w-3xl mx-auto px-6 lg:px-12">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <span class="fade-up text-kin text-xs tracking-[0.3em] uppercase font-light">Contact</span>
+        <div class="fade-up line-accent mt-4 mb-8 mx-auto"></div>
+        <h2 class="fade-up heading-editorial text-4xl lg:text-5xl xl:text-6xl font-light text-shiro leading-tight">
+          お問い合わせ
+        </h2>
+        <p class="fade-up mt-3 heading-editorial text-lg text-shiro/30 font-light italic tracking-wider">
+          Get in Touch
+        </p>
+        <p class="fade-up mt-8 text-shiro/40 text-sm font-light leading-relaxed">
+          ご予約・ご質問はお気軽にお問い合わせください。<br>
+          <span class="text-shiro/25 text-xs tracking-wider">For reservations or inquiries, please contact us below.</span>
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form class="fade-up space-y-8">
+        <!-- Name -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-shiro/50 text-xs tracking-[0.15em] mb-3 font-light">
+              お名前 <span class="text-shiro/25">/ Name</span> <span class="text-kurenai text-[10px]">*</span>
+            </label>
+            <input type="text" required placeholder="山田 太郎 / Taro Yamada"
+              class="form-input w-full bg-transparent border border-shiro/10 px-5 py-4 text-shiro text-sm font-light placeholder:text-shiro/15 outline-none transition-all duration-300">
+          </div>
+          <div>
+            <label class="block text-shiro/50 text-xs tracking-[0.15em] mb-3 font-light">
+              メール <span class="text-shiro/25">/ Email</span> <span class="text-kurenai text-[10px]">*</span>
+            </label>
+            <input type="email" required placeholder="email@example.com"
+              class="form-input w-full bg-transparent border border-shiro/10 px-5 py-4 text-shiro text-sm font-light placeholder:text-shiro/15 outline-none transition-all duration-300">
+          </div>
+        </div>
+
+        <!-- Subject -->
+        <div>
+          <label class="block text-shiro/50 text-xs tracking-[0.15em] mb-3 font-light">
+            ご用件 <span class="text-shiro/25">/ Subject</span>
+          </label>
+          <select class="form-input w-full bg-transparent border border-shiro/10 px-5 py-4 text-shiro/50 text-sm font-light outline-none transition-all duration-300 appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23C5A55A%22 stroke-width=%221.5%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 16px center;">
+            <option value="" class="bg-kuro">選択してください / Please select</option>
+            <option value="purchase" class="bg-kuro">着物の購入 / Kimono Purchase</option>
+            <option value="experience" class="bg-kuro">着物体験の予約 / Experience Booking</option>
+            <option value="other" class="bg-kuro">その他 / Other</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-shiro/50 text-xs tracking-[0.15em] mb-3 font-light">
+            メッセージ <span class="text-shiro/25">/ Message</span> <span class="text-kurenai text-[10px]">*</span>
+          </label>
+          <textarea required rows="6" placeholder="お気軽にご記入ください / Feel free to write in English or Japanese"
+            class="form-input w-full bg-transparent border border-shiro/10 px-5 py-4 text-shiro text-sm font-light placeholder:text-shiro/15 outline-none transition-all duration-300 resize-none"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center pt-4">
+          <button type="submit" class="group inline-flex items-center px-14 py-5 bg-kin text-kuro text-xs tracking-[0.2em] uppercase font-medium hover:bg-kin-light transition-all duration-500">
+            <span>送信する / Send</span>
+            <svg class="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+          <p class="mt-6 text-shiro/20 text-[10px] tracking-wider font-light">
+            通常1営業日以内にご返信いたします / We'll reply within 1 business day
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-kuro border-t border-shiro/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <!-- Upper Footer -->
+      <div class="py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- Brand -->
+        <div>
+          <span class="heading-editorial text-2xl font-light text-shiro tracking-[0.2em]">KIMONO<span class="text-kin ml-2">ASAKUSA</span></span>
+          <p class="mt-4 text-shiro/30 text-xs font-light leading-relaxed tracking-wider">
+            浅草のリユース着物専門店<br>
+            Vintage Kimono in Asakusa, Tokyo
+          </p>
+          <!-- Social -->
+          <div class="mt-6 flex space-x-4">
+            <a href="#" class="w-9 h-9 border border-shiro/10 flex items-center justify-center hover:border-kin hover:text-kin text-shiro/30 transition-all duration-300" aria-label="Instagram">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 border border-shiro/10 flex items-center justify-center hover:border-kin hover:text-kin text-shiro/30 transition-all duration-300" aria-label="LINE">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 border border-shiro/10 flex items-center justify-center hover:border-kin hover:text-kin text-shiro/30 transition-all duration-300" aria-label="TripAdvisor">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 004.04 10.43 5.976 5.976 0 004.075-1.6L12.006 19.7l1.928-2.088a5.976 5.976 0 004.075 1.601 5.997 5.997 0 004.04-10.43L24 6.648h-4.35a13.573 13.573 0 00-7.644-2.353zM6.003 17.213a3.997 3.997 0 110-7.994 3.997 3.997 0 010 7.994zm11.994 0a3.997 3.997 0 110-7.994 3.997 3.997 0 010 7.994zM6.003 11.219a2 2 0 100 4 2 2 0 000-4zm11.994 0a2 2 0 100 4 2 2 0 000-4z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="md:text-center">
+          <h5 class="text-shiro/20 text-[10px] tracking-[0.3em] uppercase mb-6">Navigation</h5>
+          <ul class="space-y-3">
+            <li><a href="#about" class="text-shiro/40 text-xs font-light tracking-wider hover:text-kin transition-colors">About / 私たちについて</a></li>
+            <li><a href="#collection" class="text-shiro/40 text-xs font-light tracking-wider hover:text-kin transition-colors">Collection / コレクション</a></li>
+            <li><a href="#experience" class="text-shiro/40 text-xs font-light tracking-wider hover:text-kin transition-colors">Experience / 着物体験</a></li>
+            <li><a href="#shop" class="text-shiro/40 text-xs font-light tracking-wider hover:text-kin transition-colors">Shop Info / 店舗案内</a></li>
+            <li><a href="#contact" class="text-shiro/40 text-xs font-light tracking-wider hover:text-kin transition-colors">Contact / お問い合わせ</a></li>
+          </ul>
+        </div>
+
+        <!-- Hours Summary -->
+        <div class="md:text-right">
+          <h5 class="text-shiro/20 text-[10px] tracking-[0.3em] uppercase mb-6">Hours</h5>
+          <div class="space-y-2">
+            <p class="text-shiro/40 text-xs font-light tracking-wider">Mon - Tue: 10:00 - 19:00</p>
+            <p class="text-shiro/40 text-xs font-light tracking-wider">Wed: <span class="text-kurenai/60">Closed</span></p>
+            <p class="text-shiro/40 text-xs font-light tracking-wider">Thu - Sun: 10:00 - 19:00</p>
+          </div>
+          <div class="mt-6">
+            <a href="#contact" class="inline-flex items-center text-kin text-xs tracking-[0.15em] hover:text-kin-light transition-colors">
+              <span>Reserve Now</span>
+              <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="py-6 border-t border-shiro/5 flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+        <p class="text-shiro/15 text-[10px] tracking-wider font-light">
+          &copy; 2024 KIMONO ASAKUSA. All rights reserved.
+        </p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-shiro/15 text-[10px] tracking-wider font-light hover:text-shiro/30 transition-colors">Privacy Policy</a>
+          <a href="#" class="text-shiro/15 text-[10px] tracking-wider font-light hover:text-shiro/30 transition-colors">Terms of Service</a>
+          <a href="#" class="text-shiro/15 text-[10px] tracking-wider font-light hover:text-shiro/30 transition-colors">特定商取引法</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================ -->
+  <!-- SCRIPTS -->
+  <!-- ============================================ -->
+  <script>
+    // ---- Scroll Animations (Intersection Observer) ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ---- Navbar Background on Scroll ----
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+        navbar.style.backdropFilter = 'blur(20px)';
+        navbar.style.boxShadow = '0 1px 0 rgba(197, 165, 90, 0.1)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.boxShadow = 'none';
+      }
+
+      // Hide/show navbar on scroll direction
+      if (currentScroll > lastScroll && currentScroll > 400) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ---- Mobile Menu ----
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuLines = document.querySelectorAll('.menu-line');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        menuLines[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+        menuLines[1].style.opacity = '0';
+        menuLines[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        menuLines[2].style.width = '24px';
+      } else {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        menuLines[0].style.transform = '';
+        menuLines[1].style.opacity = '1';
+        menuLines[2].style.transform = '';
+        menuLines[2].style.width = '16px';
+      }
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        menuLines[0].style.transform = '';
+        menuLines[1].style.opacity = '1';
+        menuLines[2].style.transform = '';
+        menuLines[2].style.width = '16px';
+      });
+    });
+
+    // ---- Smooth scroll for anchor links ----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ---- Simple parallax on hero ----
+    window.addEventListener('scroll', () => {
+      const hero = document.getElementById('hero');
+      if (hero) {
+        const scrolled = window.pageYOffset;
+        const heroImg = hero.querySelector('img');
+        if (heroImg) {
+          heroImg.style.transform = `scale(1.1) translateY(${scrolled * 0.15}px)`;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
