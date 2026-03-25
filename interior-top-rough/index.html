@@ -30,6 +30,15 @@
     html { scroll-behavior: smooth; }
     .rv { opacity: 0; transform: translateY(12px); transition: opacity .5s, transform .5s; }
     .rv.on { opacity: 1; transform: translateY(0); }
+    /* Before/After Slider */
+    .ba-slider { position: relative; overflow: hidden; cursor: ew-resize; user-select: none; }
+    .ba-slider .ba-after { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
+    .ba-slider .ba-after img { position: absolute; top: 0; right: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ba-slider .ba-handle { position: absolute; top: 0; bottom: 0; width: 3px; background: white; z-index: 10; cursor: ew-resize; box-shadow: 0 0 8px rgba(0,0,0,.3); }
+    .ba-slider .ba-handle::before { content: '◀ ▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: white; color: #6B4C3B; font-size: 10px; padding: 6px 8px; border-radius: 99px; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,.2); letter-spacing: 2px; }
+    .ba-label { position: absolute; bottom: 12px; padding: 4px 14px; font-size: 11px; font-weight: 700; letter-spacing: 1px; z-index: 5; }
+    .ba-label-before { left: 12px; background: rgba(0,0,0,.5); color: white; }
+    .ba-label-after { right: 12px; background: #6B4C3B; color: white; }
   </style>
 </head>
 <body class="font-sans text-fg bg-white text-[15px] leading-[1.9]">
@@ -62,6 +71,32 @@
       <div class="text-center text-white px-4">
         <h1 class="text-3xl md:text-5xl font-light tracking-wider mb-4" style="text-shadow: 0 2px 8px rgba(0,0,0,.4);">空間の価値を守る、確かな補修技術。</h1>
         <p class="text-white/70 text-sm tracking-widest">有限会社 神美装</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ビフォーアフター体験 -->
+  <section class="py-14 bg-brown-pale">
+    <div class="max-w-4xl mx-auto px-4">
+      <p class="text-center text-brown text-xs tracking-widest mb-2 rv">BEFORE → AFTER</p>
+      <p class="text-center text-sm text-muted mb-8 rv">スライダーを動かして、補修技術をご体感ください</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Slider 1: ボウル -->
+        <div class="ba-slider aspect-square rounded-lg rv" data-ba>
+          <img src="images/before1.jpg" alt="補修前" class="w-full h-full object-cover">
+          <div class="ba-after" style="width:50%"><img src="images/after1.jpg" alt="補修後"></div>
+          <div class="ba-handle" style="left:50%"></div>
+          <span class="ba-label ba-label-before">BEFORE</span>
+          <span class="ba-label ba-label-after">AFTER</span>
+        </div>
+        <!-- Slider 2: 石材 -->
+        <div class="ba-slider aspect-[4/3] rounded-lg rv" data-ba>
+          <img src="images/before2.jpg" alt="補修前" class="w-full h-full object-cover">
+          <div class="ba-after" style="width:50%"><img src="images/after2.jpg" alt="補修後"></div>
+          <div class="ba-handle" style="left:50%"></div>
+          <span class="ba-label ba-label-before">BEFORE</span>
+          <span class="ba-label ba-label-after">AFTER</span>
+        </div>
       </div>
     </div>
   </section>
@@ -144,36 +179,6 @@
       </div>
       <p class="text-sm text-muted mb-8 max-w-2xl rv">素材を問わない補修技術で、内装・家具・インテリアの美観と機能を復元してきました。店舗・オフィス・商業施設を中心に、様々な施工事例をご紹介します。</p>
 
-      <!-- ビフォーアフター -->
-      <div class="grid md:grid-cols-2 gap-8 mb-10">
-        <div class="rv">
-          <p class="text-xs text-muted mb-3 font-bold">洗面ボウル ひび割れ補修</p>
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <img src="images/before1.jpg" alt="補修前" class="w-full aspect-square object-cover rounded-lg">
-              <p class="text-xs text-muted text-center mt-1">Before</p>
-            </div>
-            <div>
-              <img src="images/after1.jpg" alt="補修後" class="w-full aspect-square object-cover rounded-lg">
-              <p class="text-xs text-brown text-center mt-1 font-bold">After</p>
-            </div>
-          </div>
-        </div>
-        <div class="rv">
-          <p class="text-xs text-muted mb-3 font-bold">石材 角部分の補修</p>
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <img src="images/before2.jpg" alt="補修前" class="w-full aspect-[4/3] object-cover rounded-lg">
-              <p class="text-xs text-muted text-center mt-1">Before</p>
-            </div>
-            <div>
-              <img src="images/after2.jpg" alt="補修後" class="w-full aspect-[4/3] object-cover rounded-lg">
-              <p class="text-xs text-brown text-center mt-1 font-bold">After</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="text-center rv">
         <a href="#" class="inline-block border border-brown text-brown text-sm px-8 py-3 hover:bg-brown hover:text-white transition-colors">施工事例一覧 →</a>
       </div>
@@ -233,6 +238,26 @@
   <script>
     const o = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }); }, { threshold: .08 });
     document.querySelectorAll('.rv').forEach(el => o.observe(el));
+
+    // Before/After Slider
+    document.querySelectorAll('[data-ba]').forEach(slider => {
+      const handle = slider.querySelector('.ba-handle');
+      const after = slider.querySelector('.ba-after');
+      let dragging = false;
+      const move = (x) => {
+        const rect = slider.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.max(5, Math.min(95, pct));
+        handle.style.left = pct + '%';
+        after.style.width = pct + '%';
+      };
+      slider.addEventListener('mousedown', (e) => { dragging = true; move(e.clientX); });
+      slider.addEventListener('touchstart', (e) => { dragging = true; move(e.touches[0].clientX); }, {passive:true});
+      window.addEventListener('mousemove', (e) => { if (dragging) move(e.clientX); });
+      window.addEventListener('touchmove', (e) => { if (dragging) move(e.touches[0].clientX); }, {passive:true});
+      window.addEventListener('mouseup', () => dragging = false);
+      window.addEventListener('touchend', () => dragging = false);
+    });
   </script>
 </body>
 </html>
