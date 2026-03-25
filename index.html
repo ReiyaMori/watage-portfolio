@@ -3,87 +3,373 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | WATAGE開発</title>
+  <title>Reiya Mori | Web制作 × 広告運用</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
-      theme: { extend: { fontFamily: { en: ['DM Sans', 'sans-serif'], sans: ['Noto Sans JP', 'sans-serif'] } } }
+      theme: {
+        extend: {
+          fontFamily: { en: ['DM Sans', 'sans-serif'], sans: ['Noto Sans JP', 'sans-serif'] },
+          colors: { ink: '#1a1a1a', stone: '#71717a', soft: '#f8f8f6' }
+        }
+      }
     }
   </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .rv { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+    .rv.on { opacity: 1; transform: translateY(0); }
+    .card-img { transition: transform .4s ease; }
+    .group:hover .card-img { transform: scale(1.03); }
+  </style>
 </head>
-<body class="font-sans bg-gray-50 text-gray-900">
-  <div class="max-w-4xl mx-auto px-5 py-16 md:py-24">
-    <header class="mb-16">
-      <p class="font-en text-sm text-gray-400 tracking-widest mb-2">PORTFOLIO</p>
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">LP制作 実績サンプル</h1>
-      <p class="text-gray-500 text-sm leading-relaxed max-w-lg">
-        業種別のLP制作サンプルです。すべてレスポンシブ対応済み。<br>
-        広告運用の知見を活かした、成果につながる設計を意識しています。
-      </p>
-    </header>
+<body class="font-sans text-ink bg-white">
 
-    <div class="grid md:grid-cols-2 gap-6">
-      <a href="01-beauty-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-        <div class="aspect-video bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-          <span class="font-en text-amber-800/30 text-4xl font-bold">BLOOM</span>
-        </div>
-        <div class="p-6">
-          <span class="text-xs text-amber-700 bg-amber-50 px-3 py-1 rounded-full">美容・エステ</span>
-          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-amber-700 transition-colors">フェイシャルエステサロン LP</h2>
-          <p class="text-gray-400 text-sm">高級感のあるデザイン。初回限定CTAによるコンバージョン設計。</p>
-        </div>
-      </a>
-
-      <a href="02-realestate-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-        <div class="aspect-video bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center">
-          <span class="font-en text-slate-800/30 text-4xl font-bold">LIVIO</span>
-        </div>
-        <div class="p-6">
-          <span class="text-xs text-blue-700 bg-blue-50 px-3 py-1 rounded-full">不動産・住宅</span>
-          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-blue-700 transition-colors">高級注文住宅 LP</h2>
-          <p class="text-gray-400 text-sm">施工事例ギャラリー＋無料相談導線。信頼感のある構成。</p>
-        </div>
-      </a>
-
-      <a href="03-saas-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-        <div class="aspect-video bg-gradient-to-br from-violet-50 to-indigo-100 flex items-center justify-center">
-          <span class="font-en text-indigo-800/30 text-4xl font-bold">FlowBoard</span>
-        </div>
-        <div class="p-6">
-          <span class="text-xs text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full">SaaS・IT</span>
-          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-indigo-700 transition-colors">プロジェクト管理SaaS LP</h2>
-          <p class="text-gray-400 text-sm">料金プラン比較＋FAQ。モダンなSaaSランディングページ。</p>
-        </div>
-      </a>
-
-      <a href="04-seitai-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-        <div class="aspect-video bg-gradient-to-br from-emerald-50 to-green-100 flex items-center justify-center">
-          <span class="font-en text-emerald-800/30 text-4xl font-bold">KARADA</span>
-        </div>
-        <div class="p-6">
-          <span class="text-xs text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">整体・医療</span>
-          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-emerald-700 transition-colors">整骨院 LP</h2>
-          <p class="text-gray-400 text-sm">電話・LINE・WEB予約の3導線。地域ビジネス向け設計。</p>
-        </div>
-      </a>
-
-      <a href="05-ad-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow md:col-span-2">
-        <div class="aspect-[21/9] bg-gradient-to-br from-orange-50 to-red-50 flex items-center justify-center">
-          <span class="font-en text-orange-800/30 text-4xl font-bold">FIT LIFE</span>
-        </div>
-        <div class="p-6">
-          <span class="text-xs text-orange-700 bg-orange-50 px-3 py-1 rounded-full">広告LP</span>
-          <span class="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full ml-2">Meta / Instagram広告想定</span>
-          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-orange-700 transition-colors">オンラインパーソナルトレーニング 広告LP</h2>
-          <p class="text-gray-400 text-sm">CVR最適化したファネル設計。モバイルファースト＋スティッキーCTA。広告運用の知見を反映した構成。</p>
-        </div>
-      </a>
+  <!-- ナビ -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
+      <span class="font-en font-bold tracking-wide text-sm">REIYA MORI</span>
+      <div class="flex gap-6 text-sm text-stone">
+        <a href="#about" class="hover:text-ink transition-colors">About</a>
+        <a href="#works" class="hover:text-ink transition-colors">Works</a>
+        <a href="#skills" class="hover:text-ink transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
+      </div>
     </div>
+  </nav>
 
-    <footer class="mt-16 pt-8 border-t text-center text-gray-400 text-xs">
-      <p>&copy; 2024 WATAGE開発</p>
-    </footer>
-  </div>
+  <!-- ヒーロー / プロフィール -->
+  <section id="about" class="pt-20 pb-16 px-5">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-8 items-start rv">
+        <!-- アイコン -->
+        <div class="w-20 h-20 md:w-24 md:h-24 bg-ink rounded-2xl flex items-center justify-center shrink-0">
+          <span class="font-en text-white text-2xl md:text-3xl font-bold">R</span>
+        </div>
+        <!-- テキスト -->
+        <div>
+          <p class="font-en text-stone text-xs tracking-widest mb-2">WEB CREATOR / AD OPERATOR</p>
+          <h1 class="text-2xl md:text-3xl font-bold mb-3">森 伶也<span class="text-stone font-normal text-base ml-3">Reiya Mori</span></h1>
+          <p class="text-stone text-sm leading-7 mb-5">
+            普段は広告代理店でMeta・Google広告の運用と動画クリエイティブ制作を担当。<br>
+            「広告を回す側」だからこそわかる、<strong class="text-ink">成果につながるLP・サイト</strong>を作ります。<br>
+            デザインからコーディング、公開後の改善提案まで一気通貫で対応可能。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs border border-gray-200 rounded-full px-3 py-1 text-stone">LP制作</span>
+            <span class="text-xs border border-gray-200 rounded-full px-3 py-1 text-stone">サイト制作</span>
+            <span class="text-xs border border-gray-200 rounded-full px-3 py-1 text-stone">広告運用</span>
+            <span class="text-xs border border-gray-200 rounded-full px-3 py-1 text-stone">LLMO / GEO対策</span>
+            <span class="text-xs border border-gray-200 rounded-full px-3 py-1 text-stone">動画制作</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数字 -->
+  <section class="border-y border-gray-100 py-8 px-5">
+    <div class="max-w-3xl mx-auto grid grid-cols-3 gap-4 text-center rv">
+      <div>
+        <p class="font-en text-2xl font-bold">7+</p>
+        <p class="text-stone text-xs mt-1">制作実績</p>
+      </div>
+      <div>
+        <p class="font-en text-2xl font-bold">5</p>
+        <p class="text-stone text-xs mt-1">対応業種</p>
+      </div>
+      <div>
+        <p class="font-en text-2xl font-bold">3年+</p>
+        <p class="text-stone text-xs mt-1">広告運用歴</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 強み -->
+  <section class="py-16 px-5 bg-soft">
+    <div class="max-w-3xl mx-auto">
+      <p class="font-en text-xs tracking-widest text-stone mb-6 rv">WHAT I DO DIFFERENTLY</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="rv">
+          <div class="text-ink font-en font-bold text-sm mb-2">01</div>
+          <h3 class="font-bold mb-2">広告運用が本業</h3>
+          <p class="text-stone text-sm leading-7">「きれいなだけ」のLPは作りません。Meta広告・Google広告を日常的に運用しているから、CVRを意識した構成設計ができます。</p>
+        </div>
+        <div class="rv">
+          <div class="text-ink font-en font-bold text-sm mb-2">02</div>
+          <h3 class="font-bold mb-2">LLMO / AI検索対策</h3>
+          <p class="text-stone text-sm leading-7">ChatGPTやPerplexityで上位表示されるための構造化データ設計・コンテンツ構成に対応。まだ対応できる制作者が少ない領域です。</p>
+        </div>
+        <div class="rv">
+          <div class="text-ink font-en font-bold text-sm mb-2">03</div>
+          <h3 class="font-bold mb-2">ワンストップ対応</h3>
+          <p class="text-stone text-sm leading-7">デザイン → コーディング → 広告運用まで分業せず一人で完結。コミュニケーションコストが最小で済みます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 制作実績 -->
+  <section id="works" class="py-16 px-5">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-end justify-between mb-10 rv">
+        <div>
+          <p class="font-en text-xs tracking-widest text-stone mb-2">WORKS</p>
+          <h2 class="text-xl font-bold">制作実績</h2>
+        </div>
+        <p class="text-stone text-xs">すべてレスポンシブ対応</p>
+      </div>
+
+      <!-- 実案件 -->
+      <div class="mb-8 rv">
+        <p class="text-xs font-bold text-stone tracking-wider mb-4 border-b border-gray-100 pb-2">CLIENT WORK</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        <a href="https://www.realize-llc.tokyo/" target="_blank" class="group block rv">
+          <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden mb-3 border border-gray-100">
+            <div class="w-full h-full bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center card-img">
+              <span class="font-en text-gray-400 text-sm tracking-wider">realize-llc.tokyo</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">Next.js</span>
+            <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">コーポレート</span>
+          </div>
+          <h3 class="font-bold text-sm group-hover:underline">合同会社Realize コーポレートサイト</h3>
+        </a>
+        <a href="https://npo-bright.com/" target="_blank" class="group block rv">
+          <div class="aspect-video bg-gray-100 rounded-lg overflow-hidden mb-3 border border-gray-100">
+            <div class="w-full h-full bg-gradient-to-br from-gray-50 to-emerald-50 flex items-center justify-center card-img">
+              <span class="font-en text-gray-400 text-sm tracking-wider">npo-bright.com</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">WordPress</span>
+            <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">NPO</span>
+          </div>
+          <h3 class="font-bold text-sm group-hover:underline">NPO法人BRIGHT 公式サイト</h3>
+        </a>
+      </div>
+
+      <!-- LP制作サンプル -->
+      <div class="mb-8 rv">
+        <p class="text-xs font-bold text-stone tracking-wider mb-4 border-b border-gray-100 pb-2">LP DESIGN SAMPLES</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="01-beauty-lp/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
+            <div class="w-full h-full bg-gradient-to-br from-amber-50 to-amber-100/60 flex items-center justify-center card-img">
+              <span class="font-en text-amber-800/20 text-3xl font-bold">BLOOM</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">美容・エステ</span>
+          </div>
+          <h3 class="font-bold text-sm group-hover:underline">フェイシャルエステサロン LP</h3>
+          <p class="text-stone text-xs mt-0.5">高級感 × 初回限定CTA × スクロールアニメーション</p>
+        </a>
+
+        <a href="02-realestate-lp/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
+            <div class="w-full h-full bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center card-img">
+              <span class="font-en text-slate-800/20 text-3xl font-bold">LIVIO</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-blue-700 bg-blue-50 px-2 py-0.5 rounded">不動産・住宅</span>
+          </div>
+          <h3 class="font-bold text-sm group-hover:underline">高級注文住宅 LP</h3>
+          <p class="text-stone text-xs mt-0.5">施工事例ギャラリー × 無料相談導線 × 信頼感設計</p>
+        </a>
+
+        <a href="03-saas-lp/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
+            <div class="w-full h-full bg-gradient-to-br from-violet-50 to-indigo-100/60 flex items-center justify-center card-img">
+              <span class="font-en text-indigo-800/20 text-3xl font-bold">FlowBoard</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">SaaS・IT</span>
+          </div>
+          <h3 class="font-bold text-sm group-hover:underline">プロジェクト管理SaaS LP</h3>
+          <p class="text-stone text-xs mt-0.5">料金プラン比較 × FAQ × モダンUI</p>
+        </a>
+
+        <a href="04-seitai-lp/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
+            <div class="w-full h-full bg-gradient-to-br from-emerald-50 to-green-100/60 flex items-center justify-center card-img">
+              <span class="font-en text-emerald-800/20 text-3xl font-bold">KARADA</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">整体・医療</span>
+          </div>
+          <h3 class="font-bold text-sm group-hover:underline">整骨院 LP</h3>
+          <p class="text-stone text-xs mt-0.5">電話 × LINE × WEB予約の3導線 × 地域ビジネス特化</p>
+        </a>
+      </div>
+
+      <!-- 広告LP（フルワイド） -->
+      <div class="mt-6">
+        <a href="05-ad-lp/" class="group block rv">
+          <div class="aspect-[21/9] rounded-lg overflow-hidden mb-3 border border-gray-100">
+            <div class="w-full h-full bg-gradient-to-br from-orange-50 to-red-50/60 flex items-center justify-center card-img">
+              <span class="font-en text-orange-800/20 text-3xl font-bold">FIT LIFE</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-orange-700 bg-orange-50 px-2 py-0.5 rounded">広告LP</span>
+            <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">Meta / Instagram想定</span>
+          </div>
+          <h3 class="font-bold text-sm group-hover:underline">オンラインパーソナルトレーニング 広告LP</h3>
+          <p class="text-stone text-xs mt-0.5">CVRファネル設計 × モバイルファースト × スティッキーCTA × 広告運用知見を反映</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- スキル -->
+  <section id="skills" class="py-16 px-5 bg-soft">
+    <div class="max-w-3xl mx-auto">
+      <p class="font-en text-xs tracking-widest text-stone mb-6 rv">SKILLS & TOOLS</p>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="rv">
+          <h3 class="font-bold text-sm mb-4">Web制作</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-sm">
+              <span>HTML / CSS / JavaScript</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>WordPress</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>Next.js / React</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>Tailwind CSS</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rv">
+          <h3 class="font-bold text-sm mb-4">デザイン・ツール</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-sm">
+              <span>Figma</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>Photoshop</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>Premiere Pro / After Effects</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rv">
+          <h3 class="font-bold text-sm mb-4">広告運用</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-sm">
+              <span>Meta広告（Facebook / Instagram）</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>Google広告</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>TikTok広告</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rv">
+          <h3 class="font-bold text-sm mb-4">その他</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-sm">
+              <span>LLMO / GEO / AIO対策</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>SEO</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span>GA4 / データ分析</span>
+              <div class="flex gap-0.5"><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-ink rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span><span class="w-4 h-1 bg-gray-200 rounded-full"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 対応の流れ -->
+  <section class="py-16 px-5">
+    <div class="max-w-3xl mx-auto">
+      <p class="font-en text-xs tracking-widest text-stone mb-6 rv">HOW I WORK</p>
+      <div class="grid grid-cols-5 gap-3 text-center rv">
+        <div>
+          <div class="w-10 h-10 mx-auto bg-ink text-white rounded-lg flex items-center justify-center font-en font-bold text-sm mb-2">1</div>
+          <p class="text-xs font-bold">ヒアリング</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 mx-auto bg-ink text-white rounded-lg flex items-center justify-center font-en font-bold text-sm mb-2">2</div>
+          <p class="text-xs font-bold">ラフ提案</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 mx-auto bg-ink text-white rounded-lg flex items-center justify-center font-en font-bold text-sm mb-2">3</div>
+          <p class="text-xs font-bold">デザイン</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 mx-auto bg-ink text-white rounded-lg flex items-center justify-center font-en font-bold text-sm mb-2">4</div>
+          <p class="text-xs font-bold">コーディング</p>
+        </div>
+        <div>
+          <div class="w-10 h-10 mx-auto bg-ink text-white rounded-lg flex items-center justify-center font-en font-bold text-sm mb-2">5</div>
+          <p class="text-xs font-bold">納品</p>
+        </div>
+      </div>
+      <p class="text-stone text-xs text-center mt-4 rv">進捗はこまめにご報告。修正2回まで無料対応。</p>
+    </div>
+  </section>
+
+  <!-- CTA / Contact -->
+  <section id="contact" class="py-16 px-5 bg-ink text-white">
+    <div class="max-w-xl mx-auto text-center">
+      <p class="font-en text-xs tracking-widest text-white/40 mb-4 rv">CONTACT</p>
+      <h2 class="text-xl font-bold mb-3 rv">お仕事のご相談</h2>
+      <p class="text-white/60 text-sm leading-7 mb-8 rv">
+        LP制作・サイト制作・広告運用のご相談はお気軽にどうぞ。<br>
+        CrowdWorksのメッセージ、またはメールでご連絡ください。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center rv">
+        <a href="https://crowdworks.jp/public/employees/3478100" target="_blank" class="bg-white text-ink font-bold text-sm py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">
+          CrowdWorksで相談
+        </a>
+        <a href="mailto:hanedab787@gmail.com" class="border border-white/30 text-white font-bold text-sm py-3 px-8 rounded-lg hover:bg-white/10 transition-colors">
+          メールで連絡
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="bg-ink border-t border-white/10 py-6 px-5 text-center">
+    <p class="text-white/30 text-xs">&copy; 2024 Reiya Mori — WATAGE開発</p>
+  </footer>
+
+  <script>
+    const o = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold: .08 });
+    document.querySelectorAll('.rv').forEach(el => o.observe(el));
+  </script>
 </body>
 </html>
