@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | WATAGE開発</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { en: ['DM Sans', 'sans-serif'], sans: ['Noto Sans JP', 'sans-serif'] } } }
+    }
+  </script>
+</head>
+<body class="font-sans bg-gray-50 text-gray-900">
+  <div class="max-w-4xl mx-auto px-5 py-16 md:py-24">
+    <header class="mb-16">
+      <p class="font-en text-sm text-gray-400 tracking-widest mb-2">PORTFOLIO</p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">LP制作 実績サンプル</h1>
+      <p class="text-gray-500 text-sm leading-relaxed max-w-lg">
+        業種別のLP制作サンプルです。すべてレスポンシブ対応済み。<br>
+        広告運用の知見を活かした、成果につながる設計を意識しています。
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="01-beauty-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+        <div class="aspect-video bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
+          <span class="font-en text-amber-800/30 text-4xl font-bold">BLOOM</span>
+        </div>
+        <div class="p-6">
+          <span class="text-xs text-amber-700 bg-amber-50 px-3 py-1 rounded-full">美容・エステ</span>
+          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-amber-700 transition-colors">フェイシャルエステサロン LP</h2>
+          <p class="text-gray-400 text-sm">高級感のあるデザイン。初回限定CTAによるコンバージョン設計。</p>
+        </div>
+      </a>
+
+      <a href="02-realestate-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+        <div class="aspect-video bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center">
+          <span class="font-en text-slate-800/30 text-4xl font-bold">LIVIO</span>
+        </div>
+        <div class="p-6">
+          <span class="text-xs text-blue-700 bg-blue-50 px-3 py-1 rounded-full">不動産・住宅</span>
+          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-blue-700 transition-colors">高級注文住宅 LP</h2>
+          <p class="text-gray-400 text-sm">施工事例ギャラリー＋無料相談導線。信頼感のある構成。</p>
+        </div>
+      </a>
+
+      <a href="03-saas-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+        <div class="aspect-video bg-gradient-to-br from-violet-50 to-indigo-100 flex items-center justify-center">
+          <span class="font-en text-indigo-800/30 text-4xl font-bold">FlowBoard</span>
+        </div>
+        <div class="p-6">
+          <span class="text-xs text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full">SaaS・IT</span>
+          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-indigo-700 transition-colors">プロジェクト管理SaaS LP</h2>
+          <p class="text-gray-400 text-sm">料金プラン比較＋FAQ。モダンなSaaSランディングページ。</p>
+        </div>
+      </a>
+
+      <a href="04-seitai-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+        <div class="aspect-video bg-gradient-to-br from-emerald-50 to-green-100 flex items-center justify-center">
+          <span class="font-en text-emerald-800/30 text-4xl font-bold">KARADA</span>
+        </div>
+        <div class="p-6">
+          <span class="text-xs text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">整体・医療</span>
+          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-emerald-700 transition-colors">整骨院 LP</h2>
+          <p class="text-gray-400 text-sm">電話・LINE・WEB予約の3導線。地域ビジネス向け設計。</p>
+        </div>
+      </a>
+
+      <a href="05-ad-lp/" class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow md:col-span-2">
+        <div class="aspect-[21/9] bg-gradient-to-br from-orange-50 to-red-50 flex items-center justify-center">
+          <span class="font-en text-orange-800/30 text-4xl font-bold">FIT LIFE</span>
+        </div>
+        <div class="p-6">
+          <span class="text-xs text-orange-700 bg-orange-50 px-3 py-1 rounded-full">広告LP</span>
+          <span class="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full ml-2">Meta / Instagram広告想定</span>
+          <h2 class="font-bold text-lg mt-3 mb-1 group-hover:text-orange-700 transition-colors">オンラインパーソナルトレーニング 広告LP</h2>
+          <p class="text-gray-400 text-sm">CVR最適化したファネル設計。モバイルファースト＋スティッキーCTA。広告運用の知見を反映した構成。</p>
+        </div>
+      </a>
+    </div>
+
+    <footer class="mt-16 pt-8 border-t text-center text-gray-400 text-xs">
+      <p>&copy; 2024 WATAGE開発</p>
+    </footer>
+  </div>
+</body>
+</html>
