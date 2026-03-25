@@ -7,15 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            black: '#111111',
-            dark: '#333333',
             red: '#C41E3A',
+            dark: '#333333',
             light: '#F5F5F5',
           },
           fontFamily: {
@@ -29,106 +28,107 @@
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans JP', sans-serif; color: #333; }
-    .font-heading { font-family: 'DM Sans', 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; }
+    .font-heading { font-family: 'DM Sans', 'Noto Sans JP', sans-serif; letter-spacing: 0.04em; }
 
     /* Fade-in on scroll */
     .fade-up {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .fade-up.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Step connector line */
-    .step-line {
-      position: relative;
-    }
-    .step-line::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -2rem;
-      width: 2.5rem;
+    /* Thin horizontal rule accent */
+    .accent-line {
+      width: 40px;
       height: 2px;
       background: #C41E3A;
     }
+
+    /* Step connector */
+    .step-connector {
+      position: relative;
+    }
+    .step-connector::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: -24px;
+      width: 48px;
+      height: 1px;
+      background: #ddd;
+    }
     @media (max-width: 767px) {
-      .step-line::after {
-        display: none;
-      }
+      .step-connector::after { display: none; }
     }
   </style>
 </head>
 <body class="bg-white">
 
   <!-- ========== HEADER ========== -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-black/95 backdrop-blur-sm">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <span class="font-heading text-white text-2xl font-bold tracking-wider">RESTORE</span>
-        <span class="text-white/50 text-xs hidden sm:inline">リストア</span>
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <span class="font-heading text-dark text-xl font-bold tracking-wider">RESTORE</span>
+        <span class="text-dark/40 text-[11px] hidden sm:inline border-l border-dark/20 pl-2 ml-1">リストア</span>
       </a>
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#services" class="text-white/80 text-sm hover:text-red transition-colors duration-300">サービス</a>
-        <a href="#results" class="text-white/80 text-sm hover:text-red transition-colors duration-300">実績</a>
-        <a href="#flow" class="text-white/80 text-sm hover:text-red transition-colors duration-300">ご利用の流れ</a>
-        <a href="#contact" class="bg-red text-white text-sm px-6 py-2.5 hover:bg-red/90 transition-colors duration-300">お問い合わせ</a>
+        <a href="#services" class="text-dark/60 text-sm hover:text-dark transition-colors">サービス</a>
+        <a href="#strengths" class="text-dark/60 text-sm hover:text-dark transition-colors">強み</a>
+        <a href="#flow" class="text-dark/60 text-sm hover:text-dark transition-colors">ご利用の流れ</a>
+        <a href="#contact" class="bg-red text-white text-sm px-5 py-2 hover:bg-red/90 transition-colors">お問い合わせ</a>
       </nav>
-      <!-- Mobile menu button -->
-      <button id="menuBtn" class="md:hidden text-white" aria-label="メニュー">
+      <button id="menuBtn" class="md:hidden text-dark" aria-label="メニュー">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-white/10">
-      <div class="px-6 py-4 flex flex-col gap-4">
-        <a href="#services" class="text-white/80 text-sm py-2">サービス</a>
-        <a href="#results" class="text-white/80 text-sm py-2">実績</a>
-        <a href="#flow" class="text-white/80 text-sm py-2">ご利用の流れ</a>
-        <a href="#contact" class="bg-red text-white text-sm px-6 py-2.5 text-center">お問い合わせ</a>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <div class="px-6 py-4 flex flex-col gap-3">
+        <a href="#services" class="text-dark/70 text-sm py-2">サービス</a>
+        <a href="#strengths" class="text-dark/70 text-sm py-2">強み</a>
+        <a href="#flow" class="text-dark/70 text-sm py-2">ご利用の流れ</a>
+        <a href="#contact" class="bg-red text-white text-sm px-5 py-2 text-center mt-1">お問い合わせ</a>
       </div>
     </div>
   </header>
 
 
   <!-- ========== HERO — LEFT/RIGHT SPLIT ========== -->
-  <section class="pt-20 bg-black min-h-screen flex items-center">
-    <div class="max-w-7xl mx-auto px-6 w-full">
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+  <section class="pt-20 min-h-[90vh] flex items-center bg-white">
+    <div class="max-w-6xl mx-auto px-6 w-full py-16 md:py-0">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <!-- Left: Text -->
-        <div class="py-12 md:py-0 order-2 md:order-1">
-          <p class="text-red text-sm font-medium tracking-[0.3em] mb-6">INTERIOR REPAIR SPECIALIST</p>
-          <h1 class="font-heading text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+        <div class="order-2 md:order-1">
+          <p class="font-heading text-dark/40 text-xs tracking-[0.25em] mb-5">INTERIOR REPAIR SPECIALIST</p>
+          <h1 class="text-dark text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
             傷を、<br>なかったことに。
           </h1>
-          <p class="text-white/60 text-lg mb-3 font-heading">RESTORE（リストア）</p>
-          <p class="text-white/40 text-sm leading-relaxed mb-10 max-w-md">
-            内装・家具・インテリアの補修専門。<br>
-            15年の経験と確かな技術で、<br class="hidden sm:block">
-            傷ついた空間を新品同様に復元します。
+          <div class="accent-line mb-6"></div>
+          <p class="text-dark/50 text-sm leading-relaxed mb-3">
+            RESTORE（リストア）｜内装・家具・インテリアの補修専門
           </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#contact" class="bg-red text-white text-center px-8 py-4 text-sm font-medium hover:bg-red/90 transition-colors duration-300">
-              無料相談はこちら
-            </a>
-            <a href="#services" class="border border-white/20 text-white text-center px-8 py-4 text-sm font-medium hover:border-white/40 transition-colors duration-300">
-              サービスを見る
-            </a>
-          </div>
+          <p class="text-dark/70 text-[15px] leading-loose mb-10 max-w-md">
+            金属・石材・木材——<br>
+            あらゆる素材の傷を、プロが復元。
+          </p>
+          <a href="#contact" class="inline-block bg-red text-white text-sm px-8 py-4 hover:bg-red/90 transition-colors">
+            無料見積りはこちら
+          </a>
         </div>
         <!-- Right: Image -->
         <div class="order-1 md:order-2">
-          <div class="aspect-[4/3] md:aspect-[3/4] lg:aspect-[4/5] bg-dark overflow-hidden">
+          <div class="aspect-[4/3] md:aspect-[4/5] bg-light overflow-hidden">
             <img
               src="images/hero.jpg"
               alt="内装補修の様子"
               class="w-full h-full object-cover"
-              onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-dark flex items-center justify-center\'><span class=\'text-white/20 text-sm\'>HERO IMAGE</span></div>'"
+              onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-light flex items-center justify-center\'><span class=\'text-dark/20 text-sm\'>HERO IMAGE</span></div>'"
             >
           </div>
         </div>
@@ -138,43 +138,43 @@
 
 
   <!-- ========== SERVICES ========== -->
-  <section id="services" class="py-24 md:py-32 bg-light">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="fade-up mb-16 md:mb-20">
-        <p class="text-red text-xs font-medium tracking-[0.3em] mb-3">SERVICE</p>
-        <h2 class="font-heading text-black text-3xl md:text-4xl font-bold">サービス内容</h2>
+  <section id="services" class="py-20 md:py-28 bg-light">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-up mb-14">
+        <p class="font-heading text-dark/30 text-xs tracking-[0.25em] mb-3">SERVICE</p>
+        <h2 class="text-dark text-2xl md:text-3xl font-bold">サービス内容</h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Service 1 -->
-        <div class="fade-up bg-white p-8 group hover:bg-black transition-colors duration-500">
-          <span class="text-red text-xs font-medium tracking-wider">01</span>
-          <h3 class="font-heading text-xl font-bold mt-4 mb-4 group-hover:text-white transition-colors duration-500">家具補修</h3>
-          <p class="text-dark/60 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-500">
+        <div class="fade-up bg-white p-7 border border-gray-100">
+          <span class="font-heading text-red text-sm font-bold">01</span>
+          <h3 class="text-lg font-bold mt-3 mb-3 text-dark">家具補修</h3>
+          <p class="text-dark/50 text-sm leading-relaxed">
             テーブル・椅子・キャビネットなど、木製家具の傷・凹み・色褪せを修復。素材の質感を活かした仕上がりに。
           </p>
         </div>
         <!-- Service 2 -->
-        <div class="fade-up bg-white p-8 group hover:bg-black transition-colors duration-500" style="transition-delay:0.1s">
-          <span class="text-red text-xs font-medium tracking-wider">02</span>
-          <h3 class="font-heading text-xl font-bold mt-4 mb-4 group-hover:text-white transition-colors duration-500">フローリング補修</h3>
-          <p class="text-dark/60 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-500">
+        <div class="fade-up bg-white p-7 border border-gray-100">
+          <span class="font-heading text-red text-sm font-bold">02</span>
+          <h3 class="text-lg font-bold mt-3 mb-3 text-dark">フローリング補修</h3>
+          <p class="text-dark/50 text-sm leading-relaxed">
             フローリングの傷・へこみ・剥がれを精密に補修。部分補修で全面張替え不要、コストを大幅に削減。
           </p>
         </div>
         <!-- Service 3 -->
-        <div class="fade-up bg-white p-8 group hover:bg-black transition-colors duration-500" style="transition-delay:0.2s">
-          <span class="text-red text-xs font-medium tracking-wider">03</span>
-          <h3 class="font-heading text-xl font-bold mt-4 mb-4 group-hover:text-white transition-colors duration-500">壁・クロス補修</h3>
-          <p class="text-dark/60 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-500">
+        <div class="fade-up bg-white p-7 border border-gray-100">
+          <span class="font-heading text-red text-sm font-bold">03</span>
+          <h3 class="text-lg font-bold mt-3 mb-3 text-dark">壁・クロス補修</h3>
+          <p class="text-dark/50 text-sm leading-relaxed">
             壁紙の破れ・穴・汚れ・剥がれを修復。既存クロスに合わせた補修で、違和感のない仕上がりを実現。
           </p>
         </div>
         <!-- Service 4 -->
-        <div class="fade-up bg-white p-8 group hover:bg-black transition-colors duration-500" style="transition-delay:0.3s">
-          <span class="text-red text-xs font-medium tracking-wider">04</span>
-          <h3 class="font-heading text-xl font-bold mt-4 mb-4 group-hover:text-white transition-colors duration-500">美装クリーニング</h3>
-          <p class="text-dark/60 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-500">
+        <div class="fade-up bg-white p-7 border border-gray-100">
+          <span class="font-heading text-red text-sm font-bold">04</span>
+          <h3 class="text-lg font-bold mt-3 mb-3 text-dark">美装クリーニング</h3>
+          <p class="text-dark/50 text-sm leading-relaxed">
             退去時・入居前の美装仕上げ。プロの技術で空間全体を清潔で美しい状態に復元します。
           </p>
         </div>
@@ -183,40 +183,68 @@
   </section>
 
 
-  <!-- ========== RESULTS / STATS ========== -->
-  <section id="results" class="py-24 md:py-32 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <!-- Left: Text block -->
-        <div class="fade-up">
-          <p class="text-red text-xs font-medium tracking-[0.3em] mb-3">TRACK RECORD</p>
-          <h2 class="font-heading text-white text-3xl md:text-4xl font-bold leading-snug mb-6">
-            15年の経験で、<br>1,500件以上の補修実績。
-          </h2>
-          <p class="text-white/40 text-sm leading-loose max-w-lg">
-            住宅・オフィス・商業施設まで、あらゆる空間の補修に対応してきました。
-            「張替えるしかない」と言われたものでも、補修で解決できるケースは数多くあります。
-            まずはご相談ください。
+  <!-- ========== STRENGTHS ========== -->
+  <section id="strengths" class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-up mb-14">
+        <p class="font-heading text-dark/30 text-xs tracking-[0.25em] mb-3">STRENGTHS</p>
+        <h2 class="text-dark text-2xl md:text-3xl font-bold">選ばれる理由</h2>
+      </div>
+
+      <!-- Strength 1: text left, visual right -->
+      <div class="fade-up grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-16 md:mb-24">
+        <div>
+          <span class="font-heading text-red text-sm font-bold">01</span>
+          <h3 class="text-xl md:text-2xl font-bold mt-3 mb-4 text-dark">15年の経験と確かな技術</h3>
+          <p class="text-dark/60 text-sm leading-loose">
+            住宅・オフィス・商業施設まで、15年にわたり内装補修に特化してきた専門技術者が対応。
+            「張替えるしかない」と言われた箇所も、補修で美しく復元できるケースが数多くあります。
           </p>
         </div>
-        <!-- Right: Stats -->
-        <div class="fade-up">
-          <div class="grid grid-cols-1 gap-0">
-            <!-- Stat 1 -->
-            <div class="border-l-2 border-red pl-8 py-8">
-              <p class="font-heading text-white text-5xl md:text-6xl font-bold">1,500<span class="text-lg text-white/40 ml-1">件+</span></p>
-              <p class="text-white/50 text-sm mt-2">累計施工実績</p>
-            </div>
-            <!-- Stat 2 -->
-            <div class="border-l-2 border-white/10 pl-8 py-8">
-              <p class="font-heading text-white text-5xl md:text-6xl font-bold">15<span class="text-lg text-white/40 ml-1">年</span></p>
-              <p class="text-white/50 text-sm mt-2">業界経験</p>
-            </div>
-            <!-- Stat 3 -->
-            <div class="border-l-2 border-white/10 pl-8 py-8">
-              <p class="font-heading text-white text-5xl md:text-6xl font-bold">98<span class="text-lg text-white/40 ml-1">%</span></p>
-              <p class="text-white/50 text-sm mt-2">お客様満足度</p>
-            </div>
+        <div class="bg-light aspect-[3/2] flex items-center justify-center">
+          <div class="text-center">
+            <p class="font-heading text-5xl md:text-6xl font-bold text-dark">15<span class="text-lg text-dark/30 ml-1">年</span></p>
+            <p class="text-dark/40 text-sm mt-2">業界経験</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strength 2: visual left, text right -->
+      <div class="fade-up grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-16 md:mb-24">
+        <div class="bg-light aspect-[3/2] flex items-center justify-center order-2 md:order-1">
+          <div class="text-center">
+            <p class="font-heading text-5xl md:text-6xl font-bold text-dark">1,500<span class="text-lg text-dark/30 ml-1">件+</span></p>
+            <p class="text-dark/40 text-sm mt-2">累計施工実績</p>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <span class="font-heading text-red text-sm font-bold">02</span>
+          <h3 class="text-xl md:text-2xl font-bold mt-3 mb-4 text-dark">法人様1,500件以上の実績</h3>
+          <p class="text-dark/60 text-sm leading-loose">
+            商業施設・ホテル・オフィスなど法人様を中心に、1,500件以上の施工実績。
+            品質と納期の両立で、多くのリピーターにご支持いただいています。
+          </p>
+        </div>
+      </div>
+
+      <!-- Strength 3: text left, visual right -->
+      <div class="fade-up grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div>
+          <span class="font-heading text-red text-sm font-bold">03</span>
+          <h3 class="text-xl md:text-2xl font-bold mt-3 mb-4 text-dark">幅広い素材に対応</h3>
+          <p class="text-dark/60 text-sm leading-loose">
+            金属・石材・木材・樹脂など、素材を問わず対応可能。
+            それぞれの素材特性を熟知した技術者が、最適な工法で復元します。
+          </p>
+        </div>
+        <div class="bg-light p-8 md:p-12 aspect-[3/2] flex items-center justify-center">
+          <div class="flex flex-wrap gap-3 justify-center">
+            <span class="border border-dark/15 text-dark/70 text-sm px-4 py-2">金属</span>
+            <span class="border border-dark/15 text-dark/70 text-sm px-4 py-2">石材</span>
+            <span class="border border-dark/15 text-dark/70 text-sm px-4 py-2">木材</span>
+            <span class="border border-dark/15 text-dark/70 text-sm px-4 py-2">樹脂</span>
+            <span class="border border-dark/15 text-dark/70 text-sm px-4 py-2">クロス</span>
+            <span class="border border-dark/15 text-dark/70 text-sm px-4 py-2">フローリング</span>
           </div>
         </div>
       </div>
@@ -225,60 +253,52 @@
 
 
   <!-- ========== FLOW ========== -->
-  <section id="flow" class="py-24 md:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="fade-up text-center mb-16 md:mb-20">
-        <p class="text-red text-xs font-medium tracking-[0.3em] mb-3">FLOW</p>
-        <h2 class="font-heading text-black text-3xl md:text-4xl font-bold">ご利用の流れ</h2>
+  <section id="flow" class="py-20 md:py-28 bg-light">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-up text-center mb-14">
+        <p class="font-heading text-dark/30 text-xs tracking-[0.25em] mb-3">FLOW</p>
+        <h2 class="text-dark text-2xl md:text-3xl font-bold">ご利用の流れ</h2>
       </div>
 
-      <div class="grid md:grid-cols-4 gap-8 md:gap-0">
+      <div class="grid md:grid-cols-4 gap-6 md:gap-0">
         <!-- Step 1 -->
-        <div class="fade-up md:px-6">
-          <div class="step-line flex md:flex-col items-start gap-5">
-            <div class="w-14 h-14 shrink-0 bg-black flex items-center justify-center">
-              <span class="text-red font-heading font-bold text-lg">01</span>
+        <div class="fade-up md:px-4">
+          <div class="step-connector text-center md:text-left">
+            <div class="w-10 h-10 bg-white border border-dark/10 flex items-center justify-center mx-auto md:mx-0 mb-4">
+              <span class="font-heading text-red text-sm font-bold">01</span>
             </div>
-            <div>
-              <h3 class="font-heading text-lg font-bold mb-2">お問い合わせ</h3>
-              <p class="text-dark/50 text-sm leading-relaxed">お電話またはフォームからお気軽にご連絡ください。</p>
-            </div>
+            <h3 class="text-base font-bold mb-2 text-dark">お問い合わせ</h3>
+            <p class="text-dark/50 text-sm leading-relaxed">お電話またはフォームからお気軽にご連絡ください。</p>
           </div>
         </div>
         <!-- Step 2 -->
-        <div class="fade-up md:px-6" style="transition-delay:0.1s">
-          <div class="step-line flex md:flex-col items-start gap-5">
-            <div class="w-14 h-14 shrink-0 bg-black flex items-center justify-center">
-              <span class="text-red font-heading font-bold text-lg">02</span>
+        <div class="fade-up md:px-4">
+          <div class="step-connector text-center md:text-left">
+            <div class="w-10 h-10 bg-white border border-dark/10 flex items-center justify-center mx-auto md:mx-0 mb-4">
+              <span class="font-heading text-red text-sm font-bold">02</span>
             </div>
-            <div>
-              <h3 class="font-heading text-lg font-bold mb-2">現地調査</h3>
-              <p class="text-dark/50 text-sm leading-relaxed">現場を確認し、最適な補修方法とお見積りをご提案します。</p>
-            </div>
+            <h3 class="text-base font-bold mb-2 text-dark">現地調査・見積り</h3>
+            <p class="text-dark/50 text-sm leading-relaxed">現場を確認し、最適な補修方法とお見積りをご提案します。</p>
           </div>
         </div>
         <!-- Step 3 -->
-        <div class="fade-up md:px-6" style="transition-delay:0.2s">
-          <div class="step-line flex md:flex-col items-start gap-5">
-            <div class="w-14 h-14 shrink-0 bg-black flex items-center justify-center">
-              <span class="text-red font-heading font-bold text-lg">03</span>
+        <div class="fade-up md:px-4">
+          <div class="step-connector text-center md:text-left">
+            <div class="w-10 h-10 bg-white border border-dark/10 flex items-center justify-center mx-auto md:mx-0 mb-4">
+              <span class="font-heading text-red text-sm font-bold">03</span>
             </div>
-            <div>
-              <h3 class="font-heading text-lg font-bold mb-2">施工</h3>
-              <p class="text-dark/50 text-sm leading-relaxed">熟練の技術者が丁寧に補修を行います。当日完了も可能です。</p>
-            </div>
+            <h3 class="text-base font-bold mb-2 text-dark">施工</h3>
+            <p class="text-dark/50 text-sm leading-relaxed">熟練の技術者が丁寧に補修。当日完了も可能です。</p>
           </div>
         </div>
         <!-- Step 4 -->
-        <div class="fade-up md:px-6" style="transition-delay:0.3s">
-          <div class="flex md:flex-col items-start gap-5">
-            <div class="w-14 h-14 shrink-0 bg-red flex items-center justify-center">
-              <span class="text-white font-heading font-bold text-lg">04</span>
+        <div class="fade-up md:px-4">
+          <div class="text-center md:text-left">
+            <div class="w-10 h-10 bg-red flex items-center justify-center mx-auto md:mx-0 mb-4">
+              <span class="font-heading text-white text-sm font-bold">04</span>
             </div>
-            <div>
-              <h3 class="font-heading text-lg font-bold mb-2">完了</h3>
-              <p class="text-dark/50 text-sm leading-relaxed">仕上がりをご確認いただき、ご納得の上でお引き渡しします。</p>
-            </div>
+            <h3 class="text-base font-bold mb-2 text-dark">完了・お引き渡し</h3>
+            <p class="text-dark/50 text-sm leading-relaxed">仕上がりをご確認いただき、ご納得の上でお引き渡し。</p>
           </div>
         </div>
       </div>
@@ -287,49 +307,50 @@
 
 
   <!-- ========== CONTACT ========== -->
-  <section id="contact" class="py-24 md:py-32 bg-light">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="fade-up text-center mb-16">
-        <p class="text-red text-xs font-medium tracking-[0.3em] mb-3">CONTACT</p>
-        <h2 class="font-heading text-black text-3xl md:text-4xl font-bold">お問い合わせ</h2>
+  <section id="contact" class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-up text-center mb-14">
+        <p class="font-heading text-dark/30 text-xs tracking-[0.25em] mb-3">CONTACT</p>
+        <h2 class="text-dark text-2xl md:text-3xl font-bold">お問い合わせ</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+      <div class="max-w-4xl mx-auto">
         <!-- Phone -->
-        <div class="fade-up bg-black p-10 md:p-12 flex flex-col justify-center">
-          <p class="text-white/40 text-xs tracking-[0.2em] mb-4">お電話でのお問い合わせ</p>
-          <p class="font-heading text-white text-3xl md:text-4xl font-bold mb-2">
-            <a href="tel:0120-000-000" class="hover:text-red transition-colors duration-300">0120-000-000</a>
+        <div class="fade-up bg-light border border-gray-100 p-8 md:p-10 mb-10 text-center">
+          <p class="text-dark/40 text-xs tracking-[0.15em] mb-3">お電話でのお問い合わせ</p>
+          <p class="font-heading text-dark text-3xl md:text-4xl font-bold mb-1">
+            <a href="tel:0120-000-000" class="hover:text-red transition-colors">0120-000-000</a>
           </p>
-          <p class="text-white/40 text-sm">受付時間 9:00〜18:00（土日祝除く）</p>
-          <div class="mt-8 pt-8 border-t border-white/10">
-            <p class="text-white/40 text-xs tracking-[0.2em] mb-2">メールでのお問い合わせ</p>
-            <p class="text-white/60 text-sm">info@restore-repair.jp</p>
-          </div>
+          <p class="text-dark/40 text-sm">受付時間 9:00〜18:00（土日祝除く）</p>
         </div>
 
         <!-- Form -->
         <div class="fade-up">
-          <form class="space-y-6">
-            <div>
-              <label class="block text-sm text-dark/70 mb-2">お名前 <span class="text-red text-xs">必須</span></label>
-              <input type="text" class="w-full border border-dark/15 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors" placeholder="山田 太郎">
+          <p class="text-dark/40 text-xs tracking-[0.15em] mb-6 text-center">フォームでのお問い合わせ</p>
+          <form class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm text-dark/60 mb-2">お名前 <span class="text-red text-xs">必須</span></label>
+                <input type="text" class="w-full border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors" placeholder="山田 太郎">
+              </div>
+              <div>
+                <label class="block text-sm text-dark/60 mb-2">電話番号</label>
+                <input type="tel" class="w-full border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors" placeholder="090-0000-0000">
+              </div>
             </div>
             <div>
-              <label class="block text-sm text-dark/70 mb-2">メールアドレス <span class="text-red text-xs">必須</span></label>
-              <input type="email" class="w-full border border-dark/15 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors" placeholder="info@example.com">
+              <label class="block text-sm text-dark/60 mb-2">メールアドレス <span class="text-red text-xs">必須</span></label>
+              <input type="email" class="w-full border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors" placeholder="info@example.com">
             </div>
             <div>
-              <label class="block text-sm text-dark/70 mb-2">電話番号</label>
-              <input type="tel" class="w-full border border-dark/15 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors" placeholder="090-0000-0000">
+              <label class="block text-sm text-dark/60 mb-2">お問い合わせ内容 <span class="text-red text-xs">必須</span></label>
+              <textarea rows="5" class="w-full border border-gray-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors resize-none" placeholder="補修箇所やご希望をお聞かせください"></textarea>
             </div>
-            <div>
-              <label class="block text-sm text-dark/70 mb-2">お問い合わせ内容 <span class="text-red text-xs">必須</span></label>
-              <textarea rows="5" class="w-full border border-dark/15 bg-white px-4 py-3 text-sm focus:outline-none focus:border-red transition-colors resize-none" placeholder="補修箇所やご希望をお聞かせください"></textarea>
+            <div class="text-center pt-2">
+              <button type="submit" class="bg-red text-white px-12 py-4 text-sm font-medium hover:bg-red/90 transition-colors">
+                送信する
+              </button>
             </div>
-            <button type="submit" class="w-full bg-red text-white py-4 text-sm font-medium hover:bg-red/90 transition-colors duration-300">
-              送信する
-            </button>
           </form>
         </div>
       </div>
@@ -338,29 +359,19 @@
 
 
   <!-- ========== FOOTER ========== -->
-  <footer class="bg-black py-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-10 mb-12">
-        <div>
-          <p class="font-heading text-white text-xl font-bold tracking-wider mb-2">RESTORE</p>
+  <footer class="bg-dark py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="md:flex md:items-start md:justify-between mb-10">
+        <div class="mb-8 md:mb-0">
+          <p class="font-heading text-white text-lg font-bold tracking-wider mb-1">RESTORE</p>
           <p class="text-white/30 text-xs">リストア｜内装・家具・インテリア補修専門</p>
         </div>
-        <div>
-          <p class="text-white/40 text-xs tracking-[0.15em] mb-4">MENU</p>
-          <nav class="flex flex-col gap-3">
-            <a href="#services" class="text-white/50 text-sm hover:text-white/80 transition-colors">サービス</a>
-            <a href="#results" class="text-white/50 text-sm hover:text-white/80 transition-colors">実績</a>
-            <a href="#flow" class="text-white/50 text-sm hover:text-white/80 transition-colors">ご利用の流れ</a>
-            <a href="#contact" class="text-white/50 text-sm hover:text-white/80 transition-colors">お問い合わせ</a>
-          </nav>
-        </div>
-        <div>
-          <p class="text-white/40 text-xs tracking-[0.15em] mb-4">COMPANY</p>
-          <div class="text-white/50 text-sm space-y-2">
-            <p>〒000-0000 東京都渋谷区○○ 1-2-3</p>
-            <p>TEL: 0120-000-000</p>
-          </div>
-        </div>
+        <nav class="flex flex-wrap gap-x-8 gap-y-2">
+          <a href="#services" class="text-white/40 text-sm hover:text-white/70 transition-colors">サービス</a>
+          <a href="#strengths" class="text-white/40 text-sm hover:text-white/70 transition-colors">強み</a>
+          <a href="#flow" class="text-white/40 text-sm hover:text-white/70 transition-colors">ご利用の流れ</a>
+          <a href="#contact" class="text-white/40 text-sm hover:text-white/70 transition-colors">お問い合わせ</a>
+        </nav>
       </div>
       <div class="border-t border-white/10 pt-8">
         <p class="text-white/20 text-xs text-center">&copy; 2026 RESTORE All Rights Reserved.</p>
@@ -377,7 +388,6 @@
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-    // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
