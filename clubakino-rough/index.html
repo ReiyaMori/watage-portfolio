@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Akino</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C5A55A',
+            'gold-dark': '#A8883E',
+            dark: '#1A1510',
+            'dark-light': '#2A241C',
+            cream: '#F5F0E8',
+          },
+          fontFamily: {
+            serif: ['Noto Serif JP', 'serif'],
+            sans: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .rv { opacity: 0; transform: translateY(12px); transition: opacity .5s, transform .5s; }
+    .rv.on { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="font-sans text-cream bg-dark text-[15px] leading-[1.9] overflow-x-hidden">
+
+  <!-- ヘッダー -->
+  <header class="fixed top-0 w-full z-50 bg-dark/90 backdrop-blur border-b border-gold/10">
+    <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <span class="font-serif text-gold text-lg tracking-widest">Club Akino</span>
+      <nav class="hidden md:flex gap-6 text-sm text-cream/60">
+        <a href="#about" class="hover:text-gold transition-colors">About</a>
+        <a href="#news" class="hover:text-gold transition-colors">News</a>
+        <a href="#champagne" class="hover:text-gold transition-colors">Champagne</a>
+        <a href="#recruit" class="hover:text-gold transition-colors">Recruit</a>
+        <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="relative min-h-[80vh] flex items-center justify-center">
+    <img src="images/site_6.jpg" alt="Club Akino" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-dark/60"></div>
+    <div class="relative text-center px-4 rv">
+      <p class="font-serif text-gold text-sm tracking-[0.3em] mb-4">LOUNGE & BAR</p>
+      <h1 class="font-serif text-4xl md:text-6xl text-cream tracking-wider mb-4">Club Akino</h1>
+      <p class="text-cream/60 text-sm tracking-widest">特別な夜を、特別な空間で。</p>
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section id="news" class="py-14 bg-dark-light">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="font-serif text-gold text-sm tracking-[0.2em] mb-6 rv">お知らせ</h2>
+      <div class="space-y-4 rv">
+        <a href="#" class="flex gap-4 items-start text-sm hover:text-gold transition-colors">
+          <span class="text-cream/40 shrink-0">2026.03.25</span>
+          <span>ホームページをリニューアルしました</span>
+        </a>
+        <a href="#" class="flex gap-4 items-start text-sm hover:text-gold transition-colors">
+          <span class="text-cream/40 shrink-0">2026.03.20</span>
+          <span>春の新メニューが登場しました</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="rv">
+          <img src="images/site_2.jpg" alt="ウイスキー" class="w-full rounded-lg">
+        </div>
+        <div class="rv">
+          <p class="font-serif text-gold text-sm tracking-[0.2em] mb-4">About</p>
+          <h2 class="font-serif text-2xl mb-6">一杯から始まる、<br>特別な時間。</h2>
+          <p class="text-cream/60 text-sm leading-8">
+            Club Akinoは、厳選されたウイスキーとシャンパンをお楽しみいただけるラウンジ＆バーです。落ち着いた空間で、大切な方との時間をお過ごしください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- シャンパン購入 (Stripe) -->
+  <section id="champagne" class="py-20 bg-dark-light">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="font-serif text-gold text-sm tracking-[0.2em] mb-4 rv">Champagne</p>
+      <h2 class="font-serif text-2xl mb-4 rv">遠隔シャンパン購入</h2>
+      <p class="text-cream/60 text-sm mb-10 rv">ドイツの店舗でお楽しみいただけるシャンパンを<br>オンラインでご購入いただけます。</p>
+      <div class="grid sm:grid-cols-2 gap-4 mb-8">
+        <div class="bg-dark rounded-lg p-6 border border-gold/20 rv">
+          <p class="font-serif text-gold text-lg mb-1">Standard</p>
+          <p class="text-cream/40 text-xs mb-4">スタンダードシャンパン</p>
+          <p class="text-2xl font-bold text-cream mb-4">€120</p>
+          <button class="w-full bg-gold hover:bg-gold-dark text-dark font-bold py-3 rounded text-sm transition-colors">購入する</button>
+        </div>
+        <div class="bg-dark rounded-lg p-6 border border-gold/20 rv">
+          <p class="font-serif text-gold text-lg mb-1">Premium</p>
+          <p class="text-cream/40 text-xs mb-4">プレミアムシャンパン</p>
+          <p class="text-2xl font-bold text-cream mb-4">€250</p>
+          <button class="w-full bg-gold hover:bg-gold-dark text-dark font-bold py-3 rounded text-sm transition-colors">購入する</button>
+        </div>
+      </div>
+      <p class="text-cream/30 text-xs">※ Stripe決済対応。クレジットカードで安全にお支払いいただけます。</p>
+    </div>
+  </section>
+
+  <!-- リクルート -->
+  <section id="recruit" class="py-20">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="font-serif text-gold text-sm tracking-[0.2em] mb-4 rv">Recruit</p>
+      <h2 class="font-serif text-2xl mb-6 rv">スタッフ募集</h2>
+      <p class="text-cream/60 text-sm mb-8 rv">一緒に働く仲間を募集しています。<br>経験不問、まずはお気軽にご連絡ください。</p>
+      <a href="#contact" class="inline-block border border-gold text-gold px-8 py-3 text-sm hover:bg-gold hover:text-dark transition-colors rv">詳しく見る</a>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact" class="py-20 bg-dark-light">
+    <div class="max-w-lg mx-auto px-4">
+      <p class="font-serif text-gold text-sm tracking-[0.2em] mb-4 text-center rv">Contact</p>
+      <h2 class="font-serif text-2xl mb-8 text-center rv">お問い合わせ</h2>
+      <form class="space-y-4 rv">
+        <div>
+          <label class="text-xs text-cream/40 mb-1 block">お名前</label>
+          <input type="text" class="w-full bg-dark border border-cream/10 rounded px-4 py-3 text-sm text-cream focus:border-gold outline-none transition-colors">
+        </div>
+        <div>
+          <label class="text-xs text-cream/40 mb-1 block">メールアドレス</label>
+          <input type="email" class="w-full bg-dark border border-cream/10 rounded px-4 py-3 text-sm text-cream focus:border-gold outline-none transition-colors">
+        </div>
+        <div>
+          <label class="text-xs text-cream/40 mb-1 block">お問い合わせ内容</label>
+          <textarea rows="4" class="w-full bg-dark border border-cream/10 rounded px-4 py-3 text-sm text-cream focus:border-gold outline-none transition-colors resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-gold hover:bg-gold-dark text-dark font-bold py-3 rounded text-sm transition-colors">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="py-8 border-t border-cream/5 text-center">
+    <p class="font-serif text-gold text-sm tracking-widest mb-2">Club Akino</p>
+    <p class="text-cream/30 text-xs">&copy; 2026 Club Akino. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const o = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }); }, { threshold: .08 });
+    document.querySelectorAll('.rv').forEach(el => o.observe(el));
+  </script>
+</body>
+</html>
