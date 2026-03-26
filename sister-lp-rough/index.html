@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>〇〇（姉妹店名）｜あの味を、この場所で。</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wine: '#8B2D3A',
+            'wine-dark': '#6B1F2C',
+            'wine-light': '#FDF0F0',
+            warm: '#FBF6F0',
+            gold: '#C4A35A',
+            fg: '#2D2420',
+            sub: '#8C7E72',
+          },
+          fontFamily: {
+            round: ['Zen Maru Gothic', 'sans-serif'],
+            sans: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .rv { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s; }
+    .rv.on { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="font-sans text-fg bg-warm text-[16px] leading-[2] overflow-x-hidden">
+
+  <!-- ヒーロー -->
+  <section class="relative min-h-[85vh] flex items-center">
+    <img src="images/hero.jpg" alt="店内イメージ" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+    <div class="relative max-w-3xl mx-auto px-6 py-20 text-center text-white">
+      <p class="text-gold text-sm tracking-widest mb-4 rv">20年間、ありがとうございました。</p>
+      <h1 class="font-round text-3xl md:text-5xl font-bold leading-snug mb-6 rv">
+        あの味を、<br>この場所で。
+      </h1>
+      <p class="text-white/70 text-sm md:text-base mb-10 rv">
+        長年ご愛顧いただいた〇〇（旧店名）は閉店いたしますが、<br>
+        あの味と想いは、姉妹店〇〇（新店名）で受け継がれます。
+      </p>
+      <a href="#sister" class="inline-block bg-wine hover:bg-wine-dark text-white font-bold py-4 px-10 rounded-full text-sm transition-colors rv">
+        姉妹店を見る
+      </a>
+    </div>
+  </section>
+
+  <!-- 感謝のメッセージ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-2xl mx-auto px-6 text-center rv">
+      <p class="text-wine font-round text-sm tracking-widest mb-4">ご挨拶</p>
+      <h2 class="font-round text-xl md:text-2xl font-bold mb-6">20年間のご愛顧に、<br>心より感謝申し上げます。</h2>
+      <p class="text-sub text-sm leading-8">
+        おかげさまで、Google口コミ<span class="text-wine font-bold">★4.5</span>という評価をいただき、
+        多くのお客様に支えられてまいりました。<br>
+        閉店は寂しい決断ですが、私たちの味と想いは姉妹店で変わらずお届けしてまいります。
+      </p>
+    </div>
+  </section>
+
+  <!-- 姉妹店紹介 -->
+  <section id="sister" class="py-16 bg-warm">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-10 rv">
+        <p class="text-wine font-round text-sm tracking-widest mb-2">姉妹店のご紹介</p>
+        <h2 class="font-round text-2xl md:text-3xl font-bold">〇〇（姉妹店名）</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-white rounded-3xl p-8 rv">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-gold text-lg">★★★★☆</span>
+            <span class="text-sub text-sm">Google口コミ 4.3</span>
+          </div>
+          <h3 class="font-round font-bold text-lg mb-4">変わらない味、新しい空間。</h3>
+          <p class="text-sub text-sm leading-8 mb-6">
+            〇〇（旧店名）でお馴染みのメニューはそのまま。<br>
+            新しい店舗ならではの居心地の良さも加わり、<br>
+            これまで以上にくつろいでいただける空間をご用意しています。
+          </p>
+          <div class="space-y-2 text-sm">
+            <p class="flex items-center gap-2"><span class="text-wine">📍</span>東京都〇〇区〇〇 X-XX-X</p>
+            <p class="flex items-center gap-2"><span class="text-wine">🕐</span>17:00〜24:00（L.O. 23:00）</p>
+            <p class="flex items-center gap-2"><span class="text-wine">📞</span>03-XXXX-XXXX</p>
+            <p class="flex items-center gap-2"><span class="text-wine">🚃</span>〇〇駅 徒歩3分</p>
+          </div>
+        </div>
+        <div class="rv">
+          <div class="bg-wine-light rounded-3xl aspect-[4/3] flex items-center justify-center">
+            <p class="text-wine/30 text-sm">姉妹店の写真</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- おすすめメニュー -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-10 rv">
+        <p class="text-wine font-round text-sm tracking-widest mb-2">人気メニュー</p>
+        <h2 class="font-round text-xl font-bold">あの味が、ここでも。</h2>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-5">
+        <div class="bg-warm rounded-2xl overflow-hidden rv">
+          <div class="aspect-square bg-wine-light flex items-center justify-center text-wine/30 text-sm">写真</div>
+          <div class="p-4">
+            <p class="font-bold">看板メニュー 1</p>
+            <p class="text-sub text-xs mt-1">旧店舗で一番人気だった一品</p>
+          </div>
+        </div>
+        <div class="bg-warm rounded-2xl overflow-hidden rv">
+          <div class="aspect-square bg-wine-light flex items-center justify-center text-wine/30 text-sm">写真</div>
+          <div class="p-4">
+            <p class="font-bold">看板メニュー 2</p>
+            <p class="text-sub text-xs mt-1">常連様に愛された定番</p>
+          </div>
+        </div>
+        <div class="bg-warm rounded-2xl overflow-hidden rv">
+          <div class="aspect-square bg-wine-light flex items-center justify-center text-wine/30 text-sm">写真</div>
+          <div class="p-4">
+            <p class="font-bold">新メニュー</p>
+            <p class="text-sub text-xs mt-1">姉妹店ならではの新しい味</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 旧店舗のお客様の声 -->
+  <section class="py-16 bg-warm">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-10 rv">
+        <p class="text-wine font-round text-sm tracking-widest mb-2">お客様の声</p>
+        <h2 class="font-round text-xl font-bold">旧店舗でいただいた言葉</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-white rounded-2xl p-6 rv">
+          <p class="text-gold mb-2">★★★★★</p>
+          <p class="text-sm mb-3">「20年通い続けた味。閉店と聞いて寂しかったけど、姉妹店でまた食べられると知って安心しました。」</p>
+          <p class="text-sub text-xs">Google口コミより</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 rv">
+          <p class="text-gold mb-2">★★★★★</p>
+          <p class="text-sm mb-3">「家族の行きつけです。子どもが大きくなっても変わらない味が嬉しい。姉妹店にも必ず行きます。」</p>
+          <p class="text-sub text-xs">Google口コミより</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-wine text-white text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="font-round text-2xl font-bold mb-4 rv">姉妹店で、お待ちしています。</h2>
+      <p class="text-white/70 text-sm mb-8 rv">ご予約・お問い合わせはお気軽にどうぞ。</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center rv">
+        <a href="tel:03-XXXX-XXXX" class="bg-white text-wine font-bold py-4 px-8 rounded-full text-sm">📞 03-XXXX-XXXX</a>
+        <a href="#" class="border-2 border-white text-white font-bold py-4 px-8 rounded-full text-sm hover:bg-white hover:text-wine transition-colors">Googleマップで見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="bg-fg text-white/40 py-8 px-6 text-center text-xs">
+    <p>&copy; 2026 〇〇（姉妹店名）. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const o = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); }); }, { threshold: .08 });
+    document.querySelectorAll('.rv').forEach(el => o.observe(el));
+  </script>
+</body>
+</html>
