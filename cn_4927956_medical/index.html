@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>集患プラス | 医療施設の集患を加速するトータルサポート</title>
+  <meta name="description" content="開業医・クリニック向け集患支援。Web集患・MEO・紹介促進を一体化した集患スキームで、安定した新患獲得を実現します。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6B4C3B',
+            'primary-dark': '#4A3328',
+            'primary-light': '#8B6F5E',
+            accent: '#B8956A',
+            'accent-light': '#D4B896',
+            cream: '#FAF6F1',
+            'cream-dark': '#F0E8DE',
+            warm: '#F5EDE4',
+            dark: '#2C2320',
+            'dark-sub': '#5C4F47',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            serif: ['"Noto Serif JP"', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+
+    .counter { font-variant-numeric: tabular-nums; }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #4A3328 0%, #6B4C3B 40%, #8B6F5E 100%);
+    }
+
+    .gold-gradient {
+      background: linear-gradient(135deg, #B8956A, #D4B896);
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(107, 76, 59, 0.12);
+    }
+
+    .number-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #B8956A, #D4B896);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+  </style>
+</head>
+<body class="font-sans text-dark bg-cream">
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cream-dark transition-shadow duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full gold-gradient flex items-center justify-center">
+          <span class="text-white text-sm font-bold">+</span>
+        </div>
+        <span class="font-serif font-semibold text-primary text-lg tracking-wide">集患プラス</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-dark-sub">
+        <a href="#problem" class="hover:text-primary transition-colors">よくあるお悩み</a>
+        <a href="#service" class="hover:text-primary transition-colors">サービス</a>
+        <a href="#results" class="hover:text-primary transition-colors">導入実績</a>
+        <a href="#flow" class="hover:text-primary transition-colors">導入の流れ</a>
+        <a href="#contact" class="inline-flex items-center gap-1.5 bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors">
+          無料相談
+        </a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 text-primary">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-white border-t border-cream-dark">
+      <div class="px-4 py-4 flex flex-col gap-3 text-sm text-dark-sub">
+        <a href="#problem" class="py-2">よくあるお悩み</a>
+        <a href="#service" class="py-2">サービス</a>
+        <a href="#results" class="py-2">導入実績</a>
+        <a href="#flow" class="py-2">導入の流れ</a>
+        <a href="#contact" class="text-center bg-primary text-white py-3 rounded-lg font-medium">無料相談</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-gradient pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 right-10 w-64 h-64 rounded-full bg-accent blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-48 h-48 rounded-full bg-white blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 relative z-10">
+      <div class="max-w-2xl">
+        <p class="text-accent-light text-sm font-medium tracking-widest mb-4 fade-up">MEDICAL MARKETING</p>
+        <h1 class="font-serif text-white text-3xl md:text-5xl leading-tight md:leading-tight font-bold mb-6 fade-up">
+          「待つ集患」から<br>
+          <span class="text-accent-light">「選ばれる集患」</span>へ
+        </h1>
+        <p class="text-white/80 text-base md:text-lg leading-relaxed mb-8 fade-up">
+          Web・MEO・紹介動線を一体化した集患スキームで、<br class="hidden md:inline">
+          地域に選ばれるクリニックへ。開業医に特化した集患支援。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 fade-up">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 gold-gradient text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg">
+            無料で集患診断を受ける
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#results" class="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-colors">
+            導入実績を見る
+          </a>
+        </div>
+      </div>
+      <div class="mt-12 grid grid-cols-3 gap-4 max-w-lg fade-up">
+        <div class="text-center">
+          <p class="text-accent-light text-3xl md:text-4xl font-bold counter">150<span class="text-lg">+</span></p>
+          <p class="text-white/60 text-xs mt-1">導入医院数</p>
+        </div>
+        <div class="text-center">
+          <p class="text-accent-light text-3xl md:text-4xl font-bold counter">2.4<span class="text-lg">倍</span></p>
+          <p class="text-white/60 text-xs mt-1">平均新患増加率</p>
+        </div>
+        <div class="text-center">
+          <p class="text-accent-light text-3xl md:text-4xl font-bold counter">96<span class="text-lg">%</span></p>
+          <p class="text-white/60 text-xs mt-1">継続率</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section id="problem" class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-accent text-sm font-medium tracking-widest mb-3">PROBLEM</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-dark mb-4">こんなお悩みはありませんか？</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto stagger-children">
+        <div class="flex items-start gap-4 bg-cream rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-1">新患が月に数名しか来ない</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">HPを作ったが問い合わせにつながらず、集患効果が見えない</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-cream rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-1">「地域名+診療科」で検索に出ない</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">Googleマップでも公式サイトでも競合に埋もれてしまっている</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-cream rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-1">広告を出したいが手が回らない</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">診療が忙しく、マーケティングに割ける時間がほぼゼロ</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-cream rounded-2xl p-6 card-hover">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-1">Web業者に任せたが成果が出ない</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">HP制作・SEO・広告がバラバラで、一貫した戦略がない</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-10 fade-up">
+        <p class="text-primary font-serif font-semibold text-lg">その原因は<span class="text-accent">「集患の導線設計」</span>にあるかもしれません</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service -->
+  <section id="service" class="py-20 md:py-28 bg-cream">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-accent text-sm font-medium tracking-widest mb-3">SERVICE</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-dark mb-4">3つの柱で集患を最大化</h2>
+        <div class="divider mx-auto mb-4"></div>
+        <p class="text-dark-sub text-sm max-w-xl mx-auto">Web集患・MEO対策・紹介促進を一体運用。バラバラだった施策をひとつの戦略に統合し、新患の「入口」を増やします。</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 stagger-children">
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover">
+          <div class="w-14 h-14 rounded-2xl gold-gradient flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg text-dark mb-3">Web集患設計</h3>
+          <p class="text-sm text-dark-sub leading-relaxed mb-4">「地域名+診療科」で上位表示されるHP設計。SEO・コンテンツ・導線を最適化し、閲覧者を予約につなげます。</p>
+          <ul class="space-y-2 text-sm text-dark-sub">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>SEO内部対策</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>予約導線の最適化</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>スマホファースト設計</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover">
+          <div class="w-14 h-14 rounded-2xl gold-gradient flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg text-dark mb-3">MEO・マップ対策</h3>
+          <p class="text-sm text-dark-sub leading-relaxed mb-4">Googleマップで「近くのクリニック」検索に表示される施策。口コミ管理と情報整備で地域の第一候補に。</p>
+          <ul class="space-y-2 text-sm text-dark-sub">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Googleビジネスプロフィール最適化</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>口コミ獲得の仕組み化</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>写真・投稿の定期更新</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm card-hover">
+          <div class="w-14 h-14 rounded-2xl gold-gradient flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg text-dark mb-3">紹介・リピート促進</h3>
+          <p class="text-sm text-dark-sub leading-relaxed mb-4">既存患者からの紹介と再来院を仕組み化。LINEやメールで定期接点を作り、離脱を防ぎます。</p>
+          <ul class="space-y-2 text-sm text-dark-sub">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>LINE公式アカウント活用</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>紹介カード・口コミ促進</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>定期検診リマインド配信</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-accent text-sm font-medium tracking-widest mb-3">RESULTS</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-dark mb-4">導入医院の成果</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 stagger-children">
+        <div class="bg-cream rounded-2xl p-7 card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <span class="text-primary font-bold text-sm">内科</span>
+            </div>
+            <div>
+              <p class="font-bold text-dark text-sm">A内科クリニック</p>
+              <p class="text-xs text-dark-sub">東京都・開業3年目</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 mb-4">
+            <p class="text-xs text-dark-sub mb-1">月間新患数</p>
+            <div class="flex items-end gap-2">
+              <span class="text-dark-sub text-lg">12名</span>
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              <span class="text-primary text-2xl font-bold">34名</span>
+            </div>
+          </div>
+          <p class="text-sm text-dark-sub leading-relaxed">「地域名+内科」で検索1位を獲得。MEO対策で口コミ数が3倍に増え、指名来院が急増。</p>
+        </div>
+        <div class="bg-cream rounded-2xl p-7 card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <span class="text-primary font-bold text-sm">歯科</span>
+            </div>
+            <div>
+              <p class="font-bold text-dark text-sm">B歯科医院</p>
+              <p class="text-xs text-dark-sub">神奈川県・開業5年目</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 mb-4">
+            <p class="text-xs text-dark-sub mb-1">Web予約率</p>
+            <div class="flex items-end gap-2">
+              <span class="text-dark-sub text-lg">8%</span>
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              <span class="text-primary text-2xl font-bold">41%</span>
+            </div>
+          </div>
+          <p class="text-sm text-dark-sub leading-relaxed">HP導線の再設計で予約ボタンのクリック率が5倍に。電話対応の負担が大幅に軽減された。</p>
+        </div>
+        <div class="bg-cream rounded-2xl p-7 card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <span class="text-primary font-bold text-sm">皮膚</span>
+            </div>
+            <div>
+              <p class="font-bold text-dark text-sm">C皮膚科</p>
+              <p class="text-xs text-dark-sub">大阪府・開業1年目</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 mb-4">
+            <p class="text-xs text-dark-sub mb-1">開業6ヶ月での月商</p>
+            <div class="flex items-end gap-2">
+              <span class="text-primary text-2xl font-bold">目標比 140%</span>
+            </div>
+          </div>
+          <p class="text-sm text-dark-sub leading-relaxed">開業前からLP+MEOを同時に準備。開業初月から目標を超える集患を達成し、早期黒字化に成功。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 md:py-28 hero-gradient relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-10 left-20 w-48 h-48 rounded-full bg-white blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 relative z-10">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-accent-light text-sm font-medium tracking-widest mb-3">WHY US</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-4">選ばれる3つの理由</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 stagger-children">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7 border border-white/10">
+          <div class="number-circle bg-accent text-white mb-5">01</div>
+          <h3 class="font-bold text-white text-lg mb-3">医療特化の知見</h3>
+          <p class="text-white/70 text-sm leading-relaxed">医療広告ガイドラインを熟知。表現の制約を理解した上で、最大限の訴求力を引き出します。</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7 border border-white/10">
+          <div class="number-circle bg-accent text-white mb-5">02</div>
+          <h3 class="font-bold text-white text-lg mb-3">制作から運用まで一貫</h3>
+          <p class="text-white/70 text-sm leading-relaxed">HP制作・SEO・MEO・広告をバラバラに外注する必要なし。ひとつの窓口で完結します。</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-7 border border-white/10">
+          <div class="number-circle bg-accent text-white mb-5">03</div>
+          <h3 class="font-bold text-white text-lg mb-3">成果にコミット</h3>
+          <p class="text-white/70 text-sm leading-relaxed">「作って終わり」ではなく、月次レポートと改善提案で継続的に集患数を伸ばします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section id="flow" class="py-20 md:py-28 bg-cream">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-accent text-sm font-medium tracking-widest mb-3">FLOW</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-dark mb-4">導入の流れ</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-0">
+        <div class="flex gap-5 fade-up">
+          <div class="flex flex-col items-center">
+            <div class="number-circle bg-primary text-white">1</div>
+            <div class="w-0.5 flex-1 bg-accent/30 mt-2"></div>
+          </div>
+          <div class="pb-10">
+            <h3 class="font-bold text-dark mb-2">無料集患診断</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">現在のHP・MEO・集患状況をヒアリング。課題と伸びしろを可視化した診断レポートをお渡しします。</p>
+          </div>
+        </div>
+        <div class="flex gap-5 fade-up">
+          <div class="flex flex-col items-center">
+            <div class="number-circle bg-primary text-white">2</div>
+            <div class="w-0.5 flex-1 bg-accent/30 mt-2"></div>
+          </div>
+          <div class="pb-10">
+            <h3 class="font-bold text-dark mb-2">戦略設計・ご提案</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">診療科・地域・競合状況に合わせた集患スキームを設計。具体的な施策とスケジュールをご提案します。</p>
+          </div>
+        </div>
+        <div class="flex gap-5 fade-up">
+          <div class="flex flex-col items-center">
+            <div class="number-circle bg-primary text-white">3</div>
+            <div class="w-0.5 flex-1 bg-accent/30 mt-2"></div>
+          </div>
+          <div class="pb-10">
+            <h3 class="font-bold text-dark mb-2">制作・実装</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">HP/LP制作・MEO初期設定・コンテンツ整備を並行して進行。最短4週間で稼働開始。</p>
+          </div>
+        </div>
+        <div class="flex gap-5 fade-up">
+          <div class="flex flex-col items-center">
+            <div class="number-circle bg-accent text-white">4</div>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-2">運用・改善</h3>
+            <p class="text-sm text-dark-sub leading-relaxed">公開後も月次レポートで効果を可視化。データに基づいた改善を繰り返し、集患数を最大化します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-accent text-sm font-medium tracking-widest mb-3">FAQ</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-dark mb-4">よくあるご質問</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="space-y-4 fade-up">
+        <details class="group bg-cream rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <span class="font-medium text-dark text-sm pr-4">開業前でも依頼できますか？</span>
+            <svg class="w-5 h-5 text-accent flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-dark-sub leading-relaxed">はい、開業前からの準備が理想的です。開業と同時にWeb集患が機能している状態を作ることで、初月から患者さんを獲得できます。開業6ヶ月前からのご相談を推奨しています。</div>
+        </details>
+        <details class="group bg-cream rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <span class="font-medium text-dark text-sm pr-4">既にHPがある場合はどうなりますか？</span>
+            <svg class="w-5 h-5 text-accent flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-dark-sub leading-relaxed">既存HPの改善から対応可能です。まずは無料診断で現状の課題を洗い出し、リニューアルか部分改修かを判断します。不要なコストをかけずに最大限の効果を引き出します。</div>
+        </details>
+        <details class="group bg-cream rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <span class="font-medium text-dark text-sm pr-4">医療広告ガイドラインへの対応は？</span>
+            <svg class="w-5 h-5 text-accent flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-dark-sub leading-relaxed">医療広告ガイドラインに準拠した表現で制作します。ビフォーアフターの掲載制限や誇大広告の禁止など、医療特有のルールを踏まえた上で、法令を遵守しつつ訴求力のあるコンテンツを制作します。</div>
+        </details>
+        <details class="group bg-cream rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <span class="font-medium text-dark text-sm pr-4">成果が出るまでどのくらいかかりますか？</span>
+            <svg class="w-5 h-5 text-accent flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-dark-sub leading-relaxed">MEO対策は早ければ1ヶ月で変化が見え始めます。SEOは3〜6ヶ月が目安です。LP+広告であれば、公開直後から集患効果を得ることが可能です。状況に応じて即効性と中長期の施策を組み合わせます。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="py-20 md:py-28 hero-gradient relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-accent blur-3xl"></div>
+    </div>
+    <div class="max-w-2xl mx-auto px-4 text-center relative z-10">
+      <div class="fade-up">
+        <p class="text-accent-light text-sm font-medium tracking-widest mb-4">CONTACT</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-4">まずは無料の集患診断から</h2>
+        <p class="text-white/70 text-sm leading-relaxed mb-8">現在のHP・集患状況を診断し、改善の伸びしろを無料でレポートします。<br>オンライン面談（30分）で、具体的な改善策をご提案します。</p>
+        <a href="#" class="inline-flex items-center justify-center gap-2 bg-white text-primary px-10 py-4 rounded-full font-bold text-base hover:bg-cream transition-colors shadow-lg">
+          無料で集患診断を予約する
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <p class="text-white/50 text-xs mt-4">無理な営業は一切ありません</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark py-10">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <div class="w-6 h-6 rounded-full gold-gradient flex items-center justify-center">
+          <span class="text-white text-xs font-bold">+</span>
+        </div>
+        <span class="font-serif text-white/80 text-sm tracking-wide">集患プラス</span>
+      </div>
+      <p class="text-white/40 text-xs">&copy; 2026 集患プラス All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in, .stagger-children').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+      mobileMenu.style.maxHeight = isOpen ? '0px' : '400px';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { mobileMenu.style.maxHeight = '0px'; });
+    });
+
+    // Header shadow on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('shadow-md', window.scrollY > 20);
+    });
+  </script>
+
+</body>
+</html>
