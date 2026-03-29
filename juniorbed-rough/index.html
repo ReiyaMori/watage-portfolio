@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ジュニアベッド | ヤマサキ - 国産品質で安全に、長く使える子どものベッド</title>
+  <meta name="description" content="ベビーベッドを卒業したら、次はヤマサキのジュニアベッド。岡山の自社工場で製造する国産品質。PSC・SGマーク取得の安全設計。2歳〜10歳頃まで長く使えます。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: '#7B9E6B',
+            'sage-dark': '#5A7A4C',
+            'sage-light': '#A8C49A',
+            'sage-pale': '#EDF3EA',
+            'sage-bg': '#F6F9F4',
+            cream: '#FAF7F2',
+            'cream-dark': '#F0EBE2',
+            wood: '#C4A97D',
+            'wood-light': '#DCC9A8',
+            'wood-dark': '#8B7355',
+            dark: '#2D2D2D',
+            'dark-sub': '#5A5A5A',
+            'dark-muted': '#8A8A8A',
+            warm: '#F8F5F0',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            serif: ['"Noto Serif JP"', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-in { opacity: 0; transition: opacity 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; }
+    .stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(6) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+    .divider { width: 48px; height: 2px; background: #7B9E6B; }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::marker { display: none; }
+    .hero-overlay { background: linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%); }
+    @media (max-width: 768px) {
+      .hero-overlay { background: linear-gradient(to bottom, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0) 100%); }
+    }
+  </style>
+</head>
+<body class="font-sans text-dark bg-white">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-sage-pale">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#">
+        <img src="https://ymsk.itembox.cloud/item/yamasakilogo.png" alt="ヤマサキ" class="h-7 md:h-8">
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-xs text-dark-sub tracking-wide">
+        <a href="#features" class="hover:text-sage transition-colors">選ばれる理由</a>
+        <a href="#lineup" class="hover:text-sage transition-colors">商品ラインナップ</a>
+        <a href="#voice" class="hover:text-sage transition-colors">お客様の声</a>
+        <a href="#guide" class="hover:text-sage transition-colors">購入ガイド</a>
+        <a href="#faq" class="hover:text-sage transition-colors">よくある質問</a>
+        <a href="#lineup" class="bg-sage text-white px-5 py-2 rounded-full text-xs font-medium hover:bg-sage-dark transition-colors">商品を見る</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 text-dark">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-white border-t border-sage-pale">
+      <div class="px-4 py-4 flex flex-col gap-3 text-sm text-dark-sub">
+        <a href="#features" class="py-2">選ばれる理由</a>
+        <a href="#lineup" class="py-2">商品ラインナップ</a>
+        <a href="#voice" class="py-2">お客様の声</a>
+        <a href="#guide" class="py-2">購入ガイド</a>
+        <a href="#faq" class="py-2">よくある質問</a>
+        <a href="#lineup" class="text-center bg-sage text-white py-3 rounded-lg font-medium">商品を見る</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative pt-16 min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://ymsk.itembox.cloud/item//jr_lp_mv_pc2.png" alt="ジュニアベッドで眠る子ども" class="hidden md:block w-full h-full object-cover object-right">
+      <img src="https://ymsk.itembox.cloud/item//jr_lp_mv_sp2.png" alt="ジュニアベッドで眠る子ども" class="md:hidden w-full h-full object-cover object-center">
+    </div>
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-5 py-16">
+      <div class="max-w-lg">
+        <p class="text-sage text-xs font-medium tracking-[0.2em] mb-4 fade-up">JUNIOR BED by YAMASAKI</p>
+        <h1 class="font-serif text-2xl md:text-4xl leading-relaxed md:leading-relaxed text-dark mb-4 fade-up">
+          ベビーベッドを卒業したら<br>
+          次は<span class="text-sage font-bold">「ちょうどいいサイズ」</span>の、<br>
+          やさしいベッドへ。
+        </h1>
+        <p class="text-dark-sub text-sm md:text-base leading-relaxed mb-8 fade-up">
+          国産品質 × ヤマサキの想い<br>
+          安全で長く愛せる国産ジュニアベッド
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 fade-up">
+          <a href="#lineup" class="inline-flex items-center justify-center gap-2 bg-sage text-white px-7 py-3.5 rounded-full text-sm font-medium hover:bg-sage-dark transition-colors shadow-sm">
+            商品ラインナップを見る
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-20 md:py-28 bg-cream px-5">
+    <div class="max-w-3xl mx-auto text-center fade-up">
+      <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">FOR PARENTS</p>
+      <h2 class="font-serif text-xl md:text-2xl text-dark leading-relaxed mb-8">
+        「子どもベッド」どうしよう、<br>と思っているお父さん・お母さんへ
+      </h2>
+      <p class="text-dark-sub text-sm md:text-base leading-loose">
+        ベビーベッドを卒業した後、子どもの寝る場所をどうするか——<br class="hidden md:inline">
+        大人用ベッドはまだ大きすぎるし、布団だと落ちないか心配。<br class="hidden md:inline">
+        「ちょうどいいサイズの安全なベッド」を探しているのに、<br class="hidden md:inline">
+        なかなか見つからない。そんな声をたくさんいただいてきました。<br><br>
+        ヤマサキのジュニアベッドは、そんなお悩みに応えるために生まれました。<br class="hidden md:inline">
+        国産メーカーとして培ってきた安全への想いを、<br class="hidden md:inline">
+        お子さまの「次のステージ」にもお届けします。
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 Features -->
+  <section id="features" class="py-20 md:py-28 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">WHY YAMASAKI</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">ヤマサキのジュニアベッドが選ばれる理由</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 stagger">
+        <div class="text-center">
+          <div class="relative mb-6">
+            <img src="https://ymsk.itembox.cloud/item/jr_lp_feature_1.png" alt="国産メーカー品質" class="w-full rounded-2xl">
+          </div>
+          <div class="inline-flex items-center gap-2 bg-sage-pale text-sage text-xs font-medium px-4 py-1.5 rounded-full mb-3">
+            <span>01</span>
+          </div>
+          <h3 class="font-bold text-dark text-lg mb-3">国産メーカー品質</h3>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            国産メーカーのヤマサキが、岡山県の自社工場で一つひとつ丁寧に製造。ブナ材と岡山県産ひのき無垢材を使用し、品質と安全にこだわっています。
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="relative mb-6">
+            <img src="https://ymsk.itembox.cloud/item/jr_lp_feature_2.png" alt="安全基準をクリア" class="w-full rounded-2xl">
+          </div>
+          <div class="inline-flex items-center gap-2 bg-sage-pale text-sage text-xs font-medium px-4 py-1.5 rounded-full mb-3">
+            <span>02</span>
+          </div>
+          <h3 class="font-bold text-dark text-lg mb-3">安全基準をクリア</h3>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            一般的な子ども用ベッドとは異なり、PSCマーク・SGマークを取得。国の安全基準をクリアした、安心して使えるベッドです。
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="relative mb-6">
+            <img src="https://ymsk.itembox.cloud/item/jr_lp_feature_3.png" alt="長く使えるユニット設計" class="w-full rounded-2xl">
+          </div>
+          <div class="inline-flex items-center gap-2 bg-sage-pale text-sage text-xs font-medium px-4 py-1.5 rounded-full mb-3">
+            <span>03</span>
+          </div>
+          <h3 class="font-bold text-dark text-lg mb-3">長く使えるユニット設計</h3>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            ヤマサキのベビーベッドと連結できるユニット設計。2歳〜10歳頃（身長150cm）まで、お子さまの成長に合わせて長くお使いいただけます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Made by YAMASAKI -->
+  <section class="py-20 md:py-28 bg-sage-bg px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-up">
+          <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">MADE BY YAMASAKI</p>
+          <div class="divider mb-6"></div>
+          <h2 class="font-serif text-xl md:text-2xl text-dark leading-relaxed mb-6">
+            岡山の自社工場から、<br>まじめなものづくりを届ける
+          </h2>
+          <p class="text-sm text-dark-sub leading-loose mb-6">
+            ヤマサキは、岡山県で創業した国産ベビーベッドメーカーです。保育施設や一般家庭から長くご利用いただき、品質と安全性を大切にしながらものづくりを続けてきました。
+          </p>
+          <p class="text-sm text-dark-sub leading-loose">
+            これまで脇役だった「ジュニアベッド」を主役に据えた新しい取り組みも、お子さまの成長に寄り添いたいというヤマサキの想いから生まれました。ベビーベッドで培った技術と品質基準を、そのまま次のステージへ。
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-3 fade-up">
+          <img src="https://ymsk.itembox.cloud/item/productyamasaki3.png" alt="製造工程" class="rounded-xl w-full">
+          <img src="https://ymsk.itembox.cloud/item/productyamasaki5.png" alt="製造工程" class="rounded-xl w-full mt-6">
+          <img src="https://ymsk.itembox.cloud/item/productyamasaki6.png" alt="製造工程" class="rounded-xl w-full">
+          <img src="https://ymsk.itembox.cloud/item/productyamasaki8.png" alt="製造工程" class="rounded-xl w-full mt-6">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice -->
+  <section id="voice" class="py-20 md:py-28 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">VOICE</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">お客様の声</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto fade-up">
+        <div class="bg-cream rounded-2xl p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://ymsk.itembox.cloud/item/jr_lp_voice_2.png" alt="お客様" class="w-16 h-16 rounded-xl object-cover">
+            <div>
+              <p class="font-bold text-dark text-sm">S.Kさん（3歳のお子さま）</p>
+              <div class="flex gap-0.5 mt-1">
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            「柵がしっかりしているので、寝返りが多い子どもでも安心して眠らせられます。木のぬくもりが感じられるデザインも気に入っています。国産という安心感が決め手でした。」
+          </p>
+        </div>
+        <div class="bg-cream rounded-2xl p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://ymsk.itembox.cloud/item/jr_lp_voice_3.png" alt="お客様" class="w-16 h-16 rounded-xl object-cover">
+            <div>
+              <p class="font-bold text-dark text-sm">M.Tさん（5歳のお子さま）</p>
+              <div class="flex gap-0.5 mt-1">
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-3.5 h-3.5 text-wood" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            「ベビーベッドと連結できるのが便利でした。下の子のベビーベッドと並べて使っています。しっかりした作りなのに圧迫感がなく、子ども部屋にちょうどいいサイズ感です。」
+          </p>
+        </div>
+      </div>
+      <div class="text-center mt-8 fade-up">
+        <a href="#" class="inline-flex items-center gap-2 text-sage text-sm font-medium hover:text-sage-dark transition-colors">
+          もっと見る
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Lineup -->
+  <section id="lineup" class="py-20 md:py-28 bg-cream px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">LINEUP</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">商品ラインナップ</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5 stagger">
+        <a href="#" class="bg-white rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-square bg-warm flex items-center justify-center p-4 overflow-hidden">
+            <img src="https://ymsk.itembox.design/product/000/000000000021/000000000021-02-l.jpg" alt="ジュニアベッド" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-sage font-medium mb-1">ベッド本体</p>
+            <h3 class="font-bold text-dark text-sm mb-2 leading-snug">ジュニアベッド<br>（専用マット付）</h3>
+            <p class="text-sage-dark font-bold">¥88,000<span class="text-xs text-dark-muted font-normal ml-1">税込</span></p>
+          </div>
+        </a>
+        <a href="#" class="bg-white rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-square bg-warm flex items-center justify-center p-4 overflow-hidden">
+            <img src="https://ymsk.itembox.design/product/000/000000000088/000000000088-01-m.jpg" alt="専用マット" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-sage font-medium mb-1">マット</p>
+            <h3 class="font-bold text-dark text-sm mb-2 leading-snug">ジュニアベッド<br>専用マット（単品）</h3>
+            <p class="text-sage-dark font-bold">¥21,780<span class="text-xs text-dark-muted font-normal ml-1">税込</span></p>
+          </div>
+        </a>
+        <a href="#" class="bg-white rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-square bg-warm flex items-center justify-center p-4 overflow-hidden">
+            <img src="https://ymsk.itembox.design/product/000/000000000087/000000000087-01-m.jpg" alt="布団セット" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-sage font-medium mb-1">寝具セット</p>
+            <h3 class="font-bold text-dark text-sm mb-2 leading-snug">専用布団セット<br>（ウォッシャブル）</h3>
+            <p class="text-sage-dark font-bold">¥25,300<span class="text-xs text-dark-muted font-normal ml-1">税込</span></p>
+          </div>
+        </a>
+        <a href="#" class="bg-white rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-square bg-warm flex items-center justify-center p-4 overflow-hidden">
+            <img src="https://ymsk.itembox.design/product/000/000000000022/000000000022-01-m.jpg" alt="カバーセット" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-sage font-medium mb-1">カバー</p>
+            <h3 class="font-bold text-dark text-sm mb-2 leading-snug">布団セット用<br>カバー3点セット</h3>
+            <p class="text-sage-dark font-bold">¥11,000<span class="text-xs text-dark-muted font-normal ml-1">税込</span></p>
+          </div>
+        </a>
+        <a href="#" class="bg-white rounded-2xl overflow-hidden card-hover group">
+          <div class="aspect-square bg-warm flex items-center justify-center p-4 overflow-hidden">
+            <img src="https://ymsk.itembox.cloud/item/juniorbed_2.jpg" alt="マット洗い替えカバー" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-sage font-medium mb-1">カバー</p>
+            <h3 class="font-bold text-dark text-sm mb-2 leading-snug">専用マット<br>洗い替えカバー</h3>
+            <p class="text-sage-dark font-bold">¥9,350<span class="text-xs text-dark-muted font-normal ml-1">税込</span></p>
+          </div>
+        </a>
+        <a href="#" class="bg-white rounded-2xl overflow-hidden card-hover group border-2 border-dashed border-sage-light flex flex-col items-center justify-center min-h-[280px]">
+          <div class="text-center p-6">
+            <div class="w-12 h-12 rounded-full bg-sage-pale flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <p class="font-bold text-sage text-sm mb-1">全商品を見る</p>
+            <p class="text-xs text-dark-muted">ラインナップ一覧へ</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- お客様の日常 -->
+  <section class="py-20 md:py-28 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 fade-up">
+        <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">DAILY LIFE</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">お客様の日常</h2>
+      </div>
+      <div class="grid grid-cols-4 md:grid-cols-8 gap-2 fade-up">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd4-1.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd4-2.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd4-3.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd10-1.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd10-11.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd78-2.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd5-2.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+        <img src="https://ymsk.itembox.cloud/item/insta/instagd8-2.png" alt="" class="rounded-lg w-full aspect-square object-cover">
+      </div>
+      <div class="text-center mt-6 fade-up">
+        <a href="#" class="inline-flex items-center gap-2 text-sage text-sm font-medium hover:text-sage-dark transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagramを見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 購入ガイド -->
+  <section id="guide" class="py-20 md:py-28 bg-sage-bg px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">GUIDE</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">購入ガイド</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 stagger">
+        <div class="bg-white rounded-xl p-5 text-center">
+          <div class="w-10 h-10 rounded-full bg-sage-pale flex items-center justify-center mx-auto mb-3">
+            <span class="text-sage font-bold text-sm">1</span>
+          </div>
+          <h3 class="font-bold text-dark text-sm mb-2">商品を選ぶ</h3>
+          <p class="text-xs text-dark-muted leading-relaxed">お子さまの年齢・お部屋に合わせて商品をお選びください</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 text-center">
+          <div class="w-10 h-10 rounded-full bg-sage-pale flex items-center justify-center mx-auto mb-3">
+            <span class="text-sage font-bold text-sm">2</span>
+          </div>
+          <h3 class="font-bold text-dark text-sm mb-2">ご注文</h3>
+          <p class="text-xs text-dark-muted leading-relaxed">オンラインショップから簡単にご注文いただけます</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 text-center">
+          <div class="w-10 h-10 rounded-full bg-sage-pale flex items-center justify-center mx-auto mb-3">
+            <span class="text-sage font-bold text-sm">3</span>
+          </div>
+          <h3 class="font-bold text-dark text-sm mb-2">お届け</h3>
+          <p class="text-xs text-dark-muted leading-relaxed">ご注文から約1週間でお届け。組み立ても簡単です</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 text-center">
+          <div class="w-10 h-10 rounded-full bg-sage-pale flex items-center justify-center mx-auto mb-3">
+            <span class="text-sage font-bold text-sm">4</span>
+          </div>
+          <h3 class="font-bold text-dark text-sm mb-2">サポート</h3>
+          <p class="text-xs text-dark-muted leading-relaxed">ご不明点はお電話・メールでいつでもサポートいたします</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 担当メッセージ -->
+  <section class="py-20 md:py-28 px-5">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-5 gap-10 items-center fade-up">
+        <div class="md:col-span-2 flex justify-center">
+          <img src="https://ymsk.itembox.cloud/item/president01.png" alt="担当者" class="w-48 md:w-56 rounded-2xl">
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">MESSAGE</p>
+          <div class="divider mb-6"></div>
+          <h2 class="font-serif text-lg md:text-xl text-dark leading-relaxed mb-5">担当者メッセージ</h2>
+          <p class="text-sm text-dark-sub leading-loose">
+            商品のことならなんでもおまかせください。ベビーベッド一筋の自社工場から直接お届けしています。ジュニアベッドを通して、お子さまの成長に寄り添えることをうれしく思います。サイズ選びや使い方など、些細なことでもお気軽にご相談ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 md:py-28 bg-cream px-5">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">FAQ</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">よくある質問</h2>
+      </div>
+      <div class="space-y-3 fade-up">
+        <details class="group bg-white rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-sage font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">対象年齢は何歳から何歳までですか？</span>
+            </div>
+            <svg class="w-4 h-4 text-sage flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            2歳頃〜10歳頃（身長150cm程度）までご使用いただけます。ベビーベッドを卒業したタイミングからお使いいただくのがおすすめです。
+          </div>
+        </details>
+        <details class="group bg-white rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-sage font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">大人用ベッドとの違いは何ですか？</span>
+            </div>
+            <svg class="w-4 h-4 text-sage flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            子どもの体格に合わせたサイズ設計（幅80×長さ160cm）に加え、転落防止の安全柵、低床設計、PSC・SGマークの取得など、子どもの安全に特化した設計がされています。
+          </div>
+        </details>
+        <details class="group bg-white rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-sage font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">組み立ては難しいですか？</span>
+            </div>
+            <svg class="w-4 h-4 text-sage flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            付属の工具と取扱説明書で、約20〜30分で組み立てられます。動画での組み立てガイドもご用意していますので、安心してお組み立ていただけます。
+          </div>
+        </details>
+        <details class="group bg-white rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-sage font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">補修用部品はありますか？</span>
+            </div>
+            <svg class="w-4 h-4 text-sage flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            はい。ヤマサキでは長くお使いいただくために、補修用部品のご用意があります。お気軽にお問い合わせください。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社情報 -->
+  <section class="py-16 md:py-20 px-5 bg-white">
+    <div class="max-w-4xl mx-auto fade-up">
+      <div class="text-center mb-10">
+        <p class="text-sage text-xs font-medium tracking-[0.25em] mb-4">COMPANY</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-lg md:text-xl text-dark">会社情報</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-3 text-sm">
+          <div class="flex gap-4 py-2.5 border-b border-gray-100">
+            <span class="text-dark-muted w-24 flex-shrink-0">会社名</span>
+            <span class="text-dark">株式会社ヤマサキ</span>
+          </div>
+          <div class="flex gap-4 py-2.5 border-b border-gray-100">
+            <span class="text-dark-muted w-24 flex-shrink-0">所在地</span>
+            <span class="text-dark">岡山県</span>
+          </div>
+          <div class="flex gap-4 py-2.5 border-b border-gray-100">
+            <span class="text-dark-muted w-24 flex-shrink-0">事業内容</span>
+            <span class="text-dark">ベビーベッド・ジュニアベッド等の製造・販売</span>
+          </div>
+          <div class="flex gap-4 py-2.5 border-b border-gray-100">
+            <span class="text-dark-muted w-24 flex-shrink-0">公式サイト</span>
+            <a href="https://www.ymsk.jp" class="text-sage hover:text-sage-dark transition-colors">www.ymsk.jp</a>
+          </div>
+        </div>
+        <div class="text-center md:text-left">
+          <p class="text-sm text-dark-sub leading-loose">
+            ヤマサキは岡山で創業し、国産ベビーベッドメーカーとして保育施設から一般家庭まで幅広くご利用いただいています。「安心してお使いいただけるものづくり」をモットーに、品質と安全性にこだわり続けています。
+          </p>
+          <div class="mt-4 flex justify-center md:justify-start gap-3">
+            <a href="#" class="w-9 h-9 rounded-full bg-sage-pale flex items-center justify-center hover:bg-sage-light/50 transition-colors">
+              <svg class="w-4 h-4 text-sage" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-sage-pale flex items-center justify-center hover:bg-sage-light/50 transition-colors">
+              <svg class="w-4 h-4 text-sage" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark py-10 px-5">
+    <div class="max-w-6xl mx-auto text-center">
+      <img src="https://ymsk.itembox.cloud/item/yamasakilogo.png" alt="ヤマサキ" class="h-6 mx-auto mb-4 brightness-0 invert opacity-50">
+      <p class="text-white/30 text-xs">&copy; 2026 Yamasaki Co., Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up, .fade-in, .stagger').forEach(el => observer.observe(el));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+      mobileMenu.style.maxHeight = isOpen ? '0px' : '400px';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { mobileMenu.style.maxHeight = '0px'; });
+    });
+  </script>
+
+</body>
+</html>
