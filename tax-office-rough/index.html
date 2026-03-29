@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仙台の税理士事務所 | なかなか聞けない数字の疑問にこそ、真剣におこたえします</title>
+  <meta name="description" content="仙台市の税理士事務所。中小企業・個人事業主の「こんなこと聞いていいのかな？」に、同じ当事者として泥臭く温かく伴走します。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beige: '#C8B89A',
+            'beige-light': '#F5F0E8',
+            'beige-pale': '#FAF7F2',
+            olive: '#5C6B4E',
+            'olive-dark': '#3D4A33',
+            'olive-light': '#7A8B6A',
+            'olive-pale': '#EEF1EB',
+            mustard: '#C9A84C',
+            'mustard-light': '#F0E4C1',
+            'mustard-pale': '#FBF7ED',
+            dark: '#2D2A26',
+            'dark-sub': '#5A5650',
+            'dark-muted': '#8A857E',
+            warm: '#F8F5F0',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            serif: ['"Noto Serif JP"', 'serif'],
+            round: ['"Zen Maru Gothic"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+    .divider { width: 48px; height: 2px; background: #C9A84C; }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::marker { display: none; }
+
+    /* Slider */
+    .slider { position: relative; overflow: hidden; }
+    .slider-track { display: flex; transition: transform 0.8s ease; }
+    .slider-slide { min-width: 100%; position: relative; }
+    .slider-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
+    .slider-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s; }
+    .slider-dot.active { background: white; }
+
+    .icon-service {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body class="font-sans text-dark bg-white">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-beige-light">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <a href="#" class="flex items-center gap-3">
+          <!-- 仮ロゴ -->
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-xl bg-olive flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <div>
+              <p class="font-serif text-olive-dark text-sm font-bold leading-tight">○○税理士事務所</p>
+              <p class="text-[10px] text-dark-muted tracking-wider">TAX ACCOUNTANT OFFICE</p>
+            </div>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <!-- デフォルメ似顔絵アイコン（仮） -->
+          <div class="w-10 h-10 rounded-full bg-mustard-light flex items-center justify-center">
+            <svg class="w-6 h-6 text-mustard" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-0 text-xs border-t border-beige-light">
+        <a href="#about" class="flex-1 text-center py-3 text-dark-sub hover:text-olive hover:bg-olive-pale transition-colors">当事務所について</a>
+        <a href="#service" class="flex-1 text-center py-3 text-dark-sub hover:text-olive hover:bg-olive-pale transition-colors">サービス内容</a>
+        <a href="#price" class="flex-1 text-center py-3 text-dark-sub hover:text-olive hover:bg-olive-pale transition-colors">料金体系</a>
+        <a href="#faq" class="flex-1 text-center py-3 text-dark-sub hover:text-olive hover:bg-olive-pale transition-colors">よくある質問</a>
+        <a href="#access" class="flex-1 text-center py-3 text-dark-sub hover:text-olive hover:bg-olive-pale transition-colors">アクセス</a>
+        <a href="#contact" class="flex-1 text-center py-3 bg-olive text-white font-medium hover:bg-olive-dark transition-colors">お問い合わせ</a>
+      </nav>
+    </div>
+    <button id="menuBtn" class="md:hidden absolute top-3 right-4 p-2 text-dark">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-white border-t border-beige-light">
+      <div class="px-4 py-4 flex flex-col gap-3 text-sm text-dark-sub">
+        <a href="#about" class="py-2 border-b border-beige-light">当事務所について</a>
+        <a href="#service" class="py-2 border-b border-beige-light">サービス内容</a>
+        <a href="#price" class="py-2 border-b border-beige-light">料金体系</a>
+        <a href="#faq" class="py-2 border-b border-beige-light">よくある質問</a>
+        <a href="#access" class="py-2 border-b border-beige-light">アクセス</a>
+        <a href="#contact" class="text-center bg-olive text-white py-3 rounded-lg font-medium">お問い合わせ</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Main Visual -->
+  <section class="pt-[100px] md:pt-[108px]">
+    <div class="slider relative h-[480px] md:h-[600px]">
+      <div class="slider-track h-full" id="sliderTrack">
+        <!-- Slide 1: かっちりスーツ姿（外） -->
+        <div class="slider-slide h-full">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/60 to-dark/20 z-[1]"></div>
+          <img src="https://images.unsplash.com/photo-1507679799987-c73b4e84f98d?w=1400&h=700&fit=crop&crop=faces" alt="税理士" class="w-full h-full object-cover">
+          <div class="absolute inset-0 z-[2] flex items-center">
+            <div class="max-w-6xl mx-auto px-6 w-full">
+              <div class="max-w-xl">
+                <p class="font-round text-white/80 text-sm md:text-base mb-3">仙台の税理士事務所</p>
+                <h1 class="font-serif text-white text-2xl md:text-4xl leading-relaxed md:leading-relaxed mb-3">
+                  <span class="text-mustard-light text-xl md:text-3xl">「こんなこと聞いていいのかな？」</span><br>
+                  なかなか聞けない数字の疑問にこそ、<br class="hidden md:inline">
+                  真剣におこたえします。
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2: ジャケット姿（事務所内・カフェのような安心感） -->
+        <div class="slider-slide h-full">
+          <div class="absolute inset-0 bg-gradient-to-r from-dark/50 to-dark/10 z-[1]"></div>
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&h=700&fit=crop" alt="事務所での相談風景" class="w-full h-full object-cover">
+          <div class="absolute inset-0 z-[2] flex items-center">
+            <div class="max-w-6xl mx-auto px-6 w-full">
+              <div class="max-w-xl">
+                <p class="font-round text-white/80 text-sm md:text-base mb-3">靴を脱いで、ほっと一息つける場所</p>
+                <h2 class="font-serif text-white text-2xl md:text-4xl leading-relaxed md:leading-relaxed mb-3">
+                  経営者の小さな疑問に、<br>
+                  同じ当事者として<br class="hidden md:inline">
+                  <span class="text-mustard-light">泥臭く、温かく伴走</span>します。
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <div class="slider-dot active" data-index="0"></div>
+        <div class="slider-dot" data-index="1"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section class="py-8 bg-white border-b border-beige-light">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex items-start gap-4 md:gap-6">
+        <span class="text-olive font-bold text-sm whitespace-nowrap pt-0.5">お知らせ</span>
+        <div class="flex-1 space-y-2 text-sm">
+          <div class="flex items-start gap-3">
+            <span class="text-dark-muted text-xs whitespace-nowrap pt-0.5">2026.04.01</span>
+            <a href="#" class="text-dark-sub hover:text-olive transition-colors">ホームページを開設しました</a>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-dark-muted text-xs whitespace-nowrap pt-0.5">2026.04.01</span>
+            <a href="#" class="text-dark-sub hover:text-olive transition-colors">開業のご挨拶</a>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-dark-muted text-xs whitespace-nowrap pt-0.5">2026.04.01</span>
+            <a href="#" class="text-dark-sub hover:text-olive transition-colors">初回無料相談のご案内</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 md:py-28 bg-beige-pale px-5">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-mustard text-xs font-medium tracking-[0.25em] mb-3">ABOUT</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark leading-relaxed">当事務所について</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-10 items-center fade-up">
+        <div>
+          <h3 class="font-serif text-lg text-dark mb-4 leading-relaxed">
+            「こんなこと聞いていいのかな？」<br>
+            そう思った瞬間が、<br>
+            ちょうどいいタイミングです。
+          </h3>
+          <p class="text-sm text-dark-sub leading-loose mb-4">
+            当事務所は、一方的に専門用語で説得するような冷たい対応ではなく、経営者の小さな疑問に、同じ当事者として泥臭く、温かく向き合うことを大切にしています。
+          </p>
+          <p class="text-sm text-dark-sub leading-loose">
+            仙台の杜のように、ゆっくりと根を張り、長くお付き合いいただけるパートナーでありたい。「誠実・納得・安心」を理念に、あなたの経営に寄り添います。
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm">
+          <div class="space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-olive-pale flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-olive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-dark text-sm">誠実</p>
+                <p class="text-xs text-dark-muted">嘘のない、正直な対応を約束します</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-mustard-pale flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-mustard" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-dark text-sm">納得</p>
+                <p class="text-xs text-dark-muted">専門用語ではなく、わかる言葉で説明します</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-beige-light flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-beige" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-dark text-sm">安心</p>
+                <p class="text-xs text-dark-muted">いつでも相談できる、心強いパートナーです</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service -->
+  <section id="service" class="py-20 md:py-28 bg-white px-5">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-mustard text-xs font-medium tracking-[0.25em] mb-3">SERVICE</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">サービス内容</h2>
+        <p class="text-dark-sub text-sm mt-3">経営のあらゆるフェーズに寄り添う、3つのサービス</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 stagger">
+        <!-- アイコン1: 税務顧問 -->
+        <div class="bg-beige-pale rounded-2xl p-7 text-center card-hover">
+          <div class="icon-service bg-olive mx-auto mb-5">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-dark text-lg mb-3">税務顧問</h3>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            月次の記帳チェックから決算・申告まで一貫サポート。「数字の意味」をわかりやすくお伝えし、経営判断に活きる情報をお届けします。
+          </p>
+        </div>
+        <!-- アイコン2: 創業支援 -->
+        <div class="bg-mustard-pale rounded-2xl p-7 text-center card-hover">
+          <div class="icon-service bg-mustard mx-auto mb-5">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-dark text-lg mb-3">創業支援</h3>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            会社設立の手続きから事業計画の策定、融資申請のサポートまで。創業期の不安を一緒に解消し、スタートダッシュを支えます。
+          </p>
+        </div>
+        <!-- アイコン3: 経営相談 -->
+        <div class="bg-olive-pale rounded-2xl p-7 text-center card-hover">
+          <div class="icon-service bg-olive-light mx-auto mb-5">
+            <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-dark text-lg mb-3">経営相談</h3>
+          <p class="text-sm text-dark-sub leading-relaxed">
+            資金繰り、事業承継、節税対策など、経営にまつわるお悩みを何でもご相談ください。専門家ネットワークと連携し、最適な解決策をご提案します。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price -->
+  <section id="price" class="py-20 md:py-28 bg-beige-pale px-5">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-mustard text-xs font-medium tracking-[0.25em] mb-3">PRICE</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">料金体系</h2>
+        <p class="text-dark-sub text-sm mt-3">明朗会計。まずはお気軽にご相談ください</p>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm fade-up">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-olive text-white">
+              <th class="py-4 px-5 text-left font-medium">サービス</th>
+              <th class="py-4 px-5 text-left font-medium">内容</th>
+              <th class="py-4 px-5 text-right font-medium">料金（税別）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-beige-light">
+              <td class="py-4 px-5 font-medium text-dark">税務顧問<br><span class="text-xs text-dark-muted font-normal">（個人事業主）</span></td>
+              <td class="py-4 px-5 text-dark-sub">月次面談・記帳チェック・確定申告</td>
+              <td class="py-4 px-5 text-right text-olive font-bold whitespace-nowrap">月額 15,000円〜</td>
+            </tr>
+            <tr class="border-b border-beige-light">
+              <td class="py-4 px-5 font-medium text-dark">税務顧問<br><span class="text-xs text-dark-muted font-normal">（法人）</span></td>
+              <td class="py-4 px-5 text-dark-sub">月次面談・記帳チェック・決算申告</td>
+              <td class="py-4 px-5 text-right text-olive font-bold whitespace-nowrap">月額 25,000円〜</td>
+            </tr>
+            <tr class="border-b border-beige-light">
+              <td class="py-4 px-5 font-medium text-dark">創業支援パック</td>
+              <td class="py-4 px-5 text-dark-sub">会社設立・融資相談・初年度顧問セット</td>
+              <td class="py-4 px-5 text-right text-olive font-bold whitespace-nowrap">別途お見積り</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-medium text-dark">スポット相談</td>
+              <td class="py-4 px-5 text-dark-sub">単発の税務相談・セカンドオピニオン</td>
+              <td class="py-4 px-5 text-right text-olive font-bold whitespace-nowrap">1時間 5,000円</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-center text-xs text-dark-muted mt-4 fade-up">※料金は売上規模や業種により変動いたします。初回相談は無料です。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 md:py-28 bg-white px-5">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-mustard text-xs font-medium tracking-[0.25em] mb-3">FAQ</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">よくある質問</h2>
+      </div>
+      <div class="space-y-3 fade-up">
+        <details class="group bg-beige-pale rounded-xl" open>
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-olive font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">税理士に相談するタイミングがわかりません。</span>
+            </div>
+            <svg class="w-4 h-4 text-mustard flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            「こんなこと聞いていいのかな？」と思った時がちょうどいいタイミングです。些細なことでも、早めにご相談いただくことで問題を未然に防げるケースがたくさんあります。まずはお気軽にお電話・メールでお問い合わせください。
+          </div>
+        </details>
+        <details class="group bg-beige-pale rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-olive font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">今の税理士から変更することはできますか？</span>
+            </div>
+            <svg class="w-4 h-4 text-mustard flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            はい、もちろん可能です。引き継ぎの流れやタイミングについてもアドバイスいたしますので、ご安心ください。「今の対応に不満がある」「もっと話を聞いてほしい」という方からのご相談も多くいただいております。
+          </div>
+        </details>
+        <details class="group bg-beige-pale rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-olive font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">オンラインでの面談は可能ですか？</span>
+            </div>
+            <svg class="w-4 h-4 text-mustard flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            Zoom等を使用したオンライン面談にも対応しております。遠方のお客様や、ご多忙でご来所が難しい場合もお気軽にご相談ください。
+          </div>
+        </details>
+        <details class="group bg-beige-pale rounded-xl">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+            <div class="flex items-center gap-3">
+              <span class="text-olive font-bold text-sm">Q</span>
+              <span class="font-medium text-dark text-sm">初回相談は本当に無料ですか？</span>
+            </div>
+            <svg class="w-4 h-4 text-mustard flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 pl-12 text-sm text-dark-sub leading-relaxed">
+            はい、初回のご相談（60分程度）は無料で承っております。お悩みの内容を伺い、当事務所でお力になれるかどうかを率直にお伝えいたします。無理な勧誘は一切ございませんので、ご安心ください。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access -->
+  <section id="access" class="py-20 md:py-28 bg-beige-pale px-5">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <p class="text-mustard text-xs font-medium tracking-[0.25em] mb-3">ACCESS</p>
+        <div class="divider mx-auto mb-6"></div>
+        <h2 class="font-serif text-xl md:text-2xl text-dark">事務所情報</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 fade-up">
+        <div class="bg-white rounded-2xl p-7 shadow-sm">
+          <div class="space-y-4 text-sm">
+            <div class="flex gap-4 py-2 border-b border-beige-light">
+              <span class="text-dark-muted w-20 flex-shrink-0">事務所名</span>
+              <span class="text-dark font-medium">○○税理士事務所</span>
+            </div>
+            <div class="flex gap-4 py-2 border-b border-beige-light">
+              <span class="text-dark-muted w-20 flex-shrink-0">代表</span>
+              <span class="text-dark">○○ ○○（税理士）</span>
+            </div>
+            <div class="flex gap-4 py-2 border-b border-beige-light">
+              <span class="text-dark-muted w-20 flex-shrink-0">所在地</span>
+              <span class="text-dark">宮城県仙台市○○区○○</span>
+            </div>
+            <div class="flex gap-4 py-2 border-b border-beige-light">
+              <span class="text-dark-muted w-20 flex-shrink-0">TEL</span>
+              <span class="text-dark">000-000-0000</span>
+            </div>
+            <div class="flex gap-4 py-2">
+              <span class="text-dark-muted w-20 flex-shrink-0">営業時間</span>
+              <span class="text-dark">平日 9:00〜18:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-200 rounded-2xl flex items-center justify-center min-h-[250px]">
+          <span class="text-dark-muted text-sm">Google Map</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="py-20 md:py-28 bg-olive px-5">
+    <div class="max-w-2xl mx-auto text-center fade-up">
+      <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+      <h2 class="font-serif text-xl md:text-2xl text-white mb-4">まずはお気軽にご相談ください</h2>
+      <p class="text-white/70 text-sm leading-relaxed mb-8">
+        「こんなこと聞いていいのかな？」——<br>
+        そう思った時が、ちょうどいいタイミングです。<br>
+        初回相談は無料です。お気軽にお問い合わせください。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:0000000000" class="inline-flex items-center justify-center gap-2 bg-white text-olive px-8 py-4 rounded-full font-bold hover:bg-beige-pale transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          000-000-0000
+        </a>
+        <a href="#" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          メールで問い合わせ
+        </a>
+      </div>
+      <p class="text-white/40 text-xs mt-4">初回相談無料・秘密厳守</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark py-10 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-olive/30 flex items-center justify-center">
+            <svg class="w-4 h-4 text-olive-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <span class="text-white/40 text-sm">○○税理士事務所</span>
+        </div>
+        <p class="text-white/30 text-xs">&copy; 2026 ○○税理士事務所 All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+      mobileMenu.style.maxHeight = isOpen ? '0px' : '500px';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { mobileMenu.style.maxHeight = '0px'; });
+    });
+
+    // Hero slider
+    const track = document.getElementById('sliderTrack');
+    const dots = document.querySelectorAll('.slider-dot');
+    let current = 0;
+    function goTo(index) {
+      current = index;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
+    });
+    setInterval(() => goTo((current + 1) % 2), 5000);
+  </script>
+
+</body>
+</html>
