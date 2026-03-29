@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=375, initial-scale=1">
+  <title>SSIきみどり株式会社 | 少額短期保険</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-deep: #3a8f4a;
+      --green-main: #6cbb5a;
+      --green-accent: #aacf52;
+      --green-pale: #edf7e8;
+      --green-bg: #f6faf3;
+      --text-dark: #2c3e2d;
+      --text-mid: #4a5a4b;
+      --text-light: #7a8a7b;
+      --white: #ffffff;
+      --gray-bg: #f8f9fa;
+      --gray-border: #e2e8e3;
+      --warm: #f5a623;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      width: 375px;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== SP HEADER ===== */
+    .sp-topbar {
+      background: var(--green-main);
+      color: #fff;
+      text-align: center;
+      padding: 6px 16px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .sp-topbar svg { width: 13px; height: 13px; fill: white; flex-shrink: 0; }
+    .sp-topbar .num { font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+
+    .sp-header {
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .sp-header .logo img { height: 28px; }
+    .sp-header .hamburger {
+      width: 28px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .sp-header .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 1px;
+    }
+
+    /* ===== HERO SP ===== */
+    .sp-hero {
+      background: linear-gradient(160deg, #f0f9ec 0%, #ddf0d0 40%, #c8e6b4 100%);
+      padding: 32px 20px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sp-hero::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: rgba(108,187,90,0.1); border-radius: 50%;
+    }
+    .sp-hero .hero-label {
+      display: inline-block;
+      background: var(--green-main); color: #fff;
+      font-size: 10px; font-weight: 700; padding: 3px 12px;
+      border-radius: 14px; letter-spacing: 1.5px; margin-bottom: 14px;
+    }
+    .sp-hero h1 {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      font-size: 26px; font-weight: 900; line-height: 1.45;
+      color: var(--text-dark); margin-bottom: 12px;
+    }
+    .sp-hero h1 em {
+      font-style: normal; color: var(--green-deep);
+      position: relative;
+    }
+    .sp-hero h1 em::after {
+      content: '';
+      position: absolute; bottom: 1px; left: 0; right: 0;
+      height: 6px; background: rgba(170,207,82,0.35);
+      z-index: -1; border-radius: 2px;
+    }
+    .sp-hero p {
+      font-size: 13px; color: var(--text-mid);
+      margin-bottom: 20px; line-height: 1.9;
+    }
+    .sp-hero-img {
+      width: 100%; height: 200px; border-radius: 16px;
+      background: linear-gradient(145deg, #8fce78 0%, #5cb548 50%, #3a9040 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(92,181,72,0.2);
+      position: relative; overflow: hidden;
+    }
+    .sp-hero-img::before {
+      content: '';
+      position: absolute; top: 10px; right: 20px;
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.12); border-radius: 50%;
+    }
+    .sp-hero-img .photo-label {
+      color: rgba(255,255,255,0.95); font-size: 13px; text-align: center;
+      z-index: 1; line-height: 1.6;
+    }
+    .sp-hero-img .photo-label strong {
+      display: block; font-size: 15px; font-weight: 700; margin-bottom: 2px;
+    }
+    .sp-hero-btns {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .sp-btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--green-main); color: #fff;
+      padding: 14px; border-radius: 28px;
+      font-size: 15px; font-weight: 700;
+      box-shadow: 0 4px 14px rgba(108,187,90,0.3);
+    }
+    .sp-btn-primary svg { width: 16px; height: 16px; fill: white; }
+    .sp-btn-secondary {
+      display: flex; align-items: center; justify-content: center;
+      background: #fff; color: var(--green-deep);
+      padding: 13px; border-radius: 28px;
+      font-size: 14px; font-weight: 700;
+      border: 2px solid var(--green-main);
+    }
+    .sp-hero-dots {
+      display: flex; justify-content: center; gap: 6px;
+      padding: 14px 0 0;
+    }
+    .sp-hero-dots span {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(108,187,90,0.25);
+    }
+    .sp-hero-dots span.on {
+      width: 22px; border-radius: 4px; background: var(--green-main);
+    }
+
+    /* ===== SECTION SP ===== */
+    .sp-sec { padding: 48px 20px; }
+    .sp-sec-head { text-align: center; margin-bottom: 28px; }
+    .sp-sec-head .en {
+      font-size: 10px; font-weight: 700; letter-spacing: 3px;
+      color: var(--green-accent); text-transform: uppercase;
+    }
+    .sp-sec-head h2 { font-size: 22px; font-weight: 900; margin: 2px 0 8px; }
+    .sp-sec-head .line {
+      width: 30px; height: 3px; background: var(--green-main);
+      margin: 0 auto; border-radius: 2px;
+    }
+
+    /* ===== PRODUCTS SP ===== */
+    .sp-products { background: #fff; }
+    .sp-prod-list { display: flex; flex-direction: column; gap: 14px; }
+    .sp-prod-card {
+      border: 2px solid var(--gray-border); border-radius: 14px;
+      padding: 20px; display: flex; align-items: center; gap: 16px;
+      background: #fff;
+    }
+    .sp-prod-card .prod-logo {
+      width: 90px; min-width: 90px; height: 65px; object-fit: contain;
+      background: var(--green-pale); border-radius: 8px; padding: 6px;
+    }
+    .sp-prod-card:nth-child(2) .prod-logo { background: #fce8e8; }
+    .sp-prod-card:nth-child(3) .prod-logo { background: #f0f4f8; }
+    .sp-prod-card:nth-child(4) .prod-logo { background: var(--green-pale); }
+    .sp-prod-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .sp-prod-card p { font-size: 11px; color: var(--text-light); line-height: 1.6; margin-bottom: 6px; }
+    .sp-prod-card .more {
+      font-size: 12px; font-weight: 700; color: var(--green-main);
+    }
+    .sp-prod-card .more::after { content: ' →'; }
+
+    /* ===== FEATURES SP ===== */
+    .sp-features { background: var(--green-bg); }
+    .sp-feat-list { display: flex; flex-direction: column; gap: 12px; }
+    .sp-feat-row {
+      background: #fff; border-radius: 12px; padding: 20px;
+      display: flex; align-items: flex-start; gap: 14px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+    }
+    .sp-feat-icon {
+      width: 52px; min-width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--green-pale), #d4edc8);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    }
+    .sp-feat-icon svg { width: 26px; height: 26px; fill: var(--green-main); }
+    .sp-feat-row h3 { font-size: 15px; font-weight: 700; color: var(--green-deep); margin-bottom: 4px; }
+    .sp-feat-row p { font-size: 12px; color: var(--text-mid); line-height: 1.7; }
+
+    /* ===== CUSTOMER SP ===== */
+    .sp-customer { background: #fff; }
+    .sp-cust-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .sp-cust-card {
+      background: var(--green-bg); border: 1px solid var(--green-pale);
+      border-radius: 10px; padding: 16px 12px; text-align: center;
+    }
+    .sp-cust-card .ic {
+      width: 36px; height: 36px; margin: 0 auto 8px;
+      background: var(--green-main); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sp-cust-card .ic svg { width: 18px; height: 18px; fill: #fff; }
+    .sp-cust-card h4 { font-size: 12px; font-weight: 700; line-height: 1.4; }
+
+    /* ===== NEWS SP ===== */
+    .sp-info { background: var(--gray-bg); }
+    .sp-info h3 {
+      font-size: 17px; font-weight: 700; color: var(--green-deep);
+      border-bottom: 2px solid var(--green-main);
+      padding-bottom: 10px; margin-bottom: 0;
+    }
+    .sp-news-list { list-style: none; }
+    .sp-news-list li {
+      padding: 14px 0; border-bottom: 1px solid var(--gray-border);
+    }
+    .sp-news-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .sp-news-meta .dt { font-size: 11px; color: var(--text-light); }
+    .sp-news-meta .tg {
+      font-size: 9px; font-weight: 700; padding: 1px 6px;
+      border-radius: 2px;
+    }
+    .tg.emer { background: #fce4e4; color: #c0392b; border: 1px solid #e8c4c4; }
+    .tg.note { background: #e0ecf8; color: #2c5282; border: 1px solid #c0d0e0; }
+    .sp-news-list .ttl { font-size: 13px; color: var(--text-dark); line-height: 1.5; }
+
+    /* CM SP */
+    .sp-cm { margin-top: 32px; }
+    .sp-cm h3 {
+      font-size: 17px; font-weight: 700; color: var(--green-deep);
+      border-bottom: 2px solid var(--green-main);
+      padding-bottom: 10px; margin-bottom: 14px;
+    }
+    .sp-cm-box {
+      background: #1a1a1a; border-radius: 10px;
+      aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .sp-play {
+      width: 48px; height: 48px; background: rgba(255,255,255,0.9);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .sp-play::after {
+      content: ''; width: 0; height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 14px solid var(--green-main);
+      margin-left: 3px;
+    }
+    .sp-cm-box .label {
+      position: absolute; bottom: 10px;
+      color: rgba(255,255,255,0.6); font-size: 11px;
+    }
+
+    /* ===== BANNERS SP ===== */
+    .sp-banners { padding: 32px 20px; background: #fff; }
+    .sp-banners .ban {
+      background: var(--green-bg); border: 1px solid var(--green-pale);
+      border-radius: 10px; padding: 16px; text-align: center;
+      font-size: 13px; font-weight: 600; margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    /* ===== CTA SP ===== */
+    .sp-cta {
+      background: linear-gradient(135deg, var(--green-main), var(--green-deep));
+      padding: 36px 20px; text-align: center; color: #fff;
+    }
+    .sp-cta h2 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .sp-cta .phone-big {
+      font-size: 30px; font-weight: 900; letter-spacing: 1px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .sp-cta .phone-big svg { width: 24px; height: 24px; fill: white; }
+    .sp-cta .note { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+
+    /* ===== FOOTER SP ===== */
+    .sp-footer { background: #2a2d2a; color: rgba(255,255,255,0.7); padding: 32px 20px 0; }
+    .sp-footer-logo img { height: 30px; filter: brightness(10); margin-bottom: 12px; }
+    .sp-footer-info { font-size: 11px; line-height: 1.8; opacity: 0.5; margin-bottom: 24px; }
+    .sp-footer-nav { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 24px; }
+    .sp-footer-nav a { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .sp-footer-copy {
+      text-align: center; padding: 14px 0;
+      font-size: 10px; opacity: 0.3;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="sp-topbar">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    <span class="num">0120-99-8349</span>
+    <span style="font-size:10px;opacity:0.8">9:00〜17:00</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sp-header">
+    <a href="#" class="logo"><img src="assets/logo.svg" alt="SSIきみどり"></a>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </header>
+
+  <!-- HERO -->
+  <section class="sp-hero">
+    <div class="hero-label">少額短期保険</div>
+    <h1>あなたの暮らしに<br><em>やさしい安心</em>を。</h1>
+    <p>SSIきみどりは、少額短期保険の特徴を生かし、加入しやすく・わかりやすい保険をご提供します。</p>
+    <div class="sp-hero-img">
+      <div class="photo-label">
+        <strong>イメージ写真</strong>
+        笑顔のシニア夫婦・家族
+      </div>
+    </div>
+    <div class="sp-hero-btns">
+      <a href="#" class="sp-btn-primary">
+        保険商品を見る
+        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      </a>
+      <a href="#" class="sp-btn-secondary">資料請求はこちら</a>
+    </div>
+    <div class="sp-hero-dots">
+      <span class="on"></span><span></span><span></span><span></span>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="sp-sec sp-products">
+    <div class="sp-sec-head">
+      <div class="en">PRODUCTS</div>
+      <h2>保険商品</h2>
+      <div class="line"></div>
+    </div>
+    <div class="sp-prod-list">
+      <div class="sp-prod-card">
+        <img src="assets/logo_50saikarano.png" alt="50歳からの入院保険" class="prod-logo">
+        <div>
+          <h3>50歳からの入院保険</h3>
+          <p>満50歳から満84歳まで。入院保障に特化した保険です。</p>
+          <span class="more">詳しく見る</span>
+        </div>
+      </div>
+      <div class="sp-prod-card">
+        <img src="assets/logo_hajimeteno.png" alt="はじめての入院保険" class="prod-logo">
+        <div>
+          <h3>はじめての入院保険</h3>
+          <p>お手頃な保険料で入院初期費用をカバーします。</p>
+          <span class="more">詳しく見る</span>
+        </div>
+      </div>
+      <div class="sp-prod-card">
+        <img src="assets/logo_ahitapurasu.png" alt="あしたプラス" class="prod-logo">
+        <div>
+          <h3>あしたプラス</h3>
+          <p>入院医療保障と死亡保障がセットの充実保証。</p>
+          <span class="more">詳しく見る</span>
+        </div>
+      </div>
+      <div class="sp-prod-card">
+        <img src="assets/logo_sasae.png" alt="ささえ" class="prod-logo">
+        <div>
+          <h3>無選択定期保険 ささえ</h3>
+          <p>ご葬儀費用の負担をサポートする保険です。</p>
+          <span class="more">詳しく見る</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="sp-sec sp-features">
+    <div class="sp-sec-head">
+      <div class="en">FEATURES</div>
+      <h2>少額短期保険の特徴</h2>
+      <div class="line"></div>
+    </div>
+    <div class="sp-feat-list">
+      <div class="sp-feat-row">
+        <div class="sp-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        </div>
+        <div>
+          <h3>加入しやすいミニ保険</h3>
+          <p>一般の保険に比べて加入しやすい条件になっています。</p>
+        </div>
+      </div>
+      <div class="sp-feat-row">
+        <div class="sp-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div>
+          <h3>中高齢者にやさしい保険</h3>
+          <p>毎月の保険料を最小限に抑えています。</p>
+        </div>
+      </div>
+      <div class="sp-feat-row">
+        <div class="sp-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        </div>
+        <div>
+          <h3>一年毎の見直しが可能</h3>
+          <p>生活環境の変化に合わせて更新できます。</p>
+        </div>
+      </div>
+      <div class="sp-feat-row">
+        <div class="sp-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <div>
+          <h3>保険業法の規制対象で安心</h3>
+          <p>金融庁の監督下にある保険会社です。</p>
+        </div>
+      </div>
+      <div class="sp-feat-row">
+        <div class="sp-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <div>
+          <h3>互助会会員にも対応</h3>
+          <p>全国の互助会と組み合わせてご利用可能です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER -->
+  <section class="sp-sec sp-customer">
+    <div class="sp-sec-head">
+      <div class="en">FOR CUSTOMERS</div>
+      <h2>ご契約者様メニュー</h2>
+      <div class="line"></div>
+    </div>
+    <div class="sp-cust-grid">
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+        <h4>入院給付金請求</h4>
+      </div>
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+        <h4>死亡保険金請求</h4>
+      </div>
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>
+        <h4>登録情報変更</h4>
+      </div>
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg></div>
+        <h4>約款</h4>
+      </div>
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+        <h4>金融ADR制度</h4>
+      </div>
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg></div>
+        <h4>支払時情報交換制度</h4>
+      </div>
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        <h4>契約者保護機構</h4>
+      </div>
+      <div class="sp-cust-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg></div>
+        <h4>よくあるご質問</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="sp-sec sp-info">
+    <h3>インフォメーション</h3>
+    <ul class="sp-news-list">
+      <li>
+        <div class="sp-news-meta">
+          <span class="dt">2026.02.06</span>
+          <span class="tg emer">災害時の金融上の措置</span>
+        </div>
+        <a href="#" class="ttl">令和８年１月２１日からの大雪による災害救助法について【第９報】</a>
+      </li>
+      <li>
+        <div class="sp-news-meta">
+          <span class="dt">2026.02.05</span>
+          <span class="tg emer">災害時の金融上の措置</span>
+        </div>
+        <a href="#" class="ttl">令和８年１月２１日からの大雪による災害救助法について【第８報】</a>
+      </li>
+      <li>
+        <div class="sp-news-meta">
+          <span class="dt">2026.01.20</span>
+          <span class="tg note">お知らせ</span>
+        </div>
+        <a href="#" class="ttl">研修に伴う臨時休業のお知らせ</a>
+      </li>
+    </ul>
+
+    <div class="sp-cm">
+      <h3>CM紹介</h3>
+      <div class="sp-cm-box">
+        <div class="sp-play"></div>
+        <span class="label">CMロングバージョン</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNERS -->
+  <div class="sp-banners">
+    <div class="ban">ご高齢者や障害のあるお客さまへの取り組み</div>
+    <div class="ban">金融庁　公的保険について</div>
+    <div class="ban">一般社団法人 日本少額短期保険協会</div>
+  </div>
+
+  <!-- CTA -->
+  <section class="sp-cta">
+    <h2>お電話で相談</h2>
+    <div class="phone-big">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      0120-99-8349
+    </div>
+    <div class="note">9:00〜17:00（土日祝および年末年始を除く）</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="sp-footer">
+    <div class="sp-footer-logo"><img src="assets/logo.svg" alt="SSIきみどり"></div>
+    <div class="sp-footer-info">
+      登録番号：近畿財務局長（少額短期保険）第8号<br>
+      〒570-0028 大阪府守口市本町二丁目5番18号<br>
+      TEL：0120-99-8349
+    </div>
+    <div class="sp-footer-nav">
+      <a href="#">トップページ</a>
+      <a href="#">保険商品</a>
+      <a href="#">ご契約者の皆様</a>
+      <a href="#">会社案内</a>
+      <a href="#">お問い合わせ</a>
+      <a href="#">方針・取り組み</a>
+    </div>
+    <div class="sp-footer-copy">(c) SSI KIMIDORI Co.,Ltd.</div>
+  </footer>
+
+</body>
+</html>
