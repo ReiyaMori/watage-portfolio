@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>脳梗塞後遺症の訪問鍼灸マッサージ｜ご自宅でリハビリを諦めない｜CLINIC NAME</title>
+<meta name="description" content="脳梗塞・脳出血後遺症のリハビリに特化した訪問鍼灸マッサージ。健康保険適用で1回XXX円〜。国家資格者がご自宅にお伺いします。無料体験随時受付。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf3;
+  --bg-soft:#fff3e3;
+  --paper:#ffffff;
+  --ink:#1f3651;
+  --ink-soft:#41597a;
+  --ink-mute:#7a8aa1;
+  --line:#e5dcc8;
+  --navy:#1a3a5c;
+  --navy-deep:#102543;
+  --warm:#e87a3a;
+  --warm-soft:#ffd1ad;
+  --green:#2d8a5f;
+  --pink:#f5a3a3;
+  --red:#d94740;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Zen Maru Gothic","Noto Sans JP","Hiragino Sans",sans-serif;
+  background:var(--bg);color:var(--ink);
+  line-height:1.95;font-size:16px;letter-spacing:.04em;
+  font-feature-settings:"palt";
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:780px;margin:0 auto;padding:0 20px}
+.maru{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}
+
+/* top alert / header */
+.top-alert{
+  background:var(--navy);color:#fff;font-size:13px;
+  padding:8px 16px;text-align:center;letter-spacing:.08em;line-height:1.5;
+}
+.top-alert strong{color:#ffd966}
+
+.site-header{
+  position:sticky;top:0;z-index:50;background:#fff;
+  box-shadow:0 2px 12px rgba(31,54,81,.06);
+}
+.site-header .inner{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;line-height:1.2}
+.logo-mark{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:18px;
+}
+.logo-text{font-weight:700;font-size:15px;letter-spacing:.08em;color:var(--navy)}
+.logo-text small{display:block;font-size:10px;font-weight:500;color:var(--ink-mute);letter-spacing:.14em;margin-top:2px}
+.head-cta{display:flex;align-items:center;gap:8px}
+.head-tel{display:none;text-align:right;line-height:1.2}
+.head-tel small{font-size:10px;color:var(--ink-mute);letter-spacing:.1em}
+.head-tel strong{font-size:18px;font-weight:700;color:var(--navy)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;letter-spacing:.08em;font-size:14px;
+  padding:12px 20px;border-radius:8px;transition:all .25s;text-align:center;
+}
+.btn-cta{
+  background:linear-gradient(180deg,#ee8b4d 0%,#e87a3a 100%);
+  color:#fff;box-shadow:0 4px 0 #c66229,0 6px 16px rgba(232,122,58,.3);
+}
+.btn-cta:hover{transform:translateY(2px);box-shadow:0 2px 0 #c66229,0 3px 8px rgba(232,122,58,.3)}
+.btn-tel{background:var(--green);color:#fff}
+.btn-line{background:#06c755;color:#fff}
+.btn-outline{border:2px solid var(--navy);color:var(--navy);background:#fff}
+
+/* hero */
+.hero{
+  background:
+    radial-gradient(50% 40% at 80% 30%, rgba(232,122,58,.1), transparent 60%),
+    linear-gradient(180deg,#fff9ef 0%,#ffe9cc 100%);
+  padding:36px 0 48px;position:relative;overflow:hidden;
+}
+.hero .container{position:relative;z-index:2}
+.hero-badge{
+  display:inline-block;
+  background:var(--red);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.1em;
+  padding:6px 16px;border-radius:20px;margin-bottom:18px;
+  box-shadow:0 3px 10px rgba(217,71,64,.3);
+}
+.hero h1{
+  font-size:clamp(24px,5.8vw,38px);font-weight:700;line-height:1.5;color:var(--navy);
+  letter-spacing:.04em;margin-bottom:18px;
+}
+.hero h1 .marker{
+  background:linear-gradient(transparent 60%,#ffd966 60%);
+  padding:0 4px;
+}
+.hero h1 .red{color:var(--red)}
+.hero-sub{font-size:15px;color:var(--ink-soft);line-height:2;margin-bottom:24px}
+.hero-points{
+  background:#fff;border-radius:14px;padding:18px 20px;margin-bottom:22px;
+  box-shadow:0 4px 20px rgba(31,54,81,.06);
+}
+.hero-points li{
+  list-style:none;display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:14px;line-height:1.7;
+}
+.hero-points li::before{
+  content:"✓";flex-shrink:0;width:22px;height:22px;border-radius:50%;
+  background:var(--green);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;
+}
+.hero-points li strong{color:var(--navy);font-weight:700}
+.hero-cta-box{
+  background:#fff;border-radius:14px;padding:18px 20px;
+  box-shadow:0 8px 28px rgba(31,54,81,.1);text-align:center;
+}
+.hero-cta-box .urgent{font-size:13px;color:var(--red);font-weight:700;margin-bottom:10px;letter-spacing:.04em}
+.hero-cta-box .urgent::before{content:"●";margin-right:6px;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-actions{display:grid;gap:10px;grid-template-columns:1fr}
+.hero-img-mock{
+  background:linear-gradient(135deg,#dde9f5 0%,#b8d4ed 100%);
+  aspect-ratio:5/3;border-radius:14px;
+  position:relative;overflow:hidden;
+  margin-bottom:20px;
+}
+.hero-img-mock::after{
+  content:"ご自宅で、専門家の手当てを。";position:absolute;inset:0;display:grid;place-items:center;
+  color:var(--navy);font-size:16px;font-weight:700;letter-spacing:.08em;
+  background:rgba(255,255,255,.4);
+}
+
+/* trust bar */
+.trust-bar{
+  background:var(--navy);color:#fff;padding:18px 16px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;
+}
+.trust-bar .item{padding:6px 4px;border-right:1px solid rgba(255,255,255,.15)}
+.trust-bar .item:last-child{border-right:none}
+.trust-bar .num{font-size:24px;font-weight:900;color:#ffd966;line-height:1.2;letter-spacing:.02em}
+.trust-bar .num small{font-size:12px;color:#fff;font-weight:500;margin-left:2px}
+.trust-bar .lbl{font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;letter-spacing:.06em}
+
+/* section base */
+section{padding:56px 0}
+.sec-title{
+  text-align:center;margin-bottom:36px;
+}
+.sec-title .en{
+  font-size:11px;letter-spacing:.3em;color:var(--warm);font-weight:700;margin-bottom:8px;display:block;
+}
+.sec-title h2{
+  font-size:clamp(22px,4.8vw,28px);font-weight:700;line-height:1.5;color:var(--navy);letter-spacing:.04em;
+}
+.sec-title h2 .marker{background:linear-gradient(transparent 60%,#ffd966 60%);padding:0 4px}
+.sec-title h2 .red{color:var(--red)}
+.sec-title .lead{font-size:14.5px;color:var(--ink-soft);max-width:580px;margin:14px auto 0;line-height:2}
+
+/* concerns */
+.concerns{background:var(--bg-soft)}
+.concern-list{display:grid;gap:14px;grid-template-columns:1fr}
+.concern{
+  background:#fff;border-radius:12px;padding:18px 18px;
+  display:flex;align-items:flex-start;gap:14px;
+  box-shadow:0 4px 14px rgba(31,54,81,.05);
+  position:relative;
+}
+.concern::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:var(--warm);border-radius:12px 0 0 12px;
+}
+.concern-ico{
+  flex-shrink:0;width:46px;height:46px;border-radius:50%;
+  background:var(--warm-soft);color:var(--warm);
+  display:grid;place-items:center;font-size:20px;font-weight:700;
+}
+.concern p{font-size:14.5px;line-height:1.8;color:var(--ink)}
+.concerns-arrow{
+  text-align:center;margin-top:40px;color:var(--warm);font-size:32px;font-weight:700;line-height:1
+}
+
+/* solution */
+.solution{background:linear-gradient(180deg,#fff 0%,#fff9ef 100%)}
+.solution-box{
+  background:#fff;border:3px solid var(--navy);border-radius:18px;
+  padding:30px 20px;text-align:center;
+  box-shadow:0 12px 40px rgba(26,58,92,.12);
+}
+.solution-box .tag{
+  display:inline-block;background:var(--navy);color:#fff;
+  padding:4px 18px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.16em;
+  margin-bottom:14px;
+}
+.solution-box h3{
+  font-size:clamp(20px,4.5vw,26px);font-weight:700;color:var(--navy);line-height:1.5;margin-bottom:14px;
+}
+.solution-box h3 .em{color:var(--warm)}
+.solution-box p{font-size:14.5px;color:var(--ink-soft);line-height:2}
+
+/* effects */
+.effects-grid{display:grid;gap:14px;grid-template-columns:1fr}
+.effect{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:24px 20px;text-align:center;
+}
+.effect-ico{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--warm-soft),var(--warm));
+  margin:0 auto 14px;display:grid;place-items:center;color:#fff;font-size:24px;font-weight:700;
+}
+.effect h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:.04em}
+.effect p{font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+
+/* strengths */
+.strengths{background:var(--bg-soft)}
+.strength{
+  background:#fff;border-radius:14px;padding:24px 22px;margin-bottom:18px;
+  box-shadow:0 4px 14px rgba(31,54,81,.05);
+  display:grid;gap:14px;grid-template-columns:60px 1fr;align-items:flex-start;
+}
+.strength:last-child{margin-bottom:0}
+.strength-num{
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy),var(--navy-deep));
+  color:#fff;display:grid;place-items:center;line-height:1.1;text-align:center;
+}
+.strength-num small{display:block;font-size:9px;letter-spacing:.16em;opacity:.75;margin-bottom:2px}
+.strength-num strong{font-size:20px;font-weight:900;letter-spacing:.04em}
+.strength h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;letter-spacing:.04em;line-height:1.45}
+.strength h3 .em{color:var(--warm)}
+.strength p{font-size:14px;color:var(--ink-soft);line-height:1.95}
+
+/* price */
+.price-callout{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:#fff;border-radius:16px;padding:30px 24px;text-align:center;position:relative;overflow:hidden;
+}
+.price-callout::before{
+  content:"";position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,217,102,.1),transparent 60%);
+}
+.price-callout .ribbon{
+  display:inline-block;background:var(--red);color:#fff;
+  padding:4px 18px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.16em;
+  margin-bottom:14px;
+}
+.price-callout .lbl{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:6px}
+.price-callout .ja{font-size:15px;font-weight:700;color:#ffd966;margin-bottom:14px;letter-spacing:.04em}
+.price-callout .yen{font-size:clamp(38px,9vw,52px);font-weight:900;color:#ffd966;line-height:1;letter-spacing:.02em}
+.price-callout .yen small{font-size:14px;font-weight:500;color:#fff;margin-left:6px;letter-spacing:.08em}
+.price-callout .note{font-size:11px;color:rgba(255,255,255,.6);margin-top:14px;line-height:1.7}
+.price-detail{
+  background:#fff;border-radius:14px;padding:22px 20px;margin-top:18px;border:1px solid var(--line);
+}
+.price-detail h4{font-size:14px;color:var(--navy);font-weight:700;margin-bottom:12px;letter-spacing:.04em}
+.price-detail ul{list-style:none}
+.price-detail li{font-size:13px;color:var(--ink-soft);padding:6px 0;display:flex;justify-content:space-between;border-bottom:1px dashed var(--line)}
+.price-detail li:last-child{border-bottom:none}
+.price-detail li strong{color:var(--navy);font-weight:700}
+
+/* flow */
+.flow-step{
+  background:#fff;border-radius:14px;padding:22px 20px;margin-bottom:14px;
+  border-left:5px solid var(--warm);
+  display:grid;grid-template-columns:1fr;gap:8px;
+}
+.flow-step .step-num{
+  font-size:11px;color:var(--warm);font-weight:700;letter-spacing:.2em;
+}
+.flow-step h4{font-size:16px;font-weight:700;color:var(--navy);letter-spacing:.04em}
+.flow-step p{font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+
+/* therapist */
+.therapist{
+  background:#fff;border-radius:16px;padding:24px 20px;
+  box-shadow:0 8px 28px rgba(31,54,81,.08);
+  display:grid;gap:18px;grid-template-columns:1fr;
+}
+.therapist-photo{
+  aspect-ratio:1/1;border-radius:50%;max-width:140px;margin:0 auto;
+  background:linear-gradient(135deg,#dde9f5,#b8d4ed);
+  display:grid;place-items:center;color:var(--navy);font-size:36px;font-weight:700;
+}
+.therapist h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;text-align:center}
+.therapist h3 small{display:block;font-size:11px;color:var(--ink-mute);font-weight:500;letter-spacing:.16em;margin-top:4px}
+.therapist .creds{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:14px 0}
+.therapist .cred{font-size:11px;letter-spacing:.06em;padding:4px 10px;background:var(--bg-soft);color:var(--navy);border-radius:14px;font-weight:700}
+.therapist p{font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+
+/* voices */
+.voices{background:var(--bg-soft)}
+.voice-card{
+  background:#fff;border-radius:14px;padding:22px 20px;margin-bottom:14px;
+  box-shadow:0 4px 14px rgba(31,54,81,.05);position:relative;
+}
+.voice-card::before{
+  content:"“";position:absolute;top:0;left:14px;font-size:60px;color:var(--warm-soft);line-height:1;font-family:Georgia,serif;
+}
+.voice-card .who{
+  font-size:12px;color:var(--ink-mute);margin-bottom:10px;letter-spacing:.06em;padding-top:18px;
+}
+.voice-card .who strong{color:var(--navy);font-weight:700;font-size:13px}
+.voice-card .text{font-size:14px;color:var(--ink);line-height:1.95}
+.voice-card .stars{color:var(--warm);font-size:13px;letter-spacing:.1em;margin-bottom:6px}
+
+/* care manager section */
+.cm{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;
+  border-radius:16px;padding:32px 24px;
+}
+.cm h3{font-size:20px;font-weight:700;color:#ffd966;margin-bottom:14px;text-align:center;letter-spacing:.04em}
+.cm p{font-size:14px;color:rgba(255,255,255,.9);line-height:1.95;margin-bottom:14px}
+.cm-points{display:grid;gap:10px;margin:18px 0}
+.cm-points li{
+  list-style:none;background:rgba(255,255,255,.08);border-radius:10px;padding:12px 14px;
+  font-size:13.5px;display:flex;gap:10px;align-items:flex-start;
+}
+.cm-points li::before{content:"✓";color:#ffd966;font-weight:700;flex-shrink:0}
+
+/* area */
+.area-list{
+  background:#fff;border-radius:14px;padding:22px 20px;border:1px solid var(--line);
+}
+.area-list h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:.04em}
+.area-list p{font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+.area-note{font-size:12px;color:var(--ink-mute);margin-top:10px;line-height:1.7}
+
+/* faq */
+.faq-item{
+  background:#fff;border-radius:12px;margin-bottom:10px;overflow:hidden;
+  box-shadow:0 2px 10px rgba(31,54,81,.04);
+}
+.faq-q{
+  padding:18px 20px;display:flex;gap:14px;cursor:pointer;align-items:flex-start;
+}
+.faq-q .qmark{
+  width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;
+  display:grid;place-items:center;font-size:13px;font-weight:700;flex-shrink:0;
+}
+.faq-q .q{flex:1;font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.6}
+.faq-q .toggle{font-size:18px;color:var(--warm);flex-shrink:0;transition:transform .25s}
+.faq-a{padding:0 20px 20px 62px;font-size:13.5px;color:var(--ink-soft);line-height:1.95;display:none}
+.faq-a::before{content:"A. ";color:var(--warm);font-weight:700;margin-right:6px}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .toggle{transform:rotate(180deg)}
+
+/* cta block */
+.cta-block{
+  background:linear-gradient(135deg,#ee8b4d 0%,#e87a3a 100%);
+  color:#fff;padding:48px 0;text-align:center;
+}
+.cta-block h2{
+  font-size:clamp(22px,5vw,28px);font-weight:700;line-height:1.5;letter-spacing:.04em;margin-bottom:14px;
+}
+.cta-block h2 .em{background:#fff;color:var(--warm);padding:0 8px;border-radius:6px}
+.cta-block .lead{font-size:14.5px;color:rgba(255,255,255,.95);margin-bottom:24px;line-height:1.95}
+.cta-buttons{display:grid;gap:10px;grid-template-columns:1fr;max-width:420px;margin:0 auto}
+.cta-buttons .btn{padding:16px;font-size:15px}
+.cta-tel{background:#fff;color:var(--warm)}
+.cta-tel strong{font-size:22px;letter-spacing:.04em;margin-left:6px}
+
+/* form */
+.form-section{background:var(--bg-soft)}
+.form-card{background:#fff;border-radius:16px;padding:28px 22px;box-shadow:0 8px 30px rgba(31,54,81,.08)}
+.form-card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:18px;text-align:center}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.06em}
+.field label .req{color:var(--red);font-size:11px;margin-left:4px;background:var(--red);color:#fff;padding:1px 6px;border-radius:3px;font-weight:700}
+.field input,.field select,.field textarea{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;
+  font-family:inherit;font-size:15px;background:#fff;color:var(--ink);
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--warm)}
+.form-submit{
+  width:100%;background:linear-gradient(180deg,#ee8b4d 0%,#e87a3a 100%);
+  color:#fff;border:none;border-radius:10px;padding:18px;
+  font-size:16px;font-weight:700;letter-spacing:.08em;cursor:pointer;
+  box-shadow:0 4px 0 #c66229;
+  font-family:inherit;
+  transition:all .2s;
+}
+.form-submit:hover{transform:translateY(2px);box-shadow:0 2px 0 #c66229}
+
+/* footer */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:36px 0 24px;font-size:13px}
+.footer-grid{display:grid;gap:24px;grid-template-columns:1fr;margin-bottom:28px}
+.footer-brand .logo-text{color:#fff}
+.footer-brand p{margin-top:10px;font-size:12px;line-height:1.9;color:rgba(255,255,255,.55)}
+footer h4{font-size:13px;color:#ffd966;font-weight:700;margin-bottom:12px;letter-spacing:.08em}
+footer ul{list-style:none}
+footer ul li{margin-bottom:8px;font-size:12.5px}
+footer ul li a:hover{color:#ffd966}
+.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.4);text-align:center;letter-spacing:.06em}
+
+/* sticky cta */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:grid;grid-template-columns:1fr 1fr;background:#fff;
+  box-shadow:0 -4px 20px rgba(31,54,81,.15);padding:8px;gap:8px;
+}
+.sticky-cta a{padding:14px 8px;border-radius:10px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;letter-spacing:.04em}
+.sticky-tel{background:var(--green);color:#fff}
+.sticky-form{background:linear-gradient(180deg,#ee8b4d 0%,#e87a3a 100%);color:#fff}
+
+@media(min-width:760px){
+  .head-tel{display:block}
+  .hero{padding:60px 0}
+  .hero-actions{grid-template-columns:1fr 1fr}
+  .concern-list{grid-template-columns:1fr 1fr}
+  .effects-grid{grid-template-columns:repeat(3,1fr)}
+  .therapist{grid-template-columns:160px 1fr;align-items:center;text-align:left}
+  .therapist h3{text-align:left}
+  .therapist .creds{justify-content:flex-start}
+  .footer-grid{grid-template-columns:2fr 1fr 1fr}
+  .sticky-cta{display:none}
+  .cta-buttons{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1024px){
+  section{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="top-alert"><strong>無料体験随時受付中</strong>｜国家資格者が直接施術 ／ 健康保険適用 ／ 寝たままできるリハビリ</div>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">鍼</span>
+      <span class="logo-text">訪問鍼灸<br>マッサージ CLINIC<small>HOMECARE / Acupuncture &amp; Massage</small></span>
+    </a>
+    <div class="head-cta">
+      <div class="head-tel">
+        <small>無料相談 9:00 - 19:00</small>
+        <strong>0120-000-000</strong>
+      </div>
+      <a href="#form" class="btn btn-cta">無料体験</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="hero-badge">脳梗塞・脳出血 後遺症 特化型</span>
+    <h1>
+      退院してからの<br>
+      リハビリ、<br>
+      <span class="marker">ご自宅で諦めない</span>。
+    </h1>
+    <p class="hero-sub">
+      通院がつらい。デイサービスのリハビリは時間が短い。<br>
+      ご家族だけで支えるには、限界がある。<br>
+      そんな声に、国家資格者が直接ご自宅へお伺いします。
+    </p>
+
+    <div class="hero-img-mock"></div>
+
+    <ul class="hero-points">
+      <li><strong>健康保険適用で1回 約400円〜</strong>（1割負担の場合）</li>
+      <li><strong>国家資格者</strong>（あん摩マッサージ指圧師・はり師・きゅう師）が施術</li>
+      <li><strong>寝たままでOK</strong>。ベッドの上で受けられます</li>
+      <li><strong>ケアマネージャー様との連携</strong>もスムーズです</li>
+    </ul>
+
+    <div class="hero-cta-box">
+      <div class="urgent">体験は無料・しつこい勧誘なし</div>
+      <div class="hero-actions">
+        <a href="tel:0120000000" class="btn btn-tel">📞 0120-000-000</a>
+        <a href="#form" class="btn btn-cta">無料体験を申し込む →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="item">
+    <div class="num">10<small>年+</small></div>
+    <div class="lbl">訪問施術歴</div>
+  </div>
+  <div class="item">
+    <div class="num">3,800<small>件</small></div>
+    <div class="lbl">累計施術実績</div>
+  </div>
+  <div class="item">
+    <div class="num">98<small>%</small></div>
+    <div class="lbl">継続利用率</div>
+  </div>
+</div>
+
+<section class="concerns" id="concerns">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">CONCERNS</span>
+      <h2>こんな<span class="marker">お悩み</span>はありませんか？</h2>
+    </div>
+    <div class="concern-list">
+      <div class="concern">
+        <div class="concern-ico">①</div>
+        <p>退院してからの<strong>リハビリの場所がなく</strong>、体がどんどん硬くなっている。</p>
+      </div>
+      <div class="concern">
+        <div class="concern-ico">②</div>
+        <p>麻痺している側の<strong>関節がこわばって</strong>、本人もご家族も辛い。</p>
+      </div>
+      <div class="concern">
+        <div class="concern-ico">③</div>
+        <p><strong>通院が困難</strong>で、外出のたびに大変な思いをしている。</p>
+      </div>
+      <div class="concern">
+        <div class="concern-ico">④</div>
+        <p>デイサービスのリハビリだけでは<strong>時間が足りない</strong>と感じる。</p>
+      </div>
+      <div class="concern">
+        <div class="concern-ico">⑤</div>
+        <p>ご家族だけで介助していて、<strong>このままで良いのか不安</strong>。</p>
+      </div>
+      <div class="concern">
+        <div class="concern-ico">⑥</div>
+        <p>本人が<strong>気持ちが沈みがち</strong>で、外との関わりを増やしたい。</p>
+      </div>
+    </div>
+    <div class="concerns-arrow">↓</div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="container">
+    <div class="solution-box">
+      <span class="tag">SOLUTION</span>
+      <h3>訪問鍼灸マッサージなら、<br><span class="em">ご自宅で</span>そのお悩みに<br>応えられます。</h3>
+      <p>
+        国家資格者が、週1〜3回ご自宅にお伺いします。<br>
+        <strong>医師の同意書</strong>があれば<strong>健康保険が適用</strong>され、ご負担も少なく続けられます。<br>
+        無理のないペースで、関節と心をほぐしていきます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="effects">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">EFFECTS</span>
+      <h2>脳梗塞後遺症への<br><span class="marker">5つのアプローチ</span></h2>
+      <p class="lead">片麻痺・拘縮・痙縮・浮腫・嚥下障害。それぞれの症状に合わせて、施術内容を組み立てます。</p>
+    </div>
+    <div class="effects-grid">
+      <div class="effect">
+        <div class="effect-ico">①</div>
+        <h3>関節可動域の<br>維持・改善</h3>
+        <p>麻痺側の関節が硬くなる「拘縮」を予防し、可動域を維持します。</p>
+      </div>
+      <div class="effect">
+        <div class="effect-ico">②</div>
+        <h3>痙縮・筋緊張の<br>緩和</h3>
+        <p>つっぱって動かしにくい筋肉をゆるめ、楽な状態へと導きます。</p>
+      </div>
+      <div class="effect">
+        <div class="effect-ico">③</div>
+        <h3>血流改善・<br>むくみ対策</h3>
+        <p>マッサージとはり灸で循環を促進。冷えやむくみを和らげます。</p>
+      </div>
+      <div class="effect">
+        <div class="effect-ico">④</div>
+        <h3>疼痛の<br>緩和</h3>
+        <p>肩や腰、麻痺側の痛みに対し、根本的な原因にアプローチします。</p>
+      </div>
+      <div class="effect">
+        <div class="effect-ico">⑤</div>
+        <h3>気持ちの<br>リフレッシュ</h3>
+        <p>定期的に「来てくれる人」がいる安心感が、ご本人の活力に繋がります。</p>
+      </div>
+      <div class="effect">
+        <div class="effect-ico">⑥</div>
+        <h3>ご家族の<br>負担軽減</h3>
+        <p>介助のコツもお伝えします。ご家族にとっても心強い存在に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strengths">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">OUR STRENGTHS</span>
+      <h2>当院が<span class="marker">選ばれる</span>4つの理由</h2>
+    </div>
+    <div class="strength">
+      <div class="strength-num"><small>REASON</small><strong>01</strong></div>
+      <div>
+        <h3><span class="em">脳梗塞後遺症</span>に<br>特化した施術プラン</h3>
+        <p>片麻痺・拘縮の改善実績多数。脳卒中リハビリテーションの専門研修を修了した施術者が、お一人おひとりの症状に合わせて施術を組み立てます。</p>
+      </div>
+    </div>
+    <div class="strength">
+      <div class="strength-num"><small>REASON</small><strong>02</strong></div>
+      <div>
+        <h3>国家資格者による<br><span class="em">確かな技術</span></h3>
+        <p>あん摩マッサージ指圧師・はり師・きゅう師の国家資格を保有。医療機関での臨床経験を積んだ施術者のみが、ご自宅にお伺いします。</p>
+      </div>
+    </div>
+    <div class="strength">
+      <div class="strength-num"><small>REASON</small><strong>03</strong></div>
+      <div>
+        <h3><span class="em">健康保険適用</span>で<br>ご負担を抑えて継続</h3>
+        <p>医師の同意書取得サポートまで一貫して対応。1割負担の方なら1回あたり約400円〜。書類のやりとりも当院がフォローします。</p>
+      </div>
+    </div>
+    <div class="strength">
+      <div class="strength-num"><small>REASON</small><strong>04</strong></div>
+      <div>
+        <h3><span class="em">ケアマネ様</span>との<br>密な連携体制</h3>
+        <p>ケアプランに沿った訪問スケジュールを調整。月次の経過報告書も発行し、ケアマネージャー様・主治医様と情報を共有します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">PRICE</span>
+      <h2>健康保険適用で<br><span class="red">ご負担少なく</span>続けられます</h2>
+    </div>
+    <div class="price-callout">
+      <span class="ribbon">健康保険適用 1割負担の場合</span>
+      <div class="lbl">1回あたりの目安</div>
+      <div class="ja">マッサージ ＋ はり・きゅう 施術</div>
+      <div class="yen">400<small>円〜</small></div>
+      <p class="note">※施術部位・往療距離により変動します。<br>※医師の同意書が必要です（取得サポートいたします）</p>
+    </div>
+    <div class="price-detail">
+      <h4>料金の内訳</h4>
+      <ul>
+        <li><span>マッサージ施術</span><strong>保険適用</strong></li>
+        <li><span>はり・きゅう施術</span><strong>保険適用</strong></li>
+        <li><span>往療料（出張費）</span><strong>保険適用 ※距離で変動</strong></li>
+        <li><span>初診料・予約料</span><strong>0円</strong></li>
+        <li><span>同意書取得サポート</span><strong>0円</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft)" id="flow">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">FLOW</span>
+      <h2>ご利用までの<span class="marker">4ステップ</span></h2>
+      <p class="lead">お問い合わせから施術開始まで、最短1週間。同意書のやりとりも当院がサポートします。</p>
+    </div>
+    <div class="flow-step">
+      <span class="step-num">STEP 01</span>
+      <h4>お問い合わせ・無料体験のご予約</h4>
+      <p>お電話・LINE・フォームよりご連絡ください。お身体の状態をお聞かせください。</p>
+    </div>
+    <div class="flow-step">
+      <span class="step-num">STEP 02</span>
+      <h4>無料体験施術（40〜60分）</h4>
+      <p>実際の施術を体験いただき、効果や受け心地をご確認ください。無理な勧誘は一切いたしません。</p>
+    </div>
+    <div class="flow-step">
+      <span class="step-num">STEP 03</span>
+      <h4>同意書の取得サポート</h4>
+      <p>かかりつけ医からの同意書取得を当院がサポート。書類の書き方も丁寧にご案内します。</p>
+    </div>
+    <div class="flow-step">
+      <span class="step-num">STEP 04</span>
+      <h4>施術開始（週1〜3回／継続フォロー）</h4>
+      <p>ご都合の良い曜日・時間で訪問スケジュールを設定。月次で経過報告書を発行します。</p>
+    </div>
+  </div>
+</section>
+
+<section id="therapist">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">OUR THERAPIST</span>
+      <h2>担当する<span class="marker">国家資格者</span></h2>
+    </div>
+    <div class="therapist">
+      <div class="therapist-photo">院長</div>
+      <div>
+        <h3>院長 ／ 山田 太郎<small>YAMADA TARO</small></h3>
+        <div class="creds">
+          <span class="cred">あん摩マッサージ指圧師</span>
+          <span class="cred">はり師</span>
+          <span class="cred">きゅう師</span>
+          <span class="cred">脳卒中リハ研修修了</span>
+          <span class="cred">医療機関歴 8年</span>
+        </div>
+        <p>大学病院のリハビリテーション科で8年勤務し、延べ3,000人以上の脳血管疾患後遺症の患者様に関わってきました。「退院してからのリハビリの場が少ない」という現実を、訪問という形で変えたい。その想いで、当院を立ち上げました。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="voices" id="voices">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">VOICES</span>
+      <h2>ご利用者様の<span class="marker">声</span></h2>
+    </div>
+    <div class="voice-card">
+      <div class="who"><strong>K様（80代男性）のご家族</strong>｜脳梗塞後・左片麻痺</div>
+      <div class="stars">★★★★★</div>
+      <p class="text">退院後、自宅でどうリハビリすればいいのか途方に暮れていました。週2回来ていただくようになって半年、父の硬かった左腕がだいぶ動くようになって、表情も明るくなりました。「来週も来てくれるんでしょ」と楽しみにしています。</p>
+    </div>
+    <div class="voice-card">
+      <div class="who"><strong>M様（70代女性・ご本人）</strong>｜脳出血後・右片麻痺</div>
+      <div class="stars">★★★★★</div>
+      <p class="text">寝たままでも丁寧に施術してくださって、それだけで嬉しいです。先生がいろいろ話を聞いてくださるので、家族には言えない気持ちもお話しできます。体だけでなく、心も少し軽くなっている気がします。</p>
+    </div>
+    <div class="voice-card">
+      <div class="who"><strong>S様（ケアマネージャー）</strong>｜地域包括支援センター</div>
+      <div class="stars">★★★★★</div>
+      <p class="text">利用者様のご家族からの満足度が非常に高く、何件かご紹介させていただいています。報告書も毎月いただけて、こちらでも状態の把握がしやすく助かっています。連携が取りやすい事業所さんです。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cm">
+      <h3>ケアマネージャー様へ</h3>
+      <p>利用者様の生活の質向上と、ご家族の負担軽減のために、訪問鍼灸マッサージという選択肢を一緒にご検討いただけませんか？</p>
+      <ul class="cm-points">
+        <li>同意書取得から月次報告書発行まで、書類業務を当院が一貫対応</li>
+        <li>ケアプランに沿った訪問スケジュール調整（曜日・時間応相談）</li>
+        <li>主治医・ご家族・サービス提供事業者間での情報共有を密に</li>
+        <li>緊急時の連絡体制も整備（24時間連絡受付）</li>
+      </ul>
+      <p style="text-align:center;font-size:13px;margin-bottom:0">ご紹介・お問い合わせ窓口専用ダイヤル：<strong style="color:#ffd966;font-size:18px">0120-000-000</strong></p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft)">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">AREA</span>
+      <h2>対応エリア</h2>
+    </div>
+    <div class="area-list">
+      <h4>対応エリア（出張料無料）</h4>
+      <p>○○市全域 ／ ○○区 ／ ○○区 ／ 隣接する△△市の一部</p>
+      <p class="area-note">※エリア外の方もご相談ください。距離に応じた往療料（保険適用）で対応可能な場合がございます。</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">FAQ</span>
+      <h2>よくあるご質問</h2>
+    </div>
+    <div class="faq-item open">
+      <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+        <span class="qmark">Q</span><span class="q">介護保険を使っていますが、健康保険と併用できますか？</span><span class="toggle">▼</span>
+      </div>
+      <div class="faq-a">はい、可能です。当院の訪問鍼灸マッサージは「医療保険（健康保険）」の適用となるため、介護保険のサービス（デイサービス・訪問介護等）と併用してご利用いただけます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+        <span class="qmark">Q</span><span class="q">同意書って、どうやって取ればいいのですか？</span><span class="toggle">▼</span>
+      </div>
+      <div class="faq-a">かかりつけの先生に書いていただきます。当院から書式をお渡しし、書き方のご説明資料もお付けします。ご本人・ご家族が動きづらい場合は、当院から直接医療機関へお電話することも可能です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+        <span class="qmark">Q</span><span class="q">寝たきりでも施術してもらえますか？</span><span class="toggle">▼</span>
+      </div>
+      <div class="faq-a">もちろんです。ベッドの上で寝たままでも施術可能です。座位・側臥位など、その時に楽な姿勢に合わせて行います。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+        <span class="qmark">Q</span><span class="q">1回あたりの時間は？週に何回くらい受けるのが良いですか？</span><span class="toggle">▼</span>
+      </div>
+      <div class="faq-a">1回あたり20〜30分が目安です。脳梗塞後遺症の場合、症状の改善維持のために週2〜3回のご利用をおすすめしますが、ご本人の状態とご家庭のご都合に合わせて調整可能です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+        <span class="qmark">Q</span><span class="q">無理な勧誘や物品販売はありませんよね？</span><span class="toggle">▼</span>
+      </div>
+      <div class="faq-a">一切ございません。当院は施術のみを行う事業所であり、サプリメント・健康器具の販売は一切行いません。安心してご相談ください。</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="container">
+    <h2>まずは <span class="em">無料体験</span> から。</h2>
+    <p class="lead">体験施術は完全無料・しつこい勧誘は一切ありません。<br>「合う・合わない」をご自身でお確かめください。</p>
+    <div class="cta-buttons">
+      <a href="tel:0120000000" class="btn cta-tel">📞<strong>0120-000-000</strong></a>
+      <a href="#form" class="btn btn-line">LINEで相談する</a>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="form">
+  <div class="container">
+    <div class="sec-title">
+      <span class="en">FORM</span>
+      <h2><span class="marker">無料体験</span>のお申込み</h2>
+      <p class="lead">必須項目を入力し、送信してください。当日中（営業時間内）にこちらからご連絡いたします。</p>
+    </div>
+    <div class="form-card">
+      <form onsubmit="event.preventDefault();alert('（サンプル）送信内容を確認しました。');">
+        <div class="field">
+          <label>お名前<span class="req">必須</span></label>
+          <input type="text" placeholder="山田 太郎" required>
+        </div>
+        <div class="field">
+          <label>お電話番号<span class="req">必須</span></label>
+          <input type="tel" placeholder="090-0000-0000" required>
+        </div>
+        <div class="field">
+          <label>メールアドレス（任意）</label>
+          <input type="email" placeholder="example@example.com">
+        </div>
+        <div class="field">
+          <label>ご相談者の続柄<span class="req">必須</span></label>
+          <select required>
+            <option value="">選択してください</option>
+            <option>ご本人</option>
+            <option>ご家族</option>
+            <option>ケアマネージャー</option>
+            <option>医療従事者</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>お身体の状態・ご相談内容（任意）</label>
+          <textarea rows="4" placeholder="例：脳梗塞で左半身に麻痺が残っています。退院後、リハビリの場所がなく困っています。"></textarea>
+        </div>
+        <button type="submit" class="form-submit">この内容で送信する →</button>
+        <p style="font-size:11px;color:var(--ink-mute);margin-top:12px;text-align:center;line-height:1.7">送信後、当日中（営業時間内）にこちらからご連絡いたします。<br>個人情報は施術のご案内以外に使用しません。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark">鍼</span>
+          <span class="logo-text">訪問鍼灸<br>マッサージ CLINIC<small>HOMECARE</small></span>
+        </a>
+        <p>脳梗塞・脳出血後遺症のリハビリに特化。<br>国家資格者がご自宅にお伺いします。</p>
+      </div>
+      <div>
+        <h4>MENU</h4>
+        <ul>
+          <li><a href="#concerns">こんなお悩み</a></li>
+          <li><a href="#effects">5つのアプローチ</a></li>
+          <li><a href="#price">料金</a></li>
+          <li><a href="#flow">ご利用の流れ</a></li>
+          <li><a href="#voices">利用者の声</a></li>
+          <li><a href="#faq">よくあるご質問</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONTACT</h4>
+        <ul>
+          <li>0120-000-000</li>
+          <li>9:00 - 19:00（日祝休）</li>
+          <li>info@example.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 CLINIC NAME. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="tel:0120000000" class="sticky-tel">📞 無料相談</a>
+  <a href="#form" class="sticky-form">無料体験を申込</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日吉ライフアシスト｜四柱推命とFPで、あなたの今とこれからを観る</title>
+<meta name="description" content="横浜市港北区日吉。四柱推命鑑定とファイナンシャルプランニング(FP)で、人生の転機・資金計画・将来の不安に、論理と直感の両輪から答えを出す相談処。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf8f2;
+  --bg-soft:#f4ede0;
+  --paper:#fffdf8;
+  --ink:#15233f;
+  --ink-soft:#3a4866;
+  --line:#d7cbb1;
+  --gold:#9c7f43;
+  --gold-deep:#7b6231;
+  --accent:#bf3c2c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.85;
+  font-size:15px;
+  letter-spacing:.04em;
+  font-feature-settings:"palt";
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;font-weight:500}
+.kana{font-family:"Cormorant Garamond",serif;letter-spacing:.12em;font-weight:400}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* header */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(251,248,242,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(215,203,177,.5);
+}
+.site-header .inner{display:flex;align-items:center;justify-content:space-between;height:62px;padding:0 24px;max-width:1080px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:"Noto Serif JP",serif;font-size:14px}
+.logo-text{font-family:"Noto Serif JP",serif;font-weight:500;font-size:15px;letter-spacing:.16em}
+.logo-text small{display:block;font-family:"Cormorant Garamond",serif;font-size:9px;letter-spacing:.32em;color:var(--gold);margin-top:2px}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-tel{display:none;font-family:"Noto Serif JP",serif;font-size:14px;color:var(--ink-soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-weight:500;letter-spacing:.16em;font-size:13px;padding:11px 22px;border-radius:2px;transition:all .25s}
+.btn-primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn-primary:hover{background:transparent;color:var(--ink)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold-deep)}
+.btn-outline:hover{background:var(--gold);color:var(--paper)}
+
+/* hero */
+.hero{
+  position:relative;
+  padding:124px 0 84px;
+  overflow:hidden;
+  background:
+    radial-gradient(60% 50% at 80% 10%, rgba(156,127,67,.08), transparent 60%),
+    radial-gradient(50% 40% at 0% 90%, rgba(21,35,63,.05), transparent 60%),
+    var(--bg);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(156,127,67,.025) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(-45deg, rgba(156,127,67,.025) 0 1px, transparent 1px 24px);
+  pointer-events:none;
+}
+.hero-inner{position:relative;display:grid;gap:48px;grid-template-columns:1fr;align-items:center;max-width:1080px;margin:0 auto;padding:0 24px}
+.hero-eyebrow{font-family:"Cormorant Garamond",serif;font-size:14px;letter-spacing:.32em;color:var(--gold-deep);margin-bottom:18px;display:inline-flex;align-items:center;gap:14px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:"";width:32px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:"Noto Serif JP",serif;
+  font-weight:500;
+  font-size:clamp(28px,5.5vw,46px);
+  line-height:1.55;
+  letter-spacing:.06em;
+  margin-bottom:22px;
+}
+.hero h1 .em{color:var(--gold-deep)}
+.hero p.lead{
+  color:var(--ink-soft);
+  font-size:15px;line-height:2.1;
+  margin-bottom:32px;
+  max-width:560px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-visual{
+  position:relative;
+  aspect-ratio:4/5;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,#efe6d2 0%,#e6d8b9 100%);
+  overflow:hidden;
+}
+.hero-visual::before{
+  content:"";position:absolute;inset:14px;border:1px solid rgba(156,127,67,.4);pointer-events:none;
+}
+.hero-visual-deco{
+  position:absolute;inset:0;display:grid;place-items:center;
+}
+.hero-visual-deco .kanji{
+  font-family:"Noto Serif JP",serif;
+  font-size:clamp(80px,18vw,160px);
+  color:rgba(21,35,63,.18);
+  font-weight:500;
+  line-height:1;
+  letter-spacing:.05em;
+}
+.hero-visual-cap{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  font-family:"Cormorant Garamond",serif;
+  font-size:11px;letter-spacing:.32em;color:var(--ink-soft);
+  white-space:nowrap;
+}
+
+/* section base */
+section{padding:88px 0;position:relative}
+.section-eyebrow{
+  font-family:"Cormorant Garamond",serif;
+  font-size:12px;letter-spacing:.4em;color:var(--gold-deep);
+  display:inline-flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.section-eyebrow::before{content:"";width:24px;height:1px;background:var(--gold)}
+.section-title{
+  font-family:"Noto Serif JP",serif;font-weight:500;
+  font-size:clamp(22px,3.5vw,30px);
+  line-height:1.6;letter-spacing:.08em;
+  margin-bottom:28px;
+}
+.section-lead{color:var(--ink-soft);max-width:680px;margin-bottom:48px;font-size:14.5px}
+
+/* about */
+.about{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;gap:48px;grid-template-columns:1fr}
+.about-photo{
+  aspect-ratio:3/4;
+  background:linear-gradient(160deg,#1f2c47 0%,#2f3e5e 100%);
+  position:relative;overflow:hidden;border:1px solid var(--line)
+}
+.about-photo::after{
+  content:"四柱推命 × FP";position:absolute;bottom:0;left:0;right:0;
+  padding:18px;color:rgba(255,253,248,.6);
+  font-family:"Noto Serif JP",serif;letter-spacing:.2em;font-size:13px;
+  background:linear-gradient(to top,rgba(0,0,0,.35),transparent);
+}
+.about-photo .grid-pattern{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,253,248,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,253,248,.05) 1px, transparent 1px);
+  background-size:36px 36px;
+}
+.about-photo .yin-yang{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,253,248,.25);
+  display:grid;place-items:center;color:rgba(255,253,248,.5);
+  font-family:"Noto Serif JP",serif;font-size:13px;letter-spacing:.3em
+}
+.about-body p{margin-bottom:18px;color:var(--ink-soft)}
+.about-body .name{
+  font-family:"Noto Serif JP",serif;font-size:22px;letter-spacing:.18em;color:var(--ink);
+  margin-bottom:4px;
+}
+.about-body .name small{display:block;font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:var(--gold-deep);font-size:11px;margin-bottom:14px}
+.about-body .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.cred{display:inline-block;font-size:11px;letter-spacing:.18em;border:1px solid var(--line);padding:5px 12px;color:var(--ink-soft)}
+
+/* services */
+.services-grid{display:grid;gap:24px;grid-template-columns:1fr}
+.service{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:36px 28px;position:relative;
+  transition:transform .3s,box-shadow .3s;
+}
+.service:hover{transform:translateY(-4px);box-shadow:0 12px 40px -20px rgba(21,35,63,.25)}
+.service .num{
+  font-family:"Cormorant Garamond",serif;font-size:14px;letter-spacing:.3em;color:var(--gold-deep);
+  display:block;margin-bottom:14px;
+}
+.service h3{
+  font-family:"Noto Serif JP",serif;font-size:20px;letter-spacing:.1em;
+  margin-bottom:8px;font-weight:500;
+}
+.service .sub{color:var(--gold-deep);font-size:12px;letter-spacing:.16em;margin-bottom:18px}
+.service p{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
+.service ul{list-style:none;font-size:13px;color:var(--ink-soft)}
+.service ul li{padding-left:18px;position:relative;margin-bottom:6px}
+.service ul li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--gold)}
+
+/* flow */
+.flow{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%)}
+.flow-list{counter-reset:flow}
+.flow-item{display:grid;grid-template-columns:1fr;gap:14px;padding:24px 0;border-bottom:1px solid var(--line);counter-increment:flow}
+.flow-item:last-child{border-bottom:none}
+.flow-item .step{
+  display:flex;align-items:baseline;gap:14px;
+  font-family:"Noto Serif JP",serif;font-size:18px;letter-spacing:.1em;
+}
+.flow-item .step::before{
+  content:"0" counter(flow);
+  font-family:"Cormorant Garamond",serif;
+  font-size:24px;letter-spacing:.1em;color:var(--gold-deep);
+}
+.flow-item p{color:var(--ink-soft);font-size:14px}
+
+/* price */
+.price-table{
+  background:var(--paper);
+  border:1px solid var(--line);
+}
+.price-row{
+  display:grid;grid-template-columns:1fr auto;gap:24px;
+  padding:22px 24px;border-bottom:1px solid var(--line);align-items:center
+}
+.price-row:last-child{border-bottom:none}
+.price-row .name{font-family:"Noto Serif JP",serif;font-size:16px;letter-spacing:.1em}
+.price-row .name small{display:block;font-family:"Noto Sans JP",sans-serif;font-size:12px;letter-spacing:.04em;color:var(--ink-soft);margin-top:4px;font-weight:400}
+.price-row .yen{font-family:"Noto Serif JP",serif;font-size:18px;letter-spacing:.04em;color:var(--gold-deep);white-space:nowrap}
+.price-row .yen small{font-size:11px;color:var(--ink-soft);letter-spacing:.1em;margin-left:6px}
+.price-note{margin-top:18px;font-size:12px;color:var(--ink-soft);text-align:right}
+
+/* reserve */
+.reserve{
+  background:
+    radial-gradient(40% 40% at 80% 20%, rgba(156,127,67,.15), transparent 60%),
+    var(--ink);
+  color:var(--paper);
+}
+.reserve .section-eyebrow{color:#dcc995}
+.reserve .section-eyebrow::before{background:#dcc995}
+.reserve .section-title{color:var(--paper)}
+.reserve .section-lead{color:rgba(255,253,248,.7)}
+.calendar-mock{
+  background:rgba(255,253,248,.05);border:1px solid rgba(220,201,149,.3);
+  padding:24px;margin-bottom:24px;
+}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-family:"Noto Serif JP",serif;letter-spacing:.12em}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:12px;text-align:center}
+.cal-grid .dow{color:rgba(220,201,149,.7);padding:6px 0;letter-spacing:.1em}
+.cal-grid .day{padding:10px 0;background:rgba(255,253,248,.04);color:rgba(255,253,248,.7);border:1px solid transparent;cursor:pointer;transition:all .2s}
+.cal-grid .day:hover{border-color:rgba(220,201,149,.6);color:var(--paper)}
+.cal-grid .day.disabled{color:rgba(255,253,248,.2);cursor:not-allowed}
+.cal-grid .day.has-slot{background:rgba(220,201,149,.12);color:#dcc995;font-weight:500}
+.cal-grid .day.has-slot::after{content:"";display:block;width:4px;height:4px;background:#dcc995;border-radius:50%;margin:3px auto 0}
+.cal-note{font-size:12px;color:rgba(255,253,248,.5);margin-top:18px;letter-spacing:.08em}
+.reserve-form{display:grid;gap:14px}
+.reserve-form label{font-size:12px;letter-spacing:.18em;color:rgba(220,201,149,.9)}
+.reserve-form input,.reserve-form select,.reserve-form textarea{
+  width:100%;background:rgba(255,253,248,.06);border:1px solid rgba(220,201,149,.3);
+  color:var(--paper);padding:13px 14px;font-family:inherit;font-size:14px;border-radius:0;
+}
+.reserve-form input::placeholder,.reserve-form textarea::placeholder{color:rgba(255,253,248,.35)}
+.reserve-form .row{display:grid;gap:14px;grid-template-columns:1fr}
+.reserve-form .field{display:grid;gap:6px}
+.reserve-form .submit{
+  margin-top:12px;background:var(--paper);color:var(--ink);
+  padding:16px;font-family:"Noto Serif JP",serif;letter-spacing:.18em;font-size:14px;
+  border:none;cursor:pointer;transition:all .25s
+}
+.reserve-form .submit:hover{background:#dcc995}
+
+/* access */
+.access-grid{display:grid;gap:32px;grid-template-columns:1fr;align-items:start}
+.access-map{
+  aspect-ratio:4/3;background:#e6d8b9;border:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.access-map::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(21,35,63,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(21,35,63,.08) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+.access-pin{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);
+  width:24px;height:24px;background:var(--accent);border-radius:50%;
+  box-shadow:0 0 0 6px rgba(191,60,44,.2);
+}
+.access-info dl{display:grid;grid-template-columns:auto 1fr;gap:14px 24px;font-size:14px}
+.access-info dt{color:var(--gold-deep);font-family:"Noto Serif JP",serif;letter-spacing:.12em;white-space:nowrap}
+.access-info dd{color:var(--ink-soft)}
+
+/* faq */
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  padding:22px 0;display:flex;gap:18px;cursor:pointer;align-items:flex-start;
+}
+.faq-q .qmark{font-family:"Cormorant Garamond",serif;font-size:18px;color:var(--gold-deep);letter-spacing:.1em;line-height:1.5}
+.faq-q .q{flex:1;font-family:"Noto Serif JP",serif;font-size:15px;letter-spacing:.08em;line-height:1.6}
+.faq-q .toggle{width:24px;height:24px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold-deep);font-size:14px;flex-shrink:0}
+.faq-a{padding:0 0 22px 36px;color:var(--ink-soft);font-size:13.5px;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .toggle{background:var(--gold);color:var(--paper)}
+
+/* footer */
+footer{background:var(--ink);color:var(--paper);padding:64px 0 32px}
+.footer-grid{display:grid;gap:32px;grid-template-columns:1fr;margin-bottom:48px}
+.footer-brand .logo-text{color:var(--paper)}
+.footer-brand .logo-mark{color:#dcc995;border-color:#dcc995}
+.footer-brand p{font-size:13px;color:rgba(255,253,248,.6);margin-top:16px;line-height:1.9}
+footer h4{font-family:"Noto Serif JP",serif;font-size:14px;letter-spacing:.16em;color:#dcc995;margin-bottom:18px;font-weight:500}
+footer ul{list-style:none;font-size:13px}
+footer ul li{margin-bottom:10px}
+footer ul li a{color:rgba(255,253,248,.7);transition:color .2s}
+footer ul li a:hover{color:#dcc995}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(220,201,149,.15);font-size:11px;color:rgba(255,253,248,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;letter-spacing:.12em}
+
+/* sticky tel */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;
+  background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  padding:14px 24px;gap:12px;
+  font-family:"Noto Serif JP",serif;letter-spacing:.16em;font-size:14px;
+}
+.sticky-cta a{display:flex;align-items:center;gap:8px}
+.sticky-cta .dot{width:6px;height:6px;background:#dcc995;border-radius:50%}
+
+/* responsive */
+@media(min-width:760px){
+  .nav-tel{display:block}
+  .hero-inner{grid-template-columns:1.2fr 1fr;gap:64px}
+  .hero{padding:160px 0 120px}
+  .about-grid{grid-template-columns:1fr 1.4fr;gap:64px;align-items:center}
+  .services-grid{grid-template-columns:repeat(3,1fr)}
+  .flow-item{grid-template-columns:240px 1fr;gap:32px;align-items:start}
+  .reserve-form .row{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}
+  .access-grid{grid-template-columns:1.2fr 1fr}
+  .sticky-cta{display:none}
+  body{font-size:15.5px}
+}
+@media(min-width:1024px){
+  section{padding:120px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="#" class="logo">
+      <span class="logo-mark serif">日</span>
+      <span class="logo-text">日吉ライフアシスト<small>HIYOSHI LIFE ASSIST</small></span>
+    </a>
+    <div class="nav-cta">
+      <span class="nav-tel">予約・お問い合わせ｜<strong>045-xxx-xxxx</strong></span>
+      <a href="#reserve" class="btn btn-outline">ご相談予約</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">YOUR LIFE, OBSERVED &amp; DESIGNED</span>
+      <h1>あなたの「<span class="em">今</span>」と<br>「<span class="em">これから</span>」を、<br>ともに観る。</h1>
+      <p class="lead">
+        古来より受け継がれてきた四柱推命の知見と、ファイナンシャルプランナー（FP2級／AFP）としての論理。<br>
+        その両輪で、人生の転機・お金の悩み・将来の不安を、「具体的な作戦」へと変えていきます。<br>
+        横浜市港北区日吉から、あなたの暮らしに、静かに寄り添う相談処です。
+      </p>
+      <div class="hero-actions">
+        <a href="#reserve" class="btn btn-primary">空き時間を確認する</a>
+        <a href="#service" class="btn btn-outline">サービスを見る</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-deco">
+        <span class="kanji serif">観</span>
+      </div>
+      <span class="hero-visual-cap">— Observe, Plan, Act —</span>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo">
+        <div class="grid-pattern"></div>
+        <div class="yin-yang serif">命式</div>
+      </div>
+      <div class="about-body">
+        <span class="section-eyebrow">PROFILE</span>
+        <h2 class="section-title">「占い」で終わらせない。<br>あなたの作戦を、ともに描く。</h2>
+        <p>初めまして、柳井（やない）と申します。シンクタンクで大規模システムのプロジェクトマネジメントに従事しながら、地域の方の「人生のよろず相談処」として日吉ライフアシストを開いています。</p>
+        <p>私が大切にしているのは、四柱推命を「当たる／当たらない」の占いとして使うのではなく、その方の星から見える傾向と、ファイナンシャルプランニングの論理を重ね合わせて、行動につながる結論を出すことです。</p>
+        <p>不安を抱える時間ではなく、次の一歩を踏み出すための時間に。気軽に、しかし真剣に。お話しできれば幸いです。</p>
+        <div class="name serif">柳井<small>YANAI / Founder</small></div>
+        <div class="creds">
+          <span class="cred">FP2級</span>
+          <span class="cred">AFP</span>
+          <span class="cred">四柱推命鑑定</span>
+          <span class="cred">PMO実務歴 10年+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="service">
+  <div class="container">
+    <span class="section-eyebrow">SERVICES</span>
+    <h2 class="section-title">三つの相談メニュー。</h2>
+    <p class="section-lead">命式から見えるあなたの「向き・傾向」と、お金の現実的な「数字」。両面から、迷いを言語化していきます。</p>
+    <div class="services-grid">
+      <article class="service">
+        <span class="num">01.</span>
+        <h3>四柱推命 鑑定</h3>
+        <p class="sub">FOR YOUR TURNING POINT</p>
+        <p>生年月日と時刻から命式を読み解き、強み・弱み・今のフェーズ・人とのご縁を整理します。</p>
+        <ul>
+          <li>本格鑑定（60分）</li>
+          <li>命式・大運・流年の解説書付き</li>
+          <li>相性・お子さま鑑定にも対応</li>
+        </ul>
+      </article>
+      <article class="service">
+        <span class="num">02.</span>
+        <h3>FP 個別相談</h3>
+        <p class="sub">FOR YOUR MONEY PLAN</p>
+        <p>家計・住宅・教育・保険・老後資金。中立な立場から、数字で生活を設計します。</p>
+        <ul>
+          <li>キャッシュフロー作成</li>
+          <li>住宅購入・保険見直し相談</li>
+          <li>金融商品の販売は行いません</li>
+        </ul>
+      </article>
+      <article class="service">
+        <span class="num">03.</span>
+        <h3>ライフアシスト 相談</h3>
+        <p class="sub">FOR YOUR WHOLE LIFE</p>
+        <p>四柱推命とFPを組み合わせ、「いつ・何を・どう動くか」を一緒に描く看板メニューです。</p>
+        <ul>
+          <li>命式 × 家計の総合鑑定</li>
+          <li>3ヶ月のアクション計画付き</li>
+          <li>継続フォロー対応可</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="container">
+    <span class="section-eyebrow">HOW IT WORKS</span>
+    <h2 class="section-title">ご相談までの流れ。</h2>
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="step serif">ご予約</div>
+        <p>本ページ下部のカレンダーから空き枠を選び、お申し込みください。LINE・お電話でも承ります。</p>
+      </div>
+      <div class="flow-item">
+        <div class="step serif">事前ヒアリング</div>
+        <p>ご記入いただいた相談内容を当方で事前に確認。命式の準備とFP資料の整理を行います。</p>
+      </div>
+      <div class="flow-item">
+        <div class="step serif">ご相談（対面 / オンライン）</div>
+        <p>日吉駅近くの相談スペース、もしくはZoomで承ります。60〜90分、ゆっくりお話しください。</p>
+      </div>
+      <div class="flow-item">
+        <div class="step serif">作戦書のお渡し</div>
+        <p>ご相談内容のサマリと、これからの3ヶ月のアクションプランを後日PDFでお送りします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="container">
+    <span class="section-eyebrow">PRICE</span>
+    <h2 class="section-title">料金のご案内。</h2>
+    <p class="section-lead">表示は全て税込です。事前の見積もりなく追加料金が発生することはありません。</p>
+    <div class="price-table">
+      <div class="price-row">
+        <div class="name">四柱推命 鑑定<small>60分／命式・大運・流年解説書付き</small></div>
+        <div class="yen">8,800<small>円</small></div>
+      </div>
+      <div class="price-row">
+        <div class="name">FP 個別相談<small>60分／キャッシュフロー作成オプション+5,500円</small></div>
+        <div class="yen">11,000<small>円</small></div>
+      </div>
+      <div class="price-row">
+        <div class="name">ライフアシスト 相談<small>90分／命式×家計／3ヶ月アクション計画付き</small></div>
+        <div class="yen">22,000<small>円</small></div>
+      </div>
+      <div class="price-row">
+        <div class="name">継続フォロー<small>月1回／30分／LINE質問し放題</small></div>
+        <div class="yen">5,500<small>円／月</small></div>
+      </div>
+    </div>
+    <p class="price-note">※ご紹介・ご友人同席はそれぞれ500円割引いたします。</p>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="container">
+    <span class="section-eyebrow">RESERVATION</span>
+    <h2 class="section-title">空き時間の確認・ご予約。</h2>
+    <p class="section-lead">Googleカレンダーと連動し、空いている枠のみリアルタイムで表示します。ご都合の良い日時を選んでください。</p>
+
+    <div class="calendar-mock" role="region" aria-label="ご予約カレンダー（サンプル表示）">
+      <div class="cal-head">
+        <span class="serif">2026年 6月</span>
+        <span class="kana">JUNE</span>
+      </div>
+      <div class="cal-grid">
+        <div class="dow">日</div><div class="dow">月</div><div class="dow">火</div><div class="dow">水</div><div class="dow">木</div><div class="dow">金</div><div class="dow">土</div>
+        <div class="day disabled">　</div><div class="day disabled">　</div><div class="day disabled">　</div><div class="day disabled">　</div><div class="day disabled">　</div><div class="day disabled">　</div><div class="day has-slot">1</div>
+        <div class="day disabled">2</div><div class="day">3</div><div class="day has-slot">4</div><div class="day">5</div><div class="day has-slot">6</div><div class="day">7</div><div class="day has-slot">8</div>
+        <div class="day disabled">9</div><div class="day has-slot">10</div><div class="day">11</div><div class="day has-slot">12</div><div class="day">13</div><div class="day has-slot">14</div><div class="day has-slot">15</div>
+        <div class="day disabled">16</div><div class="day">17</div><div class="day has-slot">18</div><div class="day">19</div><div class="day has-slot">20</div><div class="day">21</div><div class="day has-slot">22</div>
+        <div class="day disabled">23</div><div class="day has-slot">24</div><div class="day">25</div><div class="day has-slot">26</div><div class="day">27</div><div class="day has-slot">28</div><div class="day has-slot">29</div>
+      </div>
+      <p class="cal-note">● の付いた日に空きがあります。日付をタップすると詳細時間が表示されます。</p>
+    </div>
+
+    <form class="reserve-form" onsubmit="event.preventDefault();alert('（サンプル）送信内容を確認します。実装ではGoogleカレンダーに自動登録されます。');">
+      <div class="row">
+        <div class="field"><label for="r-name">お名前</label><input id="r-name" type="text" placeholder="山田 花子" required></div>
+        <div class="field"><label for="r-tel">お電話</label><input id="r-tel" type="tel" placeholder="090-0000-0000" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="r-mail">メールアドレス</label><input id="r-mail" type="email" placeholder="example@example.com" required></div>
+        <div class="field"><label for="r-menu">ご希望メニュー</label>
+          <select id="r-menu" required>
+            <option value="">選択してください</option>
+            <option>四柱推命 鑑定（60分）</option>
+            <option>FP 個別相談（60分）</option>
+            <option>ライフアシスト 相談（90分）</option>
+            <option>その他・相談したい</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="r-msg">ご相談内容（任意）</label><textarea id="r-msg" rows="4" placeholder="お気軽にどうぞ。差し支えなければ、生年月日・お時間もお書きください。"></textarea></div>
+      <button type="submit" class="submit">この内容で予約を確認する</button>
+    </form>
+  </div>
+</section>
+
+<section id="access">
+  <div class="container">
+    <span class="section-eyebrow">ACCESS</span>
+    <h2 class="section-title">日吉駅から徒歩圏内。</h2>
+    <div class="access-grid">
+      <div class="access-map">
+        <span class="access-pin"></span>
+      </div>
+      <div class="access-info">
+        <dl>
+          <dt>所在地</dt><dd>神奈川県横浜市港北区日吉xx-xx-xx（東急東横線・目黒線「日吉駅」より徒歩x分）</dd>
+          <dt>営業時間</dt><dd>10:00 - 20:00（最終受付 18:30）</dd>
+          <dt>定休日</dt><dd>不定休（カレンダーをご確認ください）</dd>
+          <dt>連絡先</dt><dd>045-xxx-xxxx ／ LINE @hiyoshi-lifeassist</dd>
+          <dt>対応形式</dt><dd>対面（日吉）／オンライン（Zoom）／ご自宅出張も応相談</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--paper);border-top:1px solid var(--line)">
+  <div class="container">
+    <span class="section-eyebrow">FAQ</span>
+    <h2 class="section-title">よくあるご質問。</h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+          <span class="qmark">Q.</span>
+          <span class="q">占いと FP、どちらか片方だけでもお願いできますか？</span>
+          <span class="toggle">＋</span>
+        </div>
+        <div class="faq-a">もちろん可能です。「四柱推命 鑑定」「FP 個別相談」はそれぞれ単独でお申し込みいただけます。「ライフアシスト 相談」はこの二つを合わせた看板メニューです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+          <span class="qmark">Q.</span>
+          <span class="q">どの相談メニューが自分に合うか分かりません。</span>
+          <span class="toggle">＋</span>
+        </div>
+        <div class="faq-a">予約フォームの「相談したい」を選んでメッセージをお送りいただければ、内容に応じて最適なメニューをご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+          <span class="qmark">Q.</span>
+          <span class="q">金融商品の勧誘はありますか？</span>
+          <span class="toggle">＋</span>
+        </div>
+        <div class="faq-a">一切ございません。当所は中立的なFPとして、金融商品の販売・代理は行いません。安心してご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentNode.classList.toggle('open')">
+          <span class="qmark">Q.</span>
+          <span class="q">お話しした内容の秘密は守られますか？</span>
+          <span class="toggle">＋</span>
+        </div>
+        <div class="faq-a">いただいた個人情報・ご相談内容は厳格に管理し、第三者へ開示することはありません。ご希望の方とはNDA（秘密保持契約）を別途締結することも可能です。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark serif">日</span>
+          <span class="logo-text">日吉ライフアシスト<small>HIYOSHI LIFE ASSIST</small></span>
+        </a>
+        <p>古来の知恵と、現代の論理。<br>あなたの人生に、二つの視点から寄り添う相談処です。</p>
+      </div>
+      <div>
+        <h4>MENU</h4>
+        <ul>
+          <li><a href="#about">プロフィール</a></li>
+          <li><a href="#service">サービス</a></li>
+          <li><a href="#price">料金</a></li>
+          <li><a href="#reserve">ご予約</a></li>
+          <li><a href="#access">アクセス</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONTACT</h4>
+        <ul>
+          <li>045-xxx-xxxx</li>
+          <li>info@hiyoshi-lifeassist.jp</li>
+          <li>LINE: @hiyoshi-lifeassist</li>
+        </ul>
+      </div>
+      <div>
+        <h4>INFO</h4>
+        <ul>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 HIYOSHI LIFE ASSIST. All rights reserved.</span>
+      <span class="kana">— OBSERVE. PLAN. ACT. —</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="tel:045xxxxxxx"><span class="dot"></span>ご相談予約 045-xxx-xxxx</a>
+</div>
+
+</body>
+</html>
