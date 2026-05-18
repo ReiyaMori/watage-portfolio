@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みどり台内科クリニック｜健診結果のご相談・オンライン診療・地域のかかりつけ医</title>
+<meta name="description" content="健康診断の数値が気になる方、これまで通院されていた方も、はじめての方も。地域のかかりつけ医として、内科・生活習慣病・オンライン診療に対応します。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      green: '#2E9E6B', 'green-dark': '#238056', 'green-50': '#EAF6F0', 'green-100': '#D5EDDF',
+      warm: '#E08A3C', ink: '#23302C', sub: '#566660', line: '#E2EBE6',
+    },
+    fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] },
+  }},
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  /* 高齢の患者さまにも読みやすいよう、本文は16px以上・行間ゆったり・装飾とアニメーションは最小限 */
+</style>
+</head>
+<body class="font-sans text-ink bg-white text-[16px] leading-relaxed">
+
+<!-- ===== Top Bar ===== -->
+<div class="bg-green-50 text-green-dark text-[13px] md:text-sm">
+  <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-center md:justify-between gap-x-6 gap-y-1 text-center">
+    <p>診療時間 9:00〜12:30 ／ 15:00〜18:00（木・日・祝休診）</p>
+    <p>4月よりリニューアル開院しました。これまで通院の方も引き続き安心してご来院ください。</p>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="bg-white border-b border-line sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-3">
+      <span class="w-11 h-11 rounded-full bg-green flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block text-lg md:text-xl font-700 text-green-dark">みどり台内科クリニック</span>
+        <span class="block text-[11px] text-sub tracking-wide">内科 ・ 生活習慣病 ・ 健診後フォロー ・ オンライン診療</span>
+      </span>
+    </a>
+    <div class="flex items-center gap-3">
+      <a href="tel:0120000000" class="hidden sm:flex flex-col items-end leading-none">
+        <span class="text-[11px] text-sub">お電話でのご予約</span>
+        <span class="text-xl font-700 text-green-dark">0120-000-000</span>
+      </a>
+      <a href="#reserve" class="bg-green hover:bg-green-dark transition-colors text-white text-sm md:text-base font-700 px-5 md:px-7 py-3 rounded-lg">WEB予約</a>
+    </div>
+  </div>
+  <nav class="border-t border-line bg-white overflow-x-auto">
+    <div class="max-w-6xl mx-auto px-4 flex gap-1 md:gap-2 text-[13px] md:text-sm font-500 whitespace-nowrap">
+      <a href="#greeting" class="px-3 md:px-4 py-3 text-sub hover:text-green-dark transition-colors">継承のごあいさつ</a>
+      <a href="#features" class="px-3 md:px-4 py-3 text-sub hover:text-green-dark transition-colors">当院の特徴</a>
+      <a href="#kenshin" class="px-3 md:px-4 py-3 text-sub hover:text-green-dark transition-colors">健診結果が気になる方へ</a>
+      <a href="#departments" class="px-3 md:px-4 py-3 text-sub hover:text-green-dark transition-colors">診療案内</a>
+      <a href="#online" class="px-3 md:px-4 py-3 text-sub hover:text-green-dark transition-colors">オンライン診療</a>
+      <a href="#access" class="px-3 md:px-4 py-3 text-sub hover:text-green-dark transition-colors">診療時間・アクセス</a>
+      <a href="#news" class="px-3 md:px-4 py-3 text-sub hover:text-green-dark transition-colors">お知らせ</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== Hero ===== -->
+<section id="top" class="relative">
+  <div class="grid lg:grid-cols-2">
+    <div class="bg-green-50 flex items-center px-6 md:px-12 lg:px-16 py-16 lg:py-24 order-2 lg:order-1">
+      <div class="max-w-xl">
+        <p class="text-green-dark font-700 text-sm md:text-base mb-4">地域のかかりつけ医として、4月リニューアル開院</p>
+        <h1 class="text-3xl md:text-[2.6rem] font-700 text-ink leading-[1.45] mb-6">
+          これまで通われていた方も、<br>
+          はじめての方も。<br>
+          <span class="text-green-dark">安心して、ご相談ください。</span>
+        </h1>
+        <p class="text-sub text-base md:text-lg leading-loose mb-9">
+          健康診断の数値が気になる方、忙しくて通院が難しい方、
+          長くお薬を続けている方。お一人おひとりの状況に合わせて、
+          丁寧にお話を伺います。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#reserve" class="inline-flex items-center justify-center gap-2 bg-green hover:bg-green-dark transition-colors text-white text-lg font-700 px-8 py-5 rounded-xl">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+            24時間 WEB予約
+          </a>
+          <a href="tel:0120000000" class="inline-flex items-center justify-center gap-2 bg-white border-2 border-green text-green-dark text-lg font-700 px-8 py-5 rounded-xl hover:bg-green-50 transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            0120-000-000
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="relative min-h-[42vh] lg:min-h-[78vh] order-1 lg:order-2">
+      <img src="images/hero.jpg" alt="みどり台内科クリニックの待合室" class="absolute inset-0 w-full h-full object-cover">
+    </div>
+  </div>
+</section>
+
+<!-- ===== Greeting (継承) ===== -->
+<section id="greeting" class="py-20 md:py-28 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-green text-sm font-700 tracking-widest mb-2">GREETING</p>
+      <h2 class="text-2xl md:text-3xl font-700 text-ink">継承にあたってのごあいさつ</h2>
+      <span class="block mt-4 w-12 h-1 bg-green mx-auto rounded-full"></span>
+    </div>
+    <div class="bg-green-50 rounded-2xl p-8 md:p-12">
+      <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
+        <div class="w-44 h-44 rounded-2xl bg-white border border-line flex items-center justify-center flex-shrink-0 text-line">
+          <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <p class="text-lg md:text-xl font-700 text-green-dark mb-5 leading-relaxed">
+            これまでの「かかりつけ」を、<br class="hidden md:block">そのまま受け継ぎます。
+          </p>
+          <p class="text-sub text-base leading-loose mb-5">
+            このたび、長く地域の皆さまに親しまれてきた当院を継承し、
+            内科・生活習慣病を中心に診療を続けてまいります。
+            これまで通院されていた患者さまのお薬や検査の経過は、
+            可能な限り引き継ぎ、これまでと変わらず安心して通っていただける体制を整えました。
+          </p>
+          <p class="text-sub text-base leading-loose mb-6">
+            あわせて、お仕事や介護でご来院が難しい方のためにオンライン診療を導入し、
+            「続けやすい医療」を目指してまいります。どうぞよろしくお願いいたします。
+          </p>
+          <p class="text-ink font-700">院長　〇〇 〇〇　<span class="text-sm font-500 text-sub">内科／日本内科学会 認定内科医</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section id="features" class="py-20 md:py-28 bg-green-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <p class="text-green text-sm font-700 tracking-widest mb-2">FEATURES</p>
+      <h2 class="text-2xl md:text-3xl font-700 text-ink">当院の3つの特徴</h2>
+      <span class="block mt-4 w-12 h-1 bg-green mx-auto rounded-full"></span>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-8 border border-line">
+        <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-green-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+        </div>
+        <h3 class="text-lg font-700 text-ink mb-3">健診結果のフォローに強い</h3>
+        <p class="text-sub text-[15px] leading-loose">「要再検査」「要精密検査」と言われた方の、その後の検査・経過観察に対応します。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-line">
+        <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-green-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+        </div>
+        <h3 class="text-lg font-700 text-ink mb-3">オンライン診療に対応</h3>
+        <p class="text-sub text-[15px] leading-loose">お仕事や介護でご来院が難しい方も、スマートフォンから診察・処方を受けられます。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-line">
+        <div class="w-14 h-14 rounded-xl bg-green-100 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-green-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+        </div>
+        <h3 class="text-lg font-700 text-ink mb-3">通いやすい立地と時間</h3>
+        <p class="text-sub text-[15px] leading-loose">駅から徒歩圏・バリアフリー対応。平日夕方まで診療し、長く通える環境です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 健診結果が気になる方へ（ターゲット直撃導線） ===== -->
+<section id="kenshin" class="py-20 md:py-28 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="bg-green text-white rounded-3xl p-9 md:p-14 relative overflow-hidden">
+      <div class="relative z-10">
+        <p class="text-white/80 text-sm font-700 tracking-widest mb-3">FOR YOU</p>
+        <h2 class="text-2xl md:text-[2rem] font-700 leading-snug mb-6">
+          健康診断で<br class="sm:hidden">「数値が気になる」と<br>言われた方へ
+        </h2>
+        <p class="text-white/85 text-base md:text-lg leading-loose mb-9 max-w-2xl">
+          血圧・血糖・コレステロール・肝機能の数値で「要観察」「要再検査」と
+          指摘されたまま、そのままになっていませんか。早めにご相談いただくことで、
+          生活習慣の見直しやお薬で対応できる場合があります。
+          まずはお気軽にお話を聞かせてください。
+        </p>
+        <div class="grid sm:grid-cols-2 gap-3 mb-9 max-w-2xl">
+          <p class="bg-white/15 rounded-lg px-5 py-3 text-[15px] font-500">血圧が高めと言われた</p>
+          <p class="bg-white/15 rounded-lg px-5 py-3 text-[15px] font-500">血糖・HbA1cが気になる</p>
+          <p class="bg-white/15 rounded-lg px-5 py-3 text-[15px] font-500">コレステロール・中性脂肪が高い</p>
+          <p class="bg-white/15 rounded-lg px-5 py-3 text-[15px] font-500">肝機能（γ-GTP等）で再検査</p>
+        </div>
+        <a href="#reserve" class="inline-flex items-center justify-center gap-2 bg-white text-green-dark text-lg font-700 px-9 py-4 rounded-xl hover:bg-green-50 transition-colors">健診結果を持って相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Departments ===== -->
+<section id="departments" class="py-20 md:py-28 bg-green-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <p class="text-green text-sm font-700 tracking-widest mb-2">DEPARTMENTS</p>
+      <h2 class="text-2xl md:text-3xl font-700 text-ink">診療案内</h2>
+      <span class="block mt-4 w-12 h-1 bg-green mx-auto rounded-full"></span>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white rounded-2xl p-7 border border-line">
+        <h3 class="text-lg font-700 text-green-dark mb-3">一般内科</h3>
+        <p class="text-sub text-sm leading-loose">かぜ・発熱・腹痛など、日常の体調不良を幅広く診察します。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-7 border border-line">
+        <h3 class="text-lg font-700 text-green-dark mb-3">生活習慣病</h3>
+        <p class="text-sub text-sm leading-loose">高血圧・糖尿病・脂質異常症の継続的な管理とお薬の調整。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-7 border border-line">
+        <h3 class="text-lg font-700 text-green-dark mb-3">健診後フォロー</h3>
+        <p class="text-sub text-sm leading-loose">健康診断・人間ドックで指摘された項目の再検査・経過観察。</p>
+      </div>
+      <div class="bg-white rounded-2xl p-7 border border-line">
+        <h3 class="text-lg font-700 text-green-dark mb-3">各種予防接種</h3>
+        <p class="text-sub text-sm leading-loose">インフルエンザ等の予防接種に対応（要予約）。</p>
+      </div>
+    </div>
+    <p class="text-xs text-sub mt-8 text-center leading-relaxed">
+      ※ 診療内容は一般的な情報であり、効果を保証するものではありません。症状により専門医療機関をご紹介する場合があります。
+    </p>
+  </div>
+</section>
+
+<!-- ===== Online ===== -->
+<section id="online" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
+        <p class="text-green text-sm font-700 tracking-widest mb-2">ONLINE</p>
+        <h2 class="text-2xl md:text-3xl font-700 text-ink mb-6">オンライン診療</h2>
+        <p class="text-sub text-base leading-loose mb-8">
+          状態が安定している生活習慣病の方などを対象に、
+          スマートフォンやパソコンから診察・お薬の処方を受けられます。
+          お仕事の合間や、ご家族の介護で外出が難しい方にもご利用いただけます。
+        </p>
+        <a href="#reserve" class="inline-flex items-center gap-2 bg-green hover:bg-green-dark transition-colors text-white text-base font-700 px-7 py-4 rounded-xl">オンライン診療を予約する</a>
+      </div>
+      <div class="space-y-4">
+        <div class="flex gap-5 items-start bg-green-50 rounded-xl p-6">
+          <span class="w-9 h-9 rounded-full bg-green text-white font-700 flex items-center justify-center flex-shrink-0">1</span>
+          <div><p class="font-700 text-ink mb-1">予約</p><p class="text-sub text-sm leading-relaxed">WEBまたはお電話でオンライン診療枠をご予約。</p></div>
+        </div>
+        <div class="flex gap-5 items-start bg-green-50 rounded-xl p-6">
+          <span class="w-9 h-9 rounded-full bg-green text-white font-700 flex items-center justify-center flex-shrink-0">2</span>
+          <div><p class="font-700 text-ink mb-1">診察</p><p class="text-sub text-sm leading-relaxed">予約時間にビデオ通話で医師が診察します。</p></div>
+        </div>
+        <div class="flex gap-5 items-start bg-green-50 rounded-xl p-6">
+          <span class="w-9 h-9 rounded-full bg-green text-white font-700 flex items-center justify-center flex-shrink-0">3</span>
+          <div><p class="font-700 text-ink mb-1">お薬の受け取り</p><p class="text-sub text-sm leading-relaxed">処方箋を薬局へ送付。ご自宅近くで受け取れます。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Hours / Access ===== -->
+<section id="access" class="py-20 md:py-28 bg-green-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <p class="text-green text-sm font-700 tracking-widest mb-2">HOURS &amp; ACCESS</p>
+      <h2 class="text-2xl md:text-3xl font-700 text-ink">診療時間・アクセス</h2>
+      <span class="block mt-4 w-12 h-1 bg-green mx-auto rounded-full"></span>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="bg-white rounded-2xl p-7 border border-line">
+        <div class="overflow-x-auto">
+          <table class="w-full text-center text-[15px]">
+            <thead>
+              <tr class="bg-green text-white">
+                <th class="py-4 px-3 font-500 text-left rounded-tl-lg">受付時間</th>
+                <th class="py-4 px-2 font-500">月</th><th class="py-4 px-2 font-500">火</th><th class="py-4 px-2 font-500">水</th><th class="py-4 px-2 font-500">木</th><th class="py-4 px-2 font-500">金</th><th class="py-4 px-2 font-500">土</th><th class="py-4 px-2 font-500 rounded-tr-lg">日祝</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-line">
+                <td class="py-4 px-3 text-left font-500 bg-green-50">午前 9:00〜12:30</td>
+                <td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-line">休</td><td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-line">休</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-3 text-left font-500 bg-green-50">午後 15:00〜18:00</td>
+                <td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-line">休</td><td class="py-4 text-green-dark font-700">●</td><td class="py-4 text-line">休</td><td class="py-4 text-line">休</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-sub mt-5 leading-loose">休診：木曜・日曜・祝日／受付は診療終了30分前まで／オンライン診療は所定の時間帯のみ</p>
+      </div>
+      <div class="bg-white rounded-2xl p-7 border border-line">
+        <div class="bg-green-50 rounded-xl h-44 flex items-center justify-center text-sub mb-6">
+          <span class="text-sm">Google Map 埋め込み</span>
+        </div>
+        <dl class="space-y-4 text-[15px]">
+          <div class="flex gap-4"><dt class="font-700 text-sub w-16 flex-shrink-0">住所</dt><dd>〒000-0000 ○○県○○市みどり台 1-2-3</dd></div>
+          <div class="flex gap-4 border-t border-line pt-4"><dt class="font-700 text-sub w-16 flex-shrink-0">電話</dt><dd><a href="tel:0120000000" class="text-green-dark font-700">0120-000-000</a></dd></div>
+          <div class="flex gap-4 border-t border-line pt-4"><dt class="font-700 text-sub w-16 flex-shrink-0">アクセス</dt><dd>○○線「みどり台駅」より徒歩5分／提携駐車場あり</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== News ===== -->
+<section id="news" class="py-20 md:py-28 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-green text-sm font-700 tracking-widest mb-2">NEWS</p>
+      <h2 class="text-2xl md:text-3xl font-700 text-ink">お知らせ</h2>
+      <span class="block mt-4 w-12 h-1 bg-green mx-auto rounded-full"></span>
+    </div>
+    <div class="divide-y border-y border-line">
+      <a href="#" class="flex flex-col sm:flex-row gap-2 sm:gap-6 py-5 group">
+        <time class="text-sm text-sub w-28 flex-shrink-0">2026.04.01</time>
+        <span class="text-xs font-700 text-white bg-green px-3 py-0.5 rounded-full w-fit">重要</span>
+        <p class="text-[15px] group-hover:text-green-dark transition-colors">クリニックを継承し、リニューアル開院いたしました。診察券は引き続きご利用いただけます。</p>
+      </a>
+      <a href="#" class="flex flex-col sm:flex-row gap-2 sm:gap-6 py-5 group">
+        <time class="text-sm text-sub w-28 flex-shrink-0">2026.04.01</time>
+        <span class="text-xs font-700 text-green-dark bg-green-100 px-3 py-0.5 rounded-full w-fit">診療</span>
+        <p class="text-[15px] group-hover:text-green-dark transition-colors">オンライン診療の受付を開始しました。WEBよりご予約いただけます。</p>
+      </a>
+      <a href="#" class="flex flex-col sm:flex-row gap-2 sm:gap-6 py-5 group">
+        <time class="text-sm text-sub w-28 flex-shrink-0">2026.03.20</time>
+        <span class="text-xs font-700 text-green-dark bg-green-100 px-3 py-0.5 rounded-full w-fit">お知らせ</span>
+        <p class="text-[15px] group-hover:text-green-dark transition-colors">WEB予約システムを導入しました。24時間ご予約を受け付けています。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Reserve CTA ===== -->
+<section id="reserve" class="py-20 md:py-24 bg-green text-white">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <h2 class="text-2xl md:text-3xl font-700 mb-4">ご予約・お問い合わせ</h2>
+    <p class="text-white/85 text-base md:text-lg leading-loose mb-10">
+      WEB予約は24時間受け付けています。<br>
+      お電話でのご予約・ご相談もお気軽にどうぞ。
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-green-dark text-lg font-700 px-10 py-5 rounded-xl hover:bg-green-50 transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+        24時間 WEB予約
+      </a>
+      <a href="tel:0120000000" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-white text-white text-lg font-700 px-10 py-5 rounded-xl hover:bg-white/10 transition-colors">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        0120-000-000
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="bg-ink text-white/60 py-14">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+      <div>
+        <p class="text-white text-lg font-700 mb-3">みどり台内科クリニック</p>
+        <p class="text-sm leading-loose">〒000-0000 ○○県○○市みどり台 1-2-3<br>TEL：0120-000-000</p>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-700 mb-4">診療メニュー</h4>
+        <nav class="space-y-2 text-sm">
+          <a href="#departments" class="block hover:text-white transition-colors">診療案内</a>
+          <a href="#kenshin" class="block hover:text-white transition-colors">健診結果が気になる方へ</a>
+          <a href="#online" class="block hover:text-white transition-colors">オンライン診療</a>
+        </nav>
+      </div>
+      <div>
+        <h4 class="text-white text-sm font-700 mb-4">診療時間</h4>
+        <p class="text-sm leading-loose">午前 9:00〜12:30／午後 15:00〜18:00<br><span class="text-white/40">休診：木・日・祝</span></p>
+      </div>
+    </div>
+    <p class="text-[11px] mt-7 leading-relaxed">
+      当サイトは医療法および医療広告ガイドラインに準拠し、客観的な事実に基づく情報のみを掲載しています。治療効果や安全性を保証するものではありません。<br>
+      © 2026 みどり台内科クリニック All Rights Reserved.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

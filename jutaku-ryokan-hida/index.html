@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飛騨 宿 黒墨庵｜山深き湯宿 — 一日六組のおもてなし</title>
+<meta name="description" content="北アルプスの懐に佇む全六室の湯宿。源泉かけ流しの露天と、飛騨の恵みを映す会席。静謐なひとときを、黒墨庵で。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      ink: '#0C0C0E', 'ink-soft': '#16161A', panel: '#1C1C20',
+      gold: '#B89B5E', 'gold-soft': '#C9B27F', mist: '#9A9A93', line: '#33332F',
+      paper: '#F4F1EA',
+    },
+    fontFamily: {
+      mincho: ['"Noto Serif JP"', 'serif'],
+      sans: ['"Noto Sans JP"', 'sans-serif'],
+      latin: ['"Cormorant Garamond"', 'serif'],
+    },
+  }},
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  .tracking-jp { letter-spacing: .14em; }
+  .tracking-wide-jp { letter-spacing: .28em; }
+  .vertical { writing-mode: vertical-rl; }
+  .js .fade { opacity:0; transform:translateY(28px); transition:opacity 1.1s ease, transform 1.1s ease; }
+  .js .fade.in { opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .js .fade{ opacity:1; transform:none; transition:none; } }
+  .hairline::before { content:""; display:block; width:1px; height:48px; background:#B89B5E; margin:0 auto 28px; }
+</style>
+</head>
+<body class="font-mincho text-paper bg-ink antialiased">
+
+<!-- ===== Utility / Lang bar ===== -->
+<div class="fixed top-0 inset-x-0 z-50 bg-ink/70 backdrop-blur-sm border-b border-line/60">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 h-14 flex items-center justify-between">
+    <a href="#top" class="font-mincho text-paper text-base lg:text-lg tracking-jp">飛騨 宿 <span class="text-gold">黒墨庵</span></a>
+    <div class="flex items-center gap-5">
+      <div class="hidden sm:flex items-center gap-3 text-[11px] tracking-jp text-mist font-sans">
+        <span class="text-paper">日本語</span><span class="text-line">|</span>
+        <a href="#" class="hover:text-paper transition-colors">EN</a><span class="text-line">|</span>
+        <a href="#" class="hover:text-paper transition-colors">한국어</a><span class="text-line">|</span>
+        <a href="#" class="hover:text-paper transition-colors">中文</a>
+      </div>
+      <a href="#reserve" class="text-[12px] tracking-jp font-sans border border-gold/70 text-gold-soft hover:bg-gold hover:text-ink transition-colors px-5 lg:px-7 py-2.5">空室を確認する</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<section id="top" class="relative h-screen min-h-[640px] flex items-center justify-center overflow-hidden">
+  <img src="images/hero.jpg" alt="黒墨庵 露天風呂の夕景" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/30 to-ink/85"></div>
+  <div class="relative z-10 text-center px-6">
+    <p class="font-latin text-gold-soft text-sm md:text-base tracking-[0.45em] uppercase mb-8">Kokuboku-an &nbsp;·&nbsp; Hida</p>
+    <h1 class="font-mincho text-3xl md:text-5xl lg:text-6xl leading-[1.7] tracking-wide-jp font-500">
+      山深く、<br>湯にめざめる。
+    </h1>
+    <p class="text-mist text-sm md:text-base tracking-jp mt-10 leading-loose">
+      北アルプスの懐、一日六組だけの湯宿。<br>
+      時間を手放す、静謐なひとときを。
+    </p>
+  </div>
+  <a href="#concept" class="absolute bottom-9 left-1/2 -translate-x-1/2 z-10 text-gold-soft text-[10px] tracking-wide-jp font-sans flex flex-col items-center gap-3">
+    SCROLL<span class="block w-px h-10 bg-gold-soft/60"></span>
+  </a>
+</section>
+
+<!-- ===== 空室検索（Beds24連携想定ウィジェット） ===== -->
+<section class="bg-panel border-y border-line">
+  <div class="max-w-5xl mx-auto px-5 lg:px-10 py-7">
+    <div class="flex flex-col lg:flex-row lg:items-end gap-5 lg:gap-8">
+      <p class="font-mincho text-gold-soft text-sm tracking-jp lg:pb-3 whitespace-nowrap">ご予約 / RESERVATION</p>
+      <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 font-sans">
+        <label class="block">
+          <span class="block text-[11px] text-mist tracking-jp mb-1.5">チェックイン</span>
+          <div class="bg-ink-soft border border-line text-paper text-sm px-4 py-3">2026 / 06 / 14</div>
+        </label>
+        <label class="block">
+          <span class="block text-[11px] text-mist tracking-jp mb-1.5">チェックアウト</span>
+          <div class="bg-ink-soft border border-line text-paper text-sm px-4 py-3">2026 / 06 / 15</div>
+        </label>
+        <label class="block">
+          <span class="block text-[11px] text-mist tracking-jp mb-1.5">ご利用人数</span>
+          <div class="bg-ink-soft border border-line text-paper text-sm px-4 py-3">大人 2 名</div>
+        </label>
+        <a href="#reserve" class="self-end bg-gold hover:bg-gold-soft transition-colors text-ink text-sm font-500 tracking-jp text-center px-4 py-3.5">空室を検索</a>
+      </div>
+    </div>
+    <p class="text-[11px] text-mist/70 font-sans tracking-jp mt-4">※ ご予約は予約システム（Beds24）と連携し、空室・料金をリアルタイムに表示します。日本語・English・한국어・中文の4言語に対応。</p>
+  </div>
+</section>
+
+<!-- ===== Concept / 宿の魅力 ===== -->
+<section id="concept" class="py-28 lg:py-40">
+  <div class="max-w-4xl mx-auto px-6 text-center fade">
+    <div class="hairline"></div>
+    <p class="font-latin text-gold-soft tracking-[0.4em] text-xs uppercase mb-7">The Inn</p>
+    <h2 class="font-mincho text-2xl md:text-4xl leading-[1.9] tracking-wide-jp font-500 mb-12">
+      何もしない贅沢を、<br>この山にひとつ。
+    </h2>
+    <p class="text-mist text-[15px] md:text-base leading-[2.4] tracking-jp">
+      標高八百米、谷あいに佇む全六室の宿。<br>
+      客室はすべて源泉かけ流しの露天を備え、<br>
+      隣室の気配も届かぬ静けさのなかで、<br>
+      ただ湯と、火と、季節の移ろいに身をゆだねる。<br>
+      もてなしは控えめに、しかし行き届いて。
+    </p>
+  </div>
+</section>
+
+<!-- ===== 三つの愉しみ ===== -->
+<section class="pb-10 lg:pb-24">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10 grid md:grid-cols-3 gap-px bg-line border-y border-line">
+    <div class="bg-ink p-10 lg:p-12 fade">
+      <p class="font-latin text-gold-soft text-xs tracking-[0.35em] mb-5">01</p>
+      <h3 class="font-mincho text-xl tracking-jp mb-5">源泉かけ流しの露天</h3>
+      <p class="text-mist text-[13.5px] leading-[2.1] tracking-jp">全六室すべてに専用露天。誰にも会わず、いつでも湯に。山の湯は無色透明、肌にやわらかい単純泉。</p>
+    </div>
+    <div class="bg-ink p-10 lg:p-12 fade">
+      <p class="font-latin text-gold-soft text-xs tracking-[0.35em] mb-5">02</p>
+      <h3 class="font-mincho text-xl tracking-jp mb-5">飛騨を映す会席</h3>
+      <p class="text-mist text-[13.5px] leading-[2.1] tracking-jp">朝に届く山の幸と、囲炉裏の炭火。器は飛騨の木と土。三つの献立から、その日の気分でお選びを。</p>
+    </div>
+    <div class="bg-ink p-10 lg:p-12 fade">
+      <p class="font-latin text-gold-soft text-xs tracking-[0.35em] mb-5">03</p>
+      <h3 class="font-mincho text-xl tracking-jp mb-5">一日六組の静けさ</h3>
+      <p class="text-mist text-[13.5px] leading-[2.1] tracking-jp">広いロビーも喧騒もない。あるのは時間だけ。チェックインからお発ちまで、自分の刻で過ごす。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== お食事 / 夕食三種 ===== -->
+<section id="dining" class="py-28 lg:py-40 bg-ink-soft">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="text-center mb-20 fade">
+      <p class="font-latin text-gold-soft tracking-[0.4em] text-xs uppercase mb-6">Dining</p>
+      <h2 class="font-mincho text-2xl md:text-4xl tracking-wide-jp font-500 mb-7">夕餉、三つの献立</h2>
+      <p class="text-mist text-sm tracking-jp leading-loose">その日の山の恵みに合わせ、三つの夕食からお選びいただけます。</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-7">
+      <!-- 1 -->
+      <article class="border border-line bg-ink fade">
+        <div class="h-56 bg-gradient-to-br from-panel to-ink-soft flex items-center justify-center">
+          <span class="font-latin text-gold/40 text-5xl">壱</span>
+        </div>
+        <div class="p-9">
+          <p class="font-latin text-gold-soft text-[11px] tracking-[0.35em] mb-3">COURSE I</p>
+          <h3 class="font-mincho text-xl tracking-jp mb-4">山家会席</h3>
+          <p class="text-mist text-[13px] leading-[2] tracking-jp mb-6">飛騨の旬を一品ずつ、八寸から椀、焼八寸、留椀まで。最も基本となる、宿の顔。</p>
+          <p class="font-latin text-gold-soft text-sm tracking-widest">¥ 22,000 〜 / 一泊二食</p>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="border border-gold/40 bg-ink relative fade">
+        <span class="absolute top-0 right-0 bg-gold text-ink text-[10px] font-sans tracking-jp px-4 py-1.5">人気</span>
+        <div class="h-56 bg-gradient-to-br from-panel to-ink-soft flex items-center justify-center">
+          <span class="font-latin text-gold/40 text-5xl">弐</span>
+        </div>
+        <div class="p-9">
+          <p class="font-latin text-gold-soft text-[11px] tracking-[0.35em] mb-3">COURSE II</p>
+          <h3 class="font-mincho text-xl tracking-jp mb-4">飛騨牛 炭火会席</h3>
+          <p class="text-mist text-[13px] leading-[2] tracking-jp mb-6">囲炉裏の炭火で、飛騨牛を一枚ずつ。脂の甘みと炭の香りを、最も贅沢に味わう一献。</p>
+          <p class="font-latin text-gold-soft text-sm tracking-widest">¥ 30,000 〜 / 一泊二食</p>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="border border-line bg-ink fade">
+        <div class="h-56 bg-gradient-to-br from-panel to-ink-soft flex items-center justify-center">
+          <span class="font-latin text-gold/40 text-5xl">参</span>
+        </div>
+        <div class="p-9">
+          <p class="font-latin text-gold-soft text-[11px] tracking-[0.35em] mb-3">COURSE III</p>
+          <h3 class="font-mincho text-xl tracking-jp mb-4">川魚と山菜の精進</h3>
+          <p class="text-mist text-[13px] leading-[2] tracking-jp mb-6">岩魚と、谷で摘んだ山菜を主に。素材の淡さを愉しむ、軽やかな滋味の献立。</p>
+          <p class="font-latin text-gold-soft text-sm tracking-widest">¥ 20,000 〜 / 一泊二食</p>
+        </div>
+      </article>
+    </div>
+    <p class="text-center text-mist/70 text-[11px] font-sans tracking-jp mt-12">※ 献立は仕入れにより変わります。アレルギー・苦手な食材はご予約時にお申し付けください。</p>
+  </div>
+</section>
+
+<!-- ===== お部屋 ===== -->
+<section id="rooms" class="py-28 lg:py-40">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 fade">
+        <p class="font-latin text-gold-soft tracking-[0.4em] text-xs uppercase mb-6">Rooms</p>
+        <h2 class="font-mincho text-2xl md:text-4xl tracking-wide-jp font-500 mb-9 leading-[1.8]">六つの間、<br>六つの静けさ</h2>
+        <p class="text-mist text-[14.5px] leading-[2.3] tracking-jp mb-10">
+          客室は六室、それぞれに表情を変えて。<br>
+          いずれも専用の露天と、山を望む広縁を備えます。<br>
+          飛騨の職人による木の設えのなかで、<br>
+          ただ静かに、夜を過ごす。
+        </p>
+        <a href="#reserve" class="inline-block font-sans text-[12px] tracking-jp border border-gold/70 text-gold-soft hover:bg-gold hover:text-ink transition-colors px-8 py-3.5">客室の空室を見る</a>
+      </div>
+      <div class="lg:col-span-7 grid grid-cols-2 gap-4 fade">
+        <div class="aspect-[4/5] bg-gradient-to-br from-panel to-ink-soft border border-line flex items-end p-6"><span class="font-mincho text-sm tracking-jp text-mist">特別室「霞」</span></div>
+        <div class="aspect-[4/5] bg-gradient-to-tl from-panel to-ink-soft border border-line flex items-end p-6 mt-10"><span class="font-mincho text-sm tracking-jp text-mist">露天付「谷」</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== アクセス / MAP ===== -->
+<section id="access" class="py-28 lg:py-36 bg-ink-soft border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="text-center mb-16 fade">
+      <p class="font-latin text-gold-soft tracking-[0.4em] text-xs uppercase mb-6">Access</p>
+      <h2 class="font-mincho text-2xl md:text-4xl tracking-wide-jp font-500">アクセス</h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-10 items-stretch fade">
+      <div class="bg-panel border border-line min-h-[300px] flex items-center justify-center">
+        <span class="font-sans text-mist text-sm tracking-jp">Google Map 埋め込み</span>
+      </div>
+      <div class="flex flex-col justify-center">
+        <dl class="divide-y divide-line font-sans">
+          <div class="flex gap-6 py-5"><dt class="font-mincho text-gold-soft text-sm tracking-jp w-24 flex-shrink-0">所在地</dt><dd class="text-mist text-[14px] leading-relaxed tracking-jp">岐阜県高山市奥飛騨温泉郷 0-0</dd></div>
+          <div class="flex gap-6 py-5"><dt class="font-mincho text-gold-soft text-sm tracking-jp w-24 flex-shrink-0">お車</dt><dd class="text-mist text-[14px] leading-relaxed tracking-jp">松本ICより約70分／高山ICより約60分（無料駐車場あり）</dd></div>
+          <div class="flex gap-6 py-5"><dt class="font-mincho text-gold-soft text-sm tracking-jp w-24 flex-shrink-0">電車</dt><dd class="text-mist text-[14px] leading-relaxed tracking-jp">JR高山駅より路線バス約90分（送迎は3日前までに要予約）</dd></div>
+          <div class="flex gap-6 py-5"><dt class="font-mincho text-gold-soft text-sm tracking-jp w-24 flex-shrink-0">お電話</dt><dd class="font-latin text-gold-soft text-lg tracking-widest">0577-00-0000</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Reserve CTA ===== -->
+<section id="reserve" class="py-28 lg:py-40 text-center relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink-soft to-ink"></div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 fade">
+    <div class="hairline"></div>
+    <p class="font-latin text-gold-soft tracking-[0.4em] text-xs uppercase mb-7">Reservation</p>
+    <h2 class="font-mincho text-2xl md:text-4xl tracking-wide-jp font-500 leading-[1.8] mb-9">
+      静けさを、<br>お確かめください。
+    </h2>
+    <p class="text-mist text-sm tracking-jp leading-loose mb-12">
+      空室・料金は予約システムと連動し、リアルタイムに表示されます。<br>
+      お電話でのご予約・ご相談も承っております。
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-5 font-sans">
+      <a href="#" class="w-full sm:w-auto bg-gold hover:bg-gold-soft transition-colors text-ink text-sm font-500 tracking-jp px-12 py-5">空室を確認・ご予約</a>
+      <a href="tel:0577000000" class="w-full sm:w-auto border border-gold/70 text-gold-soft hover:bg-gold hover:text-ink transition-colors text-sm tracking-jp px-12 py-5">0577-00-0000</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="bg-[#070708] border-t border-line py-16">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 pb-10 border-b border-line">
+      <div>
+        <p class="font-mincho text-paper text-xl tracking-jp">飛騨 宿 <span class="text-gold">黒墨庵</span></p>
+        <p class="font-latin text-gold-soft text-[11px] tracking-[0.35em] uppercase mt-2">Kokuboku-an · Hida Okuhida</p>
+        <p class="font-sans text-mist text-[12px] tracking-jp mt-5 leading-relaxed">岐阜県高山市奥飛騨温泉郷 0-0<br>TEL 0577-00-0000</p>
+      </div>
+      <nav class="grid grid-cols-2 gap-x-12 gap-y-2.5 font-sans text-[12px] tracking-jp text-mist">
+        <a href="#concept" class="hover:text-paper transition-colors">宿の魅力</a>
+        <a href="#dining" class="hover:text-paper transition-colors">お食事</a>
+        <a href="#rooms" class="hover:text-paper transition-colors">お部屋</a>
+        <a href="#access" class="hover:text-paper transition-colors">アクセス</a>
+        <a href="#reserve" class="hover:text-paper transition-colors">ご予約</a>
+        <a href="#" class="hover:text-paper transition-colors">日本語 / EN / 한국어 / 中文</a>
+      </nav>
+    </div>
+    <p class="font-sans text-mist/50 text-[11px] tracking-jp mt-8 text-center md:text-left">© 2026 Kokuboku-an. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  (function(){
+    var els=document.querySelectorAll('.fade');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+    window.addEventListener('load',function(){setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1600);});
+  })();
+</script>
+</body>
+</html>

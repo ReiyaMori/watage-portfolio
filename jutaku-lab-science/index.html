@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>先端生命情報科学研究室｜筑波科学大学 — Frontier Bioinformatics Laboratory</title>
+<meta name="description" content="ゲノム・AI・データ駆動科学で生命の原理に迫る。先端生命情報科学研究室の研究内容・メンバー・業績・大学院生募集のご案内。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      navy: '#0B2647', 'navy-700': '#11355F', 'navy-50': '#EEF3F8',
+      accent: '#1B9AAA', 'accent-dark': '#157A86', 'accent-light': '#E3F2F4',
+      ink: '#1A2433', sub: '#5B6B7E', line: '#E4E9EF',
+    },
+    fontFamily: {
+      sans: ['"Noto Sans JP"', 'sans-serif'],
+      serif: ['"Lora"', '"Noto Serif JP"', 'serif'],
+      mincho: ['"Noto Serif JP"', 'serif'],
+    },
+  }},
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  .eyebrow { letter-spacing: .22em; }
+  .lab-mark { letter-spacing: .04em; }
+  .js .fade { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .js .fade.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){ .js .fade{ opacity:1; transform:none; transition:none; } }
+  .link-underline { background-image: linear-gradient(currentColor,currentColor); background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .3s; }
+  .link-underline:hover { background-size: 100% 1px; }
+</style>
+</head>
+<body class="font-sans text-ink bg-white antialiased">
+
+<!-- ===== Header ===== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur border-b border-line">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-baseline gap-3">
+      <span class="font-mincho text-navy text-lg font-600 leading-none">先端生命情報科学研究室</span>
+      <span class="hidden md:inline font-serif text-accent text-[11px] lab-mark uppercase">Frontier Bioinformatics Lab</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-[13px] font-500 text-sub">
+      <a href="#about" class="hover:text-navy transition-colors">研究室について</a>
+      <a href="#research" class="hover:text-navy transition-colors">研究内容</a>
+      <a href="#members" class="hover:text-navy transition-colors">メンバー</a>
+      <a href="#publications" class="hover:text-navy transition-colors">業績</a>
+      <a href="#news" class="hover:text-navy transition-colors">お知らせ</a>
+      <a href="#recruit" class="text-navy hover:text-accent transition-colors">大学院生募集</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="hidden sm:flex items-center gap-1 text-[12px] font-500 text-sub">
+        <span class="text-navy font-700">JA</span><span class="text-line">/</span><a href="#" class="hover:text-navy">EN</a>
+      </div>
+      <a href="#contact" class="text-[13px] font-700 text-white bg-navy hover:bg-navy-700 transition-colors px-5 py-2 rounded-full">お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero (split) ===== -->
+<section id="top" class="relative min-h-screen flex flex-col lg:flex-row">
+  <!-- Left: identity -->
+  <div class="lg:w-[46%] bg-navy text-white flex items-center px-7 lg:px-14 pt-28 pb-16 lg:py-0 relative overflow-hidden">
+    <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full border border-white/10"></div>
+    <div class="absolute -left-16 bottom-10 w-48 h-48 rounded-full border border-white/10"></div>
+    <div class="relative z-10 max-w-lg">
+      <p class="font-serif text-accent text-xs eyebrow uppercase mb-7">Frontier Bioinformatics Laboratory</p>
+      <h1 class="font-mincho text-[2rem] sm:text-4xl lg:text-[2.7rem] leading-[1.5] font-600 mb-8">
+        生命の設計図を、<br>データで解き明かす。
+      </h1>
+      <p class="text-white/70 text-sm leading-loose mb-10 max-w-md">
+        ゲノム解析・機械学習・大規模シミュレーションを統合し、
+        疾患の発症メカニズムから創薬標的の探索まで——
+        データ駆動の視点で生命科学の根本問題に挑みます。
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#research" class="text-[13px] font-700 bg-accent hover:bg-accent-dark transition-colors px-7 py-3.5 rounded-full">研究内容を見る</a>
+        <a href="#recruit" class="text-[13px] font-700 border border-white/30 hover:border-white/70 transition-colors px-7 py-3.5 rounded-full">大学院生・研究員募集</a>
+      </div>
+      <p class="text-white/40 text-[11px] mt-12 leading-relaxed">
+        筑波科学大学 生命環境系 ／ つくば市天王台<br>
+        Principal Investigator: 佐倉 理生 教授（Ph.D.）
+      </p>
+    </div>
+  </div>
+  <!-- Right: image -->
+  <div class="lg:w-[54%] relative min-h-[46vh] lg:min-h-screen">
+    <img src="images/hero.jpg" alt="先端生命情報科学研究室の実験室" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-navy/30 via-transparent to-transparent"></div>
+    <div class="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 bg-white/90 backdrop-blur px-6 py-4 rounded-xl shadow-xl">
+      <p class="text-[11px] eyebrow text-accent font-700 uppercase mb-1">Since 2014</p>
+      <p class="text-navy text-sm font-700">論文 <span class="text-xl">128</span> 報 ／ 在籍 <span class="text-xl">19</span> 名</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section id="about" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-4 fade">
+        <p class="font-serif text-accent text-xs eyebrow uppercase mb-3">About the Lab</p>
+        <h2 class="font-mincho text-2xl lg:text-3xl font-600 text-navy leading-snug">研究室について</h2>
+      </div>
+      <div class="lg:col-span-8 fade">
+        <p class="font-mincho text-xl lg:text-2xl text-navy leading-relaxed font-600 mb-8">
+          「測れないものは、理解できない」<br>を、出発点に。
+        </p>
+        <p class="text-sub text-[15px] leading-loose mb-6">
+          当研究室は、次世代シーケンサーが生み出す膨大なゲノム・トランスクリプトームデータと、
+          機械学習・統計モデリングの手法を橋渡しすることで、これまで観察できなかった生命現象を
+          定量的に捉えることを目指しています。基礎研究にとどまらず、得られた知見を
+          臨床・創薬の現場へ還元する「橋渡し研究」を一貫して重視しています。
+        </p>
+        <p class="text-sub text-[15px] leading-loose mb-10">
+          学際性を大切にし、生物学・情報学・医学・統計学の異なる背景を持つメンバーが
+          日々議論を交わしています。研究の自由と再現性、そして次世代の育成を、
+          研究室運営の三本柱としています。
+        </p>
+        <div class="grid sm:grid-cols-3 gap-px bg-line border border-line rounded-2xl overflow-hidden">
+          <div class="bg-white p-7 text-center">
+            <p class="font-serif text-3xl font-600 text-accent mb-1">128</p>
+            <p class="text-xs text-sub">査読付き論文（累計）</p>
+          </div>
+          <div class="bg-white p-7 text-center">
+            <p class="font-serif text-3xl font-600 text-accent mb-1">¥4.2<span class="text-base">億</span></p>
+            <p class="text-xs text-sub">外部研究資金（科研費等）</p>
+          </div>
+          <div class="bg-white p-7 text-center">
+            <p class="font-serif text-3xl font-600 text-accent mb-1">31</p>
+            <p class="text-xs text-sub">修了生の進路（産・学）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Research ===== -->
+<section id="research" class="py-24 lg:py-32 bg-navy-50">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="text-center mb-16 fade">
+      <p class="font-serif text-accent text-xs eyebrow uppercase mb-3">Research</p>
+      <h2 class="font-mincho text-2xl lg:text-3xl font-600 text-navy">研究内容</h2>
+      <p class="text-sub text-sm mt-4 max-w-2xl mx-auto leading-loose">
+        3つの研究軸を相互に往復させながら、データから仮説へ、仮説から検証へとつなげています。
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- 1 -->
+      <article class="bg-white rounded-2xl p-9 border border-line hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade">
+        <div class="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center mb-7">
+          <svg class="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+        </div>
+        <p class="font-serif text-xs text-accent-dark font-600 mb-2">Theme 01</p>
+        <h3 class="text-lg font-700 text-navy mb-3 leading-snug">疾患ゲノムの<br>マルチオミクス解析</h3>
+        <p class="text-sub text-[13.5px] leading-loose">
+          がん・神経変性疾患を対象に、ゲノム・エピゲノム・発現データを統合解析し、
+          発症に関わる分子ネットワークを再構築します。
+        </p>
+      </article>
+      <!-- 2 -->
+      <article class="bg-white rounded-2xl p-9 border border-line hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade">
+        <div class="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center mb-7">
+          <svg class="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"/></svg>
+        </div>
+        <p class="font-serif text-xs text-accent-dark font-600 mb-2">Theme 02</p>
+        <h3 class="text-lg font-700 text-navy mb-3 leading-snug">生命科学のための<br>機械学習基盤</h3>
+        <p class="text-sub text-[13.5px] leading-loose">
+          解釈可能性と再現性を備えた予測モデルを設計し、配列・構造・画像データに
+          適用可能な汎用フレームワークを開発しています。
+        </p>
+      </article>
+      <!-- 3 -->
+      <article class="bg-white rounded-2xl p-9 border border-line hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade">
+        <div class="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center mb-7">
+          <svg class="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 0 1 0-.255c.007-.378-.138-.75-.43-.991l-1.004-.828a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+        </div>
+        <p class="font-serif text-xs text-accent-dark font-600 mb-2">Theme 03</p>
+        <h3 class="text-lg font-700 text-navy mb-3 leading-snug">創薬・臨床への<br>橋渡し研究</h3>
+        <p class="text-sub text-[13.5px] leading-loose">
+          製薬企業・医療機関との共同研究を通じ、計算で得た標的候補を
+          実験・臨床データで検証するパイプラインを構築します。
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Members ===== -->
+<section id="members" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 fade">
+      <div>
+        <p class="font-serif text-accent text-xs eyebrow uppercase mb-3">Members</p>
+        <h2 class="font-mincho text-2xl lg:text-3xl font-600 text-navy">メンバー</h2>
+      </div>
+      <p class="text-sub text-[13px] mt-4 sm:mt-0">教員 3 名／研究員 2 名／大学院生 11 名／学部生 3 名</p>
+    </div>
+
+    <!-- PI -->
+    <div class="bg-navy-50 rounded-3xl p-8 lg:p-12 mb-10 fade">
+      <div class="flex flex-col md:flex-row gap-8 lg:gap-12 items-center md:items-start">
+        <div class="w-40 h-40 rounded-2xl bg-white border border-line flex items-center justify-center flex-shrink-0 text-sub/40">
+          <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <p class="font-serif text-xs text-accent-dark font-600 eyebrow uppercase mb-2">Principal Investigator</p>
+          <h3 class="text-2xl font-700 text-navy mb-1">佐倉 理生 <span class="text-base font-500 text-sub ml-2">Sakura Rio, Ph.D.</span></h3>
+          <p class="text-sm text-sub mb-5">教授／生命環境系・先端生命情報科学研究室 主宰</p>
+          <p class="text-sub text-[14px] leading-loose mb-6 max-w-2xl">
+            東京大学大学院理学系研究科修了。理化学研究所、米国スタンフォード大学を経て現職。
+            専門は計算ゲノム科学・統計的機械学習。日本バイオインフォマティクス学会理事。
+            「データに語らせる前に、問いを磨く」を信条とする。
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+            <span class="text-[11px] text-navy bg-white border border-line px-3 py-1 rounded-full">計算ゲノム科学</span>
+            <span class="text-[11px] text-navy bg-white border border-line px-3 py-1 rounded-full">統計的機械学習</span>
+            <span class="text-[11px] text-navy bg-white border border-line px-3 py-1 rounded-full">トランスレーショナル研究</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faculty grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 fade">
+      <div class="border border-line rounded-2xl p-6 hover:border-accent transition-colors">
+        <div class="w-14 h-14 rounded-full bg-navy-50 mb-4 flex items-center justify-center text-sub/40"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg></div>
+        <p class="text-[15px] font-700 text-navy">峰岸 千尋</p>
+        <p class="text-[12px] text-sub mt-0.5">准教授</p>
+        <p class="text-[12px] text-sub mt-3 leading-relaxed">エピゲノミクス／一細胞解析</p>
+      </div>
+      <div class="border border-line rounded-2xl p-6 hover:border-accent transition-colors">
+        <div class="w-14 h-14 rounded-full bg-navy-50 mb-4 flex items-center justify-center text-sub/40"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg></div>
+        <p class="text-[15px] font-700 text-navy">久我 駿</p>
+        <p class="text-[12px] text-sub mt-0.5">助教</p>
+        <p class="text-[12px] text-sub mt-3 leading-relaxed">深層学習／タンパク質構造</p>
+      </div>
+      <div class="border border-line rounded-2xl p-6 hover:border-accent transition-colors">
+        <div class="w-14 h-14 rounded-full bg-navy-50 mb-4 flex items-center justify-center text-sub/40"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg></div>
+        <p class="text-[15px] font-700 text-navy">研究員 2 名</p>
+        <p class="text-[12px] text-sub mt-0.5">特任研究員</p>
+        <p class="text-[12px] text-sub mt-3 leading-relaxed">創薬インフォマティクス</p>
+      </div>
+      <div class="border border-dashed border-accent/50 rounded-2xl p-6 bg-accent-light/40 flex flex-col justify-center">
+        <p class="text-[15px] font-700 text-accent-dark">＋ あなた</p>
+        <p class="text-[12px] text-sub mt-2 leading-relaxed">大学院生・研究員を<br>募集しています</p>
+        <a href="#recruit" class="text-[12px] font-700 text-accent-dark mt-3 link-underline self-start">募集要項へ →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Publications ===== -->
+<section id="publications" class="py-24 lg:py-32 bg-navy text-white">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-4 fade">
+        <p class="font-serif text-accent text-xs eyebrow uppercase mb-3">Publications & Awards</p>
+        <h2 class="font-mincho text-2xl lg:text-3xl font-600 mb-6">主な業績</h2>
+        <p class="text-white/60 text-sm leading-loose mb-8">
+          直近の代表的な原著論文と受賞を抜粋して掲載しています。
+          全業績リストは researchmap・Google Scholar をご参照ください。
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 text-[13px] font-700 border border-white/30 hover:border-white px-6 py-3 rounded-full transition-colors">業績一覧を見る</a>
+      </div>
+      <div class="lg:col-span-8 fade">
+        <ul class="divide-y divide-white/10">
+          <li class="py-6 flex gap-5">
+            <span class="font-serif text-accent text-sm font-600 w-14 flex-shrink-0">2026</span>
+            <div>
+              <p class="text-[14.5px] leading-relaxed">Sakura R., Minegishi C., <em>et al.</em> “Interpretable deep models reveal cryptic regulatory grammar in cancer genomes.” <span class="text-white/55">Nature Methods</span>.</p>
+            </div>
+          </li>
+          <li class="py-6 flex gap-5">
+            <span class="font-serif text-accent text-sm font-600 w-14 flex-shrink-0">2025</span>
+            <div>
+              <p class="text-[14.5px] leading-relaxed">Kuga S., Sakura R. “A reproducible benchmark for single-cell trajectory inference.” <span class="text-white/55">Genome Biology</span>.</p>
+            </div>
+          </li>
+          <li class="py-6 flex gap-5">
+            <span class="font-serif text-accent text-sm font-600 w-14 flex-shrink-0">2025</span>
+            <div>
+              <p class="text-[14.5px] leading-relaxed">峰岸 千尋 ほか「一細胞エピゲノム解析による細胞分化軌道の再構成」<span class="text-white/55">日本分子生物学会年会 優秀発表賞</span>。</p>
+            </div>
+          </li>
+          <li class="py-6 flex gap-5">
+            <span class="font-serif text-accent text-sm font-600 w-14 flex-shrink-0">2024</span>
+            <div>
+              <p class="text-[14.5px] leading-relaxed">Sakura R., <em>et al.</em> “Data-driven discovery of druggable targets in neurodegeneration.” <span class="text-white/55">Cell Systems</span>.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== News ===== -->
+<section id="news" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-5xl mx-auto px-5 lg:px-10">
+    <div class="text-center mb-14 fade">
+      <p class="font-serif text-accent text-xs eyebrow uppercase mb-3">News</p>
+      <h2 class="font-mincho text-2xl lg:text-3xl font-600 text-navy">お知らせ</h2>
+    </div>
+    <div class="divide-y divide-line fade">
+      <a href="#" class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-7 py-5 group">
+        <time class="text-[13px] text-sub font-500 w-24 flex-shrink-0">2026.05.12</time>
+        <span class="text-[11px] font-700 text-accent-dark bg-accent-light px-3 py-0.5 rounded-full w-fit">受賞</span>
+        <p class="text-[14.5px] text-ink group-hover:text-accent-dark transition-colors">峰岸准教授が日本分子生物学会 若手奨励賞を受賞しました。</p>
+      </a>
+      <a href="#" class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-7 py-5 group">
+        <time class="text-[13px] text-sub font-500 w-24 flex-shrink-0">2026.04.30</time>
+        <span class="text-[11px] font-700 text-navy bg-navy-50 px-3 py-0.5 rounded-full w-fit">論文</span>
+        <p class="text-[14.5px] text-ink group-hover:text-accent-dark transition-colors">新規論文が Nature Methods にオンライン掲載されました。</p>
+      </a>
+      <a href="#" class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-7 py-5 group">
+        <time class="text-[13px] text-sub font-500 w-24 flex-shrink-0">2026.04.01</time>
+        <span class="text-[11px] font-700 text-navy bg-navy-50 px-3 py-0.5 rounded-full w-fit">研究室</span>
+        <p class="text-[14.5px] text-ink group-hover:text-accent-dark transition-colors">新年度、修士課程3名・学部生2名が新たに加わりました。</p>
+      </a>
+      <a href="#" class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-7 py-5 group">
+        <time class="text-[13px] text-sub font-500 w-24 flex-shrink-0">2026.03.18</time>
+        <span class="text-[11px] font-700 text-accent-dark bg-accent-light px-3 py-0.5 rounded-full w-fit">講演</span>
+        <p class="text-[14.5px] text-ink group-hover:text-accent-dark transition-colors">第48回 日本分子生物学会年会にて佐倉教授が招待講演を行いました。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Recruit ===== -->
+<section id="recruit" class="py-24 lg:py-32 bg-navy-50">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <div class="fade">
+        <p class="font-serif text-accent text-xs eyebrow uppercase mb-3">Join Us</p>
+        <h2 class="font-mincho text-2xl lg:text-3xl font-600 text-navy mb-6 leading-snug">
+          問いを持つ人を、<br>歓迎します。
+        </h2>
+        <p class="text-sub text-[15px] leading-loose mb-8">
+          大学院生（修士・博士）、博士研究員、共同研究を随時募集しています。
+          生物学・情報学いずれの出身でも構いません。プログラミング未経験から
+          論文化まで伴走する教育体制を整えています。研究室見学は随時受け付けています。
+        </p>
+        <a href="#contact" class="inline-flex items-center gap-2 text-[13px] font-700 text-white bg-navy hover:bg-navy-700 px-7 py-3.5 rounded-full transition-colors">見学・相談を申し込む</a>
+      </div>
+      <div class="grid gap-4 fade">
+        <div class="bg-white rounded-2xl p-7 border border-line">
+          <p class="text-[15px] font-700 text-navy mb-1">大学院生（修士・博士）</p>
+          <p class="text-[13px] text-sub leading-relaxed">夏・冬の入試前に研究室訪問を推奨。事前にメールでご連絡ください。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-7 border border-line">
+          <p class="text-[15px] font-700 text-navy mb-1">博士研究員（ポスドク）</p>
+          <p class="text-[13px] text-sub leading-relaxed">科研費・受託研究に基づくポジションを随時公募。詳細は公募一覧へ。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-7 border border-line">
+          <p class="text-[15px] font-700 text-navy mb-1">共同研究・受託解析</p>
+          <p class="text-[13px] text-sub leading-relaxed">企業・医療機関からのデータ解析のご相談を歓迎します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact" class="py-24 lg:py-28 bg-navy text-white relative overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full border border-white/5"></div>
+  <div class="max-w-3xl mx-auto px-5 lg:px-10 text-center relative z-10">
+    <p class="font-serif text-accent text-xs eyebrow uppercase mb-4">Contact</p>
+    <h2 class="font-mincho text-2xl lg:text-3xl font-600 mb-5">お問い合わせ</h2>
+    <p class="text-white/65 text-sm leading-loose mb-10">
+      研究内容・共同研究・進学のご相談など、お気軽にご連絡ください。<br>
+      通常2〜3営業日以内にご返信いたします。
+    </p>
+    <div class="grid sm:grid-cols-2 gap-4 text-left max-w-xl mx-auto mb-10">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+        <p class="text-[11px] text-accent eyebrow uppercase mb-1 font-700">E-mail</p>
+        <p class="text-sm">contact@frontier-bioinfo.example.ac.jp</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+        <p class="text-[11px] text-accent eyebrow uppercase mb-1 font-700">Address</p>
+        <p class="text-sm">茨城県つくば市天王台 1-1-1<br>筑波科学大学 生命環境系 B棟</p>
+      </div>
+    </div>
+    <a href="#" class="inline-flex items-center gap-2 text-[13px] font-700 bg-accent hover:bg-accent-dark px-9 py-4 rounded-full transition-colors">お問い合わせフォームへ</a>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="bg-[#071A30] text-white/55 py-14">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 pb-10 border-b border-white/10">
+      <div>
+        <p class="font-mincho text-white text-lg font-600">先端生命情報科学研究室</p>
+        <p class="font-serif text-accent text-[11px] lab-mark uppercase mt-1">Frontier Bioinformatics Laboratory</p>
+        <p class="text-[12px] mt-4 leading-relaxed">筑波科学大学 生命環境系<br>〒305-0000 茨城県つくば市天王台 1-1-1</p>
+      </div>
+      <nav class="grid grid-cols-2 gap-x-10 gap-y-2 text-[13px]">
+        <a href="#about" class="hover:text-white transition-colors">研究室について</a>
+        <a href="#members" class="hover:text-white transition-colors">メンバー</a>
+        <a href="#research" class="hover:text-white transition-colors">研究内容</a>
+        <a href="#publications" class="hover:text-white transition-colors">業績</a>
+        <a href="#news" class="hover:text-white transition-colors">お知らせ</a>
+        <a href="#recruit" class="hover:text-white transition-colors">大学院生募集</a>
+      </nav>
+    </div>
+    <p class="text-[11px] mt-8 text-center md:text-left">© 2026 Frontier Bioinformatics Laboratory, Tsukuba Science University. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  (function(){
+    var els = document.querySelectorAll('.fade');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+    // failsafe: never leave content hidden (covers no-scroll, print, capture)
+    window.addEventListener('load', function(){ setTimeout(function(){ els.forEach(function(e){e.classList.add('in');}); }, 1600); });
+  })();
+</script>
+</body>
+</html>
