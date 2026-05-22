@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=375, initial-scale=1">
-  <title>SSIきみどり株式会社 | 少額短期保険（SP）</title>
+  <title>みどり保険株式会社 | 少額短期保険（SP）</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -90,6 +90,70 @@
     }
     .logo { display: flex; align-items: center; }
     .logo img { height: 32px; }
+    /* ===== TEXT LOGO ===== */
+    .logo-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Zen Maru Gothic', sans-serif;
+    }
+    .logo-text .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-warm));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 7px rgba(108, 187, 90, 0.3);
+      flex-shrink: 0;
+    }
+    .logo-text .logo-mark svg { width: 17px; height: 17px; fill: var(--white); }
+    .logo-text .logo-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.12;
+    }
+    .logo-text .logo-name .ln-main {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--green-deep);
+      letter-spacing: 0.03em;
+    }
+    .logo-text .logo-name .ln-sub {
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: 0.14em;
+    }
+    /* ===== PRODUCT TEXT BADGE ===== */
+    .product-badge {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .product-badge .pb-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-pale), var(--cream-warm));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-badge .pb-icon svg { width: 16px; height: 16px; fill: var(--green-deep); }
+    .product-badge .pb-name {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--green-deep);
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+      text-align: center;
+    }
 
     .hamburger {
       width: 44px;
@@ -680,6 +744,14 @@
       margin: 0 auto 12px;
       filter: brightness(0) invert(1);
     }
+    .footer-brand .logo-text { margin: 0 auto 12px; }
+    .footer-brand .logo-text .logo-mark {
+      background: rgba(255,255,255,0.12);
+      box-shadow: none;
+    }
+    .footer-brand .logo-text .logo-mark svg { fill: var(--green-warm); }
+    .footer-brand .logo-text .logo-name .ln-main { color: var(--white); }
+    .footer-brand .logo-text .logo-name .ln-sub { color: rgba(255,255,255,0.55); }
     .footer-brand p {
       font-size: 13px;
       line-height: 1.8;
@@ -719,7 +791,7 @@
   <div class="utility-bar">
     <div class="inner">
       <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      <span class="phone-number">0120-99-8349</span>
+      <span class="phone-number">0120-000-000</span>
       <span class="hours">平日 9:00〜17:30</span>
     </div>
   </div>
@@ -728,7 +800,15 @@
   <header class="header">
     <div class="inner">
       <a href="#" class="logo">
-        <img src="assets/logo.svg" alt="SSIきみどり株式会社">
+        <span class="logo-text">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+          </span>
+          <span class="logo-name">
+            <span class="ln-main">みどり保険</span>
+            <span class="ln-sub">SHALL INSURANCE</span>
+          </span>
+        </span>
       </a>
       <button class="hamburger" aria-label="メニュー">
         <span></span>
@@ -745,7 +825,7 @@
     <div class="hero-inner">
       <div class="hero-label">
         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        少額短期保険のSSIきみどり
+        少額短期保険のみどり保険
       </div>
       <h1>あなたの暮らしに、<br><span class="accent">やさしい安心</span>を。</h1>
       <p>少額短期保険で、必要な保障を必要なだけ。<br>お手頃な保険料で、毎日の安心をお届けします。</p>
@@ -780,7 +860,10 @@
       <div class="products-grid">
         <div class="product-card">
           <div class="product-logo">
-            <img src="assets/logo_hajimeteno.png" alt="はじめての保険">
+            <div class="product-badge">
+              <span class="pb-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+              <span class="pb-name">はじめての保険</span>
+            </div>
           </div>
           <p class="product-desc">保険が初めての方でも安心。わかりやすいプランで始められます。</p>
           <a href="#" class="product-link">
@@ -790,7 +873,10 @@
         </div>
         <div class="product-card">
           <div class="product-logo">
-            <img src="assets/logo_50saikarano.png" alt="50歳からの保険">
+            <div class="product-badge">
+              <span class="pb-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+              <span class="pb-name">シニア安心保険</span>
+            </div>
           </div>
           <p class="product-desc">50歳からでもお申し込みOK。セカンドライフの安心を支えます。</p>
           <a href="#" class="product-link">
@@ -800,7 +886,10 @@
         </div>
         <div class="product-card">
           <div class="product-logo">
-            <img src="assets/logo_ahitapurasu.png" alt="あしたプラス">
+            <div class="product-badge">
+              <span class="pb-icon"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+              <span class="pb-name">やさしい医療保険</span>
+            </div>
           </div>
           <p class="product-desc">明日の暮らしにプラスの安心。日常のリスクに備えます。</p>
           <a href="#" class="product-link">
@@ -810,7 +899,10 @@
         </div>
         <div class="product-card">
           <div class="product-logo">
-            <img src="assets/logo_sasae.png" alt="ささえ">
+            <div class="product-badge">
+              <span class="pb-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+              <span class="pb-name">ささえる保険</span>
+            </div>
           </div>
           <p class="product-desc">大切な人を支えたい気持ちに応える、あたたかい保障です。</p>
           <a href="#" class="product-link">
@@ -1075,7 +1167,7 @@
       <p class="cta-sub">保険のプロが、あなたにぴったりの<br>保障をご提案いたします。</p>
       <div class="cta-phone">
         <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        <span class="number">0120-99-8349</span>
+        <span class="number">0120-000-000</span>
       </div>
       <p class="cta-hours">受付時間：平日 9:00〜17:30（土日祝休み）</p>
     </div>
@@ -1086,8 +1178,16 @@
     <div class="inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="assets/logo.svg" alt="SSIきみどり株式会社" class="footer-logo">
-          <p>SSIきみどり株式会社<br>少額短期保険業者<br>関東財務局長（少額短期保険）登録</p>
+          <span class="logo-text">
+            <span class="logo-mark">
+              <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+            </span>
+            <span class="logo-name">
+              <span class="ln-main">みどり保険</span>
+              <span class="ln-sub">SHALL INSURANCE</span>
+            </span>
+          </span>
+          <p>みどり保険株式会社<br>少額短期保険業者<br>関東財務局長（少額短期保険）登録</p>
         </div>
         <div class="footer-nav">
           <div class="footer-nav-col">
@@ -1121,7 +1221,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 SSIきみどり株式会社 All Rights Reserved.
+        &copy; 2026 みどり保険株式会社 All Rights Reserved.
       </div>
     </div>
   </footer>

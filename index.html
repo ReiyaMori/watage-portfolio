@@ -68,30 +68,6 @@
     </div>
   </section>
 
-  <!-- 数字 -->
-  <section class="py-14 px-5">
-    <div class="max-w-4xl mx-auto">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-5 rv">
-        <div class="bg-ink text-white rounded-2xl p-6 text-center">
-          <p class="font-en text-4xl md:text-5xl font-bold tracking-tight">7<span class="text-white/40 text-2xl">+</span></p>
-          <p class="text-white/50 text-xs mt-2 tracking-wider">制作実績</p>
-        </div>
-        <div class="bg-soft border border-gray-100 rounded-2xl p-6 text-center">
-          <p class="font-en text-4xl md:text-5xl font-bold tracking-tight text-ink">5</p>
-          <p class="text-stone text-xs mt-2 tracking-wider">対応業種</p>
-        </div>
-        <div class="bg-soft border border-gray-100 rounded-2xl p-6 text-center">
-          <p class="font-en text-4xl md:text-5xl font-bold tracking-tight text-ink">7<span class="text-stone text-lg">年+</span></p>
-          <p class="text-stone text-xs mt-2 tracking-wider">広告運用歴</p>
-        </div>
-        <div class="bg-ink text-white rounded-2xl p-6 text-center">
-          <p class="font-en text-4xl md:text-5xl font-bold tracking-tight">100<span class="text-white/40 text-2xl">%</span></p>
-          <p class="text-white/50 text-xs mt-2 tracking-wider">レスポンシブ対応</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 強み -->
   <section class="py-16 px-5 bg-soft">
     <div class="max-w-3xl mx-auto">
@@ -118,23 +94,22 @@
 
   <!-- 制作実績 -->
   <section id="works" class="py-16 px-5">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex items-end justify-between mb-10 rv">
-        <div>
-          <p class="font-en text-xs tracking-widest text-stone mb-2">WORKS</p>
-          <h2 class="text-xl font-bold">制作実績</h2>
-        </div>
-        <p class="text-stone text-xs">すべてレスポンシブ対応</p>
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-2">WORKS</p>
+        <h2 class="text-xl font-bold mb-2">制作実績・デザインサンプル</h2>
+        <p class="text-stone text-sm leading-7">公開中の実案件に加え、幅広い業種で制作したLP・Webサイトのデザインサンプルを37件掲載しています。すべてレスポンシブ対応・実装まで対応可能です。</p>
       </div>
 
-      <!-- 実案件 -->
-      <div class="mb-8 rv">
-        <p class="text-xs font-bold text-stone tracking-wider mb-4 border-b border-gray-100 pb-2">CLIENT WORK</p>
+      <!-- 実案件（公開中） -->
+      <div class="mb-5 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-1">CLIENT WORK</p>
+        <p class="text-xs font-bold text-ink tracking-wider border-b border-gray-100 pb-2">公開中の実案件</p>
       </div>
-      <div class="grid md:grid-cols-2 gap-6 mb-12">
-        <a href="https://www.realize-llc.tokyo/" target="_blank" class="group block rv">
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="https://www.realize-llc.tokyo/" target="_blank" rel="noopener" class="group block rv">
           <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
-            <img src="realize_thumb.jpg" alt="合同会社Realize" class="w-full h-full object-cover card-img">
+            <img src="realize_thumb.jpg" alt="合同会社Realize コーポレートサイト" class="w-full h-full object-cover card-img">
           </div>
           <div class="flex items-center gap-2 mb-1">
             <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">Next.js</span>
@@ -142,9 +117,9 @@
           </div>
           <h3 class="font-bold text-sm group-hover:underline">合同会社Realize コーポレートサイト</h3>
         </a>
-        <a href="https://npo-bright.com/" target="_blank" class="group block rv">
+        <a href="https://npo-bright.com/" target="_blank" rel="noopener" class="group block rv">
           <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
-            <img src="bright_thumb.jpg" alt="NPO法人BRIGHT" class="w-full h-full object-cover card-img">
+            <img src="bright_thumb.jpg" alt="NPO法人BRIGHT 公式サイト" class="w-full h-full object-cover card-img">
           </div>
           <div class="flex items-center gap-2 mb-1">
             <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">WordPress</span>
@@ -154,70 +129,309 @@
         </a>
       </div>
 
-      <!-- LP制作サンプル -->
-      <div class="mb-8 rv">
-        <p class="text-xs font-bold text-stone tracking-wider mb-4 border-b border-gray-100 pb-2">LP DESIGN SAMPLES</p>
+      <!-- デザインサンプル（業種別） -->
+      <div class="mb-5 mt-14 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-1">LANDING PAGES</p>
+        <p class="text-xs font-bold text-ink tracking-wider border-b border-gray-100 pb-2">ランディングページ・広告LP<span class="text-stone font-normal ml-2">10</span></p>
       </div>
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7">
         <a href="01-beauty-lp/" class="group block rv">
-          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
-            <img src="01-beauty-lp/thumb.jpg" alt="BLOOM" class="w-full h-full object-cover card-img">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="01-beauty-lp/thumb.jpg" alt="フェイシャルエステサロン" loading="lazy" class="w-full h-full object-cover object-top card-img">
           </div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">美容・エステ</span>
-          </div>
-          <h3 class="font-bold text-sm group-hover:underline">フェイシャルエステサロン LP</h3>
-          <p class="text-stone text-xs mt-0.5">高級感 × 初回限定CTA × スクロールアニメーション</p>
+          <span class="text-[11px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded">美容・エステ</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">フェイシャルエステサロン</h3>
         </a>
-
-        <a href="02-realestate-lp/" class="group block rv">
-          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
-            <img src="02-realestate-lp/thumb.jpg" alt="LIVIO" class="w-full h-full object-cover card-img">
-          </div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-xs text-blue-700 bg-blue-50 px-2 py-0.5 rounded">不動産・住宅</span>
-          </div>
-          <h3 class="font-bold text-sm group-hover:underline">高級注文住宅 LP</h3>
-          <p class="text-stone text-xs mt-0.5">施工事例ギャラリー × 無料相談導線 × 信頼感設計</p>
-        </a>
-
-        <a href="03-saas-lp/" class="group block rv">
-          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
-            <img src="03-saas-lp/thumb.jpg" alt="FlowBoard" class="w-full h-full object-cover card-img">
-          </div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-xs text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">SaaS・IT</span>
-          </div>
-          <h3 class="font-bold text-sm group-hover:underline">プロジェクト管理SaaS LP</h3>
-          <p class="text-stone text-xs mt-0.5">料金プラン比較 × FAQ × モダンUI</p>
-        </a>
-
-        <a href="04-seitai-lp/" class="group block rv">
-          <div class="aspect-video rounded-lg overflow-hidden mb-3 border border-gray-100">
-            <img src="04-seitai-lp/thumb.jpg" alt="KARADA" class="w-full h-full object-cover card-img">
-          </div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">整体・医療</span>
-          </div>
-          <h3 class="font-bold text-sm group-hover:underline">整骨院 LP</h3>
-          <p class="text-stone text-xs mt-0.5">電話 × LINE × WEB予約の3導線 × 地域ビジネス特化</p>
-        </a>
-      </div>
-
-      <!-- 広告LP（フルワイド） -->
-      <div class="mt-6">
         <a href="05-ad-lp/" class="group block rv">
-          <div class="aspect-[21/9] rounded-lg overflow-hidden mb-3 border border-gray-100">
-            <img src="05-ad-lp/thumb.jpg" alt="FIT LIFE" class="w-full h-full object-cover card-img">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="05-ad-lp/thumb.jpg" alt="パーソナルトレーニング 広告LP" loading="lazy" class="w-full h-full object-cover object-top card-img">
           </div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-xs text-orange-700 bg-orange-50 px-2 py-0.5 rounded">広告LP</span>
-            <span class="text-xs text-stone bg-gray-100 px-2 py-0.5 rounded">Meta / Instagram想定</span>
+          <span class="text-[11px] text-orange-700 bg-orange-50 px-2 py-0.5 rounded">広告LP</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">パーソナルトレーニング 広告LP</h3>
+        </a>
+        <a href="02-realestate-lp/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="02-realestate-lp/thumb.jpg" alt="高級注文住宅" loading="lazy" class="w-full h-full object-cover object-top card-img">
           </div>
-          <h3 class="font-bold text-sm group-hover:underline">オンラインパーソナルトレーニング 広告LP</h3>
-          <p class="text-stone text-xs mt-0.5">CVRファネル設計 × モバイルファースト × スティッキーCTA × 広告運用知見を反映</p>
+          <span class="text-[11px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded">不動産・住宅</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">高級注文住宅</h3>
+        </a>
+        <a href="03-saas-lp/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="03-saas-lp/thumb.jpg" alt="プロジェクト管理SaaS" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">SaaS・IT</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">プロジェクト管理SaaS</h3>
+        </a>
+        <a href="04-seitai-lp/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="04-seitai-lp/thumb.jpg" alt="整骨院" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">整体・治療院</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">整骨院</h3>
+        </a>
+        <a href="reform-lp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="reform-lp-rough/thumb.jpg" alt="住まいのリフォーム" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">リフォーム</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">住まいのリフォーム</h3>
+        </a>
+        <a href="classiccar-lp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="classiccar-lp-rough/thumb.jpg" alt="クラシックカー販売" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded">物販</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">クラシックカー販売</h3>
+        </a>
+        <a href="juniorbed-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="juniorbed-rough/thumb.jpg" alt="国産ジュニアベッド 商品LP" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded">物販</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">国産ジュニアベッド 商品LP</h3>
+        </a>
+        <a href="sansobakutan-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="sansobakutan-rough/thumb.jpg" alt="農業資材（土壌改良剤）" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded">物販</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">農業資材（土壌改良剤）</h3>
+        </a>
+        <a href="sister-lp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="sister-lp-rough/thumb.jpg" alt="飲食店オープン告知" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-yellow-700 bg-yellow-50 px-2 py-0.5 rounded">飲食</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">飲食店オープン告知</h3>
         </a>
       </div>
+
+      <div class="mb-5 mt-14 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-1">CORPORATE & SERVICE</p>
+        <p class="text-xs font-bold text-ink tracking-wider border-b border-gray-100 pb-2">コーポレート・サービスサイト<span class="text-stone font-normal ml-2">9</span></p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7">
+        <a href="07-rd-startup/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="07-rd-startup/thumb.jpg" alt="R&Dスタートアップ" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-violet-700 bg-violet-50 px-2 py-0.5 rounded">スタートアップ</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">R&Dスタートアップ</h3>
+        </a>
+        <a href="06-overseas-realty/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="06-overseas-realty/thumb.jpg" alt="海外不動産投資" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded">不動産投資</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">海外不動産投資</h3>
+        </a>
+        <a href="08-local-realty/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="08-local-realty/thumb.jpg" alt="地域密着型 不動産会社" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded">不動産</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">地域密着型 不動産会社</h3>
+        </a>
+        <a href="ecop-corp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="ecop-corp-rough/thumb.jpg" alt="窓ガラス再生サービス" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">環境・建材</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">窓ガラス再生サービス</h3>
+        </a>
+        <a href="care-corp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="care-corp-rough/thumb.jpg" alt="訪問介護・グループホーム" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded">介護・福祉</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">訪問介護・グループホーム</h3>
+        </a>
+        <a href="ssi-kimidori-rough-v2/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="ssi-kimidori-rough-v2/thumb.jpg" alt="少額短期保険会社" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-green-700 bg-green-50 px-2 py-0.5 rounded">保険</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">少額短期保険会社</h3>
+        </a>
+        <a href="cn_4927956_medical/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="cn_4927956_medical/thumb.jpg" alt="医療施設の集患支援サービス" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-sky-700 bg-sky-50 px-2 py-0.5 rounded">医療マーケ</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">医療施設の集患支援サービス</h3>
+        </a>
+        <a href="wp-renewal-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="wp-renewal-rough/thumb.jpg" alt="中小企業 WordPressリニューアル" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-slate-700 bg-slate-50 px-2 py-0.5 rounded">コーポレート</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">中小企業 WordPressリニューアル</h3>
+        </a>
+        <a href="jutaku-lab-science/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="jutaku-lab-science/thumb.jpg" alt="大学研究室サイト" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">教育・研究</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">大学研究室サイト</h3>
+        </a>
+      </div>
+
+      <div class="mb-5 mt-14 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-1">SHOP & LOCAL BUSINESS</p>
+        <p class="text-xs font-bold text-ink tracking-wider border-b border-gray-100 pb-2">店舗・ローカルビジネス<span class="text-stone font-normal ml-2">8</span></p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7">
+        <a href="cafe-hp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="cafe-hp-rough/thumb.jpg" alt="自家焙煎カフェ" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded">カフェ</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">自家焙煎カフェ</h3>
+        </a>
+        <a href="kimono-hp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="kimono-hp-rough/thumb.jpg" alt="リユース着物専門店" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded">伝統・物販</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">リユース着物専門店</h3>
+        </a>
+        <a href="10-kaitori-store/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="10-kaitori-store/thumb.jpg" alt="ブランド買取店" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-yellow-700 bg-yellow-50 px-2 py-0.5 rounded">買取</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">ブランド買取店</h3>
+        </a>
+        <a href="09-hiyoshi-lifeassist/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="09-hiyoshi-lifeassist/thumb.jpg" alt="四柱推命×FP相談" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-violet-700 bg-violet-50 px-2 py-0.5 rounded">占い・FP</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">四柱推命×FP相談</h3>
+        </a>
+        <a href="sports-site-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="sports-site-rough/thumb.jpg" alt="パーソナルジム" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-orange-700 bg-orange-50 px-2 py-0.5 rounded">フィットネス</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">パーソナルジム</h3>
+        </a>
+        <a href="sports-site-rough-v2/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="sports-site-rough-v2/thumb.jpg" alt="24hインドアゴルフ×ジム" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-orange-700 bg-orange-50 px-2 py-0.5 rounded">フィットネス</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">24hインドアゴルフ×ジム</h3>
+        </a>
+        <a href="jutaku-ryokan-hida/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="jutaku-ryokan-hida/thumb.jpg" alt="高級旅館" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-stone-700 bg-stone-50 px-2 py-0.5 rounded">旅館・宿泊</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">高級旅館</h3>
+        </a>
+        <a href="clubakino-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="clubakino-rough/thumb.jpg" alt="会員制ラウンジ サイトリニューアル" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded">ラウンジ・店舗</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">会員制ラウンジ サイトリニューアル</h3>
+        </a>
+      </div>
+
+      <div class="mb-5 mt-14 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-1">MEDICAL & HEALTHCARE</p>
+        <p class="text-xs font-bold text-ink tracking-wider border-b border-gray-100 pb-2">医療・ヘルスケア<span class="text-stone font-normal ml-2">5</span></p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7">
+        <a href="medical-hp-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="medical-hp-rough/thumb.jpg" alt="地域クリニック" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-sky-700 bg-sky-50 px-2 py-0.5 rounded">クリニック</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">地域クリニック</h3>
+        </a>
+        <a href="jutaku-clinic-keisho/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="jutaku-clinic-keisho/thumb.jpg" alt="内科クリニック" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-sky-700 bg-sky-50 px-2 py-0.5 rounded">クリニック</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">内科クリニック</h3>
+        </a>
+        <a href="acupuncture-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="acupuncture-rough/thumb.jpg" alt="はり・きゅう治療院" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">鍼灸・治療院</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">はり・きゅう治療院</h3>
+        </a>
+        <a href="11-homecare-massage/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="11-homecare-massage/thumb.jpg" alt="訪問鍼灸マッサージ" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded">訪問医療</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">訪問鍼灸マッサージ</h3>
+        </a>
+        <a href="grouphome-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="grouphome-rough/thumb.jpg" alt="グループホーム" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded">介護・福祉</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">グループホーム</h3>
+        </a>
+      </div>
+
+      <div class="mb-5 mt-14 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-1">CONSTRUCTION & TRADE</p>
+        <p class="text-xs font-bold text-ink tracking-wider border-b border-gray-100 pb-2">建築・リフォーム・専門工事<span class="text-stone font-normal ml-2">3</span></p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7">
+        <a href="construction-site-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="construction-site-rough/thumb.jpg" alt="新築オプション工事" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-orange-700 bg-orange-50 px-2 py-0.5 rounded">建築・工事</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">新築オプション工事</h3>
+        </a>
+        <a href="paint-top-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="paint-top-rough/thumb.jpg" alt="外壁塗装専門店" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-orange-700 bg-orange-50 px-2 py-0.5 rounded">外壁塗装</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">外壁塗装専門店</h3>
+        </a>
+        <a href="interior-top-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="interior-top-rough/thumb.jpg" alt="内装・インテリア補修" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded">内装・補修</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">内装・インテリア補修</h3>
+        </a>
+      </div>
+
+      <div class="mb-5 mt-14 rv">
+        <p class="font-en text-xs tracking-widest text-stone mb-1">PROFESSIONAL & PERSONAL</p>
+        <p class="text-xs font-bold text-ink tracking-wider border-b border-gray-100 pb-2">士業・個人ブランディング<span class="text-stone font-normal ml-2">2</span></p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7">
+        <a href="tax-office-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="tax-office-rough/thumb.jpg" alt="税理士事務所" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-slate-700 bg-slate-50 px-2 py-0.5 rounded">士業</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">税理士事務所</h3>
+        </a>
+        <a href="choice-profile-rough/" class="group block rv">
+          <div class="aspect-video rounded-lg overflow-hidden mb-2 border border-gray-100">
+            <img src="choice-profile-rough/thumb.jpg" alt="著者プロフィールページ" loading="lazy" class="w-full h-full object-cover object-top card-img">
+          </div>
+          <span class="text-[11px] text-violet-700 bg-violet-50 px-2 py-0.5 rounded">個人ブランディング</span>
+          <h3 class="font-bold text-sm mt-1.5 leading-snug group-hover:underline">著者プロフィールページ</h3>
+        </a>
+      </div>
+
+      <p class="text-stone text-[11px] mt-10 leading-6 rv">※デザインサンプルは提案・制作実例です。実在の企業・人物を特定し得る情報（社名・連絡先・写真等）は架空のもの・イメージ画像に置き換えています。</p>
     </div>
   </section>
 
@@ -346,7 +560,7 @@
 
   <!-- フッター -->
   <footer class="bg-ink border-t border-white/10 py-6 px-5 text-center">
-    <p class="text-white/30 text-xs">&copy; 2024 Reiya Mori — WATAGE開発</p>
+    <p class="text-white/30 text-xs">&copy; 2026 Reiya Mori — WATAGE開発</p>
   </footer>
 
   <script>
